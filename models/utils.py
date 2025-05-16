@@ -1,0 +1,61 @@
+ingredient_to_category = {
+    # Nuts
+    "peanuts": "Nuts",
+    "cashew": "Nuts",
+    "chestnuts": "Nuts",
+    "pistachios": "Nuts",
+    "almond": "Nuts",
+    "hazelnut": "Nuts",
+    "walnuts": "Nuts",
+    "pecans": "Nuts",
+    "brazil_nut": "Nuts",
+    "pili_nut": "Nuts",
+    
+    # Spices
+    "cumin": "Spices",
+    "star_anise": "Spices",
+    "nutmeg": "Spices",
+    "cloves": "Spices",
+    "ginger": "Spices",
+    "allspice": "Spices",
+    "chervil": "Spices",
+    "mustard": "Spices",
+    "cinnamon": "Spices",
+    "saffron": "Spices",
+    
+    # Herbs
+    "angelica": "Herbs",
+    "garlic": "Herbs",
+    "chives": "Herbs",
+    "turnip": "Herbs",
+    "dill": "Herbs",
+    "mugwort": "Herbs",
+    "chamomile": "Herbs",
+    "coriander": "Herbs",
+    "oregano": "Herbs",
+    "mint": "Herbs",
+    
+    # Fruits
+    "kiwi": "Fruits",
+    "pineapple": "Fruits",
+    "banana": "Fruits",
+    "lemon": "Fruits",
+    "mandarin_orange": "Fruits",
+    "strawberry": "Fruits",
+    "apple": "Fruits",
+    "mango": "Fruits",
+    "peach": "Fruits",
+    "pear": "Fruits",
+    
+    # Vegetables
+    "cauliflower": "Vegetables",
+    "brussel_sprouts": "Vegetables",
+    "broccoli": "Vegetables",
+    "sweet_potato": "Vegetables",
+    "asparagus": "Vegetables",
+    "avocado": "Vegetables",
+    "radish": "Vegetables",
+    "tomato": "Vegetables",
+    "potato": "Vegetables",
+    "cabbage": "Vegetables",
+}

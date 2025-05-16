@@ -1,0 +1,3179 @@
+[
+  {
+    "@type": "FileSet",
+    "name": "Offline_Test_Sensor_Time_Series",
+    "description": "Sensor CSVs from offline testing",
+    "encodingFormat": "text/csv",
+    "includes": [
+      {
+        "@type": "FileObject",
+        "name": "ginger.1965fb66f89c.csv.csv",
+        "path": "offline_testing/ginger/ginger.1965fb66f89c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.6e9ce5acaf80.csv.csv",
+        "path": "offline_testing/brazil_nut/brazil_nut.6e9ce5acaf80.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.3baca698db95.csv.csv",
+        "path": "offline_testing/walnuts/walnuts.3baca698db95.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.9323ebb79052.csv.csv",
+        "path": "offline_testing/oregano/oregano.9323ebb79052.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.fe01917df092.csv.csv",
+        "path": "offline_testing/cabbage/cabbage.fe01917df092.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.ac185af34099.csv.csv",
+        "path": "offline_testing/mustard/mustard.ac185af34099.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.5fd853db562c.csv.csv",
+        "path": "offline_testing/chamomile/chamomile.5fd853db562c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.ca42798077fe.csv.csv",
+        "path": "offline_testing/tomato/tomato.ca42798077fe.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.0218b90f29e6.csv.csv",
+        "path": "offline_testing/broccoli/broccoli.0218b90f29e6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.7443cccacb36.csv.csv",
+        "path": "offline_testing/banana/banana.7443cccacb36.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.2a56789f628f.csv.csv",
+        "path": "offline_testing/garlic/garlic.2a56789f628f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.e05b67887aa2.csv.csv",
+        "path": "offline_testing/coriander/coriander.e05b67887aa2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.cd0608099254.csv.csv",
+        "path": "offline_testing/pecans/pecans.cd0608099254.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.1353414ede18.csv.csv",
+        "path": "offline_testing/asparagus/asparagus.1353414ede18.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.b97a91a7927f.csv.csv",
+        "path": "offline_testing/brussel_sprouts/brussel_sprouts.b97a91a7927f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.70724e6522f7.csv.csv",
+        "path": "offline_testing/avocado/avocado.70724e6522f7.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.452386762a33.csv.csv",
+        "path": "offline_testing/almond/almond.452386762a33.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.b5ab2687a244.csv.csv",
+        "path": "offline_testing/dill/dill.b5ab2687a244.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.7a2c455eb8fe.csv.csv",
+        "path": "offline_testing/chervil/chervil.7a2c455eb8fe.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.3262415c70ba.csv.csv",
+        "path": "offline_testing/allspice/allspice.3262415c70ba.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.e6f712005320.csv.csv",
+        "path": "offline_testing/peanuts/peanuts.e6f712005320.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.4ae192a93b57.csv.csv",
+        "path": "offline_testing/hazelnut/hazelnut.4ae192a93b57.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.133dab9f8827.csv.csv",
+        "path": "offline_testing/turnip/turnip.133dab9f8827.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.9fae477e2976.csv.csv",
+        "path": "offline_testing/potato/potato.9fae477e2976.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.fb836e1f1253.csv.csv",
+        "path": "offline_testing/cumin/cumin.fb836e1f1253.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.06e3f1946675.csv.csv",
+        "path": "offline_testing/angelica/angelica.06e3f1946675.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.0b5647e59602.csv.csv",
+        "path": "offline_testing/sweet_potato/sweet_potato.0b5647e59602.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.1061320f7033.csv.csv",
+        "path": "offline_testing/saffron/saffron.1061320f7033.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.6f79e1f93427.csv.csv",
+        "path": "offline_testing/apple/apple.6f79e1f93427.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.dd0dd8ba5328.csv.csv",
+        "path": "offline_testing/nutmeg/nutmeg.dd0dd8ba5328.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.127c97e3f98e.csv.csv",
+        "path": "offline_testing/mango/mango.127c97e3f98e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.02a0fe1d8340.csv.csv",
+        "path": "offline_testing/strawberry/strawberry.02a0fe1d8340.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.ba758a5e291a.csv.csv",
+        "path": "offline_testing/mint/mint.ba758a5e291a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.e85ec7d45786.csv.csv",
+        "path": "offline_testing/chestnuts/chestnuts.e85ec7d45786.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.4482c47417a2.csv.csv",
+        "path": "offline_testing/cauliflower/cauliflower.4482c47417a2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.f644ff910257.csv.csv",
+        "path": "offline_testing/cloves/cloves.f644ff910257.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.2b47307427c1.csv.csv",
+        "path": "offline_testing/kiwi/kiwi.2b47307427c1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.22e40a6d51f9.csv.csv",
+        "path": "offline_testing/star_anise/star_anise.22e40a6d51f9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.dfe962a98973.csv.csv",
+        "path": "offline_testing/pili_nut/pili_nut.dfe962a98973.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.cef9d61914a0.csv.csv",
+        "path": "offline_testing/pistachios/pistachios.cef9d61914a0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.deda48942109.csv.csv",
+        "path": "offline_testing/mandarin_orange/mandarin_orange.deda48942109.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.843fd8860fdf.csv.csv",
+        "path": "offline_testing/cashew/cashew.843fd8860fdf.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.376616d4c817.csv.csv",
+        "path": "offline_testing/cinnamon/cinnamon.376616d4c817.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.ebfdfd57e730.csv.csv",
+        "path": "offline_testing/radish/radish.ebfdfd57e730.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.f8002f14cbd2.csv.csv",
+        "path": "offline_testing/chives/chives.f8002f14cbd2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.77a5726fa582.csv.csv",
+        "path": "offline_testing/mugwort/mugwort.77a5726fa582.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.2075d7ff7846.csv.csv",
+        "path": "offline_testing/lemon/lemon.2075d7ff7846.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.5e096605858b.csv.csv",
+        "path": "offline_testing/pineapple/pineapple.5e096605858b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.6eef057b0ee2.csv.csv",
+        "path": "offline_testing/pear/pear.6eef057b0ee2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.c3a2d11be682.csv.csv",
+        "path": "offline_testing/peach/peach.c3a2d11be682.csv.csv"
+      }
+    ]
+  },
+  {
+    "@type": "FileSet",
+    "name": "Offline_Training_Sensor_Time_Series",
+    "description": "Sensor CSVs from offline training",
+    "encodingFormat": "text/csv",
+    "includes": [
+      {
+        "@type": "FileObject",
+        "name": "ginger.b4c1bf67cf9e.csv.csv",
+        "path": "offline_training/ginger/ginger.b4c1bf67cf9e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.0c9a145b78ee.csv.csv",
+        "path": "offline_training/ginger/ginger.0c9a145b78ee.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.709b833bda37.csv.csv",
+        "path": "offline_training/ginger/ginger.709b833bda37.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.36e0c39f52f8.csv.csv",
+        "path": "offline_training/ginger/ginger.36e0c39f52f8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.3cc10d612104.csv.csv",
+        "path": "offline_training/ginger/ginger.3cc10d612104.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.93e9d7bc1eed.csv.csv",
+        "path": "offline_training/brazil_nut/brazil_nut.93e9d7bc1eed.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.473498d12e1e.csv.csv",
+        "path": "offline_training/brazil_nut/brazil_nut.473498d12e1e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.e10e309eac83.csv.csv",
+        "path": "offline_training/brazil_nut/brazil_nut.e10e309eac83.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.87c2f95be9d5.csv.csv",
+        "path": "offline_training/brazil_nut/brazil_nut.87c2f95be9d5.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.4dbde58e1630.csv.csv",
+        "path": "offline_training/brazil_nut/brazil_nut.4dbde58e1630.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.a9aea2972073.csv.csv",
+        "path": "offline_training/walnuts/walnuts.a9aea2972073.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.f710e88caa12.csv.csv",
+        "path": "offline_training/walnuts/walnuts.f710e88caa12.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.c1f6fa0841bf.csv.csv",
+        "path": "offline_training/walnuts/walnuts.c1f6fa0841bf.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.04d2e7e42cfd.csv.csv",
+        "path": "offline_training/walnuts/walnuts.04d2e7e42cfd.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.4403eaec0723.csv.csv",
+        "path": "offline_training/walnuts/walnuts.4403eaec0723.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.2de6b69dd6cc.csv.csv",
+        "path": "offline_training/oregano/oregano.2de6b69dd6cc.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.b7e899a9be5b.csv.csv",
+        "path": "offline_training/oregano/oregano.b7e899a9be5b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.1b185fb27068.csv.csv",
+        "path": "offline_training/oregano/oregano.1b185fb27068.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.34f62512a294.csv.csv",
+        "path": "offline_training/oregano/oregano.34f62512a294.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.0af4892da3e6.csv.csv",
+        "path": "offline_training/oregano/oregano.0af4892da3e6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.dd96c0a38fe1.csv.csv",
+        "path": "offline_training/cabbage/cabbage.dd96c0a38fe1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.4862461c9ee4.csv.csv",
+        "path": "offline_training/cabbage/cabbage.4862461c9ee4.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.0020c5b9b119.csv.csv",
+        "path": "offline_training/cabbage/cabbage.0020c5b9b119.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.664bef8bf4a3.csv.csv",
+        "path": "offline_training/cabbage/cabbage.664bef8bf4a3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.aee769f81c7f.csv.csv",
+        "path": "offline_training/cabbage/cabbage.aee769f81c7f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.71f212e55de2.csv.csv",
+        "path": "offline_training/mustard/mustard.71f212e55de2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.45843ba0ea9c.csv.csv",
+        "path": "offline_training/mustard/mustard.45843ba0ea9c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.32ed8f179daf.csv.csv",
+        "path": "offline_training/mustard/mustard.32ed8f179daf.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.d81e05642612.csv.csv",
+        "path": "offline_training/mustard/mustard.d81e05642612.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.db9d4705a0af.csv.csv",
+        "path": "offline_training/mustard/mustard.db9d4705a0af.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.711922279ad2.csv.csv",
+        "path": "offline_training/chamomile/chamomile.711922279ad2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.5b86c739ae25.csv.csv",
+        "path": "offline_training/chamomile/chamomile.5b86c739ae25.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.556b121c5195.csv.csv",
+        "path": "offline_training/chamomile/chamomile.556b121c5195.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.750094383bdf.csv.csv",
+        "path": "offline_training/chamomile/chamomile.750094383bdf.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.100ee489c71b.csv.csv",
+        "path": "offline_training/chamomile/chamomile.100ee489c71b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.a6ca1eaad811.csv.csv",
+        "path": "offline_training/tomato/tomato.a6ca1eaad811.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.7dccef20a4e9.csv.csv",
+        "path": "offline_training/tomato/tomato.7dccef20a4e9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.69691bcad171.csv.csv",
+        "path": "offline_training/tomato/tomato.69691bcad171.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.e0b9abb7850f.csv.csv",
+        "path": "offline_training/tomato/tomato.e0b9abb7850f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.ab5a46e28f61.csv.csv",
+        "path": "offline_training/tomato/tomato.ab5a46e28f61.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.6d35a493a01e.csv.csv",
+        "path": "offline_training/broccoli/broccoli.6d35a493a01e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.b600b4ca3cf8.csv.csv",
+        "path": "offline_training/broccoli/broccoli.b600b4ca3cf8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.c6fa3b97e48f.csv.csv",
+        "path": "offline_training/broccoli/broccoli.c6fa3b97e48f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.7fef9824ee4d.csv.csv",
+        "path": "offline_training/broccoli/broccoli.7fef9824ee4d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.7ed2356117cc.csv.csv",
+        "path": "offline_training/broccoli/broccoli.7ed2356117cc.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.968e4cae07f3.csv.csv",
+        "path": "offline_training/banana/banana.968e4cae07f3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.dd8e08790cd6.csv.csv",
+        "path": "offline_training/banana/banana.dd8e08790cd6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.8586201bf6d5.csv.csv",
+        "path": "offline_training/banana/banana.8586201bf6d5.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.f7d074c3edc2.csv.csv",
+        "path": "offline_training/banana/banana.f7d074c3edc2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.19b92b17463c.csv.csv",
+        "path": "offline_training/banana/banana.19b92b17463c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.13df3e51ddc8.csv.csv",
+        "path": "offline_training/garlic/garlic.13df3e51ddc8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.25c3fa6f912b.csv.csv",
+        "path": "offline_training/garlic/garlic.25c3fa6f912b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.cc9e876c325a.csv.csv",
+        "path": "offline_training/garlic/garlic.cc9e876c325a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.165cb0df4bc0.csv.csv",
+        "path": "offline_training/garlic/garlic.165cb0df4bc0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.d7ef530281d7.csv.csv",
+        "path": "offline_training/garlic/garlic.d7ef530281d7.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.55bb34b230b2.csv.csv",
+        "path": "offline_training/coriander/coriander.55bb34b230b2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.07d40d602079.csv.csv",
+        "path": "offline_training/coriander/coriander.07d40d602079.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.790642c7e871.csv.csv",
+        "path": "offline_training/coriander/coriander.790642c7e871.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.af14b9f4eb52.csv.csv",
+        "path": "offline_training/coriander/coriander.af14b9f4eb52.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.73987fc97036.csv.csv",
+        "path": "offline_training/coriander/coriander.73987fc97036.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.0de9c98d625f.csv.csv",
+        "path": "offline_training/pecans/pecans.0de9c98d625f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.65fec345cbfb.csv.csv",
+        "path": "offline_training/pecans/pecans.65fec345cbfb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.c769736ba6ee.csv.csv",
+        "path": "offline_training/pecans/pecans.c769736ba6ee.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.039287d3d677.csv.csv",
+        "path": "offline_training/pecans/pecans.039287d3d677.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.f1df30f87a84.csv.csv",
+        "path": "offline_training/pecans/pecans.f1df30f87a84.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.da9735ad180f.csv.csv",
+        "path": "offline_training/asparagus/asparagus.da9735ad180f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.fd7097fb7116.csv.csv",
+        "path": "offline_training/asparagus/asparagus.fd7097fb7116.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.259a631a70d4.csv.csv",
+        "path": "offline_training/asparagus/asparagus.259a631a70d4.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.47afb725e4b0.csv.csv",
+        "path": "offline_training/asparagus/asparagus.47afb725e4b0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.f67337449af3.csv.csv",
+        "path": "offline_training/asparagus/asparagus.f67337449af3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.be8f80864ccb.csv.csv",
+        "path": "offline_training/brussel_sprouts/brussel_sprouts.be8f80864ccb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.573eb64b967a.csv.csv",
+        "path": "offline_training/brussel_sprouts/brussel_sprouts.573eb64b967a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.fc024431550a.csv.csv",
+        "path": "offline_training/brussel_sprouts/brussel_sprouts.fc024431550a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.931003584196.csv.csv",
+        "path": "offline_training/brussel_sprouts/brussel_sprouts.931003584196.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.ad95b4f19da3.csv.csv",
+        "path": "offline_training/brussel_sprouts/brussel_sprouts.ad95b4f19da3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.0342b097f133.csv.csv",
+        "path": "offline_training/avocado/avocado.0342b097f133.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.1e2abe37d8c9.csv.csv",
+        "path": "offline_training/avocado/avocado.1e2abe37d8c9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.e625317fb106.csv.csv",
+        "path": "offline_training/avocado/avocado.e625317fb106.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.365260112bba.csv.csv",
+        "path": "offline_training/avocado/avocado.365260112bba.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.0867795c9132.csv.csv",
+        "path": "offline_training/avocado/avocado.0867795c9132.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.8efe4fc13fd7.csv.csv",
+        "path": "offline_training/almond/almond.8efe4fc13fd7.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.d31ddd049b10.csv.csv",
+        "path": "offline_training/almond/almond.d31ddd049b10.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.a5807139ebbd.csv.csv",
+        "path": "offline_training/almond/almond.a5807139ebbd.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.1358d2b56280.csv.csv",
+        "path": "offline_training/almond/almond.1358d2b56280.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.4016eb19a226.csv.csv",
+        "path": "offline_training/almond/almond.4016eb19a226.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.71dd63890dcc.csv.csv",
+        "path": "offline_training/dill/dill.71dd63890dcc.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.81e0b27ce3a8.csv.csv",
+        "path": "offline_training/dill/dill.81e0b27ce3a8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.0a2c5290b65a.csv.csv",
+        "path": "offline_training/dill/dill.0a2c5290b65a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.d4659a001ba9.csv.csv",
+        "path": "offline_training/dill/dill.d4659a001ba9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.51cb848588a6.csv.csv",
+        "path": "offline_training/dill/dill.51cb848588a6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.a704ac2f32fb.csv.csv",
+        "path": "offline_training/chervil/chervil.a704ac2f32fb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.a7efcd8677d5.csv.csv",
+        "path": "offline_training/chervil/chervil.a7efcd8677d5.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.84d81bf74087.csv.csv",
+        "path": "offline_training/chervil/chervil.84d81bf74087.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.d1094742854e.csv.csv",
+        "path": "offline_training/chervil/chervil.d1094742854e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.f962cec6ff62.csv.csv",
+        "path": "offline_training/chervil/chervil.f962cec6ff62.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.90efa8c818cc.csv.csv",
+        "path": "offline_training/allspice/allspice.90efa8c818cc.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.4dda19069069.csv.csv",
+        "path": "offline_training/allspice/allspice.4dda19069069.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.898e1c788fca.csv.csv",
+        "path": "offline_training/allspice/allspice.898e1c788fca.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.31403b058a64.csv.csv",
+        "path": "offline_training/allspice/allspice.31403b058a64.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.9f97940311e4.csv.csv",
+        "path": "offline_training/allspice/allspice.9f97940311e4.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.50d6a8a2348d.csv.csv",
+        "path": "offline_training/peanuts/peanuts.50d6a8a2348d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.6135f1e3107b.csv.csv",
+        "path": "offline_training/peanuts/peanuts.6135f1e3107b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.1692e3ae13cf.csv.csv",
+        "path": "offline_training/peanuts/peanuts.1692e3ae13cf.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.58981c293a33.csv.csv",
+        "path": "offline_training/peanuts/peanuts.58981c293a33.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.79dcfa111461.csv.csv",
+        "path": "offline_training/peanuts/peanuts.79dcfa111461.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.fe355ee76231.csv.csv",
+        "path": "offline_training/hazelnut/hazelnut.fe355ee76231.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.ab36c15cf110.csv.csv",
+        "path": "offline_training/hazelnut/hazelnut.ab36c15cf110.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.d80aebbf7849.csv.csv",
+        "path": "offline_training/hazelnut/hazelnut.d80aebbf7849.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.93355994d369.csv.csv",
+        "path": "offline_training/hazelnut/hazelnut.93355994d369.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.2d8e4f0971a0.csv.csv",
+        "path": "offline_training/hazelnut/hazelnut.2d8e4f0971a0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.512a76ff607c.csv.csv",
+        "path": "offline_training/turnip/turnip.512a76ff607c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.fda2e6bcc400.csv.csv",
+        "path": "offline_training/turnip/turnip.fda2e6bcc400.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.b531fd7f1ae6.csv.csv",
+        "path": "offline_training/turnip/turnip.b531fd7f1ae6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.4b00cc32eca9.csv.csv",
+        "path": "offline_training/turnip/turnip.4b00cc32eca9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.c6a109041ea4.csv.csv",
+        "path": "offline_training/turnip/turnip.c6a109041ea4.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.a346ac8679de.csv.csv",
+        "path": "offline_training/potato/potato.a346ac8679de.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.ad22f5063114.csv.csv",
+        "path": "offline_training/potato/potato.ad22f5063114.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.7f493d25b78f.csv.csv",
+        "path": "offline_training/potato/potato.7f493d25b78f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.31b6769479a1.csv.csv",
+        "path": "offline_training/potato/potato.31b6769479a1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.f1832809e24b.csv.csv",
+        "path": "offline_training/potato/potato.f1832809e24b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.2582bdbd4421.csv.csv",
+        "path": "offline_training/cumin/cumin.2582bdbd4421.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.cd93d4c953c1.csv.csv",
+        "path": "offline_training/cumin/cumin.cd93d4c953c1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.08fc214f45fb.csv.csv",
+        "path": "offline_training/cumin/cumin.08fc214f45fb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.e14fb38467d3.csv.csv",
+        "path": "offline_training/cumin/cumin.e14fb38467d3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.1a75cd44eb13.csv.csv",
+        "path": "offline_training/cumin/cumin.1a75cd44eb13.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.21b8f073cff4.csv.csv",
+        "path": "offline_training/angelica/angelica.21b8f073cff4.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.493dbe9556eb.csv.csv",
+        "path": "offline_training/angelica/angelica.493dbe9556eb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.d719387aa9b0.csv.csv",
+        "path": "offline_training/angelica/angelica.d719387aa9b0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.4c16ca0725e7.csv.csv",
+        "path": "offline_training/angelica/angelica.4c16ca0725e7.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.741575ec0b4b.csv.csv",
+        "path": "offline_training/angelica/angelica.741575ec0b4b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.61fa7e3329eb.csv.csv",
+        "path": "offline_training/sweet_potato/sweet_potato.61fa7e3329eb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.cc45345217a6.csv.csv",
+        "path": "offline_training/sweet_potato/sweet_potato.cc45345217a6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.cdf65deec4e6.csv.csv",
+        "path": "offline_training/sweet_potato/sweet_potato.cdf65deec4e6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.188d82f8d72b.csv.csv",
+        "path": "offline_training/sweet_potato/sweet_potato.188d82f8d72b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.cc6d44ec6e22.csv.csv",
+        "path": "offline_training/sweet_potato/sweet_potato.cc6d44ec6e22.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.cd1b4d31adb8.csv.csv",
+        "path": "offline_training/saffron/saffron.cd1b4d31adb8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.6c62034310a3.csv.csv",
+        "path": "offline_training/saffron/saffron.6c62034310a3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.e3e8e4ff75be.csv.csv",
+        "path": "offline_training/saffron/saffron.e3e8e4ff75be.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.6a7c16093494.csv.csv",
+        "path": "offline_training/saffron/saffron.6a7c16093494.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.a9ec93aa4e4d.csv.csv",
+        "path": "offline_training/saffron/saffron.a9ec93aa4e4d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.92a13564a60c.csv.csv",
+        "path": "offline_training/apple/apple.92a13564a60c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.b79ec5501b57.csv.csv",
+        "path": "offline_training/apple/apple.b79ec5501b57.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.53398c87211d.csv.csv",
+        "path": "offline_training/apple/apple.53398c87211d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.c2dd844ef205.csv.csv",
+        "path": "offline_training/apple/apple.c2dd844ef205.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.31a9872a75df.csv.csv",
+        "path": "offline_training/apple/apple.31a9872a75df.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.ee450fc124d1.csv.csv",
+        "path": "offline_training/nutmeg/nutmeg.ee450fc124d1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.bb6a98eff9ef.csv.csv",
+        "path": "offline_training/nutmeg/nutmeg.bb6a98eff9ef.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.25b66efd36f3.csv.csv",
+        "path": "offline_training/nutmeg/nutmeg.25b66efd36f3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.148196452e98.csv.csv",
+        "path": "offline_training/nutmeg/nutmeg.148196452e98.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.e0b6fc09211e.csv.csv",
+        "path": "offline_training/nutmeg/nutmeg.e0b6fc09211e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.838afe010120.csv.csv",
+        "path": "offline_training/mango/mango.838afe010120.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.51b81efd43ce.csv.csv",
+        "path": "offline_training/mango/mango.51b81efd43ce.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.baf3b0acfa1b.csv.csv",
+        "path": "offline_training/mango/mango.baf3b0acfa1b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.8b9e4f41b08d.csv.csv",
+        "path": "offline_training/mango/mango.8b9e4f41b08d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.af6edffd9e2b.csv.csv",
+        "path": "offline_training/mango/mango.af6edffd9e2b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.35cfcb0c123b.csv.csv",
+        "path": "offline_training/strawberry/strawberry.35cfcb0c123b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.1ee1ef35422d.csv.csv",
+        "path": "offline_training/strawberry/strawberry.1ee1ef35422d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.258fe656aa0b.csv.csv",
+        "path": "offline_training/strawberry/strawberry.258fe656aa0b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.310a68a24f60.csv.csv",
+        "path": "offline_training/strawberry/strawberry.310a68a24f60.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.951468f2ab04.csv.csv",
+        "path": "offline_training/strawberry/strawberry.951468f2ab04.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.11b217bffc1f.csv.csv",
+        "path": "offline_training/mint/mint.11b217bffc1f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.ee66497617d0.csv.csv",
+        "path": "offline_training/mint/mint.ee66497617d0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.e59087dc5861.csv.csv",
+        "path": "offline_training/mint/mint.e59087dc5861.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.7e84c6984489.csv.csv",
+        "path": "offline_training/mint/mint.7e84c6984489.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.1a6044f2d07e.csv.csv",
+        "path": "offline_training/mint/mint.1a6044f2d07e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.00c02a5a2007.csv.csv",
+        "path": "offline_training/chestnuts/chestnuts.00c02a5a2007.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.56881bfa9f3c.csv.csv",
+        "path": "offline_training/chestnuts/chestnuts.56881bfa9f3c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.c2e52cf17f5d.csv.csv",
+        "path": "offline_training/chestnuts/chestnuts.c2e52cf17f5d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.1bbc56387cc4.csv.csv",
+        "path": "offline_training/chestnuts/chestnuts.1bbc56387cc4.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.c1cad7cce0dd.csv.csv",
+        "path": "offline_training/chestnuts/chestnuts.c1cad7cce0dd.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.9f0d402a91c7.csv.csv",
+        "path": "offline_training/cauliflower/cauliflower.9f0d402a91c7.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.48f2d103e0aa.csv.csv",
+        "path": "offline_training/cauliflower/cauliflower.48f2d103e0aa.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.fcb9a5b762e2.csv.csv",
+        "path": "offline_training/cauliflower/cauliflower.fcb9a5b762e2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.0490d1fe352d.csv.csv",
+        "path": "offline_training/cauliflower/cauliflower.0490d1fe352d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.d9515a0e0fe6.csv.csv",
+        "path": "offline_training/cauliflower/cauliflower.d9515a0e0fe6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.59a73856cff3.csv.csv",
+        "path": "offline_training/cloves/cloves.59a73856cff3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.2b8745bc125c.csv.csv",
+        "path": "offline_training/cloves/cloves.2b8745bc125c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.eb40de4e034a.csv.csv",
+        "path": "offline_training/cloves/cloves.eb40de4e034a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.12171161b5c1.csv.csv",
+        "path": "offline_training/cloves/cloves.12171161b5c1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.56f1fb21c7a1.csv.csv",
+        "path": "offline_training/cloves/cloves.56f1fb21c7a1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.571814655496.csv.csv",
+        "path": "offline_training/kiwi/kiwi.571814655496.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.789f7c20443d.csv.csv",
+        "path": "offline_training/kiwi/kiwi.789f7c20443d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.62e16fd2d060.csv.csv",
+        "path": "offline_training/kiwi/kiwi.62e16fd2d060.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.7f127824bc76.csv.csv",
+        "path": "offline_training/kiwi/kiwi.7f127824bc76.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.8138c346d1eb.csv.csv",
+        "path": "offline_training/kiwi/kiwi.8138c346d1eb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.adeba74849df.csv.csv",
+        "path": "offline_training/star_anise/star_anise.adeba74849df.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.05cc11d40a14.csv.csv",
+        "path": "offline_training/star_anise/star_anise.05cc11d40a14.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.bb263b1aa2c8.csv.csv",
+        "path": "offline_training/star_anise/star_anise.bb263b1aa2c8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.7ea8c43f6fa6.csv.csv",
+        "path": "offline_training/star_anise/star_anise.7ea8c43f6fa6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.942828ed2999.csv.csv",
+        "path": "offline_training/star_anise/star_anise.942828ed2999.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.ce67b04e85b9.csv.csv",
+        "path": "offline_training/pili_nut/pili_nut.ce67b04e85b9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.fec2d554a3ba.csv.csv",
+        "path": "offline_training/pili_nut/pili_nut.fec2d554a3ba.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.1ece8a44dcfa.csv.csv",
+        "path": "offline_training/pili_nut/pili_nut.1ece8a44dcfa.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.6750fba70b8f.csv.csv",
+        "path": "offline_training/pili_nut/pili_nut.6750fba70b8f.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.01e535ed2b49.csv.csv",
+        "path": "offline_training/pili_nut/pili_nut.01e535ed2b49.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.04ff76b5457c.csv.csv",
+        "path": "offline_training/pistachios/pistachios.04ff76b5457c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.011fa4305de0.csv.csv",
+        "path": "offline_training/pistachios/pistachios.011fa4305de0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.aaf0c54186ba.csv.csv",
+        "path": "offline_training/pistachios/pistachios.aaf0c54186ba.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.ebdfbbe04a2b.csv.csv",
+        "path": "offline_training/pistachios/pistachios.ebdfbbe04a2b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.8e1b81ccd312.csv.csv",
+        "path": "offline_training/pistachios/pistachios.8e1b81ccd312.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.99285d3cd80c.csv.csv",
+        "path": "offline_training/mandarin_orange/mandarin_orange.99285d3cd80c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.9c7b0bface2b.csv.csv",
+        "path": "offline_training/mandarin_orange/mandarin_orange.9c7b0bface2b.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.c1f6a8039fb9.csv.csv",
+        "path": "offline_training/mandarin_orange/mandarin_orange.c1f6a8039fb9.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.fe36ff885133.csv.csv",
+        "path": "offline_training/mandarin_orange/mandarin_orange.fe36ff885133.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.05b4c2b573f2.csv.csv",
+        "path": "offline_training/mandarin_orange/mandarin_orange.05b4c2b573f2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.e36153a10136.csv.csv",
+        "path": "offline_training/cashew/cashew.e36153a10136.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.6cfb644ae152.csv.csv",
+        "path": "offline_training/cashew/cashew.6cfb644ae152.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.b89af08e4797.csv.csv",
+        "path": "offline_training/cashew/cashew.b89af08e4797.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.dde1e7b9e93c.csv.csv",
+        "path": "offline_training/cashew/cashew.dde1e7b9e93c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.10c9f09db697.csv.csv",
+        "path": "offline_training/cashew/cashew.10c9f09db697.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.9eb1c03eedfb.csv.csv",
+        "path": "offline_training/cinnamon/cinnamon.9eb1c03eedfb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.f3f14e8d351d.csv.csv",
+        "path": "offline_training/cinnamon/cinnamon.f3f14e8d351d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.bcb379fc3860.csv.csv",
+        "path": "offline_training/cinnamon/cinnamon.bcb379fc3860.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.34cc128b7b9d.csv.csv",
+        "path": "offline_training/cinnamon/cinnamon.34cc128b7b9d.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.4a4e69e54a5a.csv.csv",
+        "path": "offline_training/cinnamon/cinnamon.4a4e69e54a5a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.80cc18179d1a.csv.csv",
+        "path": "offline_training/radish/radish.80cc18179d1a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.db63f1ebe465.csv.csv",
+        "path": "offline_training/radish/radish.db63f1ebe465.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.bf0456be0da8.csv.csv",
+        "path": "offline_training/radish/radish.bf0456be0da8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.1f6a68193789.csv.csv",
+        "path": "offline_training/radish/radish.1f6a68193789.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.322323a5c0c0.csv.csv",
+        "path": "offline_training/radish/radish.322323a5c0c0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.d03788473ba3.csv.csv",
+        "path": "offline_training/chives/chives.d03788473ba3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.4d89c496f1ce.csv.csv",
+        "path": "offline_training/chives/chives.4d89c496f1ce.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.2ba04065e7bb.csv.csv",
+        "path": "offline_training/chives/chives.2ba04065e7bb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.015105ad0aa8.csv.csv",
+        "path": "offline_training/chives/chives.015105ad0aa8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.7001d3a47798.csv.csv",
+        "path": "offline_training/chives/chives.7001d3a47798.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.be23691c0a71.csv.csv",
+        "path": "offline_training/mugwort/mugwort.be23691c0a71.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.fedb3c17a272.csv.csv",
+        "path": "offline_training/mugwort/mugwort.fedb3c17a272.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.8a428c31b384.csv.csv",
+        "path": "offline_training/mugwort/mugwort.8a428c31b384.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.eedd139c00b2.csv.csv",
+        "path": "offline_training/mugwort/mugwort.eedd139c00b2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.8489cd7111f3.csv.csv",
+        "path": "offline_training/mugwort/mugwort.8489cd7111f3.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.f1ef31bb2fe2.csv.csv",
+        "path": "offline_training/lemon/lemon.f1ef31bb2fe2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.e7d4d3e201e0.csv.csv",
+        "path": "offline_training/lemon/lemon.e7d4d3e201e0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.1172ecbdd5b5.csv.csv",
+        "path": "offline_training/lemon/lemon.1172ecbdd5b5.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.9f23cc7bb34c.csv.csv",
+        "path": "offline_training/lemon/lemon.9f23cc7bb34c.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.6c69337909f2.csv.csv",
+        "path": "offline_training/lemon/lemon.6c69337909f2.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.719cc9d8fae0.csv.csv",
+        "path": "offline_training/pineapple/pineapple.719cc9d8fae0.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.09b3a4ebd0e6.csv.csv",
+        "path": "offline_training/pineapple/pineapple.09b3a4ebd0e6.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.fb4bc3efcfea.csv.csv",
+        "path": "offline_training/pineapple/pineapple.fb4bc3efcfea.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.21828e7e29d1.csv.csv",
+        "path": "offline_training/pineapple/pineapple.21828e7e29d1.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.c147713164d5.csv.csv",
+        "path": "offline_training/pineapple/pineapple.c147713164d5.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.3945883654e8.csv.csv",
+        "path": "offline_training/pear/pear.3945883654e8.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.b2a55c2434bb.csv.csv",
+        "path": "offline_training/pear/pear.b2a55c2434bb.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.a1ffb1f8a0c5.csv.csv",
+        "path": "offline_training/pear/pear.a1ffb1f8a0c5.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.251a2f5b4c30.csv.csv",
+        "path": "offline_training/pear/pear.251a2f5b4c30.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.1e6beb378407.csv.csv",
+        "path": "offline_training/pear/pear.1e6beb378407.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.319883b76e5e.csv.csv",
+        "path": "offline_training/peach/peach.319883b76e5e.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.7af2b1866204.csv.csv",
+        "path": "offline_training/peach/peach.7af2b1866204.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.8f65b93e9a58.csv.csv",
+        "path": "offline_training/peach/peach.8f65b93e9a58.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.94b713a12a9a.csv.csv",
+        "path": "offline_training/peach/peach.94b713a12a9a.csv.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.4f69f26c1fc8.csv.csv",
+        "path": "offline_training/peach/peach.4f69f26c1fc8.csv.csv"
+      }
+    ]
+  },
+  {
+    "@type": "FileSet",
+    "name": "Online_Nuts_Sensor_Time_Series",
+    "description": "Sensor CSVs from online nuts",
+    "encodingFormat": "text/csv",
+    "includes": [
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.5111ae51c14c.csv",
+        "path": "online_nuts/brazil_nut/brazil_nut.5111ae51c14c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.9257e9f6c580.csv",
+        "path": "online_nuts/walnuts/walnuts.9257e9f6c580.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecan.6425f3026995.csv",
+        "path": "online_nuts/pecans/pecan.6425f3026995.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.77e42e4a9108.csv",
+        "path": "online_nuts/almond/almond.77e42e4a9108.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.509208df9adf.csv",
+        "path": "online_nuts/peanuts/peanuts.509208df9adf.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnuts.0841fca6a4c3.csv",
+        "path": "online_nuts/hazelnut/hazelnuts.0841fca6a4c3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.c2071cb6159f.csv",
+        "path": "online_nuts/chestnuts/chestnuts.c2071cb6159f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.1d75112865ca.csv",
+        "path": "online_nuts/pili_nut/pili_nut.1d75112865ca.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.38380d1ef2fd.csv",
+        "path": "online_nuts/pistachios/pistachios.38380d1ef2fd.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.5731f8c867cb.csv",
+        "path": "online_nuts/cashew/cashew.5731f8c867cb.csv"
+      }
+    ]
+  },
+  {
+    "@type": "FileSet",
+    "name": "Raw_Sensor_Files",
+    "description": "Sensor CSVs from raw data",
+    "encodingFormat": "text/csv",
+    "includes": [
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.0490d1fe352d.csv",
+        "path": "raw_data/cauliflower.0490d1fe352d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.4ae192a93b57.csv",
+        "path": "raw_data/hazelnut.4ae192a93b57.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.13404be38f16.csv",
+        "path": "raw_data/mustard.13404be38f16.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.06e3f1946675.csv",
+        "path": "raw_data/angelica.06e3f1946675.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.452386762a33.csv",
+        "path": "raw_data/almond.452386762a33.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.5e096605858b.csv",
+        "path": "raw_data/pineapple.5e096605858b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.e6f712005320.csv",
+        "path": "raw_data/peanuts.e6f712005320.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.bd6f454f713d.csv",
+        "path": "raw_data/cinnamon.bd6f454f713d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.6a7c16093494.csv",
+        "path": "raw_data/saffron.6a7c16093494.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.1f6a68193789.csv",
+        "path": "raw_data/radish.1f6a68193789.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.cc6d44ec6e22.csv",
+        "path": "raw_data/sweet_potato.cc6d44ec6e22.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.4f30f6acc003.csv",
+        "path": "raw_data/star_anise.4f30f6acc003.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.58981c293a33.csv",
+        "path": "raw_data/peanuts.58981c293a33.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.e625317fb106.csv",
+        "path": "raw_data/avocado.e625317fb106.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.cd1b4d31adb8.csv",
+        "path": "raw_data/saffron.cd1b4d31adb8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.ba4e4c28d505.csv",
+        "path": "raw_data/saffron.ba4e4c28d505.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.b2a55c2434bb.csv",
+        "path": "raw_data/pear.b2a55c2434bb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.5fd853db562c.csv",
+        "path": "raw_data/chamomile.5fd853db562c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.baf3b0acfa1b.csv",
+        "path": "raw_data/mango.baf3b0acfa1b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.3baca698db95.csv",
+        "path": "raw_data/walnuts.3baca698db95.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.d81e05642612.csv",
+        "path": "raw_data/mustard.d81e05642612.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.4862461c9ee4.csv",
+        "path": "raw_data/cabbage.4862461c9ee4.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.56f1fb21c7a1.csv",
+        "path": "raw_data/cloves.56f1fb21c7a1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.80cc18179d1a.csv",
+        "path": "raw_data/radish.80cc18179d1a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.376616d4c817.csv",
+        "path": "raw_data/cinnamon.376616d4c817.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.d9515a0e0fe6.csv",
+        "path": "raw_data/cauliflower.d9515a0e0fe6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.6eef057b0ee2.csv",
+        "path": "raw_data/pear.6eef057b0ee2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.25b66efd36f3.csv",
+        "path": "raw_data/nutmeg.25b66efd36f3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.ca42798077fe.csv",
+        "path": "raw_data/tomato.ca42798077fe.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.898e1c788fca.csv",
+        "path": "raw_data/allspice.898e1c788fca.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.7dccef20a4e9.csv",
+        "path": "raw_data/tomato.7dccef20a4e9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.d4659a001ba9.csv",
+        "path": "raw_data/dill.d4659a001ba9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.f1832809e24b.csv",
+        "path": "raw_data/potato.f1832809e24b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.c6fa3b97e48f.csv",
+        "path": "raw_data/broccoli.c6fa3b97e48f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.9fae477e2976.csv",
+        "path": "raw_data/potato.9fae477e2976.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.6c62034310a3.csv",
+        "path": "raw_data/saffron.6c62034310a3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.6750fba70b8f.csv",
+        "path": "raw_data/pili_nut.6750fba70b8f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.e3e8e4ff75be.csv",
+        "path": "raw_data/saffron.e3e8e4ff75be.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.61fa7e3329eb.csv",
+        "path": "raw_data/sweet_potato.61fa7e3329eb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.10c9f09db697.csv",
+        "path": "raw_data/cashew.10c9f09db697.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.a9ec93aa4e4d.csv",
+        "path": "raw_data/saffron.a9ec93aa4e4d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.e36153a10136.csv",
+        "path": "raw_data/cashew.e36153a10136.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.f1df30f87a84.csv",
+        "path": "raw_data/pecans.f1df30f87a84.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.a1ffb1f8a0c5.csv",
+        "path": "raw_data/pear.a1ffb1f8a0c5.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.be23691c0a71.csv",
+        "path": "raw_data/mugwort.be23691c0a71.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.fb836e1f1253.csv",
+        "path": "raw_data/cumin.fb836e1f1253.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.c2e52cf17f5d.csv",
+        "path": "raw_data/chestnuts.c2e52cf17f5d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.08fc214f45fb.csv",
+        "path": "raw_data/cumin.08fc214f45fb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.ab36c15cf110.csv",
+        "path": "raw_data/hazelnut.ab36c15cf110.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.4403eaec0723.csv",
+        "path": "raw_data/walnuts.4403eaec0723.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.571814655496.csv",
+        "path": "raw_data/kiwi.571814655496.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.741575ec0b4b.csv",
+        "path": "raw_data/angelica.741575ec0b4b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.790642c7e871.csv",
+        "path": "raw_data/coriander.790642c7e871.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.e135e1e5e774.csv",
+        "path": "raw_data/star_anise.e135e1e5e774.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.100ee489c71b.csv",
+        "path": "raw_data/chamomile.100ee489c71b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.0af4892da3e6.csv",
+        "path": "raw_data/oregano.0af4892da3e6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.7fef9824ee4d.csv",
+        "path": "raw_data/broccoli.7fef9824ee4d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.e05b67887aa2.csv",
+        "path": "raw_data/coriander.e05b67887aa2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.7af2b1866204.csv",
+        "path": "raw_data/peach.7af2b1866204.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.b4c1bf67cf9e.csv",
+        "path": "raw_data/ginger.b4c1bf67cf9e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.dd0dd8ba5328.csv",
+        "path": "raw_data/nutmeg.dd0dd8ba5328.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.07d40d602079.csv",
+        "path": "raw_data/coriander.07d40d602079.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.a346ac8679de.csv",
+        "path": "raw_data/potato.a346ac8679de.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.4dbde58e1630.csv",
+        "path": "raw_data/brazil_nut.4dbde58e1630.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.1172ecbdd5b5.csv",
+        "path": "raw_data/lemon.1172ecbdd5b5.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.573eb64b967a.csv",
+        "path": "raw_data/brussel_sprouts.573eb64b967a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.8138c346d1eb.csv",
+        "path": "raw_data/kiwi.8138c346d1eb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.31403b058a64.csv",
+        "path": "raw_data/allspice.31403b058a64.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.be8f80864ccb.csv",
+        "path": "raw_data/brussel_sprouts.be8f80864ccb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.79dcfa111461.csv",
+        "path": "raw_data/peanuts.79dcfa111461.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.fe355ee76231.csv",
+        "path": "raw_data/hazelnut.fe355ee76231.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.73987fc97036.csv",
+        "path": "raw_data/coriander.73987fc97036.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.b5ab2687a244.csv",
+        "path": "raw_data/dill.b5ab2687a244.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.45843ba0ea9c.csv",
+        "path": "raw_data/mustard.45843ba0ea9c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.0c9a145b78ee.csv",
+        "path": "raw_data/ginger.0c9a145b78ee.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.53398c87211d.csv",
+        "path": "raw_data/apple.53398c87211d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.7ea8c43f6fa6.csv",
+        "path": "raw_data/star_anise.7ea8c43f6fa6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.dd8e08790cd6.csv",
+        "path": "raw_data/banana.dd8e08790cd6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.0867795c9132.csv",
+        "path": "raw_data/avocado.0867795c9132.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.69691bcad171.csv",
+        "path": "raw_data/tomato.69691bcad171.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.2075d7ff7846.csv",
+        "path": "raw_data/lemon.2075d7ff7846.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.93355994d369.csv",
+        "path": "raw_data/hazelnut.93355994d369.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.8e1b81ccd312.csv",
+        "path": "raw_data/pistachios.8e1b81ccd312.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.1a6044f2d07e.csv",
+        "path": "raw_data/mint.1a6044f2d07e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.ce67b04e85b9.csv",
+        "path": "raw_data/pili_nut.ce67b04e85b9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.015105ad0aa8.csv",
+        "path": "raw_data/chives.015105ad0aa8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.b79ec5501b57.csv",
+        "path": "raw_data/apple.b79ec5501b57.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.62e16fd2d060.csv",
+        "path": "raw_data/kiwi.62e16fd2d060.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.1b9dd5b1eab8.csv",
+        "path": "raw_data/cloves.1b9dd5b1eab8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.fc024431550a.csv",
+        "path": "raw_data/brussel_sprouts.fc024431550a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.ad95b4f19da3.csv",
+        "path": "raw_data/brussel_sprouts.ad95b4f19da3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.719cc9d8fae0.csv",
+        "path": "raw_data/pineapple.719cc9d8fae0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.6c69337909f2.csv",
+        "path": "raw_data/lemon.6c69337909f2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.3c043b7157aa.csv",
+        "path": "raw_data/saffron.3c043b7157aa.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.b97a91a7927f.csv",
+        "path": "raw_data/brussel_sprouts.b97a91a7927f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.c2dd844ef205.csv",
+        "path": "raw_data/apple.c2dd844ef205.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.6e9ce5acaf80.csv",
+        "path": "raw_data/brazil_nut.6e9ce5acaf80.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.24c868eadb47.csv",
+        "path": "raw_data/cumin.24c868eadb47.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.6d35a493a01e.csv",
+        "path": "raw_data/broccoli.6d35a493a01e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.f3f14e8d351d.csv",
+        "path": "raw_data/cinnamon.f3f14e8d351d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.f710e88caa12.csv",
+        "path": "raw_data/walnuts.f710e88caa12.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.a704ac2f32fb.csv",
+        "path": "raw_data/chervil.a704ac2f32fb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.9c7b0bface2b.csv",
+        "path": "raw_data/mandarin_orange.9c7b0bface2b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.f644ff910257.csv",
+        "path": "raw_data/cloves.f644ff910257.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.36e0c39f52f8.csv",
+        "path": "raw_data/ginger.36e0c39f52f8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.258fe656aa0b.csv",
+        "path": "raw_data/strawberry.258fe656aa0b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.cdf65deec4e6.csv",
+        "path": "raw_data/sweet_potato.cdf65deec4e6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.fcb9a5b762e2.csv",
+        "path": "raw_data/cauliflower.fcb9a5b762e2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.fda2e6bcc400.csv",
+        "path": "raw_data/turnip.fda2e6bcc400.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.ebdfbbe04a2b.csv",
+        "path": "raw_data/pistachios.ebdfbbe04a2b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.b600b4ca3cf8.csv",
+        "path": "raw_data/broccoli.b600b4ca3cf8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.34f62512a294.csv",
+        "path": "raw_data/oregano.34f62512a294.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.0020c5b9b119.csv",
+        "path": "raw_data/cabbage.0020c5b9b119.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.148196452e98.csv",
+        "path": "raw_data/nutmeg.148196452e98.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.a5807139ebbd.csv",
+        "path": "raw_data/almond.a5807139ebbd.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.310a68a24f60.csv",
+        "path": "raw_data/strawberry.310a68a24f60.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.cc9e876c325a.csv",
+        "path": "raw_data/garlic.cc9e876c325a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.039287d3d677.csv",
+        "path": "raw_data/pecans.039287d3d677.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.65fec345cbfb.csv",
+        "path": "raw_data/pecans.65fec345cbfb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.af6edffd9e2b.csv",
+        "path": "raw_data/mango.af6edffd9e2b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.e7d4d3e201e0.csv",
+        "path": "raw_data/lemon.e7d4d3e201e0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.4a4e69e54a5a.csv",
+        "path": "raw_data/cinnamon.4a4e69e54a5a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.99285d3cd80c.csv",
+        "path": "raw_data/mandarin_orange.99285d3cd80c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.fedb3c17a272.csv",
+        "path": "raw_data/mugwort.fedb3c17a272.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.adeba74849df.csv",
+        "path": "raw_data/star_anise.adeba74849df.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.a9aea2972073.csv",
+        "path": "raw_data/walnuts.a9aea2972073.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.b89af08e4797.csv",
+        "path": "raw_data/cashew.b89af08e4797.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.4482c47417a2.csv",
+        "path": "raw_data/cauliflower.4482c47417a2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.6f79e1f93427.csv",
+        "path": "raw_data/apple.6f79e1f93427.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.f1ef31bb2fe2.csv",
+        "path": "raw_data/lemon.f1ef31bb2fe2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.968e4cae07f3.csv",
+        "path": "raw_data/banana.968e4cae07f3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.59a73856cff3.csv",
+        "path": "raw_data/cloves.59a73856cff3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.aee769f81c7f.csv",
+        "path": "raw_data/cabbage.aee769f81c7f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.13df3e51ddc8.csv",
+        "path": "raw_data/garlic.13df3e51ddc8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.19b92b17463c.csv",
+        "path": "raw_data/banana.19b92b17463c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.8a428c31b384.csv",
+        "path": "raw_data/mugwort.8a428c31b384.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.b531fd7f1ae6.csv",
+        "path": "raw_data/turnip.b531fd7f1ae6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.66ddb6a76271.csv",
+        "path": "raw_data/nutmeg.66ddb6a76271.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.87c2f95be9d5.csv",
+        "path": "raw_data/brazil_nut.87c2f95be9d5.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.31b6769479a1.csv",
+        "path": "raw_data/potato.31b6769479a1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.cc45345217a6.csv",
+        "path": "raw_data/sweet_potato.cc45345217a6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.92a13564a60c.csv",
+        "path": "raw_data/apple.92a13564a60c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.4d89c496f1ce.csv",
+        "path": "raw_data/chives.4d89c496f1ce.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.1692e3ae13cf.csv",
+        "path": "raw_data/peanuts.1692e3ae13cf.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.2a56789f628f.csv",
+        "path": "raw_data/garlic.2a56789f628f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.259a631a70d4.csv",
+        "path": "raw_data/asparagus.259a631a70d4.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.dfe962a98973.csv",
+        "path": "raw_data/pili_nut.dfe962a98973.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.ba758a5e291a.csv",
+        "path": "raw_data/mint.ba758a5e291a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.1e2abe37d8c9.csv",
+        "path": "raw_data/avocado.1e2abe37d8c9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.7e84c6984489.csv",
+        "path": "raw_data/mint.7e84c6984489.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.365260112bba.csv",
+        "path": "raw_data/avocado.365260112bba.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.1ee1ef35422d.csv",
+        "path": "raw_data/strawberry.1ee1ef35422d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.71f212e55de2.csv",
+        "path": "raw_data/mustard.71f212e55de2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.55bb34b230b2.csv",
+        "path": "raw_data/coriander.55bb34b230b2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.90efa8c818cc.csv",
+        "path": "raw_data/allspice.90efa8c818cc.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.51cb848588a6.csv",
+        "path": "raw_data/dill.51cb848588a6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.71dd63890dcc.csv",
+        "path": "raw_data/dill.71dd63890dcc.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "apple.31a9872a75df.csv",
+        "path": "raw_data/apple.31a9872a75df.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.843fd8860fdf.csv",
+        "path": "raw_data/cashew.843fd8860fdf.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.e0b9abb7850f.csv",
+        "path": "raw_data/tomato.e0b9abb7850f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.bb263b1aa2c8.csv",
+        "path": "raw_data/star_anise.bb263b1aa2c8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.84d81bf74087.csv",
+        "path": "raw_data/chervil.84d81bf74087.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.83c628384a4c.csv",
+        "path": "raw_data/allspice.83c628384a4c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.4c2380a0b494.csv",
+        "path": "raw_data/mustard.4c2380a0b494.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.9eb1c03eedfb.csv",
+        "path": "raw_data/cinnamon.9eb1c03eedfb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.aaf0c54186ba.csv",
+        "path": "raw_data/pistachios.aaf0c54186ba.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.e85ec7d45786.csv",
+        "path": "raw_data/chestnuts.e85ec7d45786.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.50d6a8a2348d.csv",
+        "path": "raw_data/peanuts.50d6a8a2348d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.165cb0df4bc0.csv",
+        "path": "raw_data/garlic.165cb0df4bc0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.9f0d402a91c7.csv",
+        "path": "raw_data/cauliflower.9f0d402a91c7.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.322323a5c0c0.csv",
+        "path": "raw_data/radish.322323a5c0c0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.011fa4305de0.csv",
+        "path": "raw_data/pistachios.011fa4305de0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.eb40de4e034a.csv",
+        "path": "raw_data/cloves.eb40de4e034a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "saffron.1061320f7033.csv",
+        "path": "raw_data/saffron.1061320f7033.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.0a2c5290b65a.csv",
+        "path": "raw_data/dill.0a2c5290b65a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.951468f2ab04.csv",
+        "path": "raw_data/strawberry.951468f2ab04.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brussel_sprouts.931003584196.csv",
+        "path": "raw_data/brussel_sprouts.931003584196.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.dd96c0a38fe1.csv",
+        "path": "raw_data/cabbage.dd96c0a38fe1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.e14fb38467d3.csv",
+        "path": "raw_data/cumin.e14fb38467d3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.2b47307427c1.csv",
+        "path": "raw_data/kiwi.2b47307427c1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.7a2c455eb8fe.csv",
+        "path": "raw_data/chervil.7a2c455eb8fe.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.cd0608099254.csv",
+        "path": "raw_data/pecans.cd0608099254.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.1bbc56387cc4.csv",
+        "path": "raw_data/chestnuts.1bbc56387cc4.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.04d2e7e42cfd.csv",
+        "path": "raw_data/walnuts.04d2e7e42cfd.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.133dab9f8827.csv",
+        "path": "raw_data/turnip.133dab9f8827.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.9f97940311e4.csv",
+        "path": "raw_data/allspice.9f97940311e4.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.5dd6a697a651.csv",
+        "path": "raw_data/coriander.5dd6a697a651.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.fd7097fb7116.csv",
+        "path": "raw_data/asparagus.fd7097fb7116.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.251a2f5b4c30.csv",
+        "path": "raw_data/pear.251a2f5b4c30.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.c769736ba6ee.csv",
+        "path": "raw_data/pecans.c769736ba6ee.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "walnuts.c1f6fa0841bf.csv",
+        "path": "raw_data/walnuts.c1f6fa0841bf.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.ee66497617d0.csv",
+        "path": "raw_data/mint.ee66497617d0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.1a75cd44eb13.csv",
+        "path": "raw_data/cumin.1a75cd44eb13.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "dill.81e0b27ce3a8.csv",
+        "path": "raw_data/dill.81e0b27ce3a8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.2b8745bc125c.csv",
+        "path": "raw_data/cloves.2b8745bc125c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.319883b76e5e.csv",
+        "path": "raw_data/peach.319883b76e5e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.1965fb66f89c.csv",
+        "path": "raw_data/ginger.1965fb66f89c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.ee450fc124d1.csv",
+        "path": "raw_data/nutmeg.ee450fc124d1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.ba992e339a21.csv",
+        "path": "raw_data/allspice.ba992e339a21.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.2d8e4f0971a0.csv",
+        "path": "raw_data/hazelnut.2d8e4f0971a0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.c1f6a8039fb9.csv",
+        "path": "raw_data/mandarin_orange.c1f6a8039fb9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.7443cccacb36.csv",
+        "path": "raw_data/banana.7443cccacb36.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.01e535ed2b49.csv",
+        "path": "raw_data/pili_nut.01e535ed2b49.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.1358d2b56280.csv",
+        "path": "raw_data/almond.1358d2b56280.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.0b5647e59602.csv",
+        "path": "raw_data/sweet_potato.0b5647e59602.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.2582bdbd4421.csv",
+        "path": "raw_data/cumin.2582bdbd4421.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.4c16ca0725e7.csv",
+        "path": "raw_data/angelica.4c16ca0725e7.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.2de6b69dd6cc.csv",
+        "path": "raw_data/oregano.2de6b69dd6cc.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.556b121c5195.csv",
+        "path": "raw_data/chamomile.556b121c5195.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.789f7c20443d.csv",
+        "path": "raw_data/kiwi.789f7c20443d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.8efe4fc13fd7.csv",
+        "path": "raw_data/almond.8efe4fc13fd7.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.4f69f26c1fc8.csv",
+        "path": "raw_data/peach.4f69f26c1fc8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.1ece8a44dcfa.csv",
+        "path": "raw_data/pili_nut.1ece8a44dcfa.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.fe01917df092.csv",
+        "path": "raw_data/cabbage.fe01917df092.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.7f493d25b78f.csv",
+        "path": "raw_data/potato.7f493d25b78f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.8586201bf6d5.csv",
+        "path": "raw_data/banana.8586201bf6d5.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.94b713a12a9a.csv",
+        "path": "raw_data/peach.94b713a12a9a.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "hazelnut.d80aebbf7849.csv",
+        "path": "raw_data/hazelnut.d80aebbf7849.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.fb4bc3efcfea.csv",
+        "path": "raw_data/pineapple.fb4bc3efcfea.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.709b833bda37.csv",
+        "path": "raw_data/ginger.709b833bda37.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.1e6beb378407.csv",
+        "path": "raw_data/pear.1e6beb378407.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.05b4c2b573f2.csv",
+        "path": "raw_data/mandarin_orange.05b4c2b573f2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.d7ef530281d7.csv",
+        "path": "raw_data/garlic.d7ef530281d7.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.e0b6fc09211e.csv",
+        "path": "raw_data/nutmeg.e0b6fc09211e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "potato.ad22f5063114.csv",
+        "path": "raw_data/potato.ad22f5063114.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.a6ca1eaad811.csv",
+        "path": "raw_data/tomato.a6ca1eaad811.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.74203bd4beee.csv",
+        "path": "raw_data/allspice.74203bd4beee.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.32ed8f179daf.csv",
+        "path": "raw_data/mustard.32ed8f179daf.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "lemon.9f23cc7bb34c.csv",
+        "path": "raw_data/lemon.9f23cc7bb34c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "tomato.ab5a46e28f61.csv",
+        "path": "raw_data/tomato.ab5a46e28f61.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.493dbe9556eb.csv",
+        "path": "raw_data/angelica.493dbe9556eb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.750094383bdf.csv",
+        "path": "raw_data/chamomile.750094383bdf.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.b7e899a9be5b.csv",
+        "path": "raw_data/oregano.b7e899a9be5b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.7ed2356117cc.csv",
+        "path": "raw_data/broccoli.7ed2356117cc.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.af14b9f4eb52.csv",
+        "path": "raw_data/coriander.af14b9f4eb52.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pear.3945883654e8.csv",
+        "path": "raw_data/pear.3945883654e8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.2ba04065e7bb.csv",
+        "path": "raw_data/chives.2ba04065e7bb.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.deda48942109.csv",
+        "path": "raw_data/mandarin_orange.deda48942109.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.77a5726fa582.csv",
+        "path": "raw_data/mugwort.77a5726fa582.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.8489cd7111f3.csv",
+        "path": "raw_data/mugwort.8489cd7111f3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "coriander.4dae648a8457.csv",
+        "path": "raw_data/coriander.4dae648a8457.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.6cfb644ae152.csv",
+        "path": "raw_data/cashew.6cfb644ae152.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.47afb725e4b0.csv",
+        "path": "raw_data/asparagus.47afb725e4b0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.4016eb19a226.csv",
+        "path": "raw_data/almond.4016eb19a226.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.bb6a98eff9ef.csv",
+        "path": "raw_data/nutmeg.bb6a98eff9ef.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.00c02a5a2007.csv",
+        "path": "raw_data/chestnuts.00c02a5a2007.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.05cc11d40a14.csv",
+        "path": "raw_data/star_anise.05cc11d40a14.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.cef9d61914a0.csv",
+        "path": "raw_data/pistachios.cef9d61914a0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.d1094742854e.csv",
+        "path": "raw_data/chervil.d1094742854e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.bcb379fc3860.csv",
+        "path": "raw_data/cinnamon.bcb379fc3860.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.51b81efd43ce.csv",
+        "path": "raw_data/mango.51b81efd43ce.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.d719387aa9b0.csv",
+        "path": "raw_data/angelica.d719387aa9b0.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.c1cad7cce0dd.csv",
+        "path": "raw_data/chestnuts.c1cad7cce0dd.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.f67337449af3.csv",
+        "path": "raw_data/asparagus.f67337449af3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.c6a109041ea4.csv",
+        "path": "raw_data/turnip.c6a109041ea4.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.c3a2d11be682.csv",
+        "path": "raw_data/peach.c3a2d11be682.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.f8002f14cbd2.csv",
+        "path": "raw_data/chives.f8002f14cbd2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.5b86c739ae25.csv",
+        "path": "raw_data/chamomile.5b86c739ae25.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "kiwi.7f127824bc76.csv",
+        "path": "raw_data/kiwi.7f127824bc76.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.e59087dc5861.csv",
+        "path": "raw_data/mint.e59087dc5861.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.bf0456be0da8.csv",
+        "path": "raw_data/radish.bf0456be0da8.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.3e5f59b924fe.csv",
+        "path": "raw_data/cinnamon.3e5f59b924fe.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.a7efcd8677d5.csv",
+        "path": "raw_data/chervil.a7efcd8677d5.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.c147713164d5.csv",
+        "path": "raw_data/pineapple.c147713164d5.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.db9d4705a0af.csv",
+        "path": "raw_data/mustard.db9d4705a0af.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.942828ed2999.csv",
+        "path": "raw_data/star_anise.942828ed2999.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mustard.ac185af34099.csv",
+        "path": "raw_data/mustard.ac185af34099.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.db63f1ebe465.csv",
+        "path": "raw_data/radish.db63f1ebe465.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.3262415c70ba.csv",
+        "path": "raw_data/allspice.3262415c70ba.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.0342b097f133.csv",
+        "path": "raw_data/avocado.0342b097f133.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.7001d3a47798.csv",
+        "path": "raw_data/chives.7001d3a47798.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peanuts.6135f1e3107b.csv",
+        "path": "raw_data/peanuts.6135f1e3107b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.93e9d7bc1eed.csv",
+        "path": "raw_data/brazil_nut.93e9d7bc1eed.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.12171161b5c1.csv",
+        "path": "raw_data/cloves.12171161b5c1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pili_nut.fec2d554a3ba.csv",
+        "path": "raw_data/pili_nut.fec2d554a3ba.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.838afe010120.csv",
+        "path": "raw_data/mango.838afe010120.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "avocado.70724e6522f7.csv",
+        "path": "raw_data/avocado.70724e6522f7.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chives.d03788473ba3.csv",
+        "path": "raw_data/chives.d03788473ba3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chamomile.711922279ad2.csv",
+        "path": "raw_data/chamomile.711922279ad2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cashew.dde1e7b9e93c.csv",
+        "path": "raw_data/cashew.dde1e7b9e93c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mandarin_orange.fe36ff885133.csv",
+        "path": "raw_data/mandarin_orange.fe36ff885133.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "almond.d31ddd049b10.csv",
+        "path": "raw_data/almond.d31ddd049b10.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.e10e309eac83.csv",
+        "path": "raw_data/brazil_nut.e10e309eac83.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.8b9e4f41b08d.csv",
+        "path": "raw_data/mango.8b9e4f41b08d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.9323ebb79052.csv",
+        "path": "raw_data/oregano.9323ebb79052.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.da9735ad180f.csv",
+        "path": "raw_data/asparagus.da9735ad180f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "nutmeg.bdedca695511.csv",
+        "path": "raw_data/nutmeg.bdedca695511.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cauliflower.48f2d103e0aa.csv",
+        "path": "raw_data/cauliflower.48f2d103e0aa.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pecans.0de9c98d625f.csv",
+        "path": "raw_data/pecans.0de9c98d625f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.09b3a4ebd0e6.csv",
+        "path": "raw_data/pineapple.09b3a4ebd0e6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pistachios.04ff76b5457c.csv",
+        "path": "raw_data/pistachios.04ff76b5457c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.512a76ff607c.csv",
+        "path": "raw_data/turnip.512a76ff607c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mango.127c97e3f98e.csv",
+        "path": "raw_data/mango.127c97e3f98e.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "pineapple.21828e7e29d1.csv",
+        "path": "raw_data/pineapple.21828e7e29d1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "banana.f7d074c3edc2.csv",
+        "path": "raw_data/banana.f7d074c3edc2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "allspice.4dda19069069.csv",
+        "path": "raw_data/allspice.4dda19069069.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.c06ceae4df54.csv",
+        "path": "raw_data/cinnamon.c06ceae4df54.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cumin.cd93d4c953c1.csv",
+        "path": "raw_data/cumin.cd93d4c953c1.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.35cfcb0c123b.csv",
+        "path": "raw_data/strawberry.35cfcb0c123b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "star_anise.22e40a6d51f9.csv",
+        "path": "raw_data/star_anise.22e40a6d51f9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "asparagus.1353414ede18.csv",
+        "path": "raw_data/asparagus.1353414ede18.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mint.11b217bffc1f.csv",
+        "path": "raw_data/mint.11b217bffc1f.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "turnip.4b00cc32eca9.csv",
+        "path": "raw_data/turnip.4b00cc32eca9.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "radish.ebfdfd57e730.csv",
+        "path": "raw_data/radish.ebfdfd57e730.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "ginger.3cc10d612104.csv",
+        "path": "raw_data/ginger.3cc10d612104.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chervil.f962cec6ff62.csv",
+        "path": "raw_data/chervil.f962cec6ff62.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "sweet_potato.188d82f8d72b.csv",
+        "path": "raw_data/sweet_potato.188d82f8d72b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cabbage.664bef8bf4a3.csv",
+        "path": "raw_data/cabbage.664bef8bf4a3.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "angelica.21b8f073cff4.csv",
+        "path": "raw_data/angelica.21b8f073cff4.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "broccoli.0218b90f29e6.csv",
+        "path": "raw_data/broccoli.0218b90f29e6.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "strawberry.02a0fe1d8340.csv",
+        "path": "raw_data/strawberry.02a0fe1d8340.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cinnamon.34cc128b7b9d.csv",
+        "path": "raw_data/cinnamon.34cc128b7b9d.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "peach.8f65b93e9a58.csv",
+        "path": "raw_data/peach.8f65b93e9a58.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "cloves.22ccb674d798.csv",
+        "path": "raw_data/cloves.22ccb674d798.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "oregano.1b185fb27068.csv",
+        "path": "raw_data/oregano.1b185fb27068.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "mugwort.eedd139c00b2.csv",
+        "path": "raw_data/mugwort.eedd139c00b2.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "chestnuts.56881bfa9f3c.csv",
+        "path": "raw_data/chestnuts.56881bfa9f3c.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "garlic.25c3fa6f912b.csv",
+        "path": "raw_data/garlic.25c3fa6f912b.csv"
+      },
+      {
+        "@type": "FileObject",
+        "name": "brazil_nut.473498d12e1e.csv",
+        "path": "raw_data/brazil_nut.473498d12e1e.csv"
+      }
+    ]
+  }
+]

@@ -1,0 +1,103 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "croissant": "https://mlcommons.org/croissant#"
+  },
+  "@type": "Dataset",
+  "name": "SMELLNET",
+  "description": "A large-scale smell dataset with multi-channel gas sensor time series and GC-MS embeddings for 50 food-based ingredients. Designed for classification, multimodal alignment, and real-time robustness.",
+  "identifier": "https://huggingface.co/datasets/DeweiFeng/smell-net",
+  "version": "1.0",
+  "datePublished": "2025-05-15",
+  "keywords": [
+    "smell", "olfaction", "gas sensors", "GC-MS", "contrastive learning", "multimodal", "time series"
+  ],
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "creator": {
+    "@type": "Person",
+    "name": "Dewei Feng",
+    "affiliation": "SMELLNET Project"
+  },
+  "distribution": [
+    {
+      "@type": "FileObject",
+      "name": "offline_testing.zip",
+      "path": "data/offline_testing.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "8d45a06371582c4eef3bfcb91ed9517f7e9680f5d25bcc17a67fe671e1b5e289",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/offline_testing.zip"
+    },
+    {
+      "@type": "FileObject",
+      "name": "offline_training.zip",
+      "path": "data/offline_training.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "5ccd81e60a5ada6a61c56efd784d08ccd061ce40121fe6ac02a2fd9eaeea946a",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/offline_training.zip"
+    },
+    {
+      "@type": "FileObject",
+      "name": "online_nuts.zip",
+      "path": "data/online_nuts.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "3d8158d4bc1829af9893beca2f43b75f598a84ea8cd7fedc5cc63c14e814b9c5",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/online_nuts.zip"
+    },
+    {
+      "@type": "FileObject",
+      "name": "online_spices.zip",
+      "path": "data/online_spices.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "7572280fdcb773224721e00c58b2466ead72e22def206192ada949b0896d2a46",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/online_spices.zip"
+    },
+    {
+      "@type": "FileObject",
+      "name": "raw_data.zip",
+      "path": "data/raw_data.zip",
+      "encodingFormat": "application/zip",
+      "sha256": "4aa6b826835692d6311427ea5ed3c0bcedb2d4f7f19de3e8c295889af692cd7e",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/raw_data.zip"
+    },
+    {
+      "@type": "FileObject",
+      "name": "gcms_dataframe.csv",
+      "path": "data/gcms_dataframe.csv",
+      "encodingFormat": "text/csv",
+      "sha256": "3f4fb85b2d77588546788c117cc505a1798db5508dc812b3ed1c472949c2a7a5",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/gcms_dataframe.csv"
+    },
+    {
+      "@type": "FileObject",
+      "name": "text_description.json",
+      "path": "data/text_description.json",
+      "encodingFormat": "application/json",
+      "sha256": "4e4baeb5399c784eb14bb6acfe2da8b93a228f897e0e99eb6a13d95fda299fb5",
+      "contentUrl": "https://huggingface.co/datasets/DeweiFeng/smell-net/resolve/main/data/text_descriptions.json"
+    }
+  ],
+  "dataStructureDefinition": {
+    "columns": [
+      { "name": "time_step", "description": "Time step index for the recording window." },
+      { "name": "NO2", "description": "Nitrogen dioxide concentration." },
+      { "name": "Alcohol", "description": "Alcohol concentration in the air." },
+      { "name": "CO", "description": "Carbon monoxide concentration." },
+      { "name": "VOC", "description": "Volatile Organic Compounds reading." },
+      { "name": "C2H5OH", "description": "Ethanol (ethyl alcohol) reading." },
+      { "name": "Temperature", "description": "Temperature in Celsius." },
+      { "name": "Humidity", "description": "Relative humidity in percentage." },
+      { "name": "Pressure", "description": "Air pressure in hPa." },
+      { "name": "Gas_Resistance", "description": "Raw resistance value of the gas sensor." },
+      { "name": "Altitude", "description": "Estimated altitude from pressure." },
+      { "name": "LPG", "description": "Liquefied Petroleum Gas concentration." },
+      { "name": "Benzene", "description": "Benzene concentration." }
+    ]
+  },
+  "isAccessibleForFree": true,
+  "includedInDataCatalog": {
+    "@type": "DataCatalog",
+    "name": "MLCommons Croissant Datasets"
+  },
+  "citation": "Feng, D. et al. (2025). SMELLNET: A Large-scale Dataset for Real-world Smell Recognition."
+
+}
