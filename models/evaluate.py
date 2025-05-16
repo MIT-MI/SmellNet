@@ -259,8 +259,6 @@ def contrastive_evaluate(
     logger.info(f"Top-1 Accuracy: {top1_correct:.2f}%")
     logger.info(f"Top-5 Accuracy: {top5_correct:.2f}%")
 
-    print(top5_pred.cpu().numpy().shape)
-
     return top1_correct, top5_correct, top5_pred.cpu().numpy(), top5_sim.cpu().numpy()
 
 

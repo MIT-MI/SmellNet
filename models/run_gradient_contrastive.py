@@ -173,27 +173,27 @@ def main():
     _, _, top5_pred, top5_sim = contrastive_evaluate(testing_data, gcms_scaled, testing_label, gcms_model, sensor_model, logger)
 
 
-    # Calculate per-ingredient Top-1 accuracy
-    total_counts = defaultdict(int)
-    correct_counts = defaultdict(int)
+    # # Calculate per-ingredient Top-1 accuracy
+    # total_counts = defaultdict(int)
+    # correct_counts = defaultdict(int)
 
-    for true_label, pred_label in zip(testing_label, top5_pred):
-        ingredient = le.inverse_transform([true_label])[0]
-        pred_ingredient = le.inverse_transform([pred_label[0]])[0]
-        total_counts[ingredient] += 1
-        if ingredient == pred_ingredient:
-            correct_counts[ingredient] += 1
+    # for true_label, pred_label in zip(testing_label, top5_pred):
+    #     ingredient = le.inverse_transform([true_label])[0]
+    #     pred_ingredient = le.inverse_transform([pred_label[0]])[0]
+    #     total_counts[ingredient] += 1
+    #     if ingredient == pred_ingredient:
+    #         correct_counts[ingredient] += 1
 
-    # Compute per-ingredient accuracy from your evaluation
-    ingredients = sorted(total_counts.keys())
-    accuracies = [correct_counts[ing] / total_counts[ing] for ing in ingredients]
+    # # Compute per-ingredient accuracy from your evaluation
+    # ingredients = sorted(total_counts.keys())
+    # accuracies = [correct_counts[ing] / total_counts[ing] for ing in ingredients]
 
-    # Zip and sort by accuracy descending
-    sorted_data = sorted(zip(ingredients, accuracies), key=lambda x: x[1], reverse=True)
-    sorted_ingredients, sorted_accuracies = zip(*sorted_data)
-    sorted_colors = [category_colors[ingredient_to_category[ing]] for ing in sorted_ingredients]
+    # # Zip and sort by accuracy descending
+    # sorted_data = sorted(zip(ingredients, accuracies), key=lambda x: x[1], reverse=True)
+    # sorted_ingredients, sorted_accuracies = zip(*sorted_data)
+    # sorted_colors = [category_colors[ingredient_to_category[ing]] for ing in sorted_ingredients]
 
-    plot_per_ingredient_accuracy(sorted_ingredients, sorted_accuracies, sorted_colors, ingredient_to_category, category_colors)
+    # plot_per_ingredient_accuracy(sorted_ingredients, sorted_accuracies, sorted_colors, ingredient_to_category, category_colors)
 
 if __name__ == "__main__":
     main()
