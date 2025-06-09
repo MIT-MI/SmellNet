@@ -37,13 +37,20 @@ def main():
     #     logger.info(category)
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path)
+        training_path, testing_path, real_time_testing_path=real_time_testing_path
+    )
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
-        
-    train_data, train_label, _ = prepare_data_transformer_gradient(training_data, le=le, period_len=period_len)
-    test_data, test_label, _ = prepare_data_transformer_gradient(testing_data, le=le, period_len=period_len)
-    real_test_data, real_test_label, _ = prepare_data_transformer_gradient(real_time_testing_data, le=le, period_len=period_len)
+
+    train_data, train_label, _ = prepare_data_transformer_gradient(
+        training_data, le=le, period_len=period_len
+    )
+    test_data, test_label, _ = prepare_data_transformer_gradient(
+        testing_data, le=le, period_len=period_len
+    )
+    real_test_data, real_test_label, _ = prepare_data_transformer_gradient(
+        real_time_testing_data, le=le, period_len=period_len
+    )
 
     training_pair_data, _ = create_pair_data(train_data, train_label, gcms_scaled, le)
 
@@ -54,7 +61,7 @@ def main():
 
     sampler = UniqueGCMSampler(train_dataset.data, batch_size)
     loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
-    
+
     sensor_model = TimeSeriesTransformer(
         input_dim=12, model_dim=64, num_classes=len(le.classes_)
     )
@@ -63,13 +70,29 @@ def main():
 
     contrastive_train(gcms_model, sensor_model, loader, logger, num_epochs=num_epochs)
 
-    torch.save(sensor_model.state_dict(), f'saved_models/transformer_contrastive/gradient_sensor_model_weights.pth')
-    torch.save(gcms_model.state_dict(), f'saved_models/transformer_contrastive/gradient_gcms_model_weights.pth')
+    torch.save(
+        sensor_model.state_dict(),
+        f"saved_models/transformer_contrastive/gradient_sensor_model_weights.pth",
+    )
+    torch.save(
+        gcms_model.state_dict(),
+        f"saved_models/transformer_contrastive/gradient_gcms_model_weights.pth",
+    )
 
-    sensor_model.load_state_dict(torch.load(f'saved_models/transformer_contrastive/gradient_sensor_model_weights.pth'))
-    gcms_model.load_state_dict(torch.load(f'saved_models/transformer_contrastive/gradient_gcms_model_weights.pth'))
+    sensor_model.load_state_dict(
+        torch.load(
+            f"saved_models/transformer_contrastive/gradient_sensor_model_weights.pth"
+        )
+    )
+    gcms_model.load_state_dict(
+        torch.load(
+            f"saved_models/transformer_contrastive/gradient_gcms_model_weights.pth"
+        )
+    )
 
-    contrastive_evaluate(real_test_data, gcms_scaled, real_test_label, gcms_model, sensor_model, logger)
+    contrastive_evaluate(
+        real_test_data, gcms_scaled, real_test_label, gcms_model, sensor_model, logger
+    )
 
 
 if __name__ == "__main__":

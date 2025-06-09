@@ -10,7 +10,6 @@ ingredient_to_category = {
     "pecans": "Nuts",
     "brazil_nut": "Nuts",
     "pili_nut": "Nuts",
-    
     # Spices
     "cumin": "Spices",
     "star_anise": "Spices",
@@ -22,7 +21,6 @@ ingredient_to_category = {
     "mustard": "Spices",
     "cinnamon": "Spices",
     "saffron": "Spices",
-    
     # Herbs
     "angelica": "Herbs",
     "garlic": "Herbs",
@@ -34,7 +32,6 @@ ingredient_to_category = {
     "coriander": "Herbs",
     "oregano": "Herbs",
     "mint": "Herbs",
-    
     # Fruits
     "kiwi": "Fruits",
     "pineapple": "Fruits",
@@ -46,7 +43,6 @@ ingredient_to_category = {
     "mango": "Fruits",
     "peach": "Fruits",
     "pear": "Fruits",
-    
     # Vegetables
     "cauliflower": "Vegetables",
     "brussel_sprouts": "Vegetables",

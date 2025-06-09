@@ -33,7 +33,11 @@ def transformer_evaluate(model, testing_data, le, logger):
             preds = torch.argmax(probs, dim=1)
             top5_preds = torch.topk(probs, k=5, dim=1).indices  # [num_windows, 5]
 
-        return preds.cpu().numpy(), top5_preds.cpu().numpy(), [ingredient] * len(segments)
+        return (
+            preds.cpu().numpy(),
+            top5_preds.cpu().numpy(),
+            [ingredient] * len(segments),
+        )
 
     # === Run on test_data ===
     all_preds = []
@@ -69,9 +73,11 @@ def transformer_evaluate(model, testing_data, le, logger):
     #     logger.info(f"True: {true:15s} | Predicted: {pred}")
 
 
-def regular_evaluate(model, data_loader, le, logger=None, lstm=False, translation=False):
+def regular_evaluate(
+    model, data_loader, le, logger=None, lstm=False, translation=False
+):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    
+
     model.to(device)
     model.double()
     model.eval()
@@ -110,9 +116,11 @@ def regular_evaluate(model, data_loader, le, logger=None, lstm=False, translatio
     return acc
 
 
-def regular_evaluate_top5(model, data_loader, le, logger=None, lstm=False, translation=False):
+def regular_evaluate_top5(
+    model, data_loader, le, logger=None, lstm=False, translation=False
+):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    
+
     model.to(device)
     model.double()
     model.eval()
@@ -132,7 +140,7 @@ def regular_evaluate_top5(model, data_loader, le, logger=None, lstm=False, trans
             else:
                 logits = model(inputs)
             probs = torch.softmax(logits, dim=1)
-            
+
             # Get top-5 predictions
             top5_preds = torch.topk(probs, k=5, dim=1).indices  # shape [batch_size, 5]
 
@@ -158,7 +166,7 @@ def regular_evaluate_top5(model, data_loader, le, logger=None, lstm=False, trans
 
 def fusion_evaluate(model, data_loader, le, logger=None):
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-    
+
     model.to(device)
     model.double()
     model.eval()
@@ -172,7 +180,10 @@ def fusion_evaluate(model, data_loader, le, logger=None):
             inputs = inputs.to(device, dtype=torch.double)
             labels = labels.to(device)
 
-            logits = model(inputs, torch.zeros((inputs.shape[0], 17), device=device, dtype=torch.double))
+            logits = model(
+                inputs,
+                torch.zeros((inputs.shape[0], 17), device=device, dtype=torch.double),
+            )
             probs = torch.softmax(logits, dim=1)
             preds = torch.argmax(probs, dim=1)
             top5_preds = torch.topk(probs, k=5, dim=1).indices  # [batch_size, 5]
@@ -212,7 +223,7 @@ def contrastive_evaluate(
     gcms_encoder,
     sensor_encoder,
     logger,
-    lstm=False
+    lstm=False,
 ):
     """
     Evaluate how well the model matches GCMS embeddings to sensor embeddings.
@@ -251,9 +262,9 @@ def contrastive_evaluate(
 
         # Top-5 predictions
         top5_sim, top5_pred = torch.topk(sim, k=5, dim=1)  # values and indices
-        top5_correct = (
-            top5_pred == test_smell_label.unsqueeze(1)
-        ).any(dim=1).float().mean().item() * 100
+        top5_correct = (top5_pred == test_smell_label.unsqueeze(1)).any(
+            dim=1
+        ).float().mean().item() * 100
 
     logger.info("------------------Test Statistics---------------------")
     logger.info(f"Top-1 Accuracy: {top1_correct:.2f}%")
@@ -318,7 +329,6 @@ def contrastive_evaluate_transformer(
 
     # Compute similarity matrix
     sim = torch.matmul(all_smell_embeddings, z_gcms.T)
-    
 
     # Top-1 GCMS prediction
     predicted = sim.argmax(dim=1)
@@ -326,12 +336,16 @@ def contrastive_evaluate_transformer(
     # Evaluate
     correct = predicted == all_smell_labels
     accuracy = correct.float().mean().item()
-    precision = precision_score(all_smell_labels.cpu(), predicted.cpu(), average="macro")
+    precision = precision_score(
+        all_smell_labels.cpu(), predicted.cpu(), average="macro"
+    )
     recall = recall_score(all_smell_labels.cpu(), predicted.cpu(), average="macro")
     f1 = f1_score(all_smell_labels.cpu(), predicted.cpu(), average="macro")
     conf_matrix = confusion_matrix(all_smell_labels.cpu(), predicted.cpu())
 
-    logger.info("------------------Transformer Contrastive Evaluation---------------------")
+    logger.info(
+        "------------------Transformer Contrastive Evaluation---------------------"
+    )
     logger.info(f"Accuracy: {accuracy:.4f}")
     logger.info(f"Precision (macro): {precision:.4f}")
     logger.info(f"Recall (macro): {recall:.4f}")

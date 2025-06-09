@@ -1,0 +1,482 @@
+2025-05-21 22:57:02,323 - INFO - ------------------------------------Gradient Period 25-------------------------------------------
+2025-05-21 22:57:02,323 - INFO - [Gradient Period 25 Run 1] Starting
+2025-05-21 22:57:03,984 - INFO - Training on device: cuda
+2025-05-21 22:58:22,080 - INFO - [Gradient Period 25 Run 1] Training time: 79.76s
+2025-05-21 22:58:22,580 - INFO - ✅ Regular Evaluation Accuracy: 62.37%
+2025-05-21 22:58:22,784 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 92.10%
+2025-05-21 22:58:22,834 - INFO - ✅ Regular Evaluation Accuracy: 4.90%
+2025-05-21 22:58:22,872 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 27.45%
+2025-05-21 22:58:23,163 - INFO - ✅ Regular Evaluation Accuracy: 33.85%
+2025-05-21 22:58:23,209 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 69.23%
+2025-05-21 22:58:23,209 - INFO - Nuts
+2025-05-21 22:58:23,457 - INFO - ✅ Regular Evaluation Accuracy: 62.14%
+2025-05-21 22:58:23,494 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.32%
+2025-05-21 22:58:23,494 - INFO - Spices
+2025-05-21 22:58:23,733 - INFO - ✅ Regular Evaluation Accuracy: 65.26%
+2025-05-21 22:58:23,766 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 98.95%
+2025-05-21 22:58:23,766 - INFO - Herbs
+2025-05-21 22:58:24,009 - INFO - ✅ Regular Evaluation Accuracy: 54.64%
+2025-05-21 22:58:24,043 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 78.35%
+2025-05-21 22:58:24,044 - INFO - Fruits
+2025-05-21 22:58:24,282 - INFO - ✅ Regular Evaluation Accuracy: 71.28%
+2025-05-21 22:58:24,314 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 96.81%
+2025-05-21 22:58:24,315 - INFO - Vegetables
+2025-05-21 22:58:24,554 - INFO - ✅ Regular Evaluation Accuracy: 58.70%
+2025-05-21 22:58:24,586 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 97.83%
+2025-05-21 22:58:24,587 - INFO - [Gradient Period 25 Run 2] Starting
+2025-05-21 22:58:25,357 - INFO - Training on device: cuda
+2025-05-21 22:59:43,319 - INFO - [Gradient Period 25 Run 2] Training time: 78.73s
+2025-05-21 22:59:43,802 - INFO - ✅ Regular Evaluation Accuracy: 64.86%
+2025-05-21 22:59:43,973 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.40%
+2025-05-21 22:59:44,022 - INFO - ✅ Regular Evaluation Accuracy: 3.92%
+2025-05-21 22:59:44,059 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 35.29%
+2025-05-21 22:59:44,347 - INFO - ✅ Regular Evaluation Accuracy: 21.54%
+2025-05-21 22:59:44,396 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 60.77%
+2025-05-21 22:59:44,396 - INFO - Nuts
+2025-05-21 22:59:44,639 - INFO - ✅ Regular Evaluation Accuracy: 62.14%
+2025-05-21 22:59:44,675 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.32%
+2025-05-21 22:59:44,676 - INFO - Spices
+2025-05-21 22:59:44,918 - INFO - ✅ Regular Evaluation Accuracy: 60.00%
+2025-05-21 22:59:44,952 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.74%
+2025-05-21 22:59:44,953 - INFO - Herbs
+2025-05-21 22:59:45,196 - INFO - ✅ Regular Evaluation Accuracy: 63.92%
+2025-05-21 22:59:45,231 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 78.35%
+2025-05-21 22:59:45,231 - INFO - Fruits
+2025-05-21 22:59:45,472 - INFO - ✅ Regular Evaluation Accuracy: 74.47%
+2025-05-21 22:59:45,504 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.62%
+2025-05-21 22:59:45,504 - INFO - Vegetables
+2025-05-21 22:59:45,743 - INFO - ✅ Regular Evaluation Accuracy: 64.13%
+2025-05-21 22:59:45,775 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.30%
+2025-05-21 22:59:45,777 - INFO - [Gradient Period 25 Run 3] Starting
+2025-05-21 22:59:46,537 - INFO - Training on device: cuda
+2025-05-21 23:01:05,558 - INFO - [Gradient Period 25 Run 3] Training time: 79.78s
+2025-05-21 23:01:06,036 - INFO - ✅ Regular Evaluation Accuracy: 61.54%
+2025-05-21 23:01:06,207 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.81%
+2025-05-21 23:01:06,256 - INFO - ✅ Regular Evaluation Accuracy: 7.84%
+2025-05-21 23:01:06,295 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 27.45%
+2025-05-21 23:01:06,579 - INFO - ✅ Regular Evaluation Accuracy: 14.62%
+2025-05-21 23:01:06,626 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 47.69%
+2025-05-21 23:01:06,626 - INFO - Nuts
+2025-05-21 23:01:06,870 - INFO - ✅ Regular Evaluation Accuracy: 50.49%
+2025-05-21 23:01:06,908 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.41%
+2025-05-21 23:01:06,908 - INFO - Spices
+2025-05-21 23:01:07,149 - INFO - ✅ Regular Evaluation Accuracy: 61.05%
+2025-05-21 23:01:07,183 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.68%
+2025-05-21 23:01:07,183 - INFO - Herbs
+2025-05-21 23:01:07,429 - INFO - ✅ Regular Evaluation Accuracy: 57.73%
+2025-05-21 23:01:07,465 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 81.44%
+2025-05-21 23:01:07,465 - INFO - Fruits
+2025-05-21 23:01:07,705 - INFO - ✅ Regular Evaluation Accuracy: 80.85%
+2025-05-21 23:01:07,738 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 97.87%
+2025-05-21 23:01:07,738 - INFO - Vegetables
+2025-05-21 23:01:07,980 - INFO - ✅ Regular Evaluation Accuracy: 58.70%
+2025-05-21 23:01:08,012 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.22%
+2025-05-21 23:01:08,013 - INFO - [Gradient Period 25 Run 4] Starting
+2025-05-21 23:01:08,778 - INFO - Training on device: cuda
+2025-05-21 23:02:26,905 - INFO - [Gradient Period 25 Run 4] Training time: 78.89s
+2025-05-21 23:02:27,393 - INFO - ✅ Regular Evaluation Accuracy: 60.71%
+2025-05-21 23:02:27,565 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.27%
+2025-05-21 23:02:27,614 - INFO - ✅ Regular Evaluation Accuracy: 5.88%
+2025-05-21 23:02:27,651 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 30.39%
+2025-05-21 23:02:27,938 - INFO - ✅ Regular Evaluation Accuracy: 20.00%
+2025-05-21 23:02:27,987 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 62.31%
+2025-05-21 23:02:27,987 - INFO - Nuts
+2025-05-21 23:02:28,233 - INFO - ✅ Regular Evaluation Accuracy: 58.25%
+2025-05-21 23:02:28,272 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.20%
+2025-05-21 23:02:28,272 - INFO - Spices
+2025-05-21 23:02:28,515 - INFO - ✅ Regular Evaluation Accuracy: 55.79%
+2025-05-21 23:02:28,550 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.47%
+2025-05-21 23:02:28,551 - INFO - Herbs
+2025-05-21 23:02:28,796 - INFO - ✅ Regular Evaluation Accuracy: 57.73%
+2025-05-21 23:02:28,831 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 82.47%
+2025-05-21 23:02:28,831 - INFO - Fruits
+2025-05-21 23:02:29,070 - INFO - ✅ Regular Evaluation Accuracy: 70.21%
+2025-05-21 23:02:29,102 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.68%
+2025-05-21 23:02:29,103 - INFO - Vegetables
+2025-05-21 23:02:29,345 - INFO - ✅ Regular Evaluation Accuracy: 61.96%
+2025-05-21 23:02:29,377 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 96.74%
+2025-05-21 23:02:29,379 - INFO - [Gradient Period 25 Run 5] Starting
+2025-05-21 23:02:30,282 - INFO - Training on device: cuda
+2025-05-21 23:03:49,051 - INFO - [Gradient Period 25 Run 5] Training time: 79.67s
+2025-05-21 23:03:49,538 - INFO - ✅ Regular Evaluation Accuracy: 65.28%
+2025-05-21 23:03:49,708 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.48%
+2025-05-21 23:03:49,757 - INFO - ✅ Regular Evaluation Accuracy: 8.82%
+2025-05-21 23:03:49,794 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 38.24%
+2025-05-21 23:03:50,082 - INFO - ✅ Regular Evaluation Accuracy: 20.77%
+2025-05-21 23:03:50,131 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 53.85%
+2025-05-21 23:03:50,131 - INFO - Nuts
+2025-05-21 23:03:50,376 - INFO - ✅ Regular Evaluation Accuracy: 62.14%
+2025-05-21 23:03:50,415 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 92.23%
+2025-05-21 23:03:50,415 - INFO - Spices
+2025-05-21 23:03:50,657 - INFO - ✅ Regular Evaluation Accuracy: 61.05%
+2025-05-21 23:03:50,693 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.53%
+2025-05-21 23:03:50,693 - INFO - Herbs
+2025-05-21 23:03:50,938 - INFO - ✅ Regular Evaluation Accuracy: 63.92%
+2025-05-21 23:03:50,973 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 85.57%
+2025-05-21 23:03:50,973 - INFO - Fruits
+2025-05-21 23:03:51,215 - INFO - ✅ Regular Evaluation Accuracy: 72.34%
+2025-05-21 23:03:51,247 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.62%
+2025-05-21 23:03:51,247 - INFO - Vegetables
+2025-05-21 23:03:51,489 - INFO - ✅ Regular Evaluation Accuracy: 67.39%
+2025-05-21 23:03:51,523 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.65%
+2025-05-21 23:03:51,524 - INFO - [Gradient Period 25 Run 6] Starting
+2025-05-21 23:03:52,290 - INFO - Training on device: cuda
+2025-05-21 23:05:10,534 - INFO - [Gradient Period 25 Run 6] Training time: 79.01s
+2025-05-21 23:05:11,018 - INFO - ✅ Regular Evaluation Accuracy: 62.37%
+2025-05-21 23:05:11,191 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.23%
+2025-05-21 23:05:11,240 - INFO - ✅ Regular Evaluation Accuracy: 13.73%
+2025-05-21 23:05:11,277 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 33.33%
+2025-05-21 23:05:11,563 - INFO - ✅ Regular Evaluation Accuracy: 19.23%
+2025-05-21 23:05:11,612 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 54.62%
+2025-05-21 23:05:11,612 - INFO - Nuts
+2025-05-21 23:05:11,856 - INFO - ✅ Regular Evaluation Accuracy: 53.40%
+2025-05-21 23:05:11,892 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 92.23%
+2025-05-21 23:05:11,892 - INFO - Spices
+2025-05-21 23:05:12,134 - INFO - ✅ Regular Evaluation Accuracy: 66.32%
+2025-05-21 23:05:12,167 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.58%
+2025-05-21 23:05:12,167 - INFO - Herbs
+2025-05-21 23:05:12,414 - INFO - ✅ Regular Evaluation Accuracy: 59.79%
+2025-05-21 23:05:12,451 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 82.47%
+2025-05-21 23:05:12,451 - INFO - Fruits
+2025-05-21 23:05:12,691 - INFO - ✅ Regular Evaluation Accuracy: 77.66%
+2025-05-21 23:05:12,723 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.43%
+2025-05-21 23:05:12,723 - INFO - Vegetables
+2025-05-21 23:05:12,963 - INFO - ✅ Regular Evaluation Accuracy: 55.43%
+2025-05-21 23:05:12,995 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.57%
+2025-05-21 23:05:12,996 - INFO - [Gradient Period 25 Run 7] Starting
+2025-05-21 23:05:13,743 - INFO - Training on device: cuda
+2025-05-21 23:06:31,750 - INFO - [Gradient Period 25 Run 7] Training time: 78.75s
+2025-05-21 23:06:32,233 - INFO - ✅ Regular Evaluation Accuracy: 62.99%
+2025-05-21 23:06:32,410 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.40%
+2025-05-21 23:06:32,459 - INFO - ✅ Regular Evaluation Accuracy: 9.80%
+2025-05-21 23:06:32,496 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 31.37%
+2025-05-21 23:06:32,783 - INFO - ✅ Regular Evaluation Accuracy: 16.15%
+2025-05-21 23:06:32,832 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 51.54%
+2025-05-21 23:06:32,832 - INFO - Nuts
+2025-05-21 23:06:33,079 - INFO - ✅ Regular Evaluation Accuracy: 61.17%
+2025-05-21 23:06:33,118 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 84.47%
+2025-05-21 23:06:33,118 - INFO - Spices
+2025-05-21 23:06:33,360 - INFO - ✅ Regular Evaluation Accuracy: 62.11%
+2025-05-21 23:06:33,393 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.74%
+2025-05-21 23:06:33,393 - INFO - Herbs
+2025-05-21 23:06:33,639 - INFO - ✅ Regular Evaluation Accuracy: 52.58%
+2025-05-21 23:06:33,674 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 81.44%
+2025-05-21 23:06:33,674 - INFO - Fruits
+2025-05-21 23:06:33,915 - INFO - ✅ Regular Evaluation Accuracy: 81.91%
+2025-05-21 23:06:33,948 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 97.87%
+2025-05-21 23:06:33,948 - INFO - Vegetables
+2025-05-21 23:06:34,192 - INFO - ✅ Regular Evaluation Accuracy: 57.61%
+2025-05-21 23:06:34,223 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.13%
+2025-05-21 23:06:34,225 - INFO - [Gradient Period 25 Run 8] Starting
+2025-05-21 23:06:34,974 - INFO - Training on device: cuda
+2025-05-21 23:07:52,831 - INFO - [Gradient Period 25 Run 8] Training time: 78.61s
+2025-05-21 23:07:53,317 - INFO - ✅ Regular Evaluation Accuracy: 61.33%
+2025-05-21 23:07:53,496 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.44%
+2025-05-21 23:07:53,545 - INFO - ✅ Regular Evaluation Accuracy: 13.73%
+2025-05-21 23:07:53,583 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 32.35%
+2025-05-21 23:07:53,871 - INFO - ✅ Regular Evaluation Accuracy: 31.54%
+2025-05-21 23:07:53,920 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 66.15%
+2025-05-21 23:07:53,921 - INFO - Nuts
+2025-05-21 23:07:54,170 - INFO - ✅ Regular Evaluation Accuracy: 65.05%
+2025-05-21 23:07:54,208 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.29%
+2025-05-21 23:07:54,209 - INFO - Spices
+2025-05-21 23:07:54,451 - INFO - ✅ Regular Evaluation Accuracy: 67.37%
+2025-05-21 23:07:54,485 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.58%
+2025-05-21 23:07:54,485 - INFO - Herbs
+2025-05-21 23:07:54,731 - INFO - ✅ Regular Evaluation Accuracy: 52.58%
+2025-05-21 23:07:54,768 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 83.51%
+2025-05-21 23:07:54,769 - INFO - Fruits
+2025-05-21 23:07:55,013 - INFO - ✅ Regular Evaluation Accuracy: 62.77%
+2025-05-21 23:07:55,047 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.62%
+2025-05-21 23:07:55,047 - INFO - Vegetables
+2025-05-21 23:07:55,291 - INFO - ✅ Regular Evaluation Accuracy: 58.70%
+2025-05-21 23:07:55,323 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.48%
+2025-05-21 23:07:55,324 - INFO - [Gradient Period 25 Run 9] Starting
+2025-05-21 23:07:56,086 - INFO - Training on device: cuda
+2025-05-21 23:09:14,216 - INFO - [Gradient Period 25 Run 9] Training time: 78.89s
+2025-05-21 23:09:14,700 - INFO - ✅ Regular Evaluation Accuracy: 64.24%
+2025-05-21 23:09:14,875 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.18%
+2025-05-21 23:09:14,924 - INFO - ✅ Regular Evaluation Accuracy: 7.84%
+2025-05-21 23:09:14,962 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 34.31%
+2025-05-21 23:09:15,249 - INFO - ✅ Regular Evaluation Accuracy: 30.00%
+2025-05-21 23:09:15,299 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 72.31%
+2025-05-21 23:09:15,299 - INFO - Nuts
+2025-05-21 23:09:15,548 - INFO - ✅ Regular Evaluation Accuracy: 59.22%
+2025-05-21 23:09:15,587 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.20%
+2025-05-21 23:09:15,587 - INFO - Spices
+2025-05-21 23:09:15,830 - INFO - ✅ Regular Evaluation Accuracy: 63.16%
+2025-05-21 23:09:15,866 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.79%
+2025-05-21 23:09:15,866 - INFO - Herbs
+2025-05-21 23:09:16,222 - INFO - ✅ Regular Evaluation Accuracy: 63.92%
+2025-05-21 23:09:16,257 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.81%
+2025-05-21 23:09:16,257 - INFO - Fruits
+2025-05-21 23:09:16,499 - INFO - ✅ Regular Evaluation Accuracy: 70.21%
+2025-05-21 23:09:16,533 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.74%
+2025-05-21 23:09:16,534 - INFO - Vegetables
+2025-05-21 23:09:16,776 - INFO - ✅ Regular Evaluation Accuracy: 65.22%
+2025-05-21 23:09:16,808 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 92.39%
+2025-05-21 23:09:16,809 - INFO - [Gradient Period 25 Run 10] Starting
+2025-05-21 23:09:17,580 - INFO - Training on device: cuda
+2025-05-21 23:10:35,315 - INFO - [Gradient Period 25 Run 10] Training time: 78.51s
+2025-05-21 23:10:35,799 - INFO - ✅ Regular Evaluation Accuracy: 59.04%
+2025-05-21 23:10:35,976 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.48%
+2025-05-21 23:10:36,026 - INFO - ✅ Regular Evaluation Accuracy: 2.94%
+2025-05-21 23:10:36,065 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.43%
+2025-05-21 23:10:36,354 - INFO - ✅ Regular Evaluation Accuracy: 21.54%
+2025-05-21 23:10:36,403 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 60.77%
+2025-05-21 23:10:36,403 - INFO - Nuts
+2025-05-21 23:10:36,653 - INFO - ✅ Regular Evaluation Accuracy: 58.25%
+2025-05-21 23:10:36,692 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 88.35%
+2025-05-21 23:10:36,692 - INFO - Spices
+2025-05-21 23:10:36,937 - INFO - ✅ Regular Evaluation Accuracy: 61.05%
+2025-05-21 23:10:36,973 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.79%
+2025-05-21 23:10:36,973 - INFO - Herbs
+2025-05-21 23:10:37,220 - INFO - ✅ Regular Evaluation Accuracy: 55.67%
+2025-05-21 23:10:37,257 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.69%
+2025-05-21 23:10:37,257 - INFO - Fruits
+2025-05-21 23:10:37,499 - INFO - ✅ Regular Evaluation Accuracy: 63.83%
+2025-05-21 23:10:37,532 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 88.30%
+2025-05-21 23:10:37,532 - INFO - Vegetables
+2025-05-21 23:10:37,774 - INFO - ✅ Regular Evaluation Accuracy: 56.52%
+2025-05-21 23:10:37,806 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.65%
+2025-05-21 23:10:37,808 - INFO - ------------------------------------Gradient Period 50-------------------------------------------
+2025-05-21 23:10:37,808 - INFO - [Gradient Period 50 Run 1] Starting
+2025-05-21 23:10:38,536 - INFO - Training on device: cuda
+2025-05-21 23:11:52,623 - INFO - [Gradient Period 50 Run 1] Training time: 74.81s
+2025-05-21 23:11:53,094 - INFO - ✅ Regular Evaluation Accuracy: 58.98%
+2025-05-21 23:11:53,260 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.47%
+2025-05-21 23:11:53,307 - INFO - ✅ Regular Evaluation Accuracy: 6.32%
+2025-05-21 23:11:53,343 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 38.95%
+2025-05-21 23:11:53,625 - INFO - ✅ Regular Evaluation Accuracy: 25.62%
+2025-05-21 23:11:53,670 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 74.38%
+2025-05-21 23:11:53,671 - INFO - Nuts
+2025-05-21 23:11:53,916 - INFO - ✅ Regular Evaluation Accuracy: 59.38%
+2025-05-21 23:11:53,952 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 92.71%
+2025-05-21 23:11:53,952 - INFO - Spices
+2025-05-21 23:11:54,192 - INFO - ✅ Regular Evaluation Accuracy: 43.18%
+2025-05-21 23:11:54,225 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.36%
+2025-05-21 23:11:54,225 - INFO - Herbs
+2025-05-21 23:11:54,466 - INFO - ✅ Regular Evaluation Accuracy: 53.41%
+2025-05-21 23:11:54,497 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 85.23%
+2025-05-21 23:11:54,497 - INFO - Fruits
+2025-05-21 23:11:54,737 - INFO - ✅ Regular Evaluation Accuracy: 76.40%
+2025-05-21 23:11:54,771 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.51%
+2025-05-21 23:11:54,771 - INFO - Vegetables
+2025-05-21 23:11:55,012 - INFO - ✅ Regular Evaluation Accuracy: 62.22%
+2025-05-21 23:11:55,045 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 92.22%
+2025-05-21 23:11:55,047 - INFO - [Gradient Period 50 Run 2] Starting
+2025-05-21 23:11:55,777 - INFO - Training on device: cuda
+2025-05-21 23:13:09,497 - INFO - [Gradient Period 50 Run 2] Training time: 74.45s
+2025-05-21 23:13:09,972 - INFO - ✅ Regular Evaluation Accuracy: 62.08%
+2025-05-21 23:13:10,147 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.36%
+2025-05-21 23:13:10,192 - INFO - ✅ Regular Evaluation Accuracy: 8.42%
+2025-05-21 23:13:10,227 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 21.05%
+2025-05-21 23:13:10,509 - INFO - ✅ Regular Evaluation Accuracy: 33.06%
+2025-05-21 23:13:10,554 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 74.38%
+2025-05-21 23:13:10,554 - INFO - Nuts
+2025-05-21 23:13:10,801 - INFO - ✅ Regular Evaluation Accuracy: 66.67%
+2025-05-21 23:13:10,837 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 96.88%
+2025-05-21 23:13:10,838 - INFO - Spices
+2025-05-21 23:13:11,079 - INFO - ✅ Regular Evaluation Accuracy: 51.14%
+2025-05-21 23:13:11,112 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 79.55%
+2025-05-21 23:13:11,112 - INFO - Herbs
+2025-05-21 23:13:11,357 - INFO - ✅ Regular Evaluation Accuracy: 57.95%
+2025-05-21 23:13:11,390 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.91%
+2025-05-21 23:13:11,390 - INFO - Fruits
+2025-05-21 23:13:11,632 - INFO - ✅ Regular Evaluation Accuracy: 73.03%
+2025-05-21 23:13:11,665 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 96.63%
+2025-05-21 23:13:11,665 - INFO - Vegetables
+2025-05-21 23:13:11,910 - INFO - ✅ Regular Evaluation Accuracy: 61.11%
+2025-05-21 23:13:11,943 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 82.22%
+2025-05-21 23:13:11,945 - INFO - [Gradient Period 50 Run 3] Starting
+2025-05-21 23:13:12,675 - INFO - Training on device: cuda
+2025-05-21 23:14:26,847 - INFO - [Gradient Period 50 Run 3] Training time: 74.90s
+2025-05-21 23:14:27,317 - INFO - ✅ Regular Evaluation Accuracy: 61.42%
+2025-05-21 23:14:27,482 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.69%
+2025-05-21 23:14:27,528 - INFO - ✅ Regular Evaluation Accuracy: 13.68%
+2025-05-21 23:14:27,562 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 26.32%
+2025-05-21 23:14:27,845 - INFO - ✅ Regular Evaluation Accuracy: 28.93%
+2025-05-21 23:14:27,891 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 63.64%
+2025-05-21 23:14:27,892 - INFO - Nuts
+2025-05-21 23:14:28,137 - INFO - ✅ Regular Evaluation Accuracy: 65.62%
+2025-05-21 23:14:28,173 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 88.54%
+2025-05-21 23:14:28,174 - INFO - Spices
+2025-05-21 23:14:28,415 - INFO - ✅ Regular Evaluation Accuracy: 52.27%
+2025-05-21 23:14:28,448 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.77%
+2025-05-21 23:14:28,448 - INFO - Herbs
+2025-05-21 23:14:28,692 - INFO - ✅ Regular Evaluation Accuracy: 56.82%
+2025-05-21 23:14:28,725 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.36%
+2025-05-21 23:14:28,725 - INFO - Fruits
+2025-05-21 23:14:28,964 - INFO - ✅ Regular Evaluation Accuracy: 75.28%
+2025-05-21 23:14:28,997 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 97.75%
+2025-05-21 23:14:28,997 - INFO - Vegetables
+2025-05-21 23:14:29,239 - INFO - ✅ Regular Evaluation Accuracy: 56.67%
+2025-05-21 23:14:29,273 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.11%
+2025-05-21 23:14:29,274 - INFO - [Gradient Period 50 Run 4] Starting
+2025-05-21 23:14:30,006 - INFO - Training on device: cuda
+2025-05-21 23:15:43,947 - INFO - [Gradient Period 50 Run 4] Training time: 74.67s
+2025-05-21 23:15:44,416 - INFO - ✅ Regular Evaluation Accuracy: 58.98%
+2025-05-21 23:15:44,583 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.02%
+2025-05-21 23:15:44,629 - INFO - ✅ Regular Evaluation Accuracy: 9.47%
+2025-05-21 23:15:44,663 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 33.68%
+2025-05-21 23:15:44,947 - INFO - ✅ Regular Evaluation Accuracy: 23.97%
+2025-05-21 23:15:44,992 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 57.85%
+2025-05-21 23:15:44,992 - INFO - Nuts
+2025-05-21 23:15:45,348 - INFO - ✅ Regular Evaluation Accuracy: 63.54%
+2025-05-21 23:15:45,384 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.62%
+2025-05-21 23:15:45,384 - INFO - Spices
+2025-05-21 23:15:45,622 - INFO - ✅ Regular Evaluation Accuracy: 47.73%
+2025-05-21 23:15:45,656 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 87.50%
+2025-05-21 23:15:45,656 - INFO - Herbs
+2025-05-21 23:15:45,897 - INFO - ✅ Regular Evaluation Accuracy: 53.41%
+2025-05-21 23:15:45,930 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 78.41%
+2025-05-21 23:15:45,930 - INFO - Fruits
+2025-05-21 23:15:46,171 - INFO - ✅ Regular Evaluation Accuracy: 83.15%
+2025-05-21 23:15:46,204 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 97.75%
+2025-05-21 23:15:46,204 - INFO - Vegetables
+2025-05-21 23:15:46,447 - INFO - ✅ Regular Evaluation Accuracy: 46.67%
+2025-05-21 23:15:46,481 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 95.56%
+2025-05-21 23:15:46,482 - INFO - [Gradient Period 50 Run 5] Starting
+2025-05-21 23:15:47,207 - INFO - Training on device: cuda
+2025-05-21 23:17:01,259 - INFO - [Gradient Period 50 Run 5] Training time: 74.78s
+2025-05-21 23:17:01,733 - INFO - ✅ Regular Evaluation Accuracy: 60.53%
+2025-05-21 23:17:01,899 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 90.02%
+2025-05-21 23:17:01,944 - INFO - ✅ Regular Evaluation Accuracy: 4.21%
+2025-05-21 23:17:01,979 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 23.16%
+2025-05-21 23:17:02,260 - INFO - ✅ Regular Evaluation Accuracy: 31.40%
+2025-05-21 23:17:02,305 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 63.64%
+2025-05-21 23:17:02,305 - INFO - Nuts
+2025-05-21 23:17:02,548 - INFO - ✅ Regular Evaluation Accuracy: 63.54%
+2025-05-21 23:17:02,584 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.79%
+2025-05-21 23:17:02,585 - INFO - Spices
+2025-05-21 23:17:02,824 - INFO - ✅ Regular Evaluation Accuracy: 59.09%
+2025-05-21 23:17:02,857 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.36%
+2025-05-21 23:17:02,857 - INFO - Herbs
+2025-05-21 23:17:03,099 - INFO - ✅ Regular Evaluation Accuracy: 57.95%
+2025-05-21 23:17:03,132 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 85.23%
+2025-05-21 23:17:03,132 - INFO - Fruits
+2025-05-21 23:17:03,371 - INFO - ✅ Regular Evaluation Accuracy: 69.66%
+2025-05-21 23:17:03,405 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 96.63%
+2025-05-21 23:17:03,405 - INFO - Vegetables
+2025-05-21 23:17:03,646 - INFO - ✅ Regular Evaluation Accuracy: 52.22%
+2025-05-21 23:17:03,679 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.67%
+2025-05-21 23:17:03,681 - INFO - [Gradient Period 50 Run 6] Starting
+2025-05-21 23:17:04,413 - INFO - Training on device: cuda
+2025-05-21 23:18:18,874 - INFO - [Gradient Period 50 Run 6] Training time: 75.19s
+2025-05-21 23:18:19,351 - INFO - ✅ Regular Evaluation Accuracy: 59.20%
+2025-05-21 23:18:19,517 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.25%
+2025-05-21 23:18:19,565 - INFO - ✅ Regular Evaluation Accuracy: 10.53%
+2025-05-21 23:18:19,600 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 36.84%
+2025-05-21 23:18:19,882 - INFO - ✅ Regular Evaluation Accuracy: 18.18%
+2025-05-21 23:18:19,930 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 61.16%
+2025-05-21 23:18:19,930 - INFO - Nuts
+2025-05-21 23:18:20,177 - INFO - ✅ Regular Evaluation Accuracy: 62.50%
+2025-05-21 23:18:20,213 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.67%
+2025-05-21 23:18:20,213 - INFO - Spices
+2025-05-21 23:18:20,454 - INFO - ✅ Regular Evaluation Accuracy: 51.14%
+2025-05-21 23:18:20,488 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 80.68%
+2025-05-21 23:18:20,488 - INFO - Herbs
+2025-05-21 23:18:20,730 - INFO - ✅ Regular Evaluation Accuracy: 54.55%
+2025-05-21 23:18:20,763 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 75.00%
+2025-05-21 23:18:20,763 - INFO - Fruits
+2025-05-21 23:18:21,003 - INFO - ✅ Regular Evaluation Accuracy: 77.53%
+2025-05-21 23:18:21,036 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 98.88%
+2025-05-21 23:18:21,036 - INFO - Vegetables
+2025-05-21 23:18:21,280 - INFO - ✅ Regular Evaluation Accuracy: 50.00%
+2025-05-21 23:18:21,313 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 84.44%
+2025-05-21 23:18:21,315 - INFO - [Gradient Period 50 Run 7] Starting
+2025-05-21 23:18:22,057 - INFO - Training on device: cuda
+2025-05-21 23:19:36,135 - INFO - [Gradient Period 50 Run 7] Training time: 74.82s
+2025-05-21 23:19:36,609 - INFO - ✅ Regular Evaluation Accuracy: 57.43%
+2025-05-21 23:19:36,775 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 87.14%
+2025-05-21 23:19:36,822 - INFO - ✅ Regular Evaluation Accuracy: 3.16%
+2025-05-21 23:19:36,858 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 29.47%
+2025-05-21 23:19:37,141 - INFO - ✅ Regular Evaluation Accuracy: 23.14%
+2025-05-21 23:19:37,186 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 75.21%
+2025-05-21 23:19:37,186 - INFO - Nuts
+2025-05-21 23:19:37,432 - INFO - ✅ Regular Evaluation Accuracy: 58.33%
+2025-05-21 23:19:37,468 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 85.42%
+2025-05-21 23:19:37,468 - INFO - Spices
+2025-05-21 23:19:37,708 - INFO - ✅ Regular Evaluation Accuracy: 40.91%
+2025-05-21 23:19:37,741 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 85.23%
+2025-05-21 23:19:37,742 - INFO - Herbs
+2025-05-21 23:19:37,984 - INFO - ✅ Regular Evaluation Accuracy: 57.95%
+2025-05-21 23:19:38,017 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 85.23%
+2025-05-21 23:19:38,017 - INFO - Fruits
+2025-05-21 23:19:38,259 - INFO - ✅ Regular Evaluation Accuracy: 73.03%
+2025-05-21 23:19:38,292 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 97.75%
+2025-05-21 23:19:38,292 - INFO - Vegetables
+2025-05-21 23:19:38,533 - INFO - ✅ Regular Evaluation Accuracy: 56.67%
+2025-05-21 23:19:38,567 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 82.22%
+2025-05-21 23:19:38,568 - INFO - [Gradient Period 50 Run 8] Starting
+2025-05-21 23:19:39,299 - INFO - Training on device: cuda
+2025-05-21 23:20:53,180 - INFO - [Gradient Period 50 Run 8] Training time: 74.61s
+2025-05-21 23:20:53,653 - INFO - ✅ Regular Evaluation Accuracy: 56.32%
+2025-05-21 23:20:53,820 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 87.58%
+2025-05-21 23:20:53,866 - INFO - ✅ Regular Evaluation Accuracy: 12.63%
+2025-05-21 23:20:53,900 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 41.05%
+2025-05-21 23:20:54,182 - INFO - ✅ Regular Evaluation Accuracy: 28.10%
+2025-05-21 23:20:54,227 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 73.55%
+2025-05-21 23:20:54,227 - INFO - Nuts
+2025-05-21 23:20:54,474 - INFO - ✅ Regular Evaluation Accuracy: 59.38%
+2025-05-21 23:20:54,510 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.75%
+2025-05-21 23:20:54,510 - INFO - Spices
+2025-05-21 23:20:54,749 - INFO - ✅ Regular Evaluation Accuracy: 39.77%
+2025-05-21 23:20:54,782 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 81.82%
+2025-05-21 23:20:54,782 - INFO - Herbs
+2025-05-21 23:20:55,025 - INFO - ✅ Regular Evaluation Accuracy: 55.68%
+2025-05-21 23:20:55,059 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 78.41%
+2025-05-21 23:20:55,059 - INFO - Fruits
+2025-05-21 23:20:55,298 - INFO - ✅ Regular Evaluation Accuracy: 73.03%
+2025-05-21 23:20:55,332 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 94.38%
+2025-05-21 23:20:55,332 - INFO - Vegetables
+2025-05-21 23:20:55,574 - INFO - ✅ Regular Evaluation Accuracy: 53.33%
+2025-05-21 23:20:55,608 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 88.89%
+2025-05-21 23:20:55,609 - INFO - [Gradient Period 50 Run 9] Starting
+2025-05-21 23:20:56,338 - INFO - Training on device: cuda
+2025-05-21 23:22:11,143 - INFO - [Gradient Period 50 Run 9] Training time: 75.53s
+2025-05-21 23:22:11,722 - INFO - ✅ Regular Evaluation Accuracy: 56.76%
+2025-05-21 23:22:11,889 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 88.47%
+2025-05-21 23:22:11,936 - INFO - ✅ Regular Evaluation Accuracy: 2.11%
+2025-05-21 23:22:11,972 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 25.26%
+2025-05-21 23:22:12,254 - INFO - ✅ Regular Evaluation Accuracy: 30.58%
+2025-05-21 23:22:12,299 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 64.46%
+2025-05-21 23:22:12,299 - INFO - Nuts
+2025-05-21 23:22:12,542 - INFO - ✅ Regular Evaluation Accuracy: 64.58%
+2025-05-21 23:22:12,578 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.58%
+2025-05-21 23:22:12,578 - INFO - Spices
+2025-05-21 23:22:12,818 - INFO - ✅ Regular Evaluation Accuracy: 45.45%
+2025-05-21 23:22:12,852 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 84.09%
+2025-05-21 23:22:12,852 - INFO - Herbs
+2025-05-21 23:22:13,095 - INFO - ✅ Regular Evaluation Accuracy: 53.41%
+2025-05-21 23:22:13,128 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 88.64%
+2025-05-21 23:22:13,129 - INFO - Fruits
+2025-05-21 23:22:13,368 - INFO - ✅ Regular Evaluation Accuracy: 73.03%
+2025-05-21 23:22:13,401 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.26%
+2025-05-21 23:22:13,401 - INFO - Vegetables
+2025-05-21 23:22:13,645 - INFO - ✅ Regular Evaluation Accuracy: 46.67%
+2025-05-21 23:22:13,678 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 86.67%
+2025-05-21 23:22:13,679 - INFO - [Gradient Period 50 Run 10] Starting
+2025-05-21 23:22:14,464 - INFO - Training on device: cuda
+2025-05-21 23:23:31,658 - INFO - [Gradient Period 50 Run 10] Training time: 77.98s
+2025-05-21 23:23:32,137 - INFO - ✅ Regular Evaluation Accuracy: 59.42%
+2025-05-21 23:23:32,302 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 84.92%
+2025-05-21 23:23:32,348 - INFO - ✅ Regular Evaluation Accuracy: 9.47%
+2025-05-21 23:23:32,382 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 29.47%
+2025-05-21 23:23:32,667 - INFO - ✅ Regular Evaluation Accuracy: 31.40%
+2025-05-21 23:23:32,712 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 64.46%
+2025-05-21 23:23:32,712 - INFO - Nuts
+2025-05-21 23:23:32,960 - INFO - ✅ Regular Evaluation Accuracy: 71.88%
+2025-05-21 23:23:32,996 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.67%
+2025-05-21 23:23:32,996 - INFO - Spices
+2025-05-21 23:23:33,236 - INFO - ✅ Regular Evaluation Accuracy: 45.45%
+2025-05-21 23:23:33,270 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 78.41%
+2025-05-21 23:23:33,270 - INFO - Herbs
+2025-05-21 23:23:33,512 - INFO - ✅ Regular Evaluation Accuracy: 52.27%
+2025-05-21 23:23:33,546 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 77.27%
+2025-05-21 23:23:33,546 - INFO - Fruits
+2025-05-21 23:23:33,788 - INFO - ✅ Regular Evaluation Accuracy: 71.91%
+2025-05-21 23:23:33,821 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.26%
+2025-05-21 23:23:33,822 - INFO - Vegetables
+2025-05-21 23:23:34,065 - INFO - ✅ Regular Evaluation Accuracy: 54.44%
+2025-05-21 23:23:34,098 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 83.33%

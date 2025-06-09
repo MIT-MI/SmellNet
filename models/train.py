@@ -8,7 +8,15 @@ from loss import *
 import torch.optim as optim
 
 
-def train(train_loader, model, logger, epochs=50, feature_dropout_fn=None, noisy=False, lstm=False):
+def train(
+    train_loader,
+    model,
+    logger,
+    epochs=50,
+    feature_dropout_fn=None,
+    noisy=False,
+    lstm=False,
+):
     # Set device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -34,8 +42,12 @@ def train(train_loader, model, logger, epochs=50, feature_dropout_fn=None, noisy
             if feature_dropout_fn:
                 batch_x = apply_random_feature_dropout(batch_x)
 
-            batch_x = batch_x.to(device, dtype=torch.float32)  # Ensure the input type matches model expectations
-            batch_label = batch_label.to(device, dtype=torch.long)  # CrossEntropy expects long-type labels
+            batch_x = batch_x.to(
+                device, dtype=torch.float32
+            )  # Ensure the input type matches model expectations
+            batch_label = batch_label.to(
+                device, dtype=torch.long
+            )  # CrossEntropy expects long-type labels
 
             # Zero gradients
             optimizer.zero_grad()
@@ -64,8 +76,8 @@ def train(train_loader, model, logger, epochs=50, feature_dropout_fn=None, noisy
             total += batch_label.size(0)
 
         # Calculate accuracy
-        accuracy = correct / total * 100
-        logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
+        # accuracy = correct / total * 100
+        # logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
 
 
 def contrastive_train(
@@ -81,6 +93,7 @@ def contrastive_train(
 ):
     # Put on GPU if available
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    logger.info(f"Training on device: {device}")
     gcms_encoder.to(device)
     sensor_encoder.to(device)
 
@@ -125,7 +138,7 @@ def contrastive_train(
             total_loss += loss.item()
 
         avg_loss = total_loss / len(dataloader)
-        logger.info(f"Epoch {epoch+1}/{num_epochs}, Loss: {avg_loss:.4f}")
+        print(f"Epoch {epoch+1}/{num_epochs}, Loss: {avg_loss:.4f}")
     return gcms_encoder, sensor_encoder
 
 
@@ -140,13 +153,15 @@ def representation_train(
     temperature=0.07,
     num_epochs=100,
 ):
-    
+
     # Standardize features
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
 
     # Train-test split
-    X_train, X_val, y_train, y_val = train_test_split(X_scaled, y_encoded, test_size=0.2, random_state=42)
+    X_train, X_val, y_train, y_val = train_test_split(
+        X_scaled, y_encoded, test_size=0.2, random_state=42
+    )
 
     # Convert to tensors
     X_train_tensor = torch.tensor(X_train, dtype=torch.float32)
@@ -177,10 +192,20 @@ def representation_train(
             val_acc = (val_preds == y_val_tensor).float().mean()
 
         if (epoch + 1) % 10 == 0 or epoch == 0:
-            print(f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss.item():.4f}, Val Acc: {val_acc.item():.4f}")
+            print(
+                f"Epoch [{epoch+1}/{num_epochs}], Loss: {loss.item():.4f}, Val Loss: {val_loss.item():.4f}, Val Acc: {val_acc.item():.4f}"
+            )
 
 
-def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=False, noisy=False, translation=False):
+def fusion_train(
+    train_loader,
+    model,
+    logger,
+    epochs=50,
+    feature_dropout_fn=False,
+    noisy=False,
+    translation=False,
+):
     # Set device
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     model.to(device)
@@ -208,8 +233,12 @@ def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=Fals
             if feature_dropout_fn:
                 batch_sensor = apply_random_feature_dropout(batch_sensor)
 
-            batch_sensor = batch_sensor.to(device, dtype=torch.float32)  # Ensure the input type matches model expectations
-            batch_label = batch_label.to(device, dtype=torch.long)  # CrossEntropy expects long-type labels
+            batch_sensor = batch_sensor.to(
+                device, dtype=torch.float32
+            )  # Ensure the input type matches model expectations
+            batch_label = batch_label.to(
+                device, dtype=torch.long
+            )  # CrossEntropy expects long-type labels
             batch_gcms = batch_gcms.to(device, dtype=torch.float32)
 
             # Zero gradients
@@ -241,7 +270,9 @@ def fusion_train(train_loader, model, logger, epochs=50, feature_dropout_fn=Fals
 
         # Calculate accuracy
         accuracy = correct / total * 100
-        logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
+        logger.info(
+            f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%"
+        )
 
 
 if __name__ == "__main__":

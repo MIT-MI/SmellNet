@@ -25,7 +25,6 @@ ingredient_to_category = {
     "pecans": "Nuts",
     "brazil_nut": "Nuts",
     "pili_nut": "Nuts",
-    
     # Spices
     "cumin": "Spices",
     "star_anise": "Spices",
@@ -37,7 +36,6 @@ ingredient_to_category = {
     "mustard": "Spices",
     "cinnamon": "Spices",
     "saffron": "Spices",
-    
     # Herbs
     "angelica": "Herbs",
     "garlic": "Herbs",
@@ -49,7 +47,6 @@ ingredient_to_category = {
     "coriander": "Herbs",
     "oregano": "Herbs",
     "mint": "Herbs",
-    
     # Fruits
     "kiwi": "Fruits",
     "pineapple": "Fruits",
@@ -61,7 +58,6 @@ ingredient_to_category = {
     "mango": "Fruits",
     "peach": "Fruits",
     "pear": "Fruits",
-    
     # Vegetables
     "cauliflower": "Vegetables",
     "brussel_sprouts": "Vegetables",
@@ -75,9 +71,9 @@ ingredient_to_category = {
     "cabbage": "Vegetables",
 }
 
-log_dir = "/home/dewei/workspace/smell-net/logs"
+log_dir = "/home/dewei/workspace/SmellNet/logs"
 
-log_file_path = os.path.join(log_dir, f"{time.time()}.log")
+log_file_path = os.path.join(log_dir, f"contrastive_gradient_{time.time()}.log")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -89,11 +85,11 @@ logging.basicConfig(
 )
 
 category_colors = {
-    "Nuts": "#d8a65880",        # muted orange with 50% transparency
-    "Spices": "#b195c980",      # muted purple with 50% transparency
-    "Herbs": "#90b49480",       # muted green with 50% transparency
-    "Fruits": "#d27a7a80",      # muted red with 50% transparency
-    "Vegetables": "#7da7d980"   # muted blue with 50% transparency
+    "Nuts": "#d8a65880",  # muted orange with 50% transparency
+    "Spices": "#b195c980",  # muted purple with 50% transparency
+    "Herbs": "#90b49480",  # muted green with 50% transparency
+    "Fruits": "#d27a7a80",  # muted red with 50% transparency
+    "Vegetables": "#7da7d980",  # muted blue with 50% transparency
 }
 
 # ingredients = sorted(total_counts.keys())
@@ -101,9 +97,17 @@ category_colors = {
 # colors = [category_colors[ingredient_to_category[ing]] for ing in ingredients]
 
 
-def plot_per_ingredient_accuracy(sorted_ingredients, sorted_accuracies, sorted_colors, ingredient_to_category, category_colors):
+def plot_per_ingredient_accuracy(
+    sorted_ingredients,
+    sorted_accuracies,
+    sorted_colors,
+    ingredient_to_category,
+    category_colors,
+):
     # Set figure and axis
-    sorted_ingredients = [ingredient.replace("_", " ").capitalize() for ingredient in sorted_ingredients]
+    sorted_ingredients = [
+        ingredient.replace("_", " ").capitalize() for ingredient in sorted_ingredients
+    ]
     fig, ax = plt.subplots(figsize=(16, 8))
 
     # Bar plot
@@ -115,39 +119,49 @@ def plot_per_ingredient_accuracy(sorted_ingredients, sorted_accuracies, sorted_c
             bar.get_x() + bar.get_width() / 2,
             bar.get_height() + 0.005,
             f"{acc:.2f}",
-            ha='center',
-            va='bottom',
+            ha="center",
+            va="bottom",
             fontsize=11,
             rotation=90,
         )
 
     # Axis formatting
     ax.set_ylabel("Top-1 Accuracy", fontsize=20, labelpad=15)
-    ax.set_title("Per-Ingredient Accuracy by Category", fontsize=24, pad=20, fontweight='bold')
+    ax.set_title(
+        "Per-Ingredient Accuracy by Category", fontsize=24, pad=20, fontweight="bold"
+    )
     ax.set_xticks(range(len(sorted_ingredients)))
-    ax.set_xticklabels(sorted_ingredients, rotation=65, ha='right', fontsize=18)
+    ax.set_xticklabels(sorted_ingredients, rotation=65, ha="right", fontsize=18)
     ax.yaxis.set_major_formatter(ticker.FuncFormatter(lambda y, _: f"{y:.1f}"))
-    ax.tick_params(axis='y', labelsize=14)
+    ax.tick_params(axis="y", labelsize=14)
 
     # Legend
-    handles = [plt.Rectangle((0, 0), 1, 1, color=col) for col in category_colors.values()]
-    ax.legend(handles, category_colors.keys(), title="Category", fontsize=16, title_fontsize=15, loc='upper right')
+    handles = [
+        plt.Rectangle((0, 0), 1, 1, color=col) for col in category_colors.values()
+    ]
+    ax.legend(
+        handles,
+        category_colors.keys(),
+        title="Category",
+        fontsize=16,
+        title_fontsize=15,
+        loc="upper right",
+    )
 
     # Style
-    ax.spines[['top', 'right']].set_visible(False)
+    ax.spines[["top", "right"]].set_visible(False)
     plt.tight_layout()
     plt.savefig("sorted_per_ingredient_accuracy_aesthetic.png", dpi=300)
     plt.show()
-    
-def main():
+
+
+def main(period_len=25):
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/smell-net/training"
-    testing_path = "/home/dewei/workspace/smell-net/testing"
-    real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing_spice"
-    gcms_path = "/home/dewei/workspace/smell-net/processed_full_gcms_dataframe.csv"
-
-    period_len = 50
+    training_path = "/home/dewei/workspace/SmellNet/training"
+    testing_path = "/home/dewei/workspace/SmellNet/testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
     # Load all ingredients (remove ingredients=["cashew"])
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
@@ -156,22 +170,40 @@ def main():
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
-    training_data, training_label, _ = prepare_data_gradient(training_data, period_len=period_len, le=le)
-    testing_data, testing_label, _ = prepare_data_gradient(testing_data, period_len=period_len, le=le)
+    training_data, training_label, _ = prepare_data_gradient(
+        training_data, period_len=period_len, le=le
+    )
+    testing_data, testing_label, _ = prepare_data_gradient(
+        testing_data, period_len=period_len, le=le
+    )
+    real_testing_data, real_testing_label, _ = prepare_data_gradient(
+        real_time_testing_data, period_len=period_len, le=le
+    )
 
-    training_pair_data, _ = create_pair_data(training_data, training_label, gcms_scaled, le)
+    training_pair_data, _ = create_pair_data(
+        training_data, training_label, gcms_scaled, le
+    )
 
     train_dataset = PairedDataset(training_pair_data)
     sensor_model = Encoder(input_dim=12, output_dim=32)
     gcms_model = Encoder(input_dim=17, output_dim=32)
 
+    batch_size = 32
+    num_epochs = 64
+
+    sampler = UniqueGCMSampler(train_dataset.data, batch_size)
+    loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
+
+    contrastive_train(gcms_model, sensor_model, loader, logger, num_epochs=num_epochs)
+
+    return gcms_model, sensor_model
+
     # Load pretrained models
-    sensor_model.load_state_dict(torch.load(f'saved_models/contrastive/gradient_period_{period_len}_sensor_model_weights.pth'))
-    gcms_model.load_state_dict(torch.load(f'saved_models/contrastive/gradient_period_{period_len}_gcms_model_weights.pth'))
+    # sensor_model.load_state_dict(torch.load(f'saved_models/contrastive/gradient_period_{period_len}_sensor_model_weights.pth'))
+    # gcms_model.load_state_dict(torch.load(f'saved_models/contrastive/gradient_period_{period_len}_gcms_model_weights.pth'))
 
     # Get predictions for all test data
-    _, _, top5_pred, top5_sim = contrastive_evaluate(testing_data, gcms_scaled, testing_label, gcms_model, sensor_model, logger)
-
+    # _, _, top5_pred, top5_sim = contrastive_evaluate(testing_data, gcms_scaled, testing_label, gcms_model, sensor_model, logger)
 
     # # Calculate per-ingredient Top-1 accuracy
     # total_counts = defaultdict(int)
@@ -195,6 +227,98 @@ def main():
 
     # plot_per_ingredient_accuracy(sorted_ingredients, sorted_accuracies, sorted_colors, ingredient_to_category, category_colors)
 
-if __name__ == "__main__":
-    main()
 
+def main_evaluate(gcms_model, sensor_model, period_len=25):
+    # set up logging
+    logger = logging.getLogger()
+
+    training_path = "/home/dewei/workspace/SmellNet/training"
+    testing_path = "/home/dewei/workspace/SmellNet/testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_nut"
+    gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
+
+    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+        training_path, testing_path, real_time_testing_path=real_time_testing_path
+    )
+
+    gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
+
+    testing_data, testing_label, _ = prepare_data_gradient(
+        testing_data, period_len=period_len, le=le
+    )
+    real_testing_data, real_testing_label, _ = prepare_data_gradient(
+        real_time_testing_data, period_len=period_len, le=le
+    )
+
+    contrastive_evaluate(
+        testing_data, gcms_scaled, testing_label, gcms_model, sensor_model, logger
+    )
+
+    contrastive_evaluate(
+        real_testing_data,
+        gcms_scaled,
+        real_testing_label,
+        gcms_model,
+        sensor_model,
+        logger,
+    )
+
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+
+    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+        training_path, testing_path, real_time_testing_path=real_time_testing_path
+    )
+
+    real_testing_data, real_testing_label, _ = prepare_data_gradient(
+        real_time_testing_data, period_len=period_len, le=le
+    )
+
+    contrastive_evaluate(
+        real_testing_data,
+        gcms_scaled,
+        real_testing_label,
+        gcms_model,
+        sensor_model,
+        logger,
+    )
+
+    for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
+        logger.info(category)
+        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+            training_path,
+            testing_path,
+            real_time_testing_path=real_time_testing_path,
+            categories=[category],
+        )
+
+        gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
+
+        testing_data, testing_label, _ = prepare_data_gradient(
+            testing_data, period_len=period_len, le=le
+        )
+
+        contrastive_evaluate(
+            testing_data, gcms_scaled, testing_label, gcms_model, sensor_model, logger
+        )
+
+
+def run_experiment(name, runs, **kwargs):
+    logger = logging.getLogger()
+    logger.info(
+        f"------------------------------------{name}-------------------------------------------"
+    )
+    for run_id in range(runs):
+        logger.info(f"[{name} Run {run_id+1}] Starting")
+        start_time = time.time()
+        gcms_model, sensor_model = main(**kwargs)
+        end_time = time.time() - start_time
+        logger.info(f"[{name} Run {run_id+1}] Training time: {end_time:.2f}s")
+        main_evaluate(gcms_model, sensor_model, **kwargs)
+
+
+if __name__ == "__main__":
+    logger = logging.getLogger()
+    runs = 10
+
+    run_experiment("Gradient Period 25", runs)
+    run_experiment("Gradient Period 50", runs, period_len=50)

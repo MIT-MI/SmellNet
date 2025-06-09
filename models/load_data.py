@@ -7,13 +7,20 @@ from torch.utils.data import TensorDataset, DataLoader
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 from utils import ingredient_to_category
 from dataset import PairedDataset, FusionDataset
+from scipy.fft import fft, ifft, fftfreq
 
 
 def subtract_first_row(df):
     return df - df.iloc[0]
 
 
-def load_sensor_data(training_path, testing_path, ingredients=None, categories=None, real_time_testing_path=None):
+def load_sensor_data(
+    training_path,
+    testing_path,
+    ingredients=None,
+    categories=None,
+    real_time_testing_path=None,
+):
     training_data = defaultdict(list)
     testing_data = defaultdict(list)
 
@@ -55,7 +62,7 @@ def load_sensor_data(training_path, testing_path, ingredients=None, categories=N
                             df = pd.read_csv(cur_path)
                             testing_data[folder_name].append(df)
                             min_len = min(min_len, df.shape[0])  # Update minimum length
-    
+    print(real_time_testing_path)
     if real_time_testing_path:
         real_time_testing_data = defaultdict(list)
         for folder_name in os.listdir(real_time_testing_path):
@@ -68,8 +75,10 @@ def load_sensor_data(training_path, testing_path, ingredients=None, categories=N
                         df = pd.read_csv(cur_path)
                         real_time_testing_data[folder_name].append(df)
                         min_len = min(min_len, df.shape[0])  # Update minimum length
+        
         return training_data, testing_data, real_time_testing_data, min_len
     else:
+        
         return training_data, testing_data, min_len
 
 
@@ -96,7 +105,26 @@ def load_gcms_data(path, le=None):
     return X_scaled, y_encoded, le, scaler
 
 
-def prepare_data_transformer(data, le):
+def load_text_data(path, le=None):
+    text_embeddings = np.load(path, allow_pickle=True).item()
+
+    X = np.array([value for _, value in text_embeddings.items()])
+    y = list(text_embeddings.keys())
+
+    scaler = StandardScaler()
+    X_scaled = scaler.fit_transform(X)
+
+    # Encode labels
+    if le is None:
+        le = LabelEncoder()
+        y_encoded = le.fit_transform(y)
+    else:
+        y_encoded = le.transform(y)
+
+    return X_scaled, y_encoded, le, scaler
+
+
+def prepare_data_transformer(data, le, apply_fft=False, sampling_rate=1.0, cutoff=0.05):
     X = []
     y = []
     window_size = 100
@@ -110,6 +138,11 @@ def prepare_data_transformer(data, le):
                 y.append(ingredient)
 
     y = le.transform(y)
+    X = np.array(X)  # shape: [N, T, C]
+
+    # === Apply FFT-based denoising ===
+    if apply_fft:
+        X = preprocess_frequency_cleaning(X, sampling_rate=sampling_rate, cutoff=cutoff)
 
     return X, y, le
 
@@ -121,7 +154,14 @@ def prepare_data_transformer(data, le):
     return data_loader, le
 
 
-def prepare_data_gradient(data, dropped_columns=None, period_len=50, trim_len=10, le=None, contrastive_learning=False):
+def prepare_data_gradient(
+    data,
+    dropped_columns=None,
+    period_len=50,
+    trim_len=10,
+    le=None,
+    contrastive_learning=False,
+):
     X = []
     y = []
 
@@ -171,7 +211,9 @@ def prepare_data_gradient(data, dropped_columns=None, period_len=50, trim_len=10
     return X_concat, y_encoded, le
 
 
-def prepare_data_transformer_gradient(data, le=None, dropped_columns=None, period_len=50, trim_len=10):
+def prepare_data_transformer_gradient(
+    data, le=None, dropped_columns=None, period_len=50, trim_len=10, apply_fft=False, sampling_rate=1.0, cutoff=0.05
+):
     X = []
     y = []
     window_size = 100
@@ -198,7 +240,8 @@ def prepare_data_transformer_gradient(data, le=None, dropped_columns=None, perio
 
             # Keep only sensor columns
             sensor_cols = [
-                col for col in diff_data.columns
+                col
+                for col in diff_data.columns
                 if dropped_columns is None or col not in dropped_columns
             ]
 
@@ -210,6 +253,10 @@ def prepare_data_transformer_gradient(data, le=None, dropped_columns=None, perio
                 window = diff_data.iloc[start : start + window_size].values
                 X.append(window)
                 y.append(ingredient)
+
+    if apply_fft:
+        X = np.array(X)  # shape: [N, T, C]
+        X = preprocess_frequency_cleaning(X, sampling_rate=sampling_rate, cutoff=cutoff)
 
     y_encoded = le.transform(y)
 
@@ -279,7 +326,7 @@ def process_data_regular(data, le=None, dropped_columns=None):
 
 def create_pair_data(smell_data, smell_label, gcms_data, le, fusion=False):
     pair_data = []
-    
+
     for i in range(len(smell_label)):
         gcms_ix = smell_label[i]
         if not fusion:
@@ -339,3 +386,49 @@ def apply_noise_injection(X, noise_scale=0.05, seed=None):
     noise = torch.randn_like(X) * noise_scale
     X_noisy = X + noise
     return X_noisy
+
+
+def detect_dominant_frequencies(signal, sampling_rate=1.0):
+    """
+    Compute FFT and return frequency bins and magnitudes.
+    """
+    fft_values = fft(signal)
+    freqs = fftfreq(len(signal), d=1 / sampling_rate)
+    magnitude = np.abs(fft_values)
+    return freqs, magnitude
+
+
+def remove_periodic_components(signal, freqs, magnitude, cutoff=0.05):
+    """
+    Zero out low-frequency components below cutoff threshold.
+    """
+    fft_values = fft(signal)
+    cleaned_fft = np.where(np.abs(freqs) < cutoff, 0, fft_values)
+    cleaned_signal = ifft(cleaned_fft)
+    return np.real(cleaned_signal)
+
+
+def clean_sample_channels(sample, sampling_rate=1.0, cutoff=0.05):
+    """
+    Apply periodic removal across all sensor channels in a sample.
+    Input: sample of shape [T, C] => time steps × channels
+    """
+    cleaned_channels = []
+    for ch_index in range(sample.shape[1]):
+        signal = sample[:, ch_index]
+        freqs, magnitude = detect_dominant_frequencies(signal, sampling_rate)
+        cleaned = remove_periodic_components(signal, freqs, magnitude, cutoff)
+        cleaned_channels.append(cleaned)
+    return np.stack(cleaned_channels, axis=1)  # Shape: [T, C]
+
+
+def preprocess_frequency_cleaning(sensor_batch, sampling_rate=1.0, cutoff=0.05):
+    """
+    Clean an entire batch of sensor data.
+    Input shape: [N, T, C]
+    """
+    cleaned_batch = []
+    for i in range(sensor_batch.shape[0]):
+        cleaned = clean_sample_channels(sensor_batch[i], sampling_rate, cutoff)
+        cleaned_batch.append(cleaned)
+    return np.array(cleaned_batch)

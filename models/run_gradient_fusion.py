@@ -32,21 +32,34 @@ def main():
     real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing_spice"
     gcms_path = "/home/dewei/workspace/smell-net/processed_full_gcms_dataframe.csv"
 
-    period_len=50
+    period_len = 50
 
     for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
         logger.info(category)
-        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=[category])
+        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+            training_path,
+            testing_path,
+            real_time_testing_path=real_time_testing_path,
+            categories=[category],
+        )
 
         gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
-        training_data, training_label, _ = prepare_data_gradient(training_data, period_len=period_len, le=le)
+        training_data, training_label, _ = prepare_data_gradient(
+            training_data, period_len=period_len, le=le
+        )
 
-        testing_data, testing_label, _ = prepare_data_gradient(testing_data, period_len=period_len, le=le)
+        testing_data, testing_label, _ = prepare_data_gradient(
+            testing_data, period_len=period_len, le=le
+        )
 
-        real_testing_data, real_testing_label, _ = prepare_data_gradient(real_time_testing_data, period_len=period_len, le=le)
+        real_testing_data, real_testing_label, _ = prepare_data_gradient(
+            real_time_testing_data, period_len=period_len, le=le
+        )
 
-        training_pair_data, _ = create_pair_data(training_data, training_label, gcms_scaled, le, fusion=True)
+        training_pair_data, _ = create_pair_data(
+            training_data, training_label, gcms_scaled, le, fusion=True
+        )
 
         sensor_model = Encoder(input_dim=12, output_dim=32)
         gcms_model = Encoder(input_dim=17, output_dim=32)
@@ -56,7 +69,7 @@ def main():
             gcms_encoder=gcms_model,
             combined_dim=100,
             output_dim=len(le.classes_),
-            gcms_dropout_p=0.3
+            gcms_dropout_p=0.3,
         )
 
         batch_size = 32
@@ -70,11 +83,15 @@ def main():
 
         # torch.save(model.state_dict(), f'saved_models/fusion/gradient_period_{period_len}_model_weights.pth')
 
-        model.load_state_dict(torch.load(f'saved_models/fusion/gradient_period_{period_len}_model_weights.pth'))
+        model.load_state_dict(
+            torch.load(
+                f"saved_models/fusion/gradient_period_{period_len}_model_weights.pth"
+            )
+        )
 
         dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
         data_loader = DataLoader(dataset, batch_size=batch_size)
-        
+
         fusion_evaluate(model, data_loader, le)
 
 

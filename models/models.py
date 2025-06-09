@@ -57,7 +57,6 @@ class Encoder(nn.Module):
             nn.SiLU(),
         )
 
-
     def forward(self, x):
         x = self.encoder(x)
         return x
@@ -78,32 +77,34 @@ class LSTMNet(nn.Module):
         return out, embedding
 
 
-class FusionModelWithGCMSDropout(nn.Module):
-    def __init__(self, smell_encoder, gcms_encoder, combined_dim, output_dim, gcms_dropout_p=0.3):
-        super().__init__()
-        self.smell_encoder = smell_encoder
-        self.gcms_encoder = gcms_encoder
+# class FusionModelWithGCMSDropout(nn.Module):
+#     def __init__(self, smell_encoder, gcms_encoder, combined_dim, output_dim, gcms_dropout_p=0.3):
+#         super().__init__()
+#         self.smell_encoder = smell_encoder
+#         self.gcms_encoder = gcms_encoder
 
-        self.gcms_dropout_p = gcms_dropout_p
+#         self.gcms_dropout_p = gcms_dropout_p
 
-        self.combined_fc = nn.Linear(smell_encoder.output_dim + gcms_encoder.output_dim, combined_dim)
-        self.classifier = nn.Linear(combined_dim, output_dim)
+#         self.combined_fc = nn.Linear(smell_encoder.output_dim + gcms_encoder.output_dim, combined_dim)
+#         self.classifier = nn.Linear(combined_dim, output_dim)
 
-    def forward(self, smell_input, gcms_input):
-        # Apply GCMS dropout only during training
-        if self.training and torch.rand(1).item() < self.gcms_dropout_p:
-            gcms_input = torch.zeros_like(gcms_input)
+#     def forward(self, smell_input, gcms_input):
+#         # Apply GCMS dropout only during training
+#         if self.training and torch.rand(1).item() < self.gcms_dropout_p:
+#             gcms_input = torch.zeros_like(gcms_input)
 
-        smell_feat = self.smell_encoder(smell_input)
-        gcms_feat = self.gcms_encoder(gcms_input)
+#         smell_feat = self.smell_encoder(smell_input)
+#         gcms_feat = self.gcms_encoder(gcms_input)
 
-        combined = torch.cat([smell_feat, gcms_feat], dim=-1)
-        combined = F.relu(self.combined_fc(combined))
-        return self.classifier(combined)
-    
-    
+#         combined = torch.cat([smell_feat, gcms_feat], dim=-1)
+#         combined = F.relu(self.combined_fc(combined))
+#         return self.classifier(combined)
+
+
 class TranslationModel(nn.Module):
-    def __init__(self, smell_encoder, gcms_dim, num_classes, hidden_dim=None, dropout=0.1):
+    def __init__(
+        self, smell_encoder, gcms_dim, num_classes, hidden_dim=None, dropout=0.1
+    ):
         """
         smell_encoder: a neural network that maps smell_input → latent embedding
         gcms_dim: dimensionality of GC-MS vector to predict
@@ -116,12 +117,14 @@ class TranslationModel(nn.Module):
 
         # Optional projection layer
         self.projection = nn.Identity()
-        proj_dim = smell_encoder.output_dim if hasattr(smell_encoder, "output_dim") else gcms_dim
+        proj_dim = (
+            smell_encoder.output_dim
+            if hasattr(smell_encoder, "output_dim")
+            else gcms_dim
+        )
         if hidden_dim:
             self.projection = nn.Sequential(
-                nn.Linear(proj_dim, hidden_dim),
-                nn.ReLU(),
-                nn.Dropout(dropout)
+                nn.Linear(proj_dim, hidden_dim), nn.ReLU(), nn.Dropout(dropout)
             )
             proj_dim = hidden_dim
 

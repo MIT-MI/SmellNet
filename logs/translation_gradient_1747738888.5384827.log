@@ -1,0 +1,1762 @@
+2025-05-20 04:01:28,538 - INFO - ------------------------------------Gradient Period 25-------------------------------------------
+2025-05-20 04:01:28,538 - INFO - [Gradient Period 25 Run 1] Starting
+2025-05-20 04:01:29,856 - INFO - Training on device: cuda
+2025-05-20 04:01:38,183 - INFO - Epoch 01: Loss = 10056.2481, Accuracy = 5.50%
+2025-05-20 04:01:46,191 - INFO - Epoch 02: Loss = 8486.8775, Accuracy = 7.71%
+2025-05-20 04:01:54,200 - INFO - Epoch 03: Loss = 7476.6313, Accuracy = 12.24%
+2025-05-20 04:02:02,221 - INFO - Epoch 04: Loss = 6776.4135, Accuracy = 17.46%
+2025-05-20 04:02:10,255 - INFO - Epoch 05: Loss = 6232.3824, Accuracy = 23.42%
+2025-05-20 04:02:18,285 - INFO - Epoch 06: Loss = 5851.3947, Accuracy = 28.04%
+2025-05-20 04:02:26,286 - INFO - Epoch 07: Loss = 5588.8685, Accuracy = 32.25%
+2025-05-20 04:02:34,298 - INFO - Epoch 08: Loss = 5401.7978, Accuracy = 35.47%
+2025-05-20 04:02:42,313 - INFO - Epoch 09: Loss = 5229.1405, Accuracy = 38.15%
+2025-05-20 04:02:50,360 - INFO - Epoch 10: Loss = 5138.7798, Accuracy = 39.97%
+2025-05-20 04:02:58,410 - INFO - Epoch 11: Loss = 5062.0300, Accuracy = 41.80%
+2025-05-20 04:03:06,459 - INFO - Epoch 12: Loss = 4988.2017, Accuracy = 43.68%
+2025-05-20 04:03:14,503 - INFO - Epoch 13: Loss = 4939.8695, Accuracy = 44.78%
+2025-05-20 04:03:22,545 - INFO - Epoch 14: Loss = 4904.0625, Accuracy = 45.36%
+2025-05-20 04:03:30,591 - INFO - Epoch 15: Loss = 4870.8054, Accuracy = 46.20%
+2025-05-20 04:03:38,638 - INFO - Epoch 16: Loss = 4865.1376, Accuracy = 46.75%
+2025-05-20 04:03:46,683 - INFO - Epoch 17: Loss = 4876.6357, Accuracy = 46.96%
+2025-05-20 04:03:54,713 - INFO - Epoch 18: Loss = 4889.4801, Accuracy = 47.03%
+2025-05-20 04:04:02,745 - INFO - Epoch 19: Loss = 4904.3143, Accuracy = 46.98%
+2025-05-20 04:04:10,761 - INFO - Epoch 20: Loss = 4905.5552, Accuracy = 47.17%
+2025-05-20 04:04:18,766 - INFO - Epoch 21: Loss = 4908.0625, Accuracy = 47.16%
+2025-05-20 04:04:26,766 - INFO - Epoch 22: Loss = 4893.4541, Accuracy = 47.48%
+2025-05-20 04:04:34,772 - INFO - Epoch 23: Loss = 4875.1934, Accuracy = 47.67%
+2025-05-20 04:04:42,796 - INFO - Epoch 24: Loss = 4865.9509, Accuracy = 47.97%
+2025-05-20 04:04:50,814 - INFO - Epoch 25: Loss = 4875.6165, Accuracy = 48.09%
+2025-05-20 04:04:58,831 - INFO - Epoch 26: Loss = 4911.4589, Accuracy = 47.98%
+2025-05-20 04:05:06,850 - INFO - Epoch 27: Loss = 4939.6410, Accuracy = 47.67%
+2025-05-20 04:05:14,881 - INFO - Epoch 28: Loss = 4926.7138, Accuracy = 48.05%
+2025-05-20 04:05:22,902 - INFO - Epoch 29: Loss = 4877.4421, Accuracy = 48.73%
+2025-05-20 04:05:30,931 - INFO - Epoch 30: Loss = 4843.8123, Accuracy = 49.03%
+2025-05-20 04:05:38,951 - INFO - Epoch 31: Loss = 4823.0056, Accuracy = 49.33%
+2025-05-20 04:05:46,969 - INFO - Epoch 32: Loss = 4808.7120, Accuracy = 49.74%
+2025-05-20 04:05:54,980 - INFO - Epoch 33: Loss = 4797.8372, Accuracy = 50.14%
+2025-05-20 04:06:02,983 - INFO - Epoch 34: Loss = 4761.7477, Accuracy = 50.90%
+2025-05-20 04:06:10,993 - INFO - Epoch 35: Loss = 4751.4421, Accuracy = 51.14%
+2025-05-20 04:06:19,002 - INFO - Epoch 36: Loss = 4735.1139, Accuracy = 51.48%
+2025-05-20 04:06:27,016 - INFO - Epoch 37: Loss = 4714.4231, Accuracy = 51.70%
+2025-05-20 04:06:35,034 - INFO - Epoch 38: Loss = 4667.2593, Accuracy = 52.55%
+2025-05-20 04:06:43,073 - INFO - Epoch 39: Loss = 4624.2767, Accuracy = 53.02%
+2025-05-20 04:06:51,114 - INFO - Epoch 40: Loss = 4606.8922, Accuracy = 53.17%
+2025-05-20 04:06:59,160 - INFO - Epoch 41: Loss = 4601.8299, Accuracy = 53.28%
+2025-05-20 04:07:07,205 - INFO - Epoch 42: Loss = 4595.3390, Accuracy = 53.45%
+2025-05-20 04:07:15,240 - INFO - Epoch 43: Loss = 4608.3884, Accuracy = 53.26%
+2025-05-20 04:07:23,271 - INFO - Epoch 44: Loss = 4616.0032, Accuracy = 53.25%
+2025-05-20 04:07:31,311 - INFO - Epoch 45: Loss = 4598.5080, Accuracy = 53.42%
+2025-05-20 04:07:39,331 - INFO - Epoch 46: Loss = 4604.8000, Accuracy = 53.36%
+2025-05-20 04:07:47,381 - INFO - Epoch 47: Loss = 4595.3365, Accuracy = 53.74%
+2025-05-20 04:07:55,434 - INFO - Epoch 48: Loss = 4597.2965, Accuracy = 53.76%
+2025-05-20 04:08:03,486 - INFO - Epoch 49: Loss = 4566.3082, Accuracy = 54.17%
+2025-05-20 04:08:11,525 - INFO - Epoch 50: Loss = 4542.2635, Accuracy = 54.36%
+2025-05-20 04:08:19,557 - INFO - Epoch 51: Loss = 4514.2139, Accuracy = 54.85%
+2025-05-20 04:08:27,588 - INFO - Epoch 52: Loss = 4489.0505, Accuracy = 55.02%
+2025-05-20 04:08:35,631 - INFO - Epoch 53: Loss = 4470.1656, Accuracy = 55.49%
+2025-05-20 04:08:43,671 - INFO - Epoch 54: Loss = 4457.4088, Accuracy = 55.74%
+2025-05-20 04:08:51,301 - INFO - Epoch 55: Loss = 4458.4646, Accuracy = 55.67%
+2025-05-20 04:08:58,753 - INFO - Epoch 56: Loss = 4457.5671, Accuracy = 55.81%
+2025-05-20 04:09:06,435 - INFO - Epoch 57: Loss = 4462.6042, Accuracy = 55.61%
+2025-05-20 04:09:14,442 - INFO - Epoch 58: Loss = 4460.3627, Accuracy = 55.63%
+2025-05-20 04:09:22,461 - INFO - Epoch 59: Loss = 4453.5130, Accuracy = 55.64%
+2025-05-20 04:09:30,473 - INFO - Epoch 60: Loss = 4456.5258, Accuracy = 55.87%
+2025-05-20 04:09:38,419 - INFO - Epoch 61: Loss = 4457.6418, Accuracy = 55.90%
+2025-05-20 04:09:45,882 - INFO - Epoch 62: Loss = 4463.9031, Accuracy = 55.88%
+2025-05-20 04:09:53,342 - INFO - Epoch 63: Loss = 4451.3181, Accuracy = 56.29%
+2025-05-20 04:10:01,169 - INFO - Epoch 64: Loss = 4441.3267, Accuracy = 56.30%
+2025-05-20 04:10:01,184 - INFO - [Gradient Period 25 Run 1] Training time: 512.65s
+2025-05-20 04:10:02,022 - INFO - ✅ Regular Evaluation Accuracy: 9.51%
+2025-05-20 04:10:03,208 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 29.61%
+2025-05-20 04:10:03,298 - INFO - ✅ Regular Evaluation Accuracy: 0.72%
+2025-05-20 04:10:03,541 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.30%
+2025-05-20 04:10:03,885 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:10:04,220 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 04:10:04,220 - INFO - Nuts
+2025-05-20 04:10:04,508 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:10:04,775 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:10:04,775 - INFO - Spices
+2025-05-20 04:10:05,063 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:10:05,312 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.75%
+2025-05-20 04:10:05,312 - INFO - Herbs
+2025-05-20 04:10:05,624 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:10:05,872 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.62%
+2025-05-20 04:10:05,873 - INFO - Fruits
+2025-05-20 04:10:06,156 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 04:10:06,405 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 04:10:06,405 - INFO - Vegetables
+2025-05-20 04:10:06,689 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:10:06,937 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:10:06,939 - INFO - [Gradient Period 25 Run 2] Starting
+2025-05-20 04:10:07,523 - INFO - Training on device: cuda
+2025-05-20 04:10:15,541 - INFO - Epoch 01: Loss = 10271.6570, Accuracy = 4.23%
+2025-05-20 04:10:23,559 - INFO - Epoch 02: Loss = 8655.6608, Accuracy = 7.02%
+2025-05-20 04:10:31,580 - INFO - Epoch 03: Loss = 7608.7199, Accuracy = 11.63%
+2025-05-20 04:10:39,587 - INFO - Epoch 04: Loss = 6825.3466, Accuracy = 17.94%
+2025-05-20 04:10:47,492 - INFO - Epoch 05: Loss = 6270.5214, Accuracy = 24.06%
+2025-05-20 04:10:55,485 - INFO - Epoch 06: Loss = 5879.3259, Accuracy = 29.14%
+2025-05-20 04:11:03,494 - INFO - Epoch 07: Loss = 5589.9036, Accuracy = 32.99%
+2025-05-20 04:11:11,417 - INFO - Epoch 08: Loss = 5355.1527, Accuracy = 36.42%
+2025-05-20 04:11:19,061 - INFO - Epoch 09: Loss = 5196.1537, Accuracy = 39.02%
+2025-05-20 04:11:27,049 - INFO - Epoch 10: Loss = 5107.1700, Accuracy = 40.93%
+2025-05-20 04:11:35,036 - INFO - Epoch 11: Loss = 5050.0613, Accuracy = 42.22%
+2025-05-20 04:11:43,024 - INFO - Epoch 12: Loss = 4996.5271, Accuracy = 43.20%
+2025-05-20 04:11:51,004 - INFO - Epoch 13: Loss = 4929.4091, Accuracy = 44.35%
+2025-05-20 04:11:58,978 - INFO - Epoch 14: Loss = 4898.3678, Accuracy = 45.36%
+2025-05-20 04:12:06,981 - INFO - Epoch 15: Loss = 4872.8259, Accuracy = 46.16%
+2025-05-20 04:12:14,961 - INFO - Epoch 16: Loss = 4833.0003, Accuracy = 47.23%
+2025-05-20 04:12:22,935 - INFO - Epoch 17: Loss = 4796.6124, Accuracy = 48.08%
+2025-05-20 04:12:30,909 - INFO - Epoch 18: Loss = 4757.9435, Accuracy = 48.95%
+2025-05-20 04:12:38,909 - INFO - Epoch 19: Loss = 4704.8777, Accuracy = 49.89%
+2025-05-20 04:12:46,920 - INFO - Epoch 20: Loss = 4674.2755, Accuracy = 50.48%
+2025-05-20 04:12:54,931 - INFO - Epoch 21: Loss = 4659.7796, Accuracy = 50.87%
+2025-05-20 04:13:02,933 - INFO - Epoch 22: Loss = 4675.8263, Accuracy = 50.81%
+2025-05-20 04:13:10,940 - INFO - Epoch 23: Loss = 4662.4449, Accuracy = 50.99%
+2025-05-20 04:13:18,943 - INFO - Epoch 24: Loss = 4634.3981, Accuracy = 51.44%
+2025-05-20 04:13:26,956 - INFO - Epoch 25: Loss = 4601.3162, Accuracy = 52.00%
+2025-05-20 04:13:34,985 - INFO - Epoch 26: Loss = 4587.9736, Accuracy = 52.12%
+2025-05-20 04:13:43,022 - INFO - Epoch 27: Loss = 4560.0120, Accuracy = 52.74%
+2025-05-20 04:13:51,059 - INFO - Epoch 28: Loss = 4541.6182, Accuracy = 53.21%
+2025-05-20 04:13:59,097 - INFO - Epoch 29: Loss = 4553.6283, Accuracy = 53.10%
+2025-05-20 04:14:07,139 - INFO - Epoch 30: Loss = 4565.1593, Accuracy = 53.25%
+2025-05-20 04:14:15,176 - INFO - Epoch 31: Loss = 4578.6261, Accuracy = 53.22%
+2025-05-20 04:14:23,210 - INFO - Epoch 32: Loss = 4584.5836, Accuracy = 53.22%
+2025-05-20 04:14:31,236 - INFO - Epoch 33: Loss = 4602.6511, Accuracy = 53.24%
+2025-05-20 04:14:39,268 - INFO - Epoch 34: Loss = 4610.3940, Accuracy = 53.20%
+2025-05-20 04:14:47,304 - INFO - Epoch 35: Loss = 4607.7725, Accuracy = 53.07%
+2025-05-20 04:14:55,327 - INFO - Epoch 36: Loss = 4612.0675, Accuracy = 53.30%
+2025-05-20 04:15:03,348 - INFO - Epoch 37: Loss = 4634.0052, Accuracy = 53.05%
+2025-05-20 04:15:11,359 - INFO - Epoch 38: Loss = 4638.3423, Accuracy = 52.89%
+2025-05-20 04:15:19,376 - INFO - Epoch 39: Loss = 4612.7808, Accuracy = 53.41%
+2025-05-20 04:15:27,387 - INFO - Epoch 40: Loss = 4581.5505, Accuracy = 53.79%
+2025-05-20 04:15:35,396 - INFO - Epoch 41: Loss = 4540.3714, Accuracy = 54.40%
+2025-05-20 04:15:43,399 - INFO - Epoch 42: Loss = 4524.2081, Accuracy = 54.65%
+2025-05-20 04:15:51,383 - INFO - Epoch 43: Loss = 4526.7924, Accuracy = 54.73%
+2025-05-20 04:15:59,375 - INFO - Epoch 44: Loss = 4546.1573, Accuracy = 54.58%
+2025-05-20 04:16:07,352 - INFO - Epoch 45: Loss = 4556.5830, Accuracy = 54.42%
+2025-05-20 04:16:15,335 - INFO - Epoch 46: Loss = 4552.7766, Accuracy = 54.46%
+2025-05-20 04:16:23,349 - INFO - Epoch 47: Loss = 4551.3900, Accuracy = 54.51%
+2025-05-20 04:16:31,362 - INFO - Epoch 48: Loss = 4537.1069, Accuracy = 54.80%
+2025-05-20 04:16:39,354 - INFO - Epoch 49: Loss = 4531.4421, Accuracy = 54.95%
+2025-05-20 04:16:47,347 - INFO - Epoch 50: Loss = 4536.9188, Accuracy = 54.88%
+2025-05-20 04:16:55,336 - INFO - Epoch 51: Loss = 4520.7710, Accuracy = 55.15%
+2025-05-20 04:17:03,330 - INFO - Epoch 52: Loss = 4505.4621, Accuracy = 55.33%
+2025-05-20 04:17:11,309 - INFO - Epoch 53: Loss = 4480.3275, Accuracy = 55.91%
+2025-05-20 04:17:19,290 - INFO - Epoch 54: Loss = 4469.6097, Accuracy = 55.99%
+2025-05-20 04:17:27,272 - INFO - Epoch 55: Loss = 4455.0004, Accuracy = 56.33%
+2025-05-20 04:17:35,272 - INFO - Epoch 56: Loss = 4445.9154, Accuracy = 56.54%
+2025-05-20 04:17:43,246 - INFO - Epoch 57: Loss = 4458.9842, Accuracy = 56.30%
+2025-05-20 04:17:51,276 - INFO - Epoch 58: Loss = 4464.2263, Accuracy = 56.57%
+2025-05-20 04:17:59,300 - INFO - Epoch 59: Loss = 4466.3784, Accuracy = 56.61%
+2025-05-20 04:18:07,330 - INFO - Epoch 60: Loss = 4451.7094, Accuracy = 56.70%
+2025-05-20 04:18:15,361 - INFO - Epoch 61: Loss = 4431.5320, Accuracy = 56.92%
+2025-05-20 04:18:23,384 - INFO - Epoch 62: Loss = 4426.9816, Accuracy = 57.12%
+2025-05-20 04:18:31,393 - INFO - Epoch 63: Loss = 4431.7897, Accuracy = 57.07%
+2025-05-20 04:18:39,403 - INFO - Epoch 64: Loss = 4429.3448, Accuracy = 57.07%
+2025-05-20 04:18:39,417 - INFO - [Gradient Period 25 Run 2] Training time: 512.48s
+2025-05-20 04:18:40,210 - INFO - ✅ Regular Evaluation Accuracy: 8.34%
+2025-05-20 04:18:41,368 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 30.24%
+2025-05-20 04:18:41,458 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:18:41,704 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 24.50%
+2025-05-20 04:18:42,044 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:18:42,380 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:18:42,380 - INFO - Nuts
+2025-05-20 04:18:42,676 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:18:42,947 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.41%
+2025-05-20 04:18:42,947 - INFO - Spices
+2025-05-20 04:18:43,235 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:18:43,481 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.28%
+2025-05-20 04:18:43,481 - INFO - Herbs
+2025-05-20 04:18:43,768 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:18:44,018 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.36%
+2025-05-20 04:18:44,018 - INFO - Fruits
+2025-05-20 04:18:44,301 - INFO - ✅ Regular Evaluation Accuracy: 9.79%
+2025-05-20 04:18:44,549 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 04:18:44,549 - INFO - Vegetables
+2025-05-20 04:18:44,830 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:18:45,080 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:18:45,082 - INFO - [Gradient Period 25 Run 3] Starting
+2025-05-20 04:18:45,550 - INFO - Training on device: cuda
+2025-05-20 04:18:53,152 - INFO - Epoch 01: Loss = 9992.3861, Accuracy = 5.13%
+2025-05-20 04:19:01,155 - INFO - Epoch 02: Loss = 8496.5426, Accuracy = 7.75%
+2025-05-20 04:19:09,149 - INFO - Epoch 03: Loss = 7601.1699, Accuracy = 10.16%
+2025-05-20 04:19:17,148 - INFO - Epoch 04: Loss = 6907.8883, Accuracy = 15.74%
+2025-05-20 04:19:25,166 - INFO - Epoch 05: Loss = 6474.8615, Accuracy = 21.88%
+2025-05-20 04:19:33,168 - INFO - Epoch 06: Loss = 6122.3716, Accuracy = 26.67%
+2025-05-20 04:19:41,125 - INFO - Epoch 07: Loss = 5795.3659, Accuracy = 31.08%
+2025-05-20 04:19:49,091 - INFO - Epoch 08: Loss = 5588.0239, Accuracy = 34.50%
+2025-05-20 04:19:57,095 - INFO - Epoch 09: Loss = 5441.3868, Accuracy = 37.15%
+2025-05-20 04:20:05,104 - INFO - Epoch 10: Loss = 5300.7716, Accuracy = 39.38%
+2025-05-20 04:20:13,102 - INFO - Epoch 11: Loss = 5208.2478, Accuracy = 40.93%
+2025-05-20 04:20:20,522 - INFO - Epoch 12: Loss = 5175.0055, Accuracy = 41.95%
+2025-05-20 04:20:27,935 - INFO - Epoch 13: Loss = 5147.6419, Accuracy = 42.65%
+2025-05-20 04:20:35,361 - INFO - Epoch 14: Loss = 5093.4255, Accuracy = 43.89%
+2025-05-20 04:20:42,789 - INFO - Epoch 15: Loss = 5065.6022, Accuracy = 44.76%
+2025-05-20 04:20:50,574 - INFO - Epoch 16: Loss = 5072.3597, Accuracy = 44.72%
+2025-05-20 04:20:58,527 - INFO - Epoch 17: Loss = 5085.2797, Accuracy = 44.71%
+2025-05-20 04:21:06,473 - INFO - Epoch 18: Loss = 5080.4896, Accuracy = 45.14%
+2025-05-20 04:21:14,413 - INFO - Epoch 19: Loss = 5046.5460, Accuracy = 45.74%
+2025-05-20 04:21:22,372 - INFO - Epoch 20: Loss = 5050.4954, Accuracy = 45.81%
+2025-05-20 04:21:30,318 - INFO - Epoch 21: Loss = 5094.6490, Accuracy = 45.40%
+2025-05-20 04:21:37,734 - INFO - Epoch 22: Loss = 5103.4759, Accuracy = 45.38%
+2025-05-20 04:21:45,144 - INFO - Epoch 23: Loss = 5078.3559, Accuracy = 45.89%
+2025-05-20 04:21:52,553 - INFO - Epoch 24: Loss = 5066.3725, Accuracy = 46.14%
+2025-05-20 04:22:00,195 - INFO - Epoch 25: Loss = 5029.8873, Accuracy = 46.76%
+2025-05-20 04:22:08,191 - INFO - Epoch 26: Loss = 5004.5532, Accuracy = 47.22%
+2025-05-20 04:22:16,176 - INFO - Epoch 27: Loss = 5004.3457, Accuracy = 47.44%
+2025-05-20 04:22:24,178 - INFO - Epoch 28: Loss = 5028.3681, Accuracy = 47.30%
+2025-05-20 04:22:32,175 - INFO - Epoch 29: Loss = 5016.0119, Accuracy = 47.45%
+2025-05-20 04:22:40,173 - INFO - Epoch 30: Loss = 4979.0446, Accuracy = 47.82%
+2025-05-20 04:22:47,819 - INFO - Epoch 31: Loss = 4954.3952, Accuracy = 48.14%
+2025-05-20 04:22:55,243 - INFO - Epoch 32: Loss = 4954.6679, Accuracy = 48.37%
+2025-05-20 04:23:02,667 - INFO - Epoch 33: Loss = 4942.1623, Accuracy = 48.68%
+2025-05-20 04:23:10,125 - INFO - Epoch 34: Loss = 4913.8546, Accuracy = 49.18%
+2025-05-20 04:23:17,865 - INFO - Epoch 35: Loss = 4899.9967, Accuracy = 49.30%
+2025-05-20 04:23:25,591 - INFO - Epoch 36: Loss = 4889.0488, Accuracy = 49.54%
+2025-05-20 04:23:33,013 - INFO - Epoch 37: Loss = 4878.7394, Accuracy = 49.81%
+2025-05-20 04:23:40,821 - INFO - Epoch 38: Loss = 4882.8737, Accuracy = 49.91%
+2025-05-20 04:23:48,231 - INFO - Epoch 39: Loss = 4866.3586, Accuracy = 50.04%
+2025-05-20 04:23:55,643 - INFO - Epoch 40: Loss = 4859.1858, Accuracy = 50.11%
+2025-05-20 04:24:03,349 - INFO - Epoch 41: Loss = 4850.0611, Accuracy = 50.23%
+2025-05-20 04:24:11,343 - INFO - Epoch 42: Loss = 4832.6422, Accuracy = 50.46%
+2025-05-20 04:24:19,076 - INFO - Epoch 43: Loss = 4801.7325, Accuracy = 50.79%
+2025-05-20 04:24:26,500 - INFO - Epoch 44: Loss = 4765.6435, Accuracy = 51.49%
+2025-05-20 04:24:33,914 - INFO - Epoch 45: Loss = 4735.4785, Accuracy = 51.95%
+2025-05-20 04:24:41,668 - INFO - Epoch 46: Loss = 4714.4778, Accuracy = 52.51%
+2025-05-20 04:24:49,684 - INFO - Epoch 47: Loss = 4713.9383, Accuracy = 52.63%
+2025-05-20 04:24:57,388 - INFO - Epoch 48: Loss = 4713.8197, Accuracy = 52.61%
+2025-05-20 04:25:04,906 - INFO - Epoch 49: Loss = 4725.0564, Accuracy = 52.62%
+2025-05-20 04:25:12,310 - INFO - Epoch 50: Loss = 4723.6516, Accuracy = 52.71%
+2025-05-20 04:25:19,719 - INFO - Epoch 51: Loss = 4718.9120, Accuracy = 52.80%
+2025-05-20 04:25:27,136 - INFO - Epoch 52: Loss = 4699.1210, Accuracy = 53.29%
+2025-05-20 04:25:34,990 - INFO - Epoch 53: Loss = 4668.9178, Accuracy = 53.67%
+2025-05-20 04:25:42,577 - INFO - Epoch 54: Loss = 4666.3690, Accuracy = 53.73%
+2025-05-20 04:25:49,985 - INFO - Epoch 55: Loss = 4659.7799, Accuracy = 53.68%
+2025-05-20 04:25:57,395 - INFO - Epoch 56: Loss = 4642.2096, Accuracy = 53.88%
+2025-05-20 04:26:04,797 - INFO - Epoch 57: Loss = 4616.6159, Accuracy = 54.14%
+2025-05-20 04:26:12,199 - INFO - Epoch 58: Loss = 4599.4987, Accuracy = 54.51%
+2025-05-20 04:26:19,604 - INFO - Epoch 59: Loss = 4593.3825, Accuracy = 54.84%
+2025-05-20 04:26:27,017 - INFO - Epoch 60: Loss = 4592.2364, Accuracy = 54.83%
+2025-05-20 04:26:34,428 - INFO - Epoch 61: Loss = 4592.1645, Accuracy = 54.94%
+2025-05-20 04:26:41,842 - INFO - Epoch 62: Loss = 4582.9845, Accuracy = 55.08%
+2025-05-20 04:26:49,248 - INFO - Epoch 63: Loss = 4552.5437, Accuracy = 55.47%
+2025-05-20 04:26:57,206 - INFO - Epoch 64: Loss = 4538.0206, Accuracy = 55.74%
+2025-05-20 04:26:57,220 - INFO - [Gradient Period 25 Run 3] Training time: 492.14s
+2025-05-20 04:26:58,008 - INFO - ✅ Regular Evaluation Accuracy: 9.48%
+2025-05-20 04:26:59,160 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 33.74%
+2025-05-20 04:26:59,249 - INFO - ✅ Regular Evaluation Accuracy: 1.30%
+2025-05-20 04:26:59,493 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 21.36%
+2025-05-20 04:26:59,829 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:27:00,166 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 04:27:00,166 - INFO - Nuts
+2025-05-20 04:27:00,460 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:27:00,728 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:27:00,728 - INFO - Spices
+2025-05-20 04:27:01,012 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:27:01,259 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.48%
+2025-05-20 04:27:01,259 - INFO - Herbs
+2025-05-20 04:27:01,547 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:27:01,797 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:27:01,798 - INFO - Fruits
+2025-05-20 04:27:02,087 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 04:27:02,337 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 29.04%
+2025-05-20 04:27:02,338 - INFO - Vegetables
+2025-05-20 04:27:02,626 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:27:02,875 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.97%
+2025-05-20 04:27:02,876 - INFO - [Gradient Period 25 Run 4] Starting
+2025-05-20 04:27:03,346 - INFO - Training on device: cuda
+2025-05-20 04:27:11,372 - INFO - Epoch 01: Loss = 10049.2034, Accuracy = 4.00%
+2025-05-20 04:27:19,395 - INFO - Epoch 02: Loss = 8461.4981, Accuracy = 6.86%
+2025-05-20 04:27:27,059 - INFO - Epoch 03: Loss = 7584.4753, Accuracy = 10.31%
+2025-05-20 04:27:34,490 - INFO - Epoch 04: Loss = 6929.0044, Accuracy = 14.19%
+2025-05-20 04:27:41,914 - INFO - Epoch 05: Loss = 6366.2553, Accuracy = 20.21%
+2025-05-20 04:27:49,336 - INFO - Epoch 06: Loss = 5982.4986, Accuracy = 25.72%
+2025-05-20 04:27:56,762 - INFO - Epoch 07: Loss = 5693.0033, Accuracy = 30.80%
+2025-05-20 04:28:04,191 - INFO - Epoch 08: Loss = 5476.1662, Accuracy = 34.79%
+2025-05-20 04:28:12,115 - INFO - Epoch 09: Loss = 5316.0520, Accuracy = 37.80%
+2025-05-20 04:28:20,126 - INFO - Epoch 10: Loss = 5248.3957, Accuracy = 39.74%
+2025-05-20 04:28:28,145 - INFO - Epoch 11: Loss = 5197.7927, Accuracy = 41.13%
+2025-05-20 04:28:36,170 - INFO - Epoch 12: Loss = 5181.1181, Accuracy = 42.06%
+2025-05-20 04:28:44,177 - INFO - Epoch 13: Loss = 5223.9947, Accuracy = 41.92%
+2025-05-20 04:28:52,179 - INFO - Epoch 14: Loss = 5225.7067, Accuracy = 42.26%
+2025-05-20 04:29:00,182 - INFO - Epoch 15: Loss = 5224.6529, Accuracy = 42.40%
+2025-05-20 04:29:08,177 - INFO - Epoch 16: Loss = 5184.6423, Accuracy = 42.80%
+2025-05-20 04:29:16,176 - INFO - Epoch 17: Loss = 5181.1234, Accuracy = 43.27%
+2025-05-20 04:29:24,177 - INFO - Epoch 18: Loss = 5177.0803, Accuracy = 43.72%
+2025-05-20 04:29:32,177 - INFO - Epoch 19: Loss = 5127.6232, Accuracy = 44.38%
+2025-05-20 04:29:40,177 - INFO - Epoch 20: Loss = 5107.9261, Accuracy = 44.73%
+2025-05-20 04:29:48,170 - INFO - Epoch 21: Loss = 5055.9311, Accuracy = 45.41%
+2025-05-20 04:29:56,159 - INFO - Epoch 22: Loss = 5010.3413, Accuracy = 46.58%
+2025-05-20 04:30:04,174 - INFO - Epoch 23: Loss = 5019.8941, Accuracy = 46.67%
+2025-05-20 04:30:12,187 - INFO - Epoch 24: Loss = 5015.3943, Accuracy = 46.95%
+2025-05-20 04:30:20,181 - INFO - Epoch 25: Loss = 5009.0925, Accuracy = 47.10%
+2025-05-20 04:30:27,616 - INFO - Epoch 26: Loss = 5035.1521, Accuracy = 46.95%
+2025-05-20 04:30:35,033 - INFO - Epoch 27: Loss = 5073.7840, Accuracy = 46.84%
+2025-05-20 04:30:42,453 - INFO - Epoch 28: Loss = 5068.8563, Accuracy = 47.24%
+2025-05-20 04:30:50,178 - INFO - Epoch 29: Loss = 5052.4780, Accuracy = 47.69%
+2025-05-20 04:30:58,197 - INFO - Epoch 30: Loss = 5037.5801, Accuracy = 48.03%
+2025-05-20 04:31:06,115 - INFO - Epoch 31: Loss = 5032.5818, Accuracy = 48.23%
+2025-05-20 04:31:13,895 - INFO - Epoch 32: Loss = 5002.0325, Accuracy = 48.59%
+2025-05-20 04:31:21,910 - INFO - Epoch 33: Loss = 4983.9352, Accuracy = 48.92%
+2025-05-20 04:31:29,931 - INFO - Epoch 34: Loss = 4967.4612, Accuracy = 49.10%
+2025-05-20 04:31:37,922 - INFO - Epoch 35: Loss = 4964.9181, Accuracy = 49.36%
+2025-05-20 04:31:45,378 - INFO - Epoch 36: Loss = 4942.7400, Accuracy = 49.65%
+2025-05-20 04:31:53,331 - INFO - Epoch 37: Loss = 4927.9140, Accuracy = 49.86%
+2025-05-20 04:32:01,349 - INFO - Epoch 38: Loss = 4929.8848, Accuracy = 50.01%
+2025-05-20 04:32:09,366 - INFO - Epoch 39: Loss = 4930.7225, Accuracy = 50.25%
+2025-05-20 04:32:17,380 - INFO - Epoch 40: Loss = 4894.2513, Accuracy = 50.70%
+2025-05-20 04:32:25,387 - INFO - Epoch 41: Loss = 4859.4980, Accuracy = 51.08%
+2025-05-20 04:32:33,426 - INFO - Epoch 42: Loss = 4829.1865, Accuracy = 51.37%
+2025-05-20 04:32:41,425 - INFO - Epoch 43: Loss = 4807.0037, Accuracy = 51.70%
+2025-05-20 04:32:49,443 - INFO - Epoch 44: Loss = 4802.7785, Accuracy = 51.90%
+2025-05-20 04:32:57,473 - INFO - Epoch 45: Loss = 4819.1874, Accuracy = 51.87%
+2025-05-20 04:33:05,493 - INFO - Epoch 46: Loss = 4821.5242, Accuracy = 52.05%
+2025-05-20 04:33:13,505 - INFO - Epoch 47: Loss = 4825.7328, Accuracy = 52.18%
+2025-05-20 04:33:21,524 - INFO - Epoch 48: Loss = 4831.0332, Accuracy = 52.04%
+2025-05-20 04:33:29,548 - INFO - Epoch 49: Loss = 4840.3485, Accuracy = 52.03%
+2025-05-20 04:33:37,566 - INFO - Epoch 50: Loss = 4855.7907, Accuracy = 51.78%
+2025-05-20 04:33:45,582 - INFO - Epoch 51: Loss = 4854.8990, Accuracy = 51.81%
+2025-05-20 04:33:53,593 - INFO - Epoch 52: Loss = 4857.9777, Accuracy = 51.68%
+2025-05-20 04:34:01,601 - INFO - Epoch 53: Loss = 4854.3812, Accuracy = 51.75%
+2025-05-20 04:34:09,625 - INFO - Epoch 54: Loss = 4841.9008, Accuracy = 52.05%
+2025-05-20 04:34:17,640 - INFO - Epoch 55: Loss = 4822.9033, Accuracy = 52.36%
+2025-05-20 04:34:25,655 - INFO - Epoch 56: Loss = 4800.5383, Accuracy = 52.66%
+2025-05-20 04:34:33,672 - INFO - Epoch 57: Loss = 4804.6881, Accuracy = 52.63%
+2025-05-20 04:34:41,674 - INFO - Epoch 58: Loss = 4790.6359, Accuracy = 52.46%
+2025-05-20 04:34:49,667 - INFO - Epoch 59: Loss = 4775.6290, Accuracy = 52.67%
+2025-05-20 04:34:57,663 - INFO - Epoch 60: Loss = 4766.5712, Accuracy = 53.03%
+2025-05-20 04:35:05,658 - INFO - Epoch 61: Loss = 4735.5380, Accuracy = 53.26%
+2025-05-20 04:35:13,677 - INFO - Epoch 62: Loss = 4729.1274, Accuracy = 53.49%
+2025-05-20 04:35:21,727 - INFO - Epoch 63: Loss = 4718.1309, Accuracy = 53.55%
+2025-05-20 04:35:29,754 - INFO - Epoch 64: Loss = 4695.7965, Accuracy = 53.82%
+2025-05-20 04:35:29,769 - INFO - [Gradient Period 25 Run 4] Training time: 506.89s
+2025-05-20 04:35:30,561 - INFO - ✅ Regular Evaluation Accuracy: 9.53%
+2025-05-20 04:35:31,725 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 31.11%
+2025-05-20 04:35:31,815 - INFO - ✅ Regular Evaluation Accuracy: 0.14%
+2025-05-20 04:35:32,059 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 16.88%
+2025-05-20 04:35:32,396 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:35:32,733 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.13%
+2025-05-20 04:35:32,733 - INFO - Nuts
+2025-05-20 04:35:33,026 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:35:33,293 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.90%
+2025-05-20 04:35:33,293 - INFO - Spices
+2025-05-20 04:35:33,581 - INFO - ✅ Regular Evaluation Accuracy: 5.27%
+2025-05-20 04:35:33,827 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.31%
+2025-05-20 04:35:33,828 - INFO - Herbs
+2025-05-20 04:35:34,119 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:35:34,371 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.94%
+2025-05-20 04:35:34,371 - INFO - Fruits
+2025-05-20 04:35:34,662 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 04:35:34,911 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 29.04%
+2025-05-20 04:35:34,912 - INFO - Vegetables
+2025-05-20 04:35:35,202 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:35:35,451 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:35:35,452 - INFO - [Gradient Period 25 Run 5] Starting
+2025-05-20 04:35:35,922 - INFO - Training on device: cuda
+2025-05-20 04:35:43,939 - INFO - Epoch 01: Loss = 10178.7637, Accuracy = 4.20%
+2025-05-20 04:35:51,966 - INFO - Epoch 02: Loss = 8606.0514, Accuracy = 8.09%
+2025-05-20 04:35:59,986 - INFO - Epoch 03: Loss = 7684.9301, Accuracy = 12.24%
+2025-05-20 04:36:08,008 - INFO - Epoch 04: Loss = 6962.2801, Accuracy = 17.37%
+2025-05-20 04:36:16,006 - INFO - Epoch 05: Loss = 6375.5489, Accuracy = 23.07%
+2025-05-20 04:36:24,026 - INFO - Epoch 06: Loss = 5984.2449, Accuracy = 27.01%
+2025-05-20 04:36:32,057 - INFO - Epoch 07: Loss = 5678.3244, Accuracy = 31.14%
+2025-05-20 04:36:40,099 - INFO - Epoch 08: Loss = 5480.5519, Accuracy = 34.80%
+2025-05-20 04:36:48,146 - INFO - Epoch 09: Loss = 5331.9949, Accuracy = 37.74%
+2025-05-20 04:36:56,182 - INFO - Epoch 10: Loss = 5202.9189, Accuracy = 40.17%
+2025-05-20 04:37:04,228 - INFO - Epoch 11: Loss = 5105.8140, Accuracy = 41.77%
+2025-05-20 04:37:12,252 - INFO - Epoch 12: Loss = 5027.4493, Accuracy = 43.11%
+2025-05-20 04:37:20,290 - INFO - Epoch 13: Loss = 4968.7869, Accuracy = 44.43%
+2025-05-20 04:37:28,329 - INFO - Epoch 14: Loss = 4940.7549, Accuracy = 45.55%
+2025-05-20 04:37:36,388 - INFO - Epoch 15: Loss = 4931.7775, Accuracy = 46.23%
+2025-05-20 04:37:44,427 - INFO - Epoch 16: Loss = 4932.4766, Accuracy = 46.73%
+2025-05-20 04:37:52,467 - INFO - Epoch 17: Loss = 4928.1625, Accuracy = 47.21%
+2025-05-20 04:38:00,515 - INFO - Epoch 18: Loss = 4930.6700, Accuracy = 47.43%
+2025-05-20 04:38:08,561 - INFO - Epoch 19: Loss = 4932.4081, Accuracy = 47.85%
+2025-05-20 04:38:16,610 - INFO - Epoch 20: Loss = 4967.5649, Accuracy = 47.35%
+2025-05-20 04:38:24,651 - INFO - Epoch 21: Loss = 5006.7106, Accuracy = 46.89%
+2025-05-20 04:38:32,660 - INFO - Epoch 22: Loss = 4968.8048, Accuracy = 47.67%
+2025-05-20 04:38:40,676 - INFO - Epoch 23: Loss = 4951.6873, Accuracy = 48.19%
+2025-05-20 04:38:48,701 - INFO - Epoch 24: Loss = 4963.6383, Accuracy = 47.94%
+2025-05-20 04:38:56,740 - INFO - Epoch 25: Loss = 4992.2499, Accuracy = 47.62%
+2025-05-20 04:39:04,779 - INFO - Epoch 26: Loss = 4999.3014, Accuracy = 47.65%
+2025-05-20 04:39:12,776 - INFO - Epoch 27: Loss = 4949.9100, Accuracy = 48.61%
+2025-05-20 04:39:20,828 - INFO - Epoch 28: Loss = 4919.1086, Accuracy = 49.17%
+2025-05-20 04:39:28,864 - INFO - Epoch 29: Loss = 4886.3998, Accuracy = 49.48%
+2025-05-20 04:39:36,902 - INFO - Epoch 30: Loss = 4858.0857, Accuracy = 49.91%
+2025-05-20 04:39:44,725 - INFO - Epoch 31: Loss = 4844.0618, Accuracy = 50.22%
+2025-05-20 04:39:52,174 - INFO - Epoch 32: Loss = 4867.2255, Accuracy = 50.08%
+2025-05-20 04:40:00,145 - INFO - Epoch 33: Loss = 4911.9990, Accuracy = 49.69%
+2025-05-20 04:40:08,157 - INFO - Epoch 34: Loss = 4963.1758, Accuracy = 49.21%
+2025-05-20 04:40:16,162 - INFO - Epoch 35: Loss = 4990.1215, Accuracy = 48.90%
+2025-05-20 04:40:24,193 - INFO - Epoch 36: Loss = 5010.2451, Accuracy = 48.62%
+2025-05-20 04:40:32,196 - INFO - Epoch 37: Loss = 4996.9886, Accuracy = 48.58%
+2025-05-20 04:40:40,206 - INFO - Epoch 38: Loss = 4966.9355, Accuracy = 48.90%
+2025-05-20 04:40:48,276 - INFO - Epoch 39: Loss = 4917.8896, Accuracy = 49.61%
+2025-05-20 04:40:56,339 - INFO - Epoch 40: Loss = 4860.7108, Accuracy = 50.24%
+2025-05-20 04:41:04,404 - INFO - Epoch 41: Loss = 4830.2601, Accuracy = 50.69%
+2025-05-20 04:41:12,448 - INFO - Epoch 42: Loss = 4825.0622, Accuracy = 50.82%
+2025-05-20 04:41:20,487 - INFO - Epoch 43: Loss = 4847.6794, Accuracy = 50.80%
+2025-05-20 04:41:28,546 - INFO - Epoch 44: Loss = 4851.7042, Accuracy = 50.62%
+2025-05-20 04:41:36,596 - INFO - Epoch 45: Loss = 4833.0910, Accuracy = 50.97%
+2025-05-20 04:41:44,618 - INFO - Epoch 46: Loss = 4804.4581, Accuracy = 51.51%
+2025-05-20 04:41:52,650 - INFO - Epoch 47: Loss = 4792.0473, Accuracy = 51.79%
+2025-05-20 04:42:00,681 - INFO - Epoch 48: Loss = 4777.6260, Accuracy = 52.00%
+2025-05-20 04:42:08,711 - INFO - Epoch 49: Loss = 4773.8225, Accuracy = 52.03%
+2025-05-20 04:42:16,741 - INFO - Epoch 50: Loss = 4779.6507, Accuracy = 52.17%
+2025-05-20 04:42:24,768 - INFO - Epoch 51: Loss = 4768.3084, Accuracy = 52.38%
+2025-05-20 04:42:32,805 - INFO - Epoch 52: Loss = 4778.5260, Accuracy = 52.32%
+2025-05-20 04:42:40,823 - INFO - Epoch 53: Loss = 4799.5237, Accuracy = 51.96%
+2025-05-20 04:42:48,832 - INFO - Epoch 54: Loss = 4831.3327, Accuracy = 51.51%
+2025-05-20 04:42:56,873 - INFO - Epoch 55: Loss = 4852.4253, Accuracy = 51.36%
+2025-05-20 04:43:04,323 - INFO - Epoch 56: Loss = 4865.5399, Accuracy = 51.04%
+2025-05-20 04:43:11,730 - INFO - Epoch 57: Loss = 4868.6765, Accuracy = 51.08%
+2025-05-20 04:43:19,148 - INFO - Epoch 58: Loss = 4857.5962, Accuracy = 51.48%
+2025-05-20 04:43:26,566 - INFO - Epoch 59: Loss = 4860.6923, Accuracy = 51.62%
+2025-05-20 04:43:34,502 - INFO - Epoch 60: Loss = 4832.9771, Accuracy = 52.00%
+2025-05-20 04:43:42,523 - INFO - Epoch 61: Loss = 4825.1889, Accuracy = 51.97%
+2025-05-20 04:43:50,141 - INFO - Epoch 62: Loss = 4810.5356, Accuracy = 51.92%
+2025-05-20 04:43:57,566 - INFO - Epoch 63: Loss = 4801.7288, Accuracy = 51.91%
+2025-05-20 04:44:05,521 - INFO - Epoch 64: Loss = 4789.8056, Accuracy = 51.86%
+2025-05-20 04:44:05,535 - INFO - [Gradient Period 25 Run 5] Training time: 510.08s
+2025-05-20 04:44:06,326 - INFO - ✅ Regular Evaluation Accuracy: 9.26%
+2025-05-20 04:44:07,484 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 32.22%
+2025-05-20 04:44:07,574 - INFO - ✅ Regular Evaluation Accuracy: 0.05%
+2025-05-20 04:44:07,819 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.64%
+2025-05-20 04:44:08,155 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:44:08,493 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 04:44:08,493 - INFO - Nuts
+2025-05-20 04:44:08,779 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:44:09,048 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.41%
+2025-05-20 04:44:09,048 - INFO - Spices
+2025-05-20 04:44:09,334 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:44:09,581 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.78%
+2025-05-20 04:44:09,581 - INFO - Herbs
+2025-05-20 04:44:09,866 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:44:10,117 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:44:10,117 - INFO - Fruits
+2025-05-20 04:44:10,401 - INFO - ✅ Regular Evaluation Accuracy: 9.79%
+2025-05-20 04:44:10,651 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 04:44:10,651 - INFO - Vegetables
+2025-05-20 04:44:10,939 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:44:11,188 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 04:44:11,190 - INFO - [Gradient Period 25 Run 6] Starting
+2025-05-20 04:44:11,662 - INFO - Training on device: cuda
+2025-05-20 04:44:19,684 - INFO - Epoch 01: Loss = 10077.0661, Accuracy = 5.72%
+2025-05-20 04:44:27,706 - INFO - Epoch 02: Loss = 8327.2127, Accuracy = 9.77%
+2025-05-20 04:44:35,189 - INFO - Epoch 03: Loss = 7314.2431, Accuracy = 14.93%
+2025-05-20 04:44:42,610 - INFO - Epoch 04: Loss = 6633.0327, Accuracy = 20.24%
+2025-05-20 04:44:50,044 - INFO - Epoch 05: Loss = 6132.4156, Accuracy = 25.41%
+2025-05-20 04:44:57,478 - INFO - Epoch 06: Loss = 5785.1430, Accuracy = 29.81%
+2025-05-20 04:45:04,891 - INFO - Epoch 07: Loss = 5573.1162, Accuracy = 32.79%
+2025-05-20 04:45:12,313 - INFO - Epoch 08: Loss = 5364.8662, Accuracy = 35.79%
+2025-05-20 04:45:19,724 - INFO - Epoch 09: Loss = 5189.7836, Accuracy = 38.54%
+2025-05-20 04:45:27,129 - INFO - Epoch 10: Loss = 5061.5507, Accuracy = 41.11%
+2025-05-20 04:45:34,570 - INFO - Epoch 11: Loss = 5005.2573, Accuracy = 42.66%
+2025-05-20 04:45:42,021 - INFO - Epoch 12: Loss = 4945.9527, Accuracy = 44.09%
+2025-05-20 04:45:49,462 - INFO - Epoch 13: Loss = 4846.3800, Accuracy = 45.88%
+2025-05-20 04:45:56,872 - INFO - Epoch 14: Loss = 4764.0705, Accuracy = 47.81%
+2025-05-20 04:46:04,394 - INFO - Epoch 15: Loss = 4710.3259, Accuracy = 48.81%
+2025-05-20 04:46:12,385 - INFO - Epoch 16: Loss = 4687.7324, Accuracy = 49.59%
+2025-05-20 04:46:20,367 - INFO - Epoch 17: Loss = 4698.0883, Accuracy = 49.70%
+2025-05-20 04:46:28,344 - INFO - Epoch 18: Loss = 4710.8111, Accuracy = 49.75%
+2025-05-20 04:46:36,334 - INFO - Epoch 19: Loss = 4687.3433, Accuracy = 50.22%
+2025-05-20 04:46:44,329 - INFO - Epoch 20: Loss = 4695.4204, Accuracy = 50.16%
+2025-05-20 04:46:52,332 - INFO - Epoch 21: Loss = 4743.4252, Accuracy = 49.90%
+2025-05-20 04:47:00,315 - INFO - Epoch 22: Loss = 4749.4882, Accuracy = 50.10%
+2025-05-20 04:47:08,310 - INFO - Epoch 23: Loss = 4721.6668, Accuracy = 50.81%
+2025-05-20 04:47:16,297 - INFO - Epoch 24: Loss = 4658.0436, Accuracy = 51.73%
+2025-05-20 04:47:23,809 - INFO - Epoch 25: Loss = 4611.5398, Accuracy = 52.20%
+2025-05-20 04:47:31,231 - INFO - Epoch 26: Loss = 4603.2287, Accuracy = 52.10%
+2025-05-20 04:47:38,935 - INFO - Epoch 27: Loss = 4591.5792, Accuracy = 52.39%
+2025-05-20 04:47:46,539 - INFO - Epoch 28: Loss = 4597.7171, Accuracy = 52.55%
+2025-05-20 04:47:53,949 - INFO - Epoch 29: Loss = 4584.2648, Accuracy = 53.08%
+2025-05-20 04:48:01,466 - INFO - Epoch 30: Loss = 4592.4451, Accuracy = 53.28%
+2025-05-20 04:48:08,903 - INFO - Epoch 31: Loss = 4610.1343, Accuracy = 53.31%
+2025-05-20 04:48:16,321 - INFO - Epoch 32: Loss = 4629.8832, Accuracy = 52.97%
+2025-05-20 04:48:24,210 - INFO - Epoch 33: Loss = 4627.5115, Accuracy = 53.19%
+2025-05-20 04:48:32,184 - INFO - Epoch 34: Loss = 4624.2961, Accuracy = 53.38%
+2025-05-20 04:48:40,155 - INFO - Epoch 35: Loss = 4611.2294, Accuracy = 53.46%
+2025-05-20 04:48:48,148 - INFO - Epoch 36: Loss = 4610.8566, Accuracy = 53.48%
+2025-05-20 04:48:56,138 - INFO - Epoch 37: Loss = 4625.3403, Accuracy = 53.39%
+2025-05-20 04:49:04,127 - INFO - Epoch 38: Loss = 4673.5314, Accuracy = 53.02%
+2025-05-20 04:49:12,107 - INFO - Epoch 39: Loss = 4693.7471, Accuracy = 52.92%
+2025-05-20 04:49:20,075 - INFO - Epoch 40: Loss = 4700.6848, Accuracy = 52.95%
+2025-05-20 04:49:28,044 - INFO - Epoch 41: Loss = 4715.1343, Accuracy = 52.73%
+2025-05-20 04:49:36,011 - INFO - Epoch 42: Loss = 4766.4937, Accuracy = 52.07%
+2025-05-20 04:49:43,980 - INFO - Epoch 43: Loss = 4819.5746, Accuracy = 51.62%
+2025-05-20 04:49:51,955 - INFO - Epoch 44: Loss = 4880.9106, Accuracy = 51.13%
+2025-05-20 04:49:59,934 - INFO - Epoch 45: Loss = 4881.7872, Accuracy = 50.91%
+2025-05-20 04:50:07,910 - INFO - Epoch 46: Loss = 4868.1635, Accuracy = 51.00%
+2025-05-20 04:50:15,890 - INFO - Epoch 47: Loss = 4828.8550, Accuracy = 51.48%
+2025-05-20 04:50:23,868 - INFO - Epoch 48: Loss = 4815.2206, Accuracy = 51.74%
+2025-05-20 04:50:31,850 - INFO - Epoch 49: Loss = 4813.7468, Accuracy = 51.72%
+2025-05-20 04:50:39,831 - INFO - Epoch 50: Loss = 4815.0802, Accuracy = 51.90%
+2025-05-20 04:50:47,829 - INFO - Epoch 51: Loss = 4816.2881, Accuracy = 51.50%
+2025-05-20 04:50:55,821 - INFO - Epoch 52: Loss = 4808.0840, Accuracy = 51.55%
+2025-05-20 04:51:03,828 - INFO - Epoch 53: Loss = 4803.6206, Accuracy = 51.58%
+2025-05-20 04:51:11,824 - INFO - Epoch 54: Loss = 4788.7771, Accuracy = 51.66%
+2025-05-20 04:51:19,818 - INFO - Epoch 55: Loss = 4774.8393, Accuracy = 52.03%
+2025-05-20 04:51:27,825 - INFO - Epoch 56: Loss = 4733.3876, Accuracy = 52.83%
+2025-05-20 04:51:35,822 - INFO - Epoch 57: Loss = 4728.7190, Accuracy = 53.11%
+2025-05-20 04:51:43,793 - INFO - Epoch 58: Loss = 4722.5148, Accuracy = 53.35%
+2025-05-20 04:51:51,778 - INFO - Epoch 59: Loss = 4712.9924, Accuracy = 53.47%
+2025-05-20 04:51:59,769 - INFO - Epoch 60: Loss = 4708.4467, Accuracy = 53.57%
+2025-05-20 04:52:07,772 - INFO - Epoch 61: Loss = 4710.9515, Accuracy = 53.59%
+2025-05-20 04:52:15,763 - INFO - Epoch 62: Loss = 4713.0231, Accuracy = 53.67%
+2025-05-20 04:52:23,243 - INFO - Epoch 63: Loss = 4707.5790, Accuracy = 53.87%
+2025-05-20 04:52:30,673 - INFO - Epoch 64: Loss = 4704.4003, Accuracy = 53.91%
+2025-05-20 04:52:30,688 - INFO - [Gradient Period 25 Run 6] Training time: 499.50s
+2025-05-20 04:52:31,483 - INFO - ✅ Regular Evaluation Accuracy: 8.52%
+2025-05-20 04:52:32,635 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 32.41%
+2025-05-20 04:52:32,725 - INFO - ✅ Regular Evaluation Accuracy: 1.08%
+2025-05-20 04:52:32,969 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 27.40%
+2025-05-20 04:52:33,316 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:52:33,652 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 04:52:33,652 - INFO - Nuts
+2025-05-20 04:52:33,948 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:52:34,216 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.49%
+2025-05-20 04:52:34,216 - INFO - Spices
+2025-05-20 04:52:34,613 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:52:34,860 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.48%
+2025-05-20 04:52:34,860 - INFO - Herbs
+2025-05-20 04:52:35,143 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:52:35,393 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.62%
+2025-05-20 04:52:35,393 - INFO - Fruits
+2025-05-20 04:52:35,682 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 04:52:35,931 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 37.97%
+2025-05-20 04:52:35,931 - INFO - Vegetables
+2025-05-20 04:52:36,217 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 04:52:36,465 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.01%
+2025-05-20 04:52:36,466 - INFO - [Gradient Period 25 Run 7] Starting
+2025-05-20 04:52:36,933 - INFO - Training on device: cuda
+2025-05-20 04:52:44,331 - INFO - Epoch 01: Loss = 10020.0710, Accuracy = 6.37%
+2025-05-20 04:52:51,754 - INFO - Epoch 02: Loss = 8410.9132, Accuracy = 10.38%
+2025-05-20 04:52:59,161 - INFO - Epoch 03: Loss = 7389.9040, Accuracy = 15.81%
+2025-05-20 04:53:06,558 - INFO - Epoch 04: Loss = 6699.0682, Accuracy = 20.39%
+2025-05-20 04:53:13,963 - INFO - Epoch 05: Loss = 6222.4134, Accuracy = 25.43%
+2025-05-20 04:53:21,373 - INFO - Epoch 06: Loss = 5901.2678, Accuracy = 29.62%
+2025-05-20 04:53:28,782 - INFO - Epoch 07: Loss = 5643.4460, Accuracy = 33.44%
+2025-05-20 04:53:36,193 - INFO - Epoch 08: Loss = 5419.0495, Accuracy = 37.16%
+2025-05-20 04:53:44,121 - INFO - Epoch 09: Loss = 5283.0545, Accuracy = 39.95%
+2025-05-20 04:53:52,065 - INFO - Epoch 10: Loss = 5199.2597, Accuracy = 41.32%
+2025-05-20 04:53:59,560 - INFO - Epoch 11: Loss = 5074.6399, Accuracy = 43.07%
+2025-05-20 04:54:06,948 - INFO - Epoch 12: Loss = 4935.8904, Accuracy = 44.86%
+2025-05-20 04:54:14,333 - INFO - Epoch 13: Loss = 4807.0035, Accuracy = 46.74%
+2025-05-20 04:54:21,735 - INFO - Epoch 14: Loss = 4731.3675, Accuracy = 48.38%
+2025-05-20 04:54:29,128 - INFO - Epoch 15: Loss = 4708.2068, Accuracy = 48.95%
+2025-05-20 04:54:36,538 - INFO - Epoch 16: Loss = 4687.8540, Accuracy = 49.47%
+2025-05-20 04:54:43,903 - INFO - Epoch 17: Loss = 4659.8061, Accuracy = 50.08%
+2025-05-20 04:54:51,300 - INFO - Epoch 18: Loss = 4630.7792, Accuracy = 50.68%
+2025-05-20 04:54:58,960 - INFO - Epoch 19: Loss = 4622.8503, Accuracy = 51.05%
+2025-05-20 04:55:06,500 - INFO - Epoch 20: Loss = 4627.7097, Accuracy = 51.23%
+2025-05-20 04:55:13,881 - INFO - Epoch 21: Loss = 4641.8685, Accuracy = 51.29%
+2025-05-20 04:55:21,290 - INFO - Epoch 22: Loss = 4648.1789, Accuracy = 51.60%
+2025-05-20 04:55:28,670 - INFO - Epoch 23: Loss = 4629.2455, Accuracy = 52.18%
+2025-05-20 04:55:36,085 - INFO - Epoch 24: Loss = 4620.9276, Accuracy = 52.50%
+2025-05-20 04:55:43,521 - INFO - Epoch 25: Loss = 4658.3859, Accuracy = 52.15%
+2025-05-20 04:55:50,924 - INFO - Epoch 26: Loss = 4733.4665, Accuracy = 51.23%
+2025-05-20 04:55:58,305 - INFO - Epoch 27: Loss = 4790.1813, Accuracy = 50.60%
+2025-05-20 04:56:05,708 - INFO - Epoch 28: Loss = 4788.9156, Accuracy = 50.83%
+2025-05-20 04:56:13,096 - INFO - Epoch 29: Loss = 4781.1994, Accuracy = 50.83%
+2025-05-20 04:56:20,536 - INFO - Epoch 30: Loss = 4758.0973, Accuracy = 51.15%
+2025-05-20 04:56:27,934 - INFO - Epoch 31: Loss = 4743.6628, Accuracy = 51.23%
+2025-05-20 04:56:35,337 - INFO - Epoch 32: Loss = 4726.1223, Accuracy = 51.45%
+2025-05-20 04:56:42,753 - INFO - Epoch 33: Loss = 4736.4615, Accuracy = 51.46%
+2025-05-20 04:56:50,198 - INFO - Epoch 34: Loss = 4737.3315, Accuracy = 51.55%
+2025-05-20 04:56:57,614 - INFO - Epoch 35: Loss = 4741.1672, Accuracy = 51.68%
+2025-05-20 04:57:05,077 - INFO - Epoch 36: Loss = 4783.0074, Accuracy = 51.25%
+2025-05-20 04:57:12,463 - INFO - Epoch 37: Loss = 4791.6945, Accuracy = 51.22%
+2025-05-20 04:57:19,857 - INFO - Epoch 38: Loss = 4803.2413, Accuracy = 50.98%
+2025-05-20 04:57:27,253 - INFO - Epoch 39: Loss = 4804.7339, Accuracy = 50.99%
+2025-05-20 04:57:34,659 - INFO - Epoch 40: Loss = 4763.9856, Accuracy = 51.56%
+2025-05-20 04:57:42,045 - INFO - Epoch 41: Loss = 4771.0893, Accuracy = 51.52%
+2025-05-20 04:57:49,440 - INFO - Epoch 42: Loss = 4798.0416, Accuracy = 51.41%
+2025-05-20 04:57:56,834 - INFO - Epoch 43: Loss = 4852.6131, Accuracy = 50.78%
+2025-05-20 04:58:04,227 - INFO - Epoch 44: Loss = 4897.6262, Accuracy = 50.42%
+2025-05-20 04:58:11,602 - INFO - Epoch 45: Loss = 4910.8528, Accuracy = 50.31%
+2025-05-20 04:58:19,002 - INFO - Epoch 46: Loss = 4879.0125, Accuracy = 50.92%
+2025-05-20 04:58:26,389 - INFO - Epoch 47: Loss = 4863.3398, Accuracy = 51.49%
+2025-05-20 04:58:34,130 - INFO - Epoch 48: Loss = 4835.5163, Accuracy = 51.74%
+2025-05-20 04:58:41,899 - INFO - Epoch 49: Loss = 4815.1928, Accuracy = 51.76%
+2025-05-20 04:58:49,345 - INFO - Epoch 50: Loss = 4802.4265, Accuracy = 51.69%
+2025-05-20 04:58:56,771 - INFO - Epoch 51: Loss = 4777.5040, Accuracy = 51.83%
+2025-05-20 04:59:04,167 - INFO - Epoch 52: Loss = 4758.6166, Accuracy = 52.21%
+2025-05-20 04:59:11,569 - INFO - Epoch 53: Loss = 4758.9565, Accuracy = 52.50%
+2025-05-20 04:59:19,049 - INFO - Epoch 54: Loss = 4763.2986, Accuracy = 52.43%
+2025-05-20 04:59:26,439 - INFO - Epoch 55: Loss = 4797.1609, Accuracy = 51.99%
+2025-05-20 04:59:33,840 - INFO - Epoch 56: Loss = 4783.4980, Accuracy = 51.96%
+2025-05-20 04:59:41,239 - INFO - Epoch 57: Loss = 4744.8031, Accuracy = 52.17%
+2025-05-20 04:59:48,626 - INFO - Epoch 58: Loss = 4735.8804, Accuracy = 52.12%
+2025-05-20 04:59:56,008 - INFO - Epoch 59: Loss = 4746.8967, Accuracy = 52.37%
+2025-05-20 05:00:03,412 - INFO - Epoch 60: Loss = 4785.1200, Accuracy = 52.27%
+2025-05-20 05:00:10,806 - INFO - Epoch 61: Loss = 4809.1829, Accuracy = 52.18%
+2025-05-20 05:00:18,198 - INFO - Epoch 62: Loss = 4821.6970, Accuracy = 51.98%
+2025-05-20 05:00:25,588 - INFO - Epoch 63: Loss = 4819.0691, Accuracy = 51.90%
+2025-05-20 05:00:32,990 - INFO - Epoch 64: Loss = 4857.4401, Accuracy = 51.52%
+2025-05-20 05:00:33,004 - INFO - [Gradient Period 25 Run 7] Training time: 476.54s
+2025-05-20 05:00:33,795 - INFO - ✅ Regular Evaluation Accuracy: 8.20%
+2025-05-20 05:00:34,946 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 31.42%
+2025-05-20 05:00:35,035 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:00:35,279 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.23%
+2025-05-20 05:00:35,621 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:00:35,955 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:00:35,956 - INFO - Nuts
+2025-05-20 05:00:36,248 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:00:36,517 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.43%
+2025-05-20 05:00:36,517 - INFO - Spices
+2025-05-20 05:00:36,799 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:00:37,046 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.24%
+2025-05-20 05:00:37,046 - INFO - Herbs
+2025-05-20 05:00:37,332 - INFO - ✅ Regular Evaluation Accuracy: 10.62%
+2025-05-20 05:00:37,581 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.62%
+2025-05-20 05:00:37,582 - INFO - Fruits
+2025-05-20 05:00:37,871 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 05:00:38,120 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 05:00:38,120 - INFO - Vegetables
+2025-05-20 05:00:38,406 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:00:38,655 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.99%
+2025-05-20 05:00:38,656 - INFO - [Gradient Period 25 Run 8] Starting
+2025-05-20 05:00:39,126 - INFO - Training on device: cuda
+2025-05-20 05:00:46,572 - INFO - Epoch 01: Loss = 10089.5629, Accuracy = 5.22%
+2025-05-20 05:00:54,020 - INFO - Epoch 02: Loss = 8417.5358, Accuracy = 7.76%
+2025-05-20 05:01:01,478 - INFO - Epoch 03: Loss = 7392.2322, Accuracy = 11.80%
+2025-05-20 05:01:08,971 - INFO - Epoch 04: Loss = 6733.5336, Accuracy = 17.11%
+2025-05-20 05:01:16,429 - INFO - Epoch 05: Loss = 6223.1086, Accuracy = 23.80%
+2025-05-20 05:01:23,884 - INFO - Epoch 06: Loss = 5809.7474, Accuracy = 29.79%
+2025-05-20 05:01:31,331 - INFO - Epoch 07: Loss = 5530.7154, Accuracy = 33.88%
+2025-05-20 05:01:38,792 - INFO - Epoch 08: Loss = 5325.3175, Accuracy = 37.08%
+2025-05-20 05:01:46,255 - INFO - Epoch 09: Loss = 5178.2055, Accuracy = 39.48%
+2025-05-20 05:01:53,713 - INFO - Epoch 10: Loss = 5052.3023, Accuracy = 41.39%
+2025-05-20 05:02:01,171 - INFO - Epoch 11: Loss = 4975.8227, Accuracy = 43.27%
+2025-05-20 05:02:08,622 - INFO - Epoch 12: Loss = 4937.0856, Accuracy = 44.46%
+2025-05-20 05:02:16,081 - INFO - Epoch 13: Loss = 4892.0227, Accuracy = 45.21%
+2025-05-20 05:02:23,534 - INFO - Epoch 14: Loss = 4856.2382, Accuracy = 45.91%
+2025-05-20 05:02:30,999 - INFO - Epoch 15: Loss = 4830.9213, Accuracy = 46.36%
+2025-05-20 05:02:38,457 - INFO - Epoch 16: Loss = 4786.7051, Accuracy = 47.11%
+2025-05-20 05:02:45,907 - INFO - Epoch 17: Loss = 4791.6639, Accuracy = 47.35%
+2025-05-20 05:02:53,367 - INFO - Epoch 18: Loss = 4769.5544, Accuracy = 47.81%
+2025-05-20 05:03:00,816 - INFO - Epoch 19: Loss = 4769.5224, Accuracy = 48.05%
+2025-05-20 05:03:08,273 - INFO - Epoch 20: Loss = 4790.7114, Accuracy = 47.95%
+2025-05-20 05:03:15,726 - INFO - Epoch 21: Loss = 4806.0083, Accuracy = 47.91%
+2025-05-20 05:03:23,195 - INFO - Epoch 22: Loss = 4795.0592, Accuracy = 48.46%
+2025-05-20 05:03:30,669 - INFO - Epoch 23: Loss = 4796.5508, Accuracy = 48.63%
+2025-05-20 05:03:38,117 - INFO - Epoch 24: Loss = 4795.2587, Accuracy = 48.83%
+2025-05-20 05:03:45,576 - INFO - Epoch 25: Loss = 4768.8299, Accuracy = 49.21%
+2025-05-20 05:03:53,035 - INFO - Epoch 26: Loss = 4774.0113, Accuracy = 49.31%
+2025-05-20 05:04:00,493 - INFO - Epoch 27: Loss = 4775.2951, Accuracy = 49.29%
+2025-05-20 05:04:07,965 - INFO - Epoch 28: Loss = 4757.4744, Accuracy = 49.78%
+2025-05-20 05:04:15,421 - INFO - Epoch 29: Loss = 4721.9148, Accuracy = 50.47%
+2025-05-20 05:04:22,866 - INFO - Epoch 30: Loss = 4708.2329, Accuracy = 50.81%
+2025-05-20 05:04:30,314 - INFO - Epoch 31: Loss = 4719.2472, Accuracy = 50.90%
+2025-05-20 05:04:37,761 - INFO - Epoch 32: Loss = 4743.5533, Accuracy = 50.79%
+2025-05-20 05:04:45,216 - INFO - Epoch 33: Loss = 4798.2748, Accuracy = 50.25%
+2025-05-20 05:04:52,678 - INFO - Epoch 34: Loss = 4858.0043, Accuracy = 49.65%
+2025-05-20 05:05:00,139 - INFO - Epoch 35: Loss = 4885.9340, Accuracy = 49.31%
+2025-05-20 05:05:07,588 - INFO - Epoch 36: Loss = 4906.3295, Accuracy = 49.11%
+2025-05-20 05:05:15,063 - INFO - Epoch 37: Loss = 4890.8217, Accuracy = 49.34%
+2025-05-20 05:05:23,118 - INFO - Epoch 38: Loss = 4896.9936, Accuracy = 49.30%
+2025-05-20 05:05:31,164 - INFO - Epoch 39: Loss = 4932.9089, Accuracy = 48.84%
+2025-05-20 05:05:39,214 - INFO - Epoch 40: Loss = 4912.4265, Accuracy = 49.01%
+2025-05-20 05:05:47,271 - INFO - Epoch 41: Loss = 4894.5733, Accuracy = 49.30%
+2025-05-20 05:05:55,317 - INFO - Epoch 42: Loss = 4877.5725, Accuracy = 49.70%
+2025-05-20 05:06:03,368 - INFO - Epoch 43: Loss = 4858.4625, Accuracy = 49.99%
+2025-05-20 05:06:11,371 - INFO - Epoch 44: Loss = 4833.5256, Accuracy = 50.00%
+2025-05-20 05:06:19,087 - INFO - Epoch 45: Loss = 4817.2664, Accuracy = 50.19%
+2025-05-20 05:06:26,556 - INFO - Epoch 46: Loss = 4806.2657, Accuracy = 50.30%
+2025-05-20 05:06:34,484 - INFO - Epoch 47: Loss = 4805.3206, Accuracy = 50.47%
+2025-05-20 05:06:41,963 - INFO - Epoch 48: Loss = 4818.9809, Accuracy = 50.40%
+2025-05-20 05:06:49,408 - INFO - Epoch 49: Loss = 4866.6251, Accuracy = 50.29%
+2025-05-20 05:06:56,857 - INFO - Epoch 50: Loss = 4881.8340, Accuracy = 50.26%
+2025-05-20 05:07:04,441 - INFO - Epoch 51: Loss = 4854.7094, Accuracy = 50.43%
+2025-05-20 05:07:12,443 - INFO - Epoch 52: Loss = 4828.9751, Accuracy = 50.77%
+2025-05-20 05:07:20,437 - INFO - Epoch 53: Loss = 4824.4937, Accuracy = 50.90%
+2025-05-20 05:07:27,935 - INFO - Epoch 54: Loss = 4835.8806, Accuracy = 51.04%
+2025-05-20 05:07:35,393 - INFO - Epoch 55: Loss = 4851.7871, Accuracy = 50.90%
+2025-05-20 05:07:42,901 - INFO - Epoch 56: Loss = 4858.8628, Accuracy = 50.92%
+2025-05-20 05:07:50,360 - INFO - Epoch 57: Loss = 4889.9303, Accuracy = 50.51%
+2025-05-20 05:07:57,805 - INFO - Epoch 58: Loss = 4916.8171, Accuracy = 50.20%
+2025-05-20 05:08:05,255 - INFO - Epoch 59: Loss = 4930.4794, Accuracy = 50.31%
+2025-05-20 05:08:12,713 - INFO - Epoch 60: Loss = 4945.1551, Accuracy = 50.17%
+2025-05-20 05:08:20,158 - INFO - Epoch 61: Loss = 4971.6440, Accuracy = 50.33%
+2025-05-20 05:08:27,604 - INFO - Epoch 62: Loss = 4975.2792, Accuracy = 50.39%
+2025-05-20 05:08:35,053 - INFO - Epoch 63: Loss = 4957.8653, Accuracy = 50.78%
+2025-05-20 05:08:42,504 - INFO - Epoch 64: Loss = 4951.3645, Accuracy = 50.80%
+2025-05-20 05:08:42,518 - INFO - [Gradient Period 25 Run 8] Training time: 483.86s
+2025-05-20 05:08:43,319 - INFO - ✅ Regular Evaluation Accuracy: 9.03%
+2025-05-20 05:08:44,475 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 37.08%
+2025-05-20 05:08:44,565 - INFO - ✅ Regular Evaluation Accuracy: 0.38%
+2025-05-20 05:08:44,810 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.79%
+2025-05-20 05:08:45,155 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:08:45,493 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:08:45,493 - INFO - Nuts
+2025-05-20 05:08:45,778 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:08:46,048 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.33%
+2025-05-20 05:08:46,048 - INFO - Spices
+2025-05-20 05:08:46,335 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:08:46,583 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.24%
+2025-05-20 05:08:46,583 - INFO - Herbs
+2025-05-20 05:08:46,869 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:08:47,119 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 6.69%
+2025-05-20 05:08:47,120 - INFO - Fruits
+2025-05-20 05:08:47,404 - INFO - ✅ Regular Evaluation Accuracy: 9.79%
+2025-05-20 05:08:47,653 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.66%
+2025-05-20 05:08:47,653 - INFO - Vegetables
+2025-05-20 05:08:47,943 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:08:48,193 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.74%
+2025-05-20 05:08:48,194 - INFO - [Gradient Period 25 Run 9] Starting
+2025-05-20 05:08:48,662 - INFO - Training on device: cuda
+2025-05-20 05:08:56,421 - INFO - Epoch 01: Loss = 10309.0978, Accuracy = 5.10%
+2025-05-20 05:09:03,949 - INFO - Epoch 02: Loss = 8574.1768, Accuracy = 9.43%
+2025-05-20 05:09:11,990 - INFO - Epoch 03: Loss = 7472.2231, Accuracy = 13.47%
+2025-05-20 05:09:19,995 - INFO - Epoch 04: Loss = 6674.5607, Accuracy = 20.16%
+2025-05-20 05:09:28,014 - INFO - Epoch 05: Loss = 6163.6777, Accuracy = 25.69%
+2025-05-20 05:09:35,877 - INFO - Epoch 06: Loss = 5808.2994, Accuracy = 29.98%
+2025-05-20 05:09:43,312 - INFO - Epoch 07: Loss = 5566.9641, Accuracy = 33.51%
+2025-05-20 05:09:51,260 - INFO - Epoch 08: Loss = 5370.6622, Accuracy = 36.72%
+2025-05-20 05:09:59,291 - INFO - Epoch 09: Loss = 5185.4525, Accuracy = 39.85%
+2025-05-20 05:10:07,327 - INFO - Epoch 10: Loss = 5049.1994, Accuracy = 42.31%
+2025-05-20 05:10:15,348 - INFO - Epoch 11: Loss = 4982.5826, Accuracy = 43.68%
+2025-05-20 05:10:23,389 - INFO - Epoch 12: Loss = 4922.0927, Accuracy = 44.97%
+2025-05-20 05:10:31,424 - INFO - Epoch 13: Loss = 4873.1857, Accuracy = 46.29%
+2025-05-20 05:10:39,461 - INFO - Epoch 14: Loss = 4830.4196, Accuracy = 47.24%
+2025-05-20 05:10:47,323 - INFO - Epoch 15: Loss = 4811.0825, Accuracy = 47.68%
+2025-05-20 05:10:54,837 - INFO - Epoch 16: Loss = 4807.1740, Accuracy = 48.00%
+2025-05-20 05:11:02,582 - INFO - Epoch 17: Loss = 4793.2898, Accuracy = 48.38%
+2025-05-20 05:11:10,634 - INFO - Epoch 18: Loss = 4757.1335, Accuracy = 49.19%
+2025-05-20 05:11:18,670 - INFO - Epoch 19: Loss = 4713.3108, Accuracy = 49.84%
+2025-05-20 05:11:26,699 - INFO - Epoch 20: Loss = 4678.6842, Accuracy = 50.45%
+2025-05-20 05:11:34,737 - INFO - Epoch 21: Loss = 4681.6063, Accuracy = 50.57%
+2025-05-20 05:11:42,775 - INFO - Epoch 22: Loss = 4727.4049, Accuracy = 50.47%
+2025-05-20 05:11:50,818 - INFO - Epoch 23: Loss = 4774.5256, Accuracy = 50.29%
+2025-05-20 05:11:58,852 - INFO - Epoch 24: Loss = 4788.0924, Accuracy = 50.26%
+2025-05-20 05:12:06,891 - INFO - Epoch 25: Loss = 4779.5910, Accuracy = 50.41%
+2025-05-20 05:12:14,922 - INFO - Epoch 26: Loss = 4760.5655, Accuracy = 50.77%
+2025-05-20 05:12:22,978 - INFO - Epoch 27: Loss = 4729.1644, Accuracy = 51.34%
+2025-05-20 05:12:31,026 - INFO - Epoch 28: Loss = 4719.0057, Accuracy = 51.64%
+2025-05-20 05:12:39,061 - INFO - Epoch 29: Loss = 4701.7910, Accuracy = 51.87%
+2025-05-20 05:12:47,099 - INFO - Epoch 30: Loss = 4695.0223, Accuracy = 52.08%
+2025-05-20 05:12:55,102 - INFO - Epoch 31: Loss = 4697.1857, Accuracy = 52.16%
+2025-05-20 05:13:03,110 - INFO - Epoch 32: Loss = 4694.6127, Accuracy = 52.25%
+2025-05-20 05:13:11,113 - INFO - Epoch 33: Loss = 4693.6523, Accuracy = 52.44%
+2025-05-20 05:13:19,114 - INFO - Epoch 34: Loss = 4688.6208, Accuracy = 52.38%
+2025-05-20 05:13:27,094 - INFO - Epoch 35: Loss = 4692.1361, Accuracy = 52.01%
+2025-05-20 05:13:35,080 - INFO - Epoch 36: Loss = 4693.1846, Accuracy = 52.06%
+2025-05-20 05:13:43,071 - INFO - Epoch 37: Loss = 4722.2854, Accuracy = 51.69%
+2025-05-20 05:13:51,072 - INFO - Epoch 38: Loss = 4732.2123, Accuracy = 51.63%
+2025-05-20 05:13:59,090 - INFO - Epoch 39: Loss = 4704.7342, Accuracy = 52.10%
+2025-05-20 05:14:07,124 - INFO - Epoch 40: Loss = 4687.8501, Accuracy = 52.12%
+2025-05-20 05:14:15,152 - INFO - Epoch 41: Loss = 4699.0418, Accuracy = 52.02%
+2025-05-20 05:14:23,184 - INFO - Epoch 42: Loss = 4706.3302, Accuracy = 52.06%
+2025-05-20 05:14:31,190 - INFO - Epoch 43: Loss = 4689.7501, Accuracy = 52.32%
+2025-05-20 05:14:39,186 - INFO - Epoch 44: Loss = 4685.5642, Accuracy = 52.52%
+2025-05-20 05:14:47,207 - INFO - Epoch 45: Loss = 4664.7509, Accuracy = 52.93%
+2025-05-20 05:14:55,228 - INFO - Epoch 46: Loss = 4651.9792, Accuracy = 53.34%
+2025-05-20 05:15:03,254 - INFO - Epoch 47: Loss = 4659.9671, Accuracy = 53.30%
+2025-05-20 05:15:11,272 - INFO - Epoch 48: Loss = 4657.3520, Accuracy = 53.61%
+2025-05-20 05:15:19,278 - INFO - Epoch 49: Loss = 4659.6502, Accuracy = 53.58%
+2025-05-20 05:15:27,266 - INFO - Epoch 50: Loss = 4683.9131, Accuracy = 53.31%
+2025-05-20 05:15:35,256 - INFO - Epoch 51: Loss = 4693.0851, Accuracy = 53.48%
+2025-05-20 05:15:43,247 - INFO - Epoch 52: Loss = 4681.6381, Accuracy = 53.54%
+2025-05-20 05:15:51,226 - INFO - Epoch 53: Loss = 4673.5445, Accuracy = 53.79%
+2025-05-20 05:15:59,213 - INFO - Epoch 54: Loss = 4649.9905, Accuracy = 53.93%
+2025-05-20 05:16:07,209 - INFO - Epoch 55: Loss = 4648.8756, Accuracy = 53.99%
+2025-05-20 05:16:15,210 - INFO - Epoch 56: Loss = 4646.8138, Accuracy = 54.20%
+2025-05-20 05:16:23,210 - INFO - Epoch 57: Loss = 4657.5029, Accuracy = 54.22%
+2025-05-20 05:16:31,213 - INFO - Epoch 58: Loss = 4665.1934, Accuracy = 54.14%
+2025-05-20 05:16:39,204 - INFO - Epoch 59: Loss = 4663.9831, Accuracy = 54.12%
+2025-05-20 05:16:47,211 - INFO - Epoch 60: Loss = 4646.9557, Accuracy = 54.56%
+2025-05-20 05:16:55,224 - INFO - Epoch 61: Loss = 4656.5368, Accuracy = 54.35%
+2025-05-20 05:17:03,242 - INFO - Epoch 62: Loss = 4640.5163, Accuracy = 54.62%
+2025-05-20 05:17:11,247 - INFO - Epoch 63: Loss = 4633.2829, Accuracy = 54.53%
+2025-05-20 05:17:19,256 - INFO - Epoch 64: Loss = 4642.8552, Accuracy = 54.63%
+2025-05-20 05:17:19,270 - INFO - [Gradient Period 25 Run 9] Training time: 511.08s
+2025-05-20 05:17:20,062 - INFO - ✅ Regular Evaluation Accuracy: 9.02%
+2025-05-20 05:17:21,217 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 30.36%
+2025-05-20 05:17:21,304 - INFO - ✅ Regular Evaluation Accuracy: 0.02%
+2025-05-20 05:17:21,548 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.56%
+2025-05-20 05:17:21,895 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:17:22,231 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:17:22,231 - INFO - Nuts
+2025-05-20 05:17:22,518 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:17:22,785 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.90%
+2025-05-20 05:17:22,785 - INFO - Spices
+2025-05-20 05:17:23,075 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:17:23,321 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 20.21%
+2025-05-20 05:17:23,321 - INFO - Herbs
+2025-05-20 05:17:23,605 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:17:23,854 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.38%
+2025-05-20 05:17:23,855 - INFO - Fruits
+2025-05-20 05:17:24,151 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 05:17:24,400 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 05:17:24,400 - INFO - Vegetables
+2025-05-20 05:17:24,687 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:17:24,936 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:17:24,937 - INFO - [Gradient Period 25 Run 10] Starting
+2025-05-20 05:17:25,405 - INFO - Training on device: cuda
+2025-05-20 05:17:33,410 - INFO - Epoch 01: Loss = 10221.7560, Accuracy = 4.46%
+2025-05-20 05:17:41,431 - INFO - Epoch 02: Loss = 8601.7764, Accuracy = 6.65%
+2025-05-20 05:17:49,446 - INFO - Epoch 03: Loss = 7638.8610, Accuracy = 9.60%
+2025-05-20 05:17:57,470 - INFO - Epoch 04: Loss = 7012.1907, Accuracy = 14.24%
+2025-05-20 05:18:05,485 - INFO - Epoch 05: Loss = 6502.3076, Accuracy = 19.98%
+2025-05-20 05:18:13,503 - INFO - Epoch 06: Loss = 6092.4475, Accuracy = 26.78%
+2025-05-20 05:18:21,570 - INFO - Epoch 07: Loss = 5765.3306, Accuracy = 32.13%
+2025-05-20 05:18:29,567 - INFO - Epoch 08: Loss = 5516.4871, Accuracy = 36.11%
+2025-05-20 05:18:37,580 - INFO - Epoch 09: Loss = 5332.1488, Accuracy = 38.52%
+2025-05-20 05:18:45,590 - INFO - Epoch 10: Loss = 5242.5791, Accuracy = 40.08%
+2025-05-20 05:18:53,613 - INFO - Epoch 11: Loss = 5173.5190, Accuracy = 41.86%
+2025-05-20 05:19:01,637 - INFO - Epoch 12: Loss = 5075.0139, Accuracy = 43.48%
+2025-05-20 05:19:09,657 - INFO - Epoch 13: Loss = 5012.8010, Accuracy = 44.49%
+2025-05-20 05:19:17,680 - INFO - Epoch 14: Loss = 4992.9191, Accuracy = 44.84%
+2025-05-20 05:19:25,705 - INFO - Epoch 15: Loss = 5008.1512, Accuracy = 45.23%
+2025-05-20 05:19:33,720 - INFO - Epoch 16: Loss = 4998.4762, Accuracy = 45.69%
+2025-05-20 05:19:41,740 - INFO - Epoch 17: Loss = 4940.4652, Accuracy = 46.67%
+2025-05-20 05:19:49,785 - INFO - Epoch 18: Loss = 4881.9729, Accuracy = 47.67%
+2025-05-20 05:19:57,810 - INFO - Epoch 19: Loss = 4827.9414, Accuracy = 48.52%
+2025-05-20 05:20:05,839 - INFO - Epoch 20: Loss = 4777.2318, Accuracy = 49.09%
+2025-05-20 05:20:13,872 - INFO - Epoch 21: Loss = 4746.5094, Accuracy = 49.55%
+2025-05-20 05:20:21,907 - INFO - Epoch 22: Loss = 4716.5972, Accuracy = 50.30%
+2025-05-20 05:20:29,923 - INFO - Epoch 23: Loss = 4705.8737, Accuracy = 50.85%
+2025-05-20 05:20:37,945 - INFO - Epoch 24: Loss = 4728.6040, Accuracy = 50.83%
+2025-05-20 05:20:45,968 - INFO - Epoch 25: Loss = 4764.5104, Accuracy = 50.53%
+2025-05-20 05:20:54,006 - INFO - Epoch 26: Loss = 4821.2968, Accuracy = 50.06%
+2025-05-20 05:21:02,040 - INFO - Epoch 27: Loss = 4838.1169, Accuracy = 50.13%
+2025-05-20 05:21:10,057 - INFO - Epoch 28: Loss = 4837.4103, Accuracy = 50.43%
+2025-05-20 05:21:18,075 - INFO - Epoch 29: Loss = 4842.7575, Accuracy = 50.55%
+2025-05-20 05:21:26,118 - INFO - Epoch 30: Loss = 4848.0122, Accuracy = 50.44%
+2025-05-20 05:21:34,143 - INFO - Epoch 31: Loss = 4851.8849, Accuracy = 50.53%
+2025-05-20 05:21:42,159 - INFO - Epoch 32: Loss = 4880.4496, Accuracy = 50.17%
+2025-05-20 05:21:50,167 - INFO - Epoch 33: Loss = 4904.2840, Accuracy = 49.98%
+2025-05-20 05:21:58,219 - INFO - Epoch 34: Loss = 4915.5303, Accuracy = 49.86%
+2025-05-20 05:22:06,212 - INFO - Epoch 35: Loss = 4910.7997, Accuracy = 49.95%
+2025-05-20 05:22:14,211 - INFO - Epoch 36: Loss = 4904.4665, Accuracy = 50.10%
+2025-05-20 05:22:22,224 - INFO - Epoch 37: Loss = 4879.3543, Accuracy = 50.64%
+2025-05-20 05:22:30,237 - INFO - Epoch 38: Loss = 4869.2701, Accuracy = 50.74%
+2025-05-20 05:22:38,267 - INFO - Epoch 39: Loss = 4868.2479, Accuracy = 50.72%
+2025-05-20 05:22:46,287 - INFO - Epoch 40: Loss = 4881.4319, Accuracy = 50.43%
+2025-05-20 05:22:54,303 - INFO - Epoch 41: Loss = 4862.6142, Accuracy = 50.65%
+2025-05-20 05:23:02,310 - INFO - Epoch 42: Loss = 4864.6148, Accuracy = 50.54%
+2025-05-20 05:23:10,319 - INFO - Epoch 43: Loss = 4858.9500, Accuracy = 50.72%
+2025-05-20 05:23:18,329 - INFO - Epoch 44: Loss = 4860.3172, Accuracy = 50.66%
+2025-05-20 05:23:26,206 - INFO - Epoch 45: Loss = 4868.0456, Accuracy = 50.57%
+2025-05-20 05:23:34,188 - INFO - Epoch 46: Loss = 4858.2423, Accuracy = 50.71%
+2025-05-20 05:23:42,173 - INFO - Epoch 47: Loss = 4848.5879, Accuracy = 50.91%
+2025-05-20 05:23:49,864 - INFO - Epoch 48: Loss = 4821.8219, Accuracy = 51.31%
+2025-05-20 05:23:57,619 - INFO - Epoch 49: Loss = 4802.2149, Accuracy = 51.41%
+2025-05-20 05:24:05,598 - INFO - Epoch 50: Loss = 4796.8303, Accuracy = 51.32%
+2025-05-20 05:24:13,578 - INFO - Epoch 51: Loss = 4783.8618, Accuracy = 51.50%
+2025-05-20 05:24:21,553 - INFO - Epoch 52: Loss = 4790.8642, Accuracy = 51.59%
+2025-05-20 05:24:29,530 - INFO - Epoch 53: Loss = 4800.1694, Accuracy = 51.28%
+2025-05-20 05:24:37,512 - INFO - Epoch 54: Loss = 4811.6818, Accuracy = 51.02%
+2025-05-20 05:24:45,486 - INFO - Epoch 55: Loss = 4821.2937, Accuracy = 51.08%
+2025-05-20 05:24:53,475 - INFO - Epoch 56: Loss = 4821.6044, Accuracy = 51.18%
+2025-05-20 05:25:01,486 - INFO - Epoch 57: Loss = 4804.4158, Accuracy = 51.53%
+2025-05-20 05:25:09,460 - INFO - Epoch 58: Loss = 4759.3769, Accuracy = 52.19%
+2025-05-20 05:25:17,430 - INFO - Epoch 59: Loss = 4718.0669, Accuracy = 52.83%
+2025-05-20 05:25:25,406 - INFO - Epoch 60: Loss = 4682.6967, Accuracy = 53.27%
+2025-05-20 05:25:33,388 - INFO - Epoch 61: Loss = 4659.7086, Accuracy = 53.59%
+2025-05-20 05:25:41,369 - INFO - Epoch 62: Loss = 4655.1576, Accuracy = 53.72%
+2025-05-20 05:25:49,342 - INFO - Epoch 63: Loss = 4651.7987, Accuracy = 53.84%
+2025-05-20 05:25:57,038 - INFO - Epoch 64: Loss = 4654.8836, Accuracy = 53.69%
+2025-05-20 05:25:57,052 - INFO - [Gradient Period 25 Run 10] Training time: 512.11s
+2025-05-20 05:25:57,846 - INFO - ✅ Regular Evaluation Accuracy: 8.24%
+2025-05-20 05:25:59,001 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.15%
+2025-05-20 05:25:59,095 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:25:59,341 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 16.65%
+2025-05-20 05:25:59,686 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:26:00,025 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 05:26:00,025 - INFO - Nuts
+2025-05-20 05:26:00,309 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:26:00,579 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:26:00,579 - INFO - Spices
+2025-05-20 05:26:00,864 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:26:01,112 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.91%
+2025-05-20 05:26:01,113 - INFO - Herbs
+2025-05-20 05:26:01,400 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:26:01,652 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.62%
+2025-05-20 05:26:01,652 - INFO - Fruits
+2025-05-20 05:26:01,933 - INFO - ✅ Regular Evaluation Accuracy: 9.79%
+2025-05-20 05:26:02,185 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.66%
+2025-05-20 05:26:02,185 - INFO - Vegetables
+2025-05-20 05:26:02,472 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:26:02,723 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.22%
+2025-05-20 05:26:02,725 - INFO - ------------------------------------Gradient Period 50-------------------------------------------
+2025-05-20 05:26:02,725 - INFO - [Gradient Period 50 Run 1] Starting
+2025-05-20 05:26:03,188 - INFO - Training on device: cuda
+2025-05-20 05:26:10,812 - INFO - Epoch 01: Loss = 9741.6752, Accuracy = 4.88%
+2025-05-20 05:26:18,526 - INFO - Epoch 02: Loss = 8128.7952, Accuracy = 10.02%
+2025-05-20 05:26:25,710 - INFO - Epoch 03: Loss = 7244.3911, Accuracy = 13.56%
+2025-05-20 05:26:33,330 - INFO - Epoch 04: Loss = 6544.0174, Accuracy = 19.66%
+2025-05-20 05:26:40,576 - INFO - Epoch 05: Loss = 5986.7885, Accuracy = 27.13%
+2025-05-20 05:26:47,857 - INFO - Epoch 06: Loss = 5595.6760, Accuracy = 32.77%
+2025-05-20 05:26:55,510 - INFO - Epoch 07: Loss = 5338.0773, Accuracy = 37.16%
+2025-05-20 05:27:03,170 - INFO - Epoch 08: Loss = 5140.6572, Accuracy = 40.05%
+2025-05-20 05:27:10,265 - INFO - Epoch 09: Loss = 4988.8974, Accuracy = 42.49%
+2025-05-20 05:27:17,516 - INFO - Epoch 10: Loss = 4889.3822, Accuracy = 44.30%
+2025-05-20 05:27:24,700 - INFO - Epoch 11: Loss = 4807.0622, Accuracy = 45.93%
+2025-05-20 05:27:32,380 - INFO - Epoch 12: Loss = 4734.1941, Accuracy = 47.38%
+2025-05-20 05:27:40,073 - INFO - Epoch 13: Loss = 4676.4616, Accuracy = 48.61%
+2025-05-20 05:27:47,745 - INFO - Epoch 14: Loss = 4644.0026, Accuracy = 49.22%
+2025-05-20 05:27:55,388 - INFO - Epoch 15: Loss = 4638.5089, Accuracy = 49.20%
+2025-05-20 05:28:03,047 - INFO - Epoch 16: Loss = 4614.3158, Accuracy = 50.02%
+2025-05-20 05:28:10,693 - INFO - Epoch 17: Loss = 4557.8577, Accuracy = 50.68%
+2025-05-20 05:28:18,338 - INFO - Epoch 18: Loss = 4528.7641, Accuracy = 51.13%
+2025-05-20 05:28:25,985 - INFO - Epoch 19: Loss = 4509.7003, Accuracy = 51.66%
+2025-05-20 05:28:33,628 - INFO - Epoch 20: Loss = 4475.9666, Accuracy = 52.16%
+2025-05-20 05:28:41,278 - INFO - Epoch 21: Loss = 4475.9656, Accuracy = 52.35%
+2025-05-20 05:28:48,931 - INFO - Epoch 22: Loss = 4467.3415, Accuracy = 52.40%
+2025-05-20 05:28:56,597 - INFO - Epoch 23: Loss = 4469.2234, Accuracy = 52.44%
+2025-05-20 05:29:04,312 - INFO - Epoch 24: Loss = 4461.0045, Accuracy = 52.82%
+2025-05-20 05:29:11,576 - INFO - Epoch 25: Loss = 4447.1211, Accuracy = 53.15%
+2025-05-20 05:29:19,254 - INFO - Epoch 26: Loss = 4425.7416, Accuracy = 53.87%
+2025-05-20 05:29:26,927 - INFO - Epoch 27: Loss = 4398.8551, Accuracy = 54.32%
+2025-05-20 05:29:34,596 - INFO - Epoch 28: Loss = 4366.4368, Accuracy = 54.62%
+2025-05-20 05:29:42,283 - INFO - Epoch 29: Loss = 4344.0361, Accuracy = 55.06%
+2025-05-20 05:29:49,973 - INFO - Epoch 30: Loss = 4318.6797, Accuracy = 55.46%
+2025-05-20 05:29:57,670 - INFO - Epoch 31: Loss = 4311.1493, Accuracy = 55.50%
+2025-05-20 05:30:05,354 - INFO - Epoch 32: Loss = 4312.3697, Accuracy = 55.76%
+2025-05-20 05:30:13,021 - INFO - Epoch 33: Loss = 4313.3135, Accuracy = 55.93%
+2025-05-20 05:30:20,698 - INFO - Epoch 34: Loss = 4308.3273, Accuracy = 56.12%
+2025-05-20 05:30:28,349 - INFO - Epoch 35: Loss = 4303.0595, Accuracy = 56.29%
+2025-05-20 05:30:35,998 - INFO - Epoch 36: Loss = 4289.6302, Accuracy = 56.43%
+2025-05-20 05:30:43,646 - INFO - Epoch 37: Loss = 4286.4586, Accuracy = 56.48%
+2025-05-20 05:30:51,324 - INFO - Epoch 38: Loss = 4278.2422, Accuracy = 56.60%
+2025-05-20 05:30:59,034 - INFO - Epoch 39: Loss = 4286.9066, Accuracy = 56.46%
+2025-05-20 05:31:06,766 - INFO - Epoch 40: Loss = 4300.9477, Accuracy = 56.27%
+2025-05-20 05:31:14,443 - INFO - Epoch 41: Loss = 4292.3954, Accuracy = 56.31%
+2025-05-20 05:31:22,151 - INFO - Epoch 42: Loss = 4292.7030, Accuracy = 56.45%
+2025-05-20 05:31:29,857 - INFO - Epoch 43: Loss = 4303.2319, Accuracy = 56.36%
+2025-05-20 05:31:37,566 - INFO - Epoch 44: Loss = 4314.0806, Accuracy = 56.27%
+2025-05-20 05:31:45,278 - INFO - Epoch 45: Loss = 4319.5001, Accuracy = 56.25%
+2025-05-20 05:31:52,982 - INFO - Epoch 46: Loss = 4315.1479, Accuracy = 56.25%
+2025-05-20 05:32:00,697 - INFO - Epoch 47: Loss = 4311.8438, Accuracy = 56.34%
+2025-05-20 05:32:08,411 - INFO - Epoch 48: Loss = 4299.9178, Accuracy = 56.68%
+2025-05-20 05:32:16,119 - INFO - Epoch 49: Loss = 4281.1896, Accuracy = 56.98%
+2025-05-20 05:32:23,818 - INFO - Epoch 50: Loss = 4270.3464, Accuracy = 57.26%
+2025-05-20 05:32:31,525 - INFO - Epoch 51: Loss = 4253.3325, Accuracy = 57.48%
+2025-05-20 05:32:39,233 - INFO - Epoch 52: Loss = 4248.5563, Accuracy = 57.72%
+2025-05-20 05:32:46,930 - INFO - Epoch 53: Loss = 4235.0588, Accuracy = 57.84%
+2025-05-20 05:32:54,633 - INFO - Epoch 54: Loss = 4224.7256, Accuracy = 58.11%
+2025-05-20 05:33:02,336 - INFO - Epoch 55: Loss = 4211.1395, Accuracy = 58.19%
+2025-05-20 05:33:10,034 - INFO - Epoch 56: Loss = 4220.0576, Accuracy = 58.11%
+2025-05-20 05:33:17,742 - INFO - Epoch 57: Loss = 4211.1508, Accuracy = 58.26%
+2025-05-20 05:33:25,457 - INFO - Epoch 58: Loss = 4195.4153, Accuracy = 58.69%
+2025-05-20 05:33:33,169 - INFO - Epoch 59: Loss = 4180.2364, Accuracy = 58.73%
+2025-05-20 05:33:40,818 - INFO - Epoch 60: Loss = 4168.9786, Accuracy = 58.89%
+2025-05-20 05:33:48,458 - INFO - Epoch 61: Loss = 4155.5179, Accuracy = 59.23%
+2025-05-20 05:33:56,102 - INFO - Epoch 62: Loss = 4139.7346, Accuracy = 59.52%
+2025-05-20 05:34:03,740 - INFO - Epoch 63: Loss = 4115.6980, Accuracy = 59.70%
+2025-05-20 05:34:11,377 - INFO - Epoch 64: Loss = 4128.4383, Accuracy = 59.61%
+2025-05-20 05:34:11,390 - INFO - [Gradient Period 50 Run 1] Training time: 488.66s
+2025-05-20 05:34:12,171 - INFO - ✅ Regular Evaluation Accuracy: 12.66%
+2025-05-20 05:34:13,279 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 41.66%
+2025-05-20 05:34:13,364 - INFO - ✅ Regular Evaluation Accuracy: 1.26%
+2025-05-20 05:34:13,599 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.37%
+2025-05-20 05:34:14,046 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:34:14,384 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 05:34:14,384 - INFO - Nuts
+2025-05-20 05:34:14,679 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:34:14,949 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:34:14,950 - INFO - Spices
+2025-05-20 05:34:15,238 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:34:15,486 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.51%
+2025-05-20 05:34:15,486 - INFO - Herbs
+2025-05-20 05:34:15,769 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:34:16,021 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 10.62%
+2025-05-20 05:34:16,021 - INFO - Fruits
+2025-05-20 05:34:16,312 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 05:34:16,562 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 05:34:16,562 - INFO - Vegetables
+2025-05-20 05:34:16,845 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:34:17,094 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 21.22%
+2025-05-20 05:34:17,096 - INFO - [Gradient Period 50 Run 2] Starting
+2025-05-20 05:34:17,557 - INFO - Training on device: cuda
+2025-05-20 05:34:25,219 - INFO - Epoch 01: Loss = 9728.7169, Accuracy = 3.07%
+2025-05-20 05:34:32,889 - INFO - Epoch 02: Loss = 8279.5410, Accuracy = 4.77%
+2025-05-20 05:34:40,563 - INFO - Epoch 03: Loss = 7374.6064, Accuracy = 10.73%
+2025-05-20 05:34:48,240 - INFO - Epoch 04: Loss = 6692.9694, Accuracy = 18.20%
+2025-05-20 05:34:55,954 - INFO - Epoch 05: Loss = 6120.6476, Accuracy = 25.43%
+2025-05-20 05:35:03,665 - INFO - Epoch 06: Loss = 5691.3491, Accuracy = 31.07%
+2025-05-20 05:35:11,352 - INFO - Epoch 07: Loss = 5401.4207, Accuracy = 35.12%
+2025-05-20 05:35:19,030 - INFO - Epoch 08: Loss = 5209.1167, Accuracy = 37.76%
+2025-05-20 05:35:26,701 - INFO - Epoch 09: Loss = 5054.7610, Accuracy = 40.01%
+2025-05-20 05:35:34,382 - INFO - Epoch 10: Loss = 4962.3659, Accuracy = 41.84%
+2025-05-20 05:35:42,062 - INFO - Epoch 11: Loss = 4868.0794, Accuracy = 43.82%
+2025-05-20 05:35:49,752 - INFO - Epoch 12: Loss = 4791.1135, Accuracy = 45.46%
+2025-05-20 05:35:57,453 - INFO - Epoch 13: Loss = 4739.3540, Accuracy = 46.48%
+2025-05-20 05:36:05,129 - INFO - Epoch 14: Loss = 4747.8176, Accuracy = 46.57%
+2025-05-20 05:36:12,815 - INFO - Epoch 15: Loss = 4754.5363, Accuracy = 46.70%
+2025-05-20 05:36:20,513 - INFO - Epoch 16: Loss = 4776.9576, Accuracy = 46.55%
+2025-05-20 05:36:28,185 - INFO - Epoch 17: Loss = 4782.3491, Accuracy = 47.07%
+2025-05-20 05:36:35,853 - INFO - Epoch 18: Loss = 4779.5621, Accuracy = 47.44%
+2025-05-20 05:36:43,524 - INFO - Epoch 19: Loss = 4745.4106, Accuracy = 48.38%
+2025-05-20 05:36:51,193 - INFO - Epoch 20: Loss = 4745.4936, Accuracy = 48.71%
+2025-05-20 05:36:58,857 - INFO - Epoch 21: Loss = 4773.5288, Accuracy = 48.41%
+2025-05-20 05:37:06,537 - INFO - Epoch 22: Loss = 4802.5004, Accuracy = 48.42%
+2025-05-20 05:37:14,228 - INFO - Epoch 23: Loss = 4786.8783, Accuracy = 48.90%
+2025-05-20 05:37:21,916 - INFO - Epoch 24: Loss = 4770.5654, Accuracy = 49.23%
+2025-05-20 05:37:29,578 - INFO - Epoch 25: Loss = 4750.7230, Accuracy = 49.99%
+2025-05-20 05:37:37,233 - INFO - Epoch 26: Loss = 4763.2678, Accuracy = 50.05%
+2025-05-20 05:37:44,904 - INFO - Epoch 27: Loss = 4771.6947, Accuracy = 49.73%
+2025-05-20 05:37:52,589 - INFO - Epoch 28: Loss = 4768.6133, Accuracy = 49.91%
+2025-05-20 05:38:00,271 - INFO - Epoch 29: Loss = 4751.4650, Accuracy = 50.34%
+2025-05-20 05:38:07,958 - INFO - Epoch 30: Loss = 4744.7114, Accuracy = 50.60%
+2025-05-20 05:38:15,655 - INFO - Epoch 31: Loss = 4744.4995, Accuracy = 50.84%
+2025-05-20 05:38:23,340 - INFO - Epoch 32: Loss = 4767.0350, Accuracy = 50.44%
+2025-05-20 05:38:31,021 - INFO - Epoch 33: Loss = 4780.7813, Accuracy = 50.33%
+2025-05-20 05:38:38,693 - INFO - Epoch 34: Loss = 4811.5789, Accuracy = 50.41%
+2025-05-20 05:38:46,372 - INFO - Epoch 35: Loss = 4832.8836, Accuracy = 50.08%
+2025-05-20 05:38:54,040 - INFO - Epoch 36: Loss = 4854.3646, Accuracy = 49.92%
+2025-05-20 05:39:01,375 - INFO - Epoch 37: Loss = 4870.0378, Accuracy = 49.47%
+2025-05-20 05:39:08,859 - INFO - Epoch 38: Loss = 4919.1546, Accuracy = 48.93%
+2025-05-20 05:39:16,520 - INFO - Epoch 39: Loss = 4925.6955, Accuracy = 48.62%
+2025-05-20 05:39:24,144 - INFO - Epoch 40: Loss = 4870.7427, Accuracy = 49.39%
+2025-05-20 05:39:31,768 - INFO - Epoch 41: Loss = 4845.3619, Accuracy = 49.86%
+2025-05-20 05:39:39,387 - INFO - Epoch 42: Loss = 4841.5976, Accuracy = 50.02%
+2025-05-20 05:39:47,012 - INFO - Epoch 43: Loss = 4884.0743, Accuracy = 49.56%
+2025-05-20 05:39:54,654 - INFO - Epoch 44: Loss = 4928.7655, Accuracy = 49.02%
+2025-05-20 05:40:02,312 - INFO - Epoch 45: Loss = 4928.0183, Accuracy = 49.27%
+2025-05-20 05:40:09,977 - INFO - Epoch 46: Loss = 4896.4158, Accuracy = 49.70%
+2025-05-20 05:40:17,642 - INFO - Epoch 47: Loss = 4868.2575, Accuracy = 49.81%
+2025-05-20 05:40:25,317 - INFO - Epoch 48: Loss = 4877.7972, Accuracy = 49.83%
+2025-05-20 05:40:32,990 - INFO - Epoch 49: Loss = 4911.1305, Accuracy = 49.57%
+2025-05-20 05:40:40,642 - INFO - Epoch 50: Loss = 4900.8706, Accuracy = 49.75%
+2025-05-20 05:40:48,299 - INFO - Epoch 51: Loss = 4895.5270, Accuracy = 49.88%
+2025-05-20 05:40:55,956 - INFO - Epoch 52: Loss = 4867.4111, Accuracy = 50.38%
+2025-05-20 05:41:03,631 - INFO - Epoch 53: Loss = 4823.2481, Accuracy = 50.72%
+2025-05-20 05:41:11,304 - INFO - Epoch 54: Loss = 4776.4238, Accuracy = 51.35%
+2025-05-20 05:41:18,971 - INFO - Epoch 55: Loss = 4732.6673, Accuracy = 52.10%
+2025-05-20 05:41:26,627 - INFO - Epoch 56: Loss = 4706.4851, Accuracy = 52.64%
+2025-05-20 05:41:34,298 - INFO - Epoch 57: Loss = 4669.8447, Accuracy = 53.03%
+2025-05-20 05:41:41,956 - INFO - Epoch 58: Loss = 4646.4152, Accuracy = 53.48%
+2025-05-20 05:41:49,626 - INFO - Epoch 59: Loss = 4607.4484, Accuracy = 53.87%
+2025-05-20 05:41:57,290 - INFO - Epoch 60: Loss = 4583.3296, Accuracy = 54.37%
+2025-05-20 05:42:04,946 - INFO - Epoch 61: Loss = 4563.3496, Accuracy = 54.55%
+2025-05-20 05:42:12,586 - INFO - Epoch 62: Loss = 4555.9555, Accuracy = 54.71%
+2025-05-20 05:42:20,236 - INFO - Epoch 63: Loss = 4562.6841, Accuracy = 54.85%
+2025-05-20 05:42:27,945 - INFO - Epoch 64: Loss = 4592.6856, Accuracy = 55.02%
+2025-05-20 05:42:27,958 - INFO - [Gradient Period 50 Run 2] Training time: 490.86s
+2025-05-20 05:42:28,739 - INFO - ✅ Regular Evaluation Accuracy: 10.96%
+2025-05-20 05:42:29,848 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 39.18%
+2025-05-20 05:42:29,934 - INFO - ✅ Regular Evaluation Accuracy: 0.16%
+2025-05-20 05:42:30,169 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 22.12%
+2025-05-20 05:42:30,507 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:42:30,846 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.13%
+2025-05-20 05:42:30,846 - INFO - Nuts
+2025-05-20 05:42:31,139 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:42:31,409 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:42:31,409 - INFO - Spices
+2025-05-20 05:42:31,695 - INFO - ✅ Regular Evaluation Accuracy: 5.27%
+2025-05-20 05:42:31,944 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 30.13%
+2025-05-20 05:42:31,945 - INFO - Herbs
+2025-05-20 05:42:32,235 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:42:32,486 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:42:32,486 - INFO - Fruits
+2025-05-20 05:42:32,777 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 05:42:33,027 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.66%
+2025-05-20 05:42:33,027 - INFO - Vegetables
+2025-05-20 05:42:33,317 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:42:33,567 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:42:33,569 - INFO - [Gradient Period 50 Run 3] Starting
+2025-05-20 05:42:34,027 - INFO - Training on device: cuda
+2025-05-20 05:42:41,717 - INFO - Epoch 01: Loss = 9827.4887, Accuracy = 3.62%
+2025-05-20 05:42:49,400 - INFO - Epoch 02: Loss = 8374.5752, Accuracy = 6.34%
+2025-05-20 05:42:57,096 - INFO - Epoch 03: Loss = 7348.4309, Accuracy = 11.56%
+2025-05-20 05:43:04,796 - INFO - Epoch 04: Loss = 6637.7857, Accuracy = 17.09%
+2025-05-20 05:43:12,494 - INFO - Epoch 05: Loss = 6177.4061, Accuracy = 22.00%
+2025-05-20 05:43:20,171 - INFO - Epoch 06: Loss = 5836.2047, Accuracy = 26.59%
+2025-05-20 05:43:27,853 - INFO - Epoch 07: Loss = 5560.4424, Accuracy = 30.91%
+2025-05-20 05:43:35,535 - INFO - Epoch 08: Loss = 5341.5543, Accuracy = 34.87%
+2025-05-20 05:43:43,210 - INFO - Epoch 09: Loss = 5159.2267, Accuracy = 37.97%
+2025-05-20 05:43:50,855 - INFO - Epoch 10: Loss = 4985.5581, Accuracy = 40.75%
+2025-05-20 05:43:58,536 - INFO - Epoch 11: Loss = 4850.9810, Accuracy = 42.72%
+2025-05-20 05:44:06,203 - INFO - Epoch 12: Loss = 4797.9039, Accuracy = 43.89%
+2025-05-20 05:44:13,861 - INFO - Epoch 13: Loss = 4742.4295, Accuracy = 45.01%
+2025-05-20 05:44:21,525 - INFO - Epoch 14: Loss = 4736.2596, Accuracy = 45.61%
+2025-05-20 05:44:29,174 - INFO - Epoch 15: Loss = 4720.5389, Accuracy = 46.20%
+2025-05-20 05:44:36,858 - INFO - Epoch 16: Loss = 4709.0234, Accuracy = 46.67%
+2025-05-20 05:44:44,543 - INFO - Epoch 17: Loss = 4703.9347, Accuracy = 47.40%
+2025-05-20 05:44:52,218 - INFO - Epoch 18: Loss = 4690.5981, Accuracy = 47.90%
+2025-05-20 05:44:59,896 - INFO - Epoch 19: Loss = 4654.0517, Accuracy = 48.88%
+2025-05-20 05:45:07,579 - INFO - Epoch 20: Loss = 4632.8630, Accuracy = 49.57%
+2025-05-20 05:45:15,246 - INFO - Epoch 21: Loss = 4650.5904, Accuracy = 49.50%
+2025-05-20 05:45:22,925 - INFO - Epoch 22: Loss = 4673.7435, Accuracy = 49.68%
+2025-05-20 05:45:30,605 - INFO - Epoch 23: Loss = 4703.1691, Accuracy = 49.39%
+2025-05-20 05:45:38,286 - INFO - Epoch 24: Loss = 4687.6796, Accuracy = 49.79%
+2025-05-20 05:45:46,007 - INFO - Epoch 25: Loss = 4652.9090, Accuracy = 50.26%
+2025-05-20 05:45:53,694 - INFO - Epoch 26: Loss = 4645.7652, Accuracy = 50.31%
+2025-05-20 05:46:01,388 - INFO - Epoch 27: Loss = 4639.9804, Accuracy = 50.44%
+2025-05-20 05:46:09,084 - INFO - Epoch 28: Loss = 4623.0770, Accuracy = 50.75%
+2025-05-20 05:46:16,793 - INFO - Epoch 29: Loss = 4604.4425, Accuracy = 51.22%
+2025-05-20 05:46:24,502 - INFO - Epoch 30: Loss = 4649.4480, Accuracy = 50.79%
+2025-05-20 05:46:32,205 - INFO - Epoch 31: Loss = 4673.0023, Accuracy = 50.78%
+2025-05-20 05:46:39,863 - INFO - Epoch 32: Loss = 4642.2744, Accuracy = 51.20%
+2025-05-20 05:46:47,517 - INFO - Epoch 33: Loss = 4618.2910, Accuracy = 51.79%
+2025-05-20 05:46:55,162 - INFO - Epoch 34: Loss = 4611.1925, Accuracy = 51.88%
+2025-05-20 05:47:02,821 - INFO - Epoch 35: Loss = 4636.0288, Accuracy = 51.70%
+2025-05-20 05:47:10,487 - INFO - Epoch 36: Loss = 4639.3337, Accuracy = 51.78%
+2025-05-20 05:47:18,146 - INFO - Epoch 37: Loss = 4635.9459, Accuracy = 52.04%
+2025-05-20 05:47:25,813 - INFO - Epoch 38: Loss = 4656.0419, Accuracy = 51.91%
+2025-05-20 05:47:33,493 - INFO - Epoch 39: Loss = 4677.1163, Accuracy = 51.66%
+2025-05-20 05:47:41,163 - INFO - Epoch 40: Loss = 4705.7242, Accuracy = 51.15%
+2025-05-20 05:47:48,844 - INFO - Epoch 41: Loss = 4728.3852, Accuracy = 50.85%
+2025-05-20 05:47:56,526 - INFO - Epoch 42: Loss = 4732.2661, Accuracy = 50.77%
+2025-05-20 05:48:04,203 - INFO - Epoch 43: Loss = 4734.4880, Accuracy = 51.03%
+2025-05-20 05:48:11,860 - INFO - Epoch 44: Loss = 4746.5960, Accuracy = 50.81%
+2025-05-20 05:48:19,532 - INFO - Epoch 45: Loss = 4747.1046, Accuracy = 50.91%
+2025-05-20 05:48:27,208 - INFO - Epoch 46: Loss = 4724.8520, Accuracy = 51.06%
+2025-05-20 05:48:34,923 - INFO - Epoch 47: Loss = 4728.6421, Accuracy = 50.98%
+2025-05-20 05:48:42,587 - INFO - Epoch 48: Loss = 4745.4641, Accuracy = 51.13%
+2025-05-20 05:48:50,257 - INFO - Epoch 49: Loss = 4740.9216, Accuracy = 51.19%
+2025-05-20 05:48:57,935 - INFO - Epoch 50: Loss = 4795.2344, Accuracy = 50.72%
+2025-05-20 05:49:05,608 - INFO - Epoch 51: Loss = 4864.4572, Accuracy = 49.64%
+2025-05-20 05:49:13,276 - INFO - Epoch 52: Loss = 4836.6662, Accuracy = 49.75%
+2025-05-20 05:49:20,936 - INFO - Epoch 53: Loss = 4741.9703, Accuracy = 50.94%
+2025-05-20 05:49:28,625 - INFO - Epoch 54: Loss = 4674.2287, Accuracy = 51.79%
+2025-05-20 05:49:36,308 - INFO - Epoch 55: Loss = 4647.9964, Accuracy = 52.09%
+2025-05-20 05:49:44,006 - INFO - Epoch 56: Loss = 4637.9423, Accuracy = 52.31%
+2025-05-20 05:49:51,681 - INFO - Epoch 57: Loss = 4631.0418, Accuracy = 52.54%
+2025-05-20 05:49:59,363 - INFO - Epoch 58: Loss = 4632.3319, Accuracy = 52.28%
+2025-05-20 05:50:07,025 - INFO - Epoch 59: Loss = 4630.2903, Accuracy = 52.36%
+2025-05-20 05:50:14,679 - INFO - Epoch 60: Loss = 4614.9157, Accuracy = 52.80%
+2025-05-20 05:50:22,354 - INFO - Epoch 61: Loss = 4599.7809, Accuracy = 53.12%
+2025-05-20 05:50:30,029 - INFO - Epoch 62: Loss = 4581.3975, Accuracy = 53.28%
+2025-05-20 05:50:37,707 - INFO - Epoch 63: Loss = 4571.7284, Accuracy = 53.38%
+2025-05-20 05:50:45,386 - INFO - Epoch 64: Loss = 4556.8790, Accuracy = 53.65%
+2025-05-20 05:50:45,399 - INFO - [Gradient Period 50 Run 3] Training time: 491.83s
+2025-05-20 05:50:46,176 - INFO - ✅ Regular Evaluation Accuracy: 12.73%
+2025-05-20 05:50:47,282 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 36.16%
+2025-05-20 05:50:47,364 - INFO - ✅ Regular Evaluation Accuracy: 0.48%
+2025-05-20 05:50:47,598 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 26.73%
+2025-05-20 05:50:47,940 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:50:48,277 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 05:50:48,277 - INFO - Nuts
+2025-05-20 05:50:48,567 - INFO - ✅ Regular Evaluation Accuracy: 9.49%
+2025-05-20 05:50:48,835 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.82%
+2025-05-20 05:50:48,836 - INFO - Spices
+2025-05-20 05:50:49,123 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:50:49,373 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 4.58%
+2025-05-20 05:50:49,373 - INFO - Herbs
+2025-05-20 05:50:49,654 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:50:49,904 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.94%
+2025-05-20 05:50:49,905 - INFO - Fruits
+2025-05-20 05:50:50,193 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 05:50:50,442 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 36.08%
+2025-05-20 05:50:50,442 - INFO - Vegetables
+2025-05-20 05:50:50,722 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:50:50,971 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 05:50:50,972 - INFO - [Gradient Period 50 Run 4] Starting
+2025-05-20 05:50:51,431 - INFO - Training on device: cuda
+2025-05-20 05:50:59,146 - INFO - Epoch 01: Loss = 9741.1144, Accuracy = 5.35%
+2025-05-20 05:51:06,856 - INFO - Epoch 02: Loss = 8299.1322, Accuracy = 7.64%
+2025-05-20 05:51:14,559 - INFO - Epoch 03: Loss = 7399.1176, Accuracy = 11.01%
+2025-05-20 05:51:22,257 - INFO - Epoch 04: Loss = 6734.5627, Accuracy = 16.81%
+2025-05-20 05:51:29,965 - INFO - Epoch 05: Loss = 6260.0655, Accuracy = 22.73%
+2025-05-20 05:51:37,659 - INFO - Epoch 06: Loss = 5887.8133, Accuracy = 27.55%
+2025-05-20 05:51:45,350 - INFO - Epoch 07: Loss = 5595.1554, Accuracy = 31.54%
+2025-05-20 05:51:53,037 - INFO - Epoch 08: Loss = 5354.7043, Accuracy = 35.04%
+2025-05-20 05:52:00,728 - INFO - Epoch 09: Loss = 5180.7089, Accuracy = 37.26%
+2025-05-20 05:52:08,427 - INFO - Epoch 10: Loss = 5053.4202, Accuracy = 39.26%
+2025-05-20 05:52:16,105 - INFO - Epoch 11: Loss = 4935.4216, Accuracy = 41.83%
+2025-05-20 05:52:23,779 - INFO - Epoch 12: Loss = 4819.5742, Accuracy = 44.09%
+2025-05-20 05:52:31,489 - INFO - Epoch 13: Loss = 4743.0338, Accuracy = 45.73%
+2025-05-20 05:52:39,190 - INFO - Epoch 14: Loss = 4697.3869, Accuracy = 46.70%
+2025-05-20 05:52:46,903 - INFO - Epoch 15: Loss = 4669.4655, Accuracy = 47.64%
+2025-05-20 05:52:54,626 - INFO - Epoch 16: Loss = 4661.3826, Accuracy = 48.07%
+2025-05-20 05:53:02,333 - INFO - Epoch 17: Loss = 4669.0369, Accuracy = 48.10%
+2025-05-20 05:53:10,028 - INFO - Epoch 18: Loss = 4658.9644, Accuracy = 48.56%
+2025-05-20 05:53:17,721 - INFO - Epoch 19: Loss = 4666.4382, Accuracy = 49.05%
+2025-05-20 05:53:25,389 - INFO - Epoch 20: Loss = 4664.5614, Accuracy = 49.21%
+2025-05-20 05:53:33,065 - INFO - Epoch 21: Loss = 4669.3922, Accuracy = 49.39%
+2025-05-20 05:53:40,749 - INFO - Epoch 22: Loss = 4666.2455, Accuracy = 49.62%
+2025-05-20 05:53:48,431 - INFO - Epoch 23: Loss = 4662.7722, Accuracy = 49.84%
+2025-05-20 05:53:56,106 - INFO - Epoch 24: Loss = 4644.2543, Accuracy = 50.37%
+2025-05-20 05:54:03,790 - INFO - Epoch 25: Loss = 4647.9348, Accuracy = 50.61%
+2025-05-20 05:54:11,476 - INFO - Epoch 26: Loss = 4682.9856, Accuracy = 50.54%
+2025-05-20 05:54:19,163 - INFO - Epoch 27: Loss = 4726.7173, Accuracy = 50.21%
+2025-05-20 05:54:26,852 - INFO - Epoch 28: Loss = 4705.8828, Accuracy = 50.44%
+2025-05-20 05:54:34,549 - INFO - Epoch 29: Loss = 4687.8930, Accuracy = 50.71%
+2025-05-20 05:54:42,247 - INFO - Epoch 30: Loss = 4677.7128, Accuracy = 50.96%
+2025-05-20 05:54:49,949 - INFO - Epoch 31: Loss = 4662.0504, Accuracy = 51.27%
+2025-05-20 05:54:57,644 - INFO - Epoch 32: Loss = 4677.1513, Accuracy = 51.20%
+2025-05-20 05:55:05,342 - INFO - Epoch 33: Loss = 4702.0274, Accuracy = 50.89%
+2025-05-20 05:55:13,034 - INFO - Epoch 34: Loss = 4767.9425, Accuracy = 50.52%
+2025-05-20 05:55:20,717 - INFO - Epoch 35: Loss = 4805.9984, Accuracy = 50.43%
+2025-05-20 05:55:28,401 - INFO - Epoch 36: Loss = 4819.4863, Accuracy = 50.29%
+2025-05-20 05:55:36,084 - INFO - Epoch 37: Loss = 4800.4300, Accuracy = 50.48%
+2025-05-20 05:55:43,768 - INFO - Epoch 38: Loss = 4780.7043, Accuracy = 50.59%
+2025-05-20 05:55:51,445 - INFO - Epoch 39: Loss = 4735.9988, Accuracy = 51.40%
+2025-05-20 05:55:59,116 - INFO - Epoch 40: Loss = 4708.4742, Accuracy = 51.88%
+2025-05-20 05:56:06,802 - INFO - Epoch 41: Loss = 4676.0205, Accuracy = 52.30%
+2025-05-20 05:56:14,456 - INFO - Epoch 42: Loss = 4687.8928, Accuracy = 52.39%
+2025-05-20 05:56:22,109 - INFO - Epoch 43: Loss = 4713.1791, Accuracy = 52.12%
+2025-05-20 05:56:29,764 - INFO - Epoch 44: Loss = 4695.5135, Accuracy = 52.26%
+2025-05-20 05:56:37,475 - INFO - Epoch 45: Loss = 4627.2766, Accuracy = 53.00%
+2025-05-20 05:56:45,191 - INFO - Epoch 46: Loss = 4561.1126, Accuracy = 53.89%
+2025-05-20 05:56:52,906 - INFO - Epoch 47: Loss = 4537.9945, Accuracy = 54.39%
+2025-05-20 05:57:00,586 - INFO - Epoch 48: Loss = 4511.4985, Accuracy = 54.62%
+2025-05-20 05:57:08,265 - INFO - Epoch 49: Loss = 4477.9825, Accuracy = 54.90%
+2025-05-20 05:57:15,933 - INFO - Epoch 50: Loss = 4447.3620, Accuracy = 55.32%
+2025-05-20 05:57:23,591 - INFO - Epoch 51: Loss = 4421.5320, Accuracy = 55.82%
+2025-05-20 05:57:31,250 - INFO - Epoch 52: Loss = 4435.0929, Accuracy = 55.54%
+2025-05-20 05:57:38,911 - INFO - Epoch 53: Loss = 4413.0698, Accuracy = 56.05%
+2025-05-20 05:57:46,583 - INFO - Epoch 54: Loss = 4400.0028, Accuracy = 56.49%
+2025-05-20 05:57:54,245 - INFO - Epoch 55: Loss = 4377.5406, Accuracy = 56.72%
+2025-05-20 05:58:01,909 - INFO - Epoch 56: Loss = 4345.0589, Accuracy = 56.97%
+2025-05-20 05:58:09,571 - INFO - Epoch 57: Loss = 4333.2042, Accuracy = 57.22%
+2025-05-20 05:58:17,214 - INFO - Epoch 58: Loss = 4357.2034, Accuracy = 57.10%
+2025-05-20 05:58:24,866 - INFO - Epoch 59: Loss = 4358.6338, Accuracy = 57.26%
+2025-05-20 05:58:32,516 - INFO - Epoch 60: Loss = 4332.3279, Accuracy = 57.59%
+2025-05-20 05:58:40,169 - INFO - Epoch 61: Loss = 4309.5295, Accuracy = 57.96%
+2025-05-20 05:58:47,835 - INFO - Epoch 62: Loss = 4275.4419, Accuracy = 58.34%
+2025-05-20 05:58:55,503 - INFO - Epoch 63: Loss = 4276.1742, Accuracy = 58.30%
+2025-05-20 05:59:03,185 - INFO - Epoch 64: Loss = 4280.1825, Accuracy = 58.34%
+2025-05-20 05:59:03,198 - INFO - [Gradient Period 50 Run 4] Training time: 492.23s
+2025-05-20 05:59:03,972 - INFO - ✅ Regular Evaluation Accuracy: 14.37%
+2025-05-20 05:59:05,078 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 37.06%
+2025-05-20 05:59:05,162 - INFO - ✅ Regular Evaluation Accuracy: 1.70%
+2025-05-20 05:59:05,397 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.03%
+2025-05-20 05:59:05,738 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:59:06,074 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 05:59:06,074 - INFO - Nuts
+2025-05-20 05:59:06,360 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:59:06,627 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.90%
+2025-05-20 05:59:06,627 - INFO - Spices
+2025-05-20 05:59:06,917 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:59:07,163 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 4.51%
+2025-05-20 05:59:07,163 - INFO - Herbs
+2025-05-20 05:59:07,447 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:59:07,697 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.94%
+2025-05-20 05:59:07,697 - INFO - Fruits
+2025-05-20 05:59:07,981 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 05:59:08,230 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.66%
+2025-05-20 05:59:08,230 - INFO - Vegetables
+2025-05-20 05:59:08,520 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 05:59:08,768 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.05%
+2025-05-20 05:59:08,769 - INFO - [Gradient Period 50 Run 5] Starting
+2025-05-20 05:59:09,226 - INFO - Training on device: cuda
+2025-05-20 05:59:16,896 - INFO - Epoch 01: Loss = 9924.8938, Accuracy = 3.68%
+2025-05-20 05:59:24,567 - INFO - Epoch 02: Loss = 8412.9880, Accuracy = 6.61%
+2025-05-20 05:59:32,233 - INFO - Epoch 03: Loss = 7480.5277, Accuracy = 11.16%
+2025-05-20 05:59:39,920 - INFO - Epoch 04: Loss = 6733.9468, Accuracy = 18.05%
+2025-05-20 05:59:47,595 - INFO - Epoch 05: Loss = 6186.0396, Accuracy = 24.31%
+2025-05-20 05:59:55,257 - INFO - Epoch 06: Loss = 5802.7547, Accuracy = 29.99%
+2025-05-20 06:00:02,931 - INFO - Epoch 07: Loss = 5553.6002, Accuracy = 33.65%
+2025-05-20 06:00:10,617 - INFO - Epoch 08: Loss = 5343.8336, Accuracy = 36.70%
+2025-05-20 06:00:18,299 - INFO - Epoch 09: Loss = 5132.4930, Accuracy = 39.54%
+2025-05-20 06:00:25,995 - INFO - Epoch 10: Loss = 4998.0206, Accuracy = 41.66%
+2025-05-20 06:00:33,662 - INFO - Epoch 11: Loss = 4901.8558, Accuracy = 43.91%
+2025-05-20 06:00:41,315 - INFO - Epoch 12: Loss = 4817.2526, Accuracy = 45.45%
+2025-05-20 06:00:48,979 - INFO - Epoch 13: Loss = 4755.8430, Accuracy = 46.57%
+2025-05-20 06:00:56,664 - INFO - Epoch 14: Loss = 4718.4660, Accuracy = 47.21%
+2025-05-20 06:01:04,365 - INFO - Epoch 15: Loss = 4711.4618, Accuracy = 48.02%
+2025-05-20 06:01:12,060 - INFO - Epoch 16: Loss = 4770.5872, Accuracy = 47.82%
+2025-05-20 06:01:19,744 - INFO - Epoch 17: Loss = 4764.0292, Accuracy = 48.57%
+2025-05-20 06:01:27,410 - INFO - Epoch 18: Loss = 4726.2571, Accuracy = 49.31%
+2025-05-20 06:01:35,079 - INFO - Epoch 19: Loss = 4668.8609, Accuracy = 50.10%
+2025-05-20 06:01:42,747 - INFO - Epoch 20: Loss = 4620.7737, Accuracy = 50.76%
+2025-05-20 06:01:50,426 - INFO - Epoch 21: Loss = 4566.6494, Accuracy = 51.50%
+2025-05-20 06:01:58,118 - INFO - Epoch 22: Loss = 4515.4871, Accuracy = 52.19%
+2025-05-20 06:02:05,789 - INFO - Epoch 23: Loss = 4489.3043, Accuracy = 52.57%
+2025-05-20 06:02:13,458 - INFO - Epoch 24: Loss = 4452.8442, Accuracy = 53.18%
+2025-05-20 06:02:21,123 - INFO - Epoch 25: Loss = 4429.5817, Accuracy = 53.77%
+2025-05-20 06:02:28,789 - INFO - Epoch 26: Loss = 4418.0855, Accuracy = 54.11%
+2025-05-20 06:02:36,470 - INFO - Epoch 27: Loss = 4420.0997, Accuracy = 54.36%
+2025-05-20 06:02:44,140 - INFO - Epoch 28: Loss = 4433.6492, Accuracy = 54.28%
+2025-05-20 06:02:51,796 - INFO - Epoch 29: Loss = 4427.0067, Accuracy = 54.51%
+2025-05-20 06:02:59,458 - INFO - Epoch 30: Loss = 4420.7971, Accuracy = 54.78%
+2025-05-20 06:03:07,127 - INFO - Epoch 31: Loss = 4400.0499, Accuracy = 54.97%
+2025-05-20 06:03:14,803 - INFO - Epoch 32: Loss = 4383.4557, Accuracy = 55.25%
+2025-05-20 06:03:22,497 - INFO - Epoch 33: Loss = 4370.5302, Accuracy = 55.47%
+2025-05-20 06:03:30,191 - INFO - Epoch 34: Loss = 4358.9110, Accuracy = 55.49%
+2025-05-20 06:03:37,884 - INFO - Epoch 35: Loss = 4364.4474, Accuracy = 55.56%
+2025-05-20 06:03:45,573 - INFO - Epoch 36: Loss = 4378.0974, Accuracy = 55.36%
+2025-05-20 06:03:53,252 - INFO - Epoch 37: Loss = 4395.6145, Accuracy = 55.34%
+2025-05-20 06:04:00,934 - INFO - Epoch 38: Loss = 4407.8923, Accuracy = 55.18%
+2025-05-20 06:04:08,621 - INFO - Epoch 39: Loss = 4426.2349, Accuracy = 54.95%
+2025-05-20 06:04:16,296 - INFO - Epoch 40: Loss = 4431.6189, Accuracy = 54.88%
+2025-05-20 06:04:23,939 - INFO - Epoch 41: Loss = 4434.4225, Accuracy = 54.93%
+2025-05-20 06:04:31,641 - INFO - Epoch 42: Loss = 4429.2588, Accuracy = 55.19%
+2025-05-20 06:04:39,342 - INFO - Epoch 43: Loss = 4423.1718, Accuracy = 55.35%
+2025-05-20 06:04:47,033 - INFO - Epoch 44: Loss = 4411.1376, Accuracy = 55.70%
+2025-05-20 06:04:54,682 - INFO - Epoch 45: Loss = 4398.5472, Accuracy = 55.81%
+2025-05-20 06:05:02,329 - INFO - Epoch 46: Loss = 4379.1112, Accuracy = 56.24%
+2025-05-20 06:05:10,028 - INFO - Epoch 47: Loss = 4362.5908, Accuracy = 56.46%
+2025-05-20 06:05:17,691 - INFO - Epoch 48: Loss = 4356.6099, Accuracy = 56.59%
+2025-05-20 06:05:25,353 - INFO - Epoch 49: Loss = 4340.1034, Accuracy = 56.70%
+2025-05-20 06:05:33,011 - INFO - Epoch 50: Loss = 4333.9607, Accuracy = 56.99%
+2025-05-20 06:05:40,673 - INFO - Epoch 51: Loss = 4329.7260, Accuracy = 57.15%
+2025-05-20 06:05:48,329 - INFO - Epoch 52: Loss = 4316.4481, Accuracy = 57.19%
+2025-05-20 06:05:55,977 - INFO - Epoch 53: Loss = 4304.0353, Accuracy = 57.54%
+2025-05-20 06:06:03,665 - INFO - Epoch 54: Loss = 4281.1986, Accuracy = 57.90%
+2025-05-20 06:06:11,348 - INFO - Epoch 55: Loss = 4269.1079, Accuracy = 57.95%
+2025-05-20 06:06:19,031 - INFO - Epoch 56: Loss = 4253.4922, Accuracy = 58.13%
+2025-05-20 06:06:26,712 - INFO - Epoch 57: Loss = 4241.4492, Accuracy = 58.12%
+2025-05-20 06:06:34,402 - INFO - Epoch 58: Loss = 4237.1905, Accuracy = 58.22%
+2025-05-20 06:06:42,083 - INFO - Epoch 59: Loss = 4218.9884, Accuracy = 58.38%
+2025-05-20 06:06:49,769 - INFO - Epoch 60: Loss = 4210.7342, Accuracy = 58.57%
+2025-05-20 06:06:57,454 - INFO - Epoch 61: Loss = 4191.2427, Accuracy = 58.96%
+2025-05-20 06:07:05,118 - INFO - Epoch 62: Loss = 4187.5494, Accuracy = 59.10%
+2025-05-20 06:07:12,805 - INFO - Epoch 63: Loss = 4177.6982, Accuracy = 59.21%
+2025-05-20 06:07:20,489 - INFO - Epoch 64: Loss = 4172.6568, Accuracy = 59.35%
+2025-05-20 06:07:20,502 - INFO - [Gradient Period 50 Run 5] Training time: 491.73s
+2025-05-20 06:07:21,282 - INFO - ✅ Regular Evaluation Accuracy: 11.83%
+2025-05-20 06:07:22,392 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 37.84%
+2025-05-20 06:07:22,481 - INFO - ✅ Regular Evaluation Accuracy: 4.16%
+2025-05-20 06:07:22,715 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 22.57%
+2025-05-20 06:07:23,055 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:07:23,392 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.13%
+2025-05-20 06:07:23,392 - INFO - Nuts
+2025-05-20 06:07:23,690 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:07:23,960 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:07:23,960 - INFO - Spices
+2025-05-20 06:07:24,246 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:07:24,494 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.31%
+2025-05-20 06:07:24,494 - INFO - Herbs
+2025-05-20 06:07:24,777 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:07:25,029 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:07:25,029 - INFO - Fruits
+2025-05-20 06:07:25,320 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 06:07:25,571 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 06:07:25,571 - INFO - Vegetables
+2025-05-20 06:07:25,857 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:07:26,107 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:07:26,108 - INFO - [Gradient Period 50 Run 6] Starting
+2025-05-20 06:07:26,564 - INFO - Training on device: cuda
+2025-05-20 06:07:34,239 - INFO - Epoch 01: Loss = 9927.0010, Accuracy = 6.62%
+2025-05-20 06:07:41,880 - INFO - Epoch 02: Loss = 8308.8938, Accuracy = 10.61%
+2025-05-20 06:07:49,559 - INFO - Epoch 03: Loss = 7327.5145, Accuracy = 13.60%
+2025-05-20 06:07:57,249 - INFO - Epoch 04: Loss = 6678.3018, Accuracy = 18.68%
+2025-05-20 06:08:04,935 - INFO - Epoch 05: Loss = 6216.0024, Accuracy = 23.47%
+2025-05-20 06:08:12,596 - INFO - Epoch 06: Loss = 5835.5134, Accuracy = 27.95%
+2025-05-20 06:08:20,247 - INFO - Epoch 07: Loss = 5555.5560, Accuracy = 31.77%
+2025-05-20 06:08:27,912 - INFO - Epoch 08: Loss = 5357.4679, Accuracy = 35.19%
+2025-05-20 06:08:35,578 - INFO - Epoch 09: Loss = 5205.4794, Accuracy = 37.73%
+2025-05-20 06:08:43,235 - INFO - Epoch 10: Loss = 5116.3606, Accuracy = 39.86%
+2025-05-20 06:08:50,893 - INFO - Epoch 11: Loss = 5044.3938, Accuracy = 41.65%
+2025-05-20 06:08:58,532 - INFO - Epoch 12: Loss = 4949.4393, Accuracy = 43.53%
+2025-05-20 06:09:06,193 - INFO - Epoch 13: Loss = 4869.5304, Accuracy = 45.20%
+2025-05-20 06:09:13,876 - INFO - Epoch 14: Loss = 4834.0686, Accuracy = 45.95%
+2025-05-20 06:09:21,550 - INFO - Epoch 15: Loss = 4763.5952, Accuracy = 47.28%
+2025-05-20 06:09:29,219 - INFO - Epoch 16: Loss = 4698.4890, Accuracy = 48.69%
+2025-05-20 06:09:36,877 - INFO - Epoch 17: Loss = 4657.8181, Accuracy = 49.72%
+2025-05-20 06:09:44,514 - INFO - Epoch 18: Loss = 4646.3829, Accuracy = 49.91%
+2025-05-20 06:09:52,176 - INFO - Epoch 19: Loss = 4668.6034, Accuracy = 49.94%
+2025-05-20 06:09:59,843 - INFO - Epoch 20: Loss = 4641.8372, Accuracy = 50.47%
+2025-05-20 06:10:07,542 - INFO - Epoch 21: Loss = 4608.1718, Accuracy = 51.20%
+2025-05-20 06:10:15,228 - INFO - Epoch 22: Loss = 4586.3074, Accuracy = 51.86%
+2025-05-20 06:10:22,913 - INFO - Epoch 23: Loss = 4560.7342, Accuracy = 52.57%
+2025-05-20 06:10:30,581 - INFO - Epoch 24: Loss = 4555.2572, Accuracy = 52.58%
+2025-05-20 06:10:38,239 - INFO - Epoch 25: Loss = 4551.9852, Accuracy = 52.83%
+2025-05-20 06:10:45,886 - INFO - Epoch 26: Loss = 4537.7311, Accuracy = 53.58%
+2025-05-20 06:10:53,559 - INFO - Epoch 27: Loss = 4520.6940, Accuracy = 54.03%
+2025-05-20 06:11:01,238 - INFO - Epoch 28: Loss = 4512.6441, Accuracy = 54.21%
+2025-05-20 06:11:08,914 - INFO - Epoch 29: Loss = 4520.4023, Accuracy = 54.12%
+2025-05-20 06:11:16,570 - INFO - Epoch 30: Loss = 4551.5340, Accuracy = 54.09%
+2025-05-20 06:11:24,246 - INFO - Epoch 31: Loss = 4554.4920, Accuracy = 54.22%
+2025-05-20 06:11:31,906 - INFO - Epoch 32: Loss = 4533.6306, Accuracy = 54.33%
+2025-05-20 06:11:39,554 - INFO - Epoch 33: Loss = 4504.7923, Accuracy = 54.76%
+2025-05-20 06:11:47,197 - INFO - Epoch 34: Loss = 4491.5000, Accuracy = 54.83%
+2025-05-20 06:11:54,835 - INFO - Epoch 35: Loss = 4500.2976, Accuracy = 54.53%
+2025-05-20 06:12:02,497 - INFO - Epoch 36: Loss = 4478.7124, Accuracy = 54.82%
+2025-05-20 06:12:10,154 - INFO - Epoch 37: Loss = 4464.2579, Accuracy = 54.96%
+2025-05-20 06:12:17,853 - INFO - Epoch 38: Loss = 4440.8162, Accuracy = 55.57%
+2025-05-20 06:12:25,553 - INFO - Epoch 39: Loss = 4445.7260, Accuracy = 55.81%
+2025-05-20 06:12:33,247 - INFO - Epoch 40: Loss = 4463.4299, Accuracy = 55.50%
+2025-05-20 06:12:40,956 - INFO - Epoch 41: Loss = 4462.0317, Accuracy = 55.53%
+2025-05-20 06:12:48,643 - INFO - Epoch 42: Loss = 4438.9737, Accuracy = 55.73%
+2025-05-20 06:12:56,307 - INFO - Epoch 43: Loss = 4431.8815, Accuracy = 55.71%
+2025-05-20 06:13:03,982 - INFO - Epoch 44: Loss = 4414.3786, Accuracy = 55.96%
+2025-05-20 06:13:11,659 - INFO - Epoch 45: Loss = 4410.8343, Accuracy = 55.99%
+2025-05-20 06:13:19,343 - INFO - Epoch 46: Loss = 4395.0296, Accuracy = 56.16%
+2025-05-20 06:13:27,041 - INFO - Epoch 47: Loss = 4395.3927, Accuracy = 56.25%
+2025-05-20 06:13:34,710 - INFO - Epoch 48: Loss = 4369.0307, Accuracy = 56.58%
+2025-05-20 06:13:42,366 - INFO - Epoch 49: Loss = 4349.1104, Accuracy = 56.84%
+2025-05-20 06:13:50,038 - INFO - Epoch 50: Loss = 4345.5390, Accuracy = 57.03%
+2025-05-20 06:13:57,708 - INFO - Epoch 51: Loss = 4322.6270, Accuracy = 57.11%
+2025-05-20 06:14:05,383 - INFO - Epoch 52: Loss = 4321.3567, Accuracy = 57.37%
+2025-05-20 06:14:13,049 - INFO - Epoch 53: Loss = 4316.3375, Accuracy = 57.45%
+2025-05-20 06:14:20,702 - INFO - Epoch 54: Loss = 4305.6626, Accuracy = 57.58%
+2025-05-20 06:14:28,346 - INFO - Epoch 55: Loss = 4290.4643, Accuracy = 57.79%
+2025-05-20 06:14:36,006 - INFO - Epoch 56: Loss = 4277.5049, Accuracy = 57.95%
+2025-05-20 06:14:43,670 - INFO - Epoch 57: Loss = 4270.5780, Accuracy = 58.11%
+2025-05-20 06:14:51,344 - INFO - Epoch 58: Loss = 4278.2629, Accuracy = 58.03%
+2025-05-20 06:14:59,028 - INFO - Epoch 59: Loss = 4294.7470, Accuracy = 57.86%
+2025-05-20 06:15:06,714 - INFO - Epoch 60: Loss = 4285.9415, Accuracy = 58.13%
+2025-05-20 06:15:14,376 - INFO - Epoch 61: Loss = 4269.7227, Accuracy = 58.23%
+2025-05-20 06:15:22,068 - INFO - Epoch 62: Loss = 4268.9979, Accuracy = 58.50%
+2025-05-20 06:15:29,724 - INFO - Epoch 63: Loss = 4251.2688, Accuracy = 58.47%
+2025-05-20 06:15:37,385 - INFO - Epoch 64: Loss = 4236.8980, Accuracy = 58.83%
+2025-05-20 06:15:37,398 - INFO - [Gradient Period 50 Run 6] Training time: 491.29s
+2025-05-20 06:15:38,176 - INFO - ✅ Regular Evaluation Accuracy: 11.53%
+2025-05-20 06:15:39,280 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 34.13%
+2025-05-20 06:15:39,367 - INFO - ✅ Regular Evaluation Accuracy: 1.22%
+2025-05-20 06:15:39,602 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.70%
+2025-05-20 06:15:39,939 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:15:40,276 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:15:40,276 - INFO - Nuts
+2025-05-20 06:15:40,681 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:15:40,950 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:15:40,950 - INFO - Spices
+2025-05-20 06:15:41,241 - INFO - ✅ Regular Evaluation Accuracy: 5.27%
+2025-05-20 06:15:41,488 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 15.31%
+2025-05-20 06:15:41,488 - INFO - Herbs
+2025-05-20 06:15:41,773 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:15:42,024 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:15:42,024 - INFO - Fruits
+2025-05-20 06:15:42,312 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 06:15:42,562 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 38.90%
+2025-05-20 06:15:42,562 - INFO - Vegetables
+2025-05-20 06:15:42,845 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:15:43,094 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:15:43,096 - INFO - [Gradient Period 50 Run 7] Starting
+2025-05-20 06:15:43,552 - INFO - Training on device: cuda
+2025-05-20 06:15:51,257 - INFO - Epoch 01: Loss = 9801.7107, Accuracy = 4.48%
+2025-05-20 06:15:58,958 - INFO - Epoch 02: Loss = 8315.9801, Accuracy = 8.44%
+2025-05-20 06:16:06,676 - INFO - Epoch 03: Loss = 7444.3826, Accuracy = 11.69%
+2025-05-20 06:16:14,380 - INFO - Epoch 04: Loss = 6724.8721, Accuracy = 18.15%
+2025-05-20 06:16:22,052 - INFO - Epoch 05: Loss = 6210.3909, Accuracy = 24.27%
+2025-05-20 06:16:29,752 - INFO - Epoch 06: Loss = 5821.6584, Accuracy = 29.27%
+2025-05-20 06:16:37,446 - INFO - Epoch 07: Loss = 5525.0763, Accuracy = 33.27%
+2025-05-20 06:16:45,122 - INFO - Epoch 08: Loss = 5280.6105, Accuracy = 36.87%
+2025-05-20 06:16:52,802 - INFO - Epoch 09: Loss = 5088.6662, Accuracy = 40.02%
+2025-05-20 06:17:00,476 - INFO - Epoch 10: Loss = 4933.8334, Accuracy = 42.55%
+2025-05-20 06:17:08,156 - INFO - Epoch 11: Loss = 4841.2911, Accuracy = 44.27%
+2025-05-20 06:17:15,834 - INFO - Epoch 12: Loss = 4798.2032, Accuracy = 45.16%
+2025-05-20 06:17:23,514 - INFO - Epoch 13: Loss = 4728.1009, Accuracy = 46.41%
+2025-05-20 06:17:31,176 - INFO - Epoch 14: Loss = 4626.9206, Accuracy = 48.02%
+2025-05-20 06:17:38,828 - INFO - Epoch 15: Loss = 4554.7729, Accuracy = 48.95%
+2025-05-20 06:17:46,483 - INFO - Epoch 16: Loss = 4549.5197, Accuracy = 49.23%
+2025-05-20 06:17:54,116 - INFO - Epoch 17: Loss = 4553.0007, Accuracy = 49.63%
+2025-05-20 06:18:01,767 - INFO - Epoch 18: Loss = 4499.1751, Accuracy = 50.59%
+2025-05-20 06:18:09,466 - INFO - Epoch 19: Loss = 4415.1909, Accuracy = 52.20%
+2025-05-20 06:18:17,142 - INFO - Epoch 20: Loss = 4358.2965, Accuracy = 53.31%
+2025-05-20 06:18:24,846 - INFO - Epoch 21: Loss = 4342.7358, Accuracy = 53.77%
+2025-05-20 06:18:32,542 - INFO - Epoch 22: Loss = 4358.4496, Accuracy = 53.73%
+2025-05-20 06:18:40,228 - INFO - Epoch 23: Loss = 4372.9442, Accuracy = 53.57%
+2025-05-20 06:18:47,917 - INFO - Epoch 24: Loss = 4381.6317, Accuracy = 53.98%
+2025-05-20 06:18:55,609 - INFO - Epoch 25: Loss = 4374.5466, Accuracy = 54.36%
+2025-05-20 06:19:03,264 - INFO - Epoch 26: Loss = 4373.0946, Accuracy = 54.51%
+2025-05-20 06:19:10,919 - INFO - Epoch 27: Loss = 4342.9586, Accuracy = 54.93%
+2025-05-20 06:19:18,585 - INFO - Epoch 28: Loss = 4332.7043, Accuracy = 55.35%
+2025-05-20 06:19:26,259 - INFO - Epoch 29: Loss = 4331.0897, Accuracy = 55.45%
+2025-05-20 06:19:33,920 - INFO - Epoch 30: Loss = 4382.9301, Accuracy = 55.05%
+2025-05-20 06:19:41,575 - INFO - Epoch 31: Loss = 4419.7203, Accuracy = 54.73%
+2025-05-20 06:19:49,217 - INFO - Epoch 32: Loss = 4432.3769, Accuracy = 54.82%
+2025-05-20 06:19:56,874 - INFO - Epoch 33: Loss = 4492.4443, Accuracy = 54.45%
+2025-05-20 06:20:04,538 - INFO - Epoch 34: Loss = 4537.0131, Accuracy = 54.38%
+2025-05-20 06:20:12,182 - INFO - Epoch 35: Loss = 4559.9589, Accuracy = 54.24%
+2025-05-20 06:20:19,838 - INFO - Epoch 36: Loss = 4582.8095, Accuracy = 53.90%
+2025-05-20 06:20:27,504 - INFO - Epoch 37: Loss = 4576.6442, Accuracy = 53.84%
+2025-05-20 06:20:35,170 - INFO - Epoch 38: Loss = 4595.8625, Accuracy = 53.08%
+2025-05-20 06:20:42,880 - INFO - Epoch 39: Loss = 4522.5225, Accuracy = 53.76%
+2025-05-20 06:20:50,570 - INFO - Epoch 40: Loss = 4524.9720, Accuracy = 54.03%
+2025-05-20 06:20:58,243 - INFO - Epoch 41: Loss = 4560.0221, Accuracy = 54.21%
+2025-05-20 06:21:05,913 - INFO - Epoch 42: Loss = 4571.0421, Accuracy = 54.19%
+2025-05-20 06:21:13,587 - INFO - Epoch 43: Loss = 4558.3649, Accuracy = 54.45%
+2025-05-20 06:21:21,253 - INFO - Epoch 44: Loss = 4533.8407, Accuracy = 54.64%
+2025-05-20 06:21:28,929 - INFO - Epoch 45: Loss = 4529.8247, Accuracy = 54.71%
+2025-05-20 06:21:36,618 - INFO - Epoch 46: Loss = 4507.2645, Accuracy = 55.29%
+2025-05-20 06:21:44,277 - INFO - Epoch 47: Loss = 4506.9391, Accuracy = 55.30%
+2025-05-20 06:21:51,955 - INFO - Epoch 48: Loss = 4483.0184, Accuracy = 55.48%
+2025-05-20 06:21:59,633 - INFO - Epoch 49: Loss = 4503.3762, Accuracy = 55.23%
+2025-05-20 06:22:07,284 - INFO - Epoch 50: Loss = 4542.5361, Accuracy = 54.76%
+2025-05-20 06:22:14,963 - INFO - Epoch 51: Loss = 4555.2223, Accuracy = 54.43%
+2025-05-20 06:22:22,641 - INFO - Epoch 52: Loss = 4556.3707, Accuracy = 54.32%
+2025-05-20 06:22:30,307 - INFO - Epoch 53: Loss = 4557.9014, Accuracy = 54.42%
+2025-05-20 06:22:37,986 - INFO - Epoch 54: Loss = 4576.2966, Accuracy = 54.14%
+2025-05-20 06:22:45,669 - INFO - Epoch 55: Loss = 4587.4531, Accuracy = 54.15%
+2025-05-20 06:22:53,325 - INFO - Epoch 56: Loss = 4586.6167, Accuracy = 54.15%
+2025-05-20 06:23:01,000 - INFO - Epoch 57: Loss = 4615.2961, Accuracy = 54.04%
+2025-05-20 06:23:08,686 - INFO - Epoch 58: Loss = 4632.8832, Accuracy = 53.93%
+2025-05-20 06:23:16,338 - INFO - Epoch 59: Loss = 4630.8727, Accuracy = 54.21%
+2025-05-20 06:23:24,007 - INFO - Epoch 60: Loss = 4629.6464, Accuracy = 54.43%
+2025-05-20 06:23:31,673 - INFO - Epoch 61: Loss = 4628.5895, Accuracy = 54.32%
+2025-05-20 06:23:39,321 - INFO - Epoch 62: Loss = 4604.5281, Accuracy = 54.46%
+2025-05-20 06:23:47,006 - INFO - Epoch 63: Loss = 4641.2635, Accuracy = 54.07%
+2025-05-20 06:23:54,688 - INFO - Epoch 64: Loss = 4657.6573, Accuracy = 53.94%
+2025-05-20 06:23:54,701 - INFO - [Gradient Period 50 Run 7] Training time: 491.61s
+2025-05-20 06:23:55,475 - INFO - ✅ Regular Evaluation Accuracy: 13.75%
+2025-05-20 06:23:56,582 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 38.89%
+2025-05-20 06:23:56,668 - INFO - ✅ Regular Evaluation Accuracy: 0.65%
+2025-05-20 06:23:56,903 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 26.62%
+2025-05-20 06:23:57,246 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:23:57,583 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 06:23:57,584 - INFO - Nuts
+2025-05-20 06:23:57,872 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:23:58,141 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:23:58,141 - INFO - Spices
+2025-05-20 06:23:58,427 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:23:58,674 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.44%
+2025-05-20 06:23:58,675 - INFO - Herbs
+2025-05-20 06:23:58,963 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:23:59,216 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:23:59,216 - INFO - Fruits
+2025-05-20 06:23:59,497 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 06:23:59,747 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.66%
+2025-05-20 06:23:59,747 - INFO - Vegetables
+2025-05-20 06:24:00,030 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:24:00,279 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 20.66%
+2025-05-20 06:24:00,280 - INFO - [Gradient Period 50 Run 8] Starting
+2025-05-20 06:24:00,735 - INFO - Training on device: cuda
+2025-05-20 06:24:08,408 - INFO - Epoch 01: Loss = 9679.6054, Accuracy = 6.19%
+2025-05-20 06:24:16,091 - INFO - Epoch 02: Loss = 8166.3314, Accuracy = 8.12%
+2025-05-20 06:24:23,766 - INFO - Epoch 03: Loss = 7255.9136, Accuracy = 12.61%
+2025-05-20 06:24:31,446 - INFO - Epoch 04: Loss = 6588.5272, Accuracy = 18.75%
+2025-05-20 06:24:39,126 - INFO - Epoch 05: Loss = 6083.6286, Accuracy = 25.30%
+2025-05-20 06:24:46,809 - INFO - Epoch 06: Loss = 5767.3744, Accuracy = 29.85%
+2025-05-20 06:24:54,485 - INFO - Epoch 07: Loss = 5520.0463, Accuracy = 33.33%
+2025-05-20 06:25:02,171 - INFO - Epoch 08: Loss = 5332.5375, Accuracy = 36.18%
+2025-05-20 06:25:09,854 - INFO - Epoch 09: Loss = 5187.4866, Accuracy = 38.63%
+2025-05-20 06:25:17,537 - INFO - Epoch 10: Loss = 5066.3932, Accuracy = 40.74%
+2025-05-20 06:25:25,223 - INFO - Epoch 11: Loss = 4975.6998, Accuracy = 42.23%
+2025-05-20 06:25:32,895 - INFO - Epoch 12: Loss = 4883.2412, Accuracy = 43.85%
+2025-05-20 06:25:40,569 - INFO - Epoch 13: Loss = 4815.6091, Accuracy = 44.99%
+2025-05-20 06:25:48,227 - INFO - Epoch 14: Loss = 4781.4539, Accuracy = 45.71%
+2025-05-20 06:25:55,891 - INFO - Epoch 15: Loss = 4733.9084, Accuracy = 46.61%
+2025-05-20 06:26:03,577 - INFO - Epoch 16: Loss = 4707.3872, Accuracy = 47.40%
+2025-05-20 06:26:11,260 - INFO - Epoch 17: Loss = 4690.7325, Accuracy = 47.91%
+2025-05-20 06:26:18,931 - INFO - Epoch 18: Loss = 4680.6930, Accuracy = 48.37%
+2025-05-20 06:26:26,599 - INFO - Epoch 19: Loss = 4710.1046, Accuracy = 48.43%
+2025-05-20 06:26:34,278 - INFO - Epoch 20: Loss = 4778.8753, Accuracy = 47.76%
+2025-05-20 06:26:41,954 - INFO - Epoch 21: Loss = 4765.5979, Accuracy = 48.15%
+2025-05-20 06:26:49,628 - INFO - Epoch 22: Loss = 4750.3050, Accuracy = 48.35%
+2025-05-20 06:26:57,304 - INFO - Epoch 23: Loss = 4795.4099, Accuracy = 47.85%
+2025-05-20 06:27:04,987 - INFO - Epoch 24: Loss = 4864.4345, Accuracy = 47.53%
+2025-05-20 06:27:12,647 - INFO - Epoch 25: Loss = 4858.2024, Accuracy = 47.98%
+2025-05-20 06:27:20,307 - INFO - Epoch 26: Loss = 4817.1141, Accuracy = 48.37%
+2025-05-20 06:27:27,969 - INFO - Epoch 27: Loss = 4786.9018, Accuracy = 49.15%
+2025-05-20 06:27:35,623 - INFO - Epoch 28: Loss = 4794.7001, Accuracy = 49.38%
+2025-05-20 06:27:43,280 - INFO - Epoch 29: Loss = 4786.5915, Accuracy = 49.75%
+2025-05-20 06:27:50,944 - INFO - Epoch 30: Loss = 4787.4039, Accuracy = 49.89%
+2025-05-20 06:27:58,606 - INFO - Epoch 31: Loss = 4755.0488, Accuracy = 50.36%
+2025-05-20 06:28:06,265 - INFO - Epoch 32: Loss = 4726.0887, Accuracy = 50.60%
+2025-05-20 06:28:13,933 - INFO - Epoch 33: Loss = 4717.8307, Accuracy = 50.87%
+2025-05-20 06:28:21,604 - INFO - Epoch 34: Loss = 4698.8722, Accuracy = 51.18%
+2025-05-20 06:28:29,280 - INFO - Epoch 35: Loss = 4677.6065, Accuracy = 51.22%
+2025-05-20 06:28:36,958 - INFO - Epoch 36: Loss = 4653.6304, Accuracy = 51.44%
+2025-05-20 06:28:44,624 - INFO - Epoch 37: Loss = 4622.2248, Accuracy = 51.87%
+2025-05-20 06:28:52,284 - INFO - Epoch 38: Loss = 4655.5468, Accuracy = 51.83%
+2025-05-20 06:28:59,940 - INFO - Epoch 39: Loss = 4703.1081, Accuracy = 51.65%
+2025-05-20 06:29:07,608 - INFO - Epoch 40: Loss = 4762.3082, Accuracy = 51.27%
+2025-05-20 06:29:15,270 - INFO - Epoch 41: Loss = 4780.9617, Accuracy = 51.18%
+2025-05-20 06:29:22,933 - INFO - Epoch 42: Loss = 4769.3090, Accuracy = 51.44%
+2025-05-20 06:29:30,602 - INFO - Epoch 43: Loss = 4729.1066, Accuracy = 51.69%
+2025-05-20 06:29:38,276 - INFO - Epoch 44: Loss = 4669.4669, Accuracy = 52.37%
+2025-05-20 06:29:45,944 - INFO - Epoch 45: Loss = 4659.2714, Accuracy = 52.51%
+2025-05-20 06:29:53,615 - INFO - Epoch 46: Loss = 4674.6197, Accuracy = 52.47%
+2025-05-20 06:30:01,291 - INFO - Epoch 47: Loss = 4654.8758, Accuracy = 52.68%
+2025-05-20 06:30:08,964 - INFO - Epoch 48: Loss = 4624.6475, Accuracy = 53.08%
+2025-05-20 06:30:16,634 - INFO - Epoch 49: Loss = 4540.0628, Accuracy = 54.09%
+2025-05-20 06:30:24,308 - INFO - Epoch 50: Loss = 4507.8798, Accuracy = 54.56%
+2025-05-20 06:30:31,978 - INFO - Epoch 51: Loss = 4487.6114, Accuracy = 54.90%
+2025-05-20 06:30:39,642 - INFO - Epoch 52: Loss = 4485.5637, Accuracy = 55.13%
+2025-05-20 06:30:47,309 - INFO - Epoch 53: Loss = 4479.0344, Accuracy = 55.47%
+2025-05-20 06:30:54,978 - INFO - Epoch 54: Loss = 4465.6533, Accuracy = 55.70%
+2025-05-20 06:31:02,651 - INFO - Epoch 55: Loss = 4446.1538, Accuracy = 56.15%
+2025-05-20 06:31:10,331 - INFO - Epoch 56: Loss = 4460.2174, Accuracy = 56.06%
+2025-05-20 06:31:18,007 - INFO - Epoch 57: Loss = 4467.9910, Accuracy = 55.81%
+2025-05-20 06:31:25,671 - INFO - Epoch 58: Loss = 4458.1923, Accuracy = 55.99%
+2025-05-20 06:31:33,342 - INFO - Epoch 59: Loss = 4452.4513, Accuracy = 56.16%
+2025-05-20 06:31:41,011 - INFO - Epoch 60: Loss = 4455.8782, Accuracy = 56.19%
+2025-05-20 06:31:48,683 - INFO - Epoch 61: Loss = 4438.9312, Accuracy = 56.43%
+2025-05-20 06:31:56,351 - INFO - Epoch 62: Loss = 4439.6007, Accuracy = 56.58%
+2025-05-20 06:32:04,035 - INFO - Epoch 63: Loss = 4422.1843, Accuracy = 56.84%
+2025-05-20 06:32:11,712 - INFO - Epoch 64: Loss = 4428.3312, Accuracy = 56.90%
+2025-05-20 06:32:11,724 - INFO - [Gradient Period 50 Run 8] Training time: 491.44s
+2025-05-20 06:32:12,498 - INFO - ✅ Regular Evaluation Accuracy: 9.73%
+2025-05-20 06:32:13,603 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 34.58%
+2025-05-20 06:32:13,689 - INFO - ✅ Regular Evaluation Accuracy: 1.52%
+2025-05-20 06:32:13,923 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.23%
+2025-05-20 06:32:14,263 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:32:14,599 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 7.54%
+2025-05-20 06:32:14,600 - INFO - Nuts
+2025-05-20 06:32:14,892 - INFO - ✅ Regular Evaluation Accuracy: 9.43%
+2025-05-20 06:32:15,160 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.92%
+2025-05-20 06:32:15,160 - INFO - Spices
+2025-05-20 06:32:15,449 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:32:15,695 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 14.51%
+2025-05-20 06:32:15,695 - INFO - Herbs
+2025-05-20 06:32:15,983 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:32:16,234 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 11.04%
+2025-05-20 06:32:16,234 - INFO - Fruits
+2025-05-20 06:32:16,517 - INFO - ✅ Regular Evaluation Accuracy: 9.79%
+2025-05-20 06:32:16,766 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 37.97%
+2025-05-20 06:32:16,766 - INFO - Vegetables
+2025-05-20 06:32:17,050 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:32:17,299 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:32:17,300 - INFO - [Gradient Period 50 Run 9] Starting
+2025-05-20 06:32:17,756 - INFO - Training on device: cuda
+2025-05-20 06:32:25,454 - INFO - Epoch 01: Loss = 9814.8739, Accuracy = 4.12%
+2025-05-20 06:32:33,155 - INFO - Epoch 02: Loss = 8303.4220, Accuracy = 7.07%
+2025-05-20 06:32:40,859 - INFO - Epoch 03: Loss = 7425.1352, Accuracy = 12.21%
+2025-05-20 06:32:48,560 - INFO - Epoch 04: Loss = 6785.8208, Accuracy = 17.35%
+2025-05-20 06:32:56,258 - INFO - Epoch 05: Loss = 6312.7335, Accuracy = 22.47%
+2025-05-20 06:33:03,966 - INFO - Epoch 06: Loss = 5970.9455, Accuracy = 26.61%
+2025-05-20 06:33:11,679 - INFO - Epoch 07: Loss = 5704.6494, Accuracy = 30.61%
+2025-05-20 06:33:19,391 - INFO - Epoch 08: Loss = 5493.5468, Accuracy = 34.29%
+2025-05-20 06:33:27,074 - INFO - Epoch 09: Loss = 5328.8130, Accuracy = 37.12%
+2025-05-20 06:33:34,753 - INFO - Epoch 10: Loss = 5211.6921, Accuracy = 39.09%
+2025-05-20 06:33:42,446 - INFO - Epoch 11: Loss = 5128.1476, Accuracy = 40.93%
+2025-05-20 06:33:50,145 - INFO - Epoch 12: Loss = 5044.0025, Accuracy = 42.37%
+2025-05-20 06:33:57,848 - INFO - Epoch 13: Loss = 4973.7756, Accuracy = 44.02%
+2025-05-20 06:34:05,548 - INFO - Epoch 14: Loss = 4890.8243, Accuracy = 45.68%
+2025-05-20 06:34:13,235 - INFO - Epoch 15: Loss = 4849.2387, Accuracy = 46.45%
+2025-05-20 06:34:20,924 - INFO - Epoch 16: Loss = 4834.4067, Accuracy = 46.81%
+2025-05-20 06:34:28,617 - INFO - Epoch 17: Loss = 4813.7555, Accuracy = 47.01%
+2025-05-20 06:34:36,309 - INFO - Epoch 18: Loss = 4733.2605, Accuracy = 47.91%
+2025-05-20 06:34:44,007 - INFO - Epoch 19: Loss = 4674.1986, Accuracy = 49.10%
+2025-05-20 06:34:51,698 - INFO - Epoch 20: Loss = 4637.4536, Accuracy = 50.10%
+2025-05-20 06:34:59,396 - INFO - Epoch 21: Loss = 4603.9034, Accuracy = 50.62%
+2025-05-20 06:35:07,099 - INFO - Epoch 22: Loss = 4557.9000, Accuracy = 51.37%
+2025-05-20 06:35:14,775 - INFO - Epoch 23: Loss = 4532.8045, Accuracy = 51.95%
+2025-05-20 06:35:22,452 - INFO - Epoch 24: Loss = 4528.1563, Accuracy = 51.95%
+2025-05-20 06:35:30,133 - INFO - Epoch 25: Loss = 4516.0033, Accuracy = 52.48%
+2025-05-20 06:35:37,813 - INFO - Epoch 26: Loss = 4503.2703, Accuracy = 52.95%
+2025-05-20 06:35:45,502 - INFO - Epoch 27: Loss = 4500.5633, Accuracy = 53.04%
+2025-05-20 06:35:53,191 - INFO - Epoch 28: Loss = 4513.4821, Accuracy = 52.87%
+2025-05-20 06:36:00,872 - INFO - Epoch 29: Loss = 4517.1198, Accuracy = 53.07%
+2025-05-20 06:36:08,560 - INFO - Epoch 30: Loss = 4513.6274, Accuracy = 53.56%
+2025-05-20 06:36:16,252 - INFO - Epoch 31: Loss = 4488.2229, Accuracy = 54.26%
+2025-05-20 06:36:23,948 - INFO - Epoch 32: Loss = 4429.5997, Accuracy = 55.06%
+2025-05-20 06:36:31,644 - INFO - Epoch 33: Loss = 4384.1773, Accuracy = 55.69%
+2025-05-20 06:36:39,333 - INFO - Epoch 34: Loss = 4367.7840, Accuracy = 56.06%
+2025-05-20 06:36:47,025 - INFO - Epoch 35: Loss = 4354.8184, Accuracy = 56.37%
+2025-05-20 06:36:54,715 - INFO - Epoch 36: Loss = 4357.3520, Accuracy = 56.28%
+2025-05-20 06:37:02,394 - INFO - Epoch 37: Loss = 4347.6084, Accuracy = 56.52%
+2025-05-20 06:37:10,074 - INFO - Epoch 38: Loss = 4340.9745, Accuracy = 56.63%
+2025-05-20 06:37:17,743 - INFO - Epoch 39: Loss = 4336.4662, Accuracy = 56.77%
+2025-05-20 06:37:25,456 - INFO - Epoch 40: Loss = 4313.0512, Accuracy = 57.02%
+2025-05-20 06:37:33,140 - INFO - Epoch 41: Loss = 4310.8947, Accuracy = 57.17%
+2025-05-20 06:37:40,848 - INFO - Epoch 42: Loss = 4291.3418, Accuracy = 57.56%
+2025-05-20 06:37:48,557 - INFO - Epoch 43: Loss = 4294.5762, Accuracy = 57.73%
+2025-05-20 06:37:56,268 - INFO - Epoch 44: Loss = 4272.5073, Accuracy = 58.07%
+2025-05-20 06:38:03,980 - INFO - Epoch 45: Loss = 4277.0091, Accuracy = 58.16%
+2025-05-20 06:38:11,676 - INFO - Epoch 46: Loss = 4273.7096, Accuracy = 58.22%
+2025-05-20 06:38:19,369 - INFO - Epoch 47: Loss = 4258.0169, Accuracy = 58.53%
+2025-05-20 06:38:27,044 - INFO - Epoch 48: Loss = 4239.7049, Accuracy = 58.70%
+2025-05-20 06:38:34,717 - INFO - Epoch 49: Loss = 4224.6251, Accuracy = 58.65%
+2025-05-20 06:38:42,392 - INFO - Epoch 50: Loss = 4227.0554, Accuracy = 58.38%
+2025-05-20 06:38:50,076 - INFO - Epoch 51: Loss = 4212.4064, Accuracy = 58.69%
+2025-05-20 06:38:57,753 - INFO - Epoch 52: Loss = 4200.1460, Accuracy = 58.93%
+2025-05-20 06:39:05,445 - INFO - Epoch 53: Loss = 4166.9955, Accuracy = 59.55%
+2025-05-20 06:39:13,155 - INFO - Epoch 54: Loss = 4158.6546, Accuracy = 59.77%
+2025-05-20 06:39:20,856 - INFO - Epoch 55: Loss = 4152.4027, Accuracy = 60.06%
+2025-05-20 06:39:28,543 - INFO - Epoch 56: Loss = 4142.5978, Accuracy = 60.06%
+2025-05-20 06:39:36,245 - INFO - Epoch 57: Loss = 4134.8228, Accuracy = 59.77%
+2025-05-20 06:39:43,947 - INFO - Epoch 58: Loss = 4138.6623, Accuracy = 59.77%
+2025-05-20 06:39:51,662 - INFO - Epoch 59: Loss = 4142.5432, Accuracy = 60.01%
+2025-05-20 06:39:59,362 - INFO - Epoch 60: Loss = 4127.0321, Accuracy = 60.63%
+2025-05-20 06:40:07,055 - INFO - Epoch 61: Loss = 4133.2113, Accuracy = 60.58%
+2025-05-20 06:40:14,786 - INFO - Epoch 62: Loss = 4120.0410, Accuracy = 60.76%
+2025-05-20 06:40:22,499 - INFO - Epoch 63: Loss = 4107.3439, Accuracy = 60.95%
+2025-05-20 06:40:30,212 - INFO - Epoch 64: Loss = 4097.2341, Accuracy = 60.95%
+2025-05-20 06:40:30,225 - INFO - [Gradient Period 50 Run 9] Training time: 492.92s
+2025-05-20 06:40:31,003 - INFO - ✅ Regular Evaluation Accuracy: 9.41%
+2025-05-20 06:40:32,111 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 31.91%
+2025-05-20 06:40:32,196 - INFO - ✅ Regular Evaluation Accuracy: 3.50%
+2025-05-20 06:40:32,432 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.93%
+2025-05-20 06:40:32,779 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:40:33,114 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:40:33,114 - INFO - Nuts
+2025-05-20 06:40:33,405 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:40:33,674 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 23.15%
+2025-05-20 06:40:33,674 - INFO - Spices
+2025-05-20 06:40:33,964 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:40:34,212 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.97%
+2025-05-20 06:40:34,212 - INFO - Herbs
+2025-05-20 06:40:34,494 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:40:34,744 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.45%
+2025-05-20 06:40:34,744 - INFO - Fruits
+2025-05-20 06:40:35,026 - INFO - ✅ Regular Evaluation Accuracy: 9.79%
+2025-05-20 06:40:35,274 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 18.66%
+2025-05-20 06:40:35,275 - INFO - Vegetables
+2025-05-20 06:40:35,561 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:40:35,809 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 19.22%
+2025-05-20 06:40:35,811 - INFO - [Gradient Period 50 Run 10] Starting
+2025-05-20 06:40:36,268 - INFO - Training on device: cuda
+2025-05-20 06:40:43,979 - INFO - Epoch 01: Loss = 9878.1817, Accuracy = 3.02%
+2025-05-20 06:40:51,657 - INFO - Epoch 02: Loss = 8362.9300, Accuracy = 6.89%
+2025-05-20 06:40:59,340 - INFO - Epoch 03: Loss = 7516.7602, Accuracy = 11.05%
+2025-05-20 06:41:07,042 - INFO - Epoch 04: Loss = 6828.4027, Accuracy = 16.98%
+2025-05-20 06:41:14,773 - INFO - Epoch 05: Loss = 6313.8967, Accuracy = 22.25%
+2025-05-20 06:41:22,493 - INFO - Epoch 06: Loss = 5965.3441, Accuracy = 25.91%
+2025-05-20 06:41:30,240 - INFO - Epoch 07: Loss = 5670.1689, Accuracy = 29.02%
+2025-05-20 06:41:37,942 - INFO - Epoch 08: Loss = 5440.6643, Accuracy = 32.06%
+2025-05-20 06:41:45,636 - INFO - Epoch 09: Loss = 5234.1032, Accuracy = 35.10%
+2025-05-20 06:41:53,348 - INFO - Epoch 10: Loss = 5079.8160, Accuracy = 38.28%
+2025-05-20 06:42:01,058 - INFO - Epoch 11: Loss = 4962.7466, Accuracy = 41.01%
+2025-05-20 06:42:08,773 - INFO - Epoch 12: Loss = 4928.2189, Accuracy = 42.61%
+2025-05-20 06:42:16,476 - INFO - Epoch 13: Loss = 4907.0580, Accuracy = 43.56%
+2025-05-20 06:42:24,170 - INFO - Epoch 14: Loss = 4836.7343, Accuracy = 45.10%
+2025-05-20 06:42:31,875 - INFO - Epoch 15: Loss = 4736.1328, Accuracy = 46.56%
+2025-05-20 06:42:39,574 - INFO - Epoch 16: Loss = 4681.4389, Accuracy = 47.57%
+2025-05-20 06:42:47,275 - INFO - Epoch 17: Loss = 4661.0777, Accuracy = 48.31%
+2025-05-20 06:42:54,988 - INFO - Epoch 18: Loss = 4648.3851, Accuracy = 48.75%
+2025-05-20 06:43:02,698 - INFO - Epoch 19: Loss = 4613.7679, Accuracy = 49.48%
+2025-05-20 06:43:10,399 - INFO - Epoch 20: Loss = 4581.8806, Accuracy = 50.33%
+2025-05-20 06:43:18,082 - INFO - Epoch 21: Loss = 4579.8938, Accuracy = 50.62%
+2025-05-20 06:43:25,794 - INFO - Epoch 22: Loss = 4597.8962, Accuracy = 50.63%
+2025-05-20 06:43:33,521 - INFO - Epoch 23: Loss = 4606.1200, Accuracy = 50.54%
+2025-05-20 06:43:41,214 - INFO - Epoch 24: Loss = 4600.1720, Accuracy = 50.71%
+2025-05-20 06:43:48,899 - INFO - Epoch 25: Loss = 4598.1878, Accuracy = 50.75%
+2025-05-20 06:43:56,589 - INFO - Epoch 26: Loss = 4610.1558, Accuracy = 50.82%
+2025-05-20 06:44:04,276 - INFO - Epoch 27: Loss = 4606.4354, Accuracy = 51.03%
+2025-05-20 06:44:11,982 - INFO - Epoch 28: Loss = 4618.7626, Accuracy = 51.11%
+2025-05-20 06:44:19,700 - INFO - Epoch 29: Loss = 4609.5408, Accuracy = 51.49%
+2025-05-20 06:44:27,398 - INFO - Epoch 30: Loss = 4602.1904, Accuracy = 51.69%
+2025-05-20 06:44:35,088 - INFO - Epoch 31: Loss = 4593.3989, Accuracy = 51.81%
+2025-05-20 06:44:42,792 - INFO - Epoch 32: Loss = 4577.1407, Accuracy = 52.04%
+2025-05-20 06:44:50,493 - INFO - Epoch 33: Loss = 4559.4866, Accuracy = 52.25%
+2025-05-20 06:44:58,201 - INFO - Epoch 34: Loss = 4558.0636, Accuracy = 52.42%
+2025-05-20 06:45:05,732 - INFO - Epoch 35: Loss = 4550.0903, Accuracy = 52.33%
+2025-05-20 06:45:12,832 - INFO - Epoch 36: Loss = 4542.2353, Accuracy = 52.52%
+2025-05-20 06:45:19,936 - INFO - Epoch 37: Loss = 4530.0225, Accuracy = 52.64%
+2025-05-20 06:45:27,191 - INFO - Epoch 38: Loss = 4527.1326, Accuracy = 52.71%
+2025-05-20 06:45:34,560 - INFO - Epoch 39: Loss = 4525.1204, Accuracy = 52.92%
+2025-05-20 06:45:41,666 - INFO - Epoch 40: Loss = 4528.1780, Accuracy = 53.01%
+2025-05-20 06:45:48,768 - INFO - Epoch 41: Loss = 4539.0885, Accuracy = 53.09%
+2025-05-20 06:45:55,864 - INFO - Epoch 42: Loss = 4536.6001, Accuracy = 53.25%
+2025-05-20 06:46:02,974 - INFO - Epoch 43: Loss = 4517.2683, Accuracy = 53.56%
+2025-05-20 06:46:10,591 - INFO - Epoch 44: Loss = 4488.6404, Accuracy = 54.05%
+2025-05-20 06:46:18,283 - INFO - Epoch 45: Loss = 4447.8663, Accuracy = 54.70%
+2025-05-20 06:46:26,006 - INFO - Epoch 46: Loss = 4424.2616, Accuracy = 55.01%
+2025-05-20 06:46:33,691 - INFO - Epoch 47: Loss = 4412.0447, Accuracy = 55.29%
+2025-05-20 06:46:41,371 - INFO - Epoch 48: Loss = 4388.7741, Accuracy = 55.62%
+2025-05-20 06:46:49,087 - INFO - Epoch 49: Loss = 4378.2774, Accuracy = 55.65%
+2025-05-20 06:46:56,900 - INFO - Epoch 50: Loss = 4367.0017, Accuracy = 56.00%
+2025-05-20 06:47:04,589 - INFO - Epoch 51: Loss = 4365.8416, Accuracy = 55.91%
+2025-05-20 06:47:12,251 - INFO - Epoch 52: Loss = 4346.3910, Accuracy = 56.28%
+2025-05-20 06:47:19,929 - INFO - Epoch 53: Loss = 4346.4220, Accuracy = 56.34%
+2025-05-20 06:47:27,105 - INFO - Epoch 54: Loss = 4337.0660, Accuracy = 56.65%
+2025-05-20 06:47:34,371 - INFO - Epoch 55: Loss = 4330.9661, Accuracy = 56.75%
+2025-05-20 06:47:41,624 - INFO - Epoch 56: Loss = 4301.6730, Accuracy = 57.27%
+2025-05-20 06:47:49,087 - INFO - Epoch 57: Loss = 4304.2371, Accuracy = 57.23%
+2025-05-20 06:47:56,189 - INFO - Epoch 58: Loss = 4285.6998, Accuracy = 57.63%
+2025-05-20 06:48:03,866 - INFO - Epoch 59: Loss = 4288.7638, Accuracy = 57.66%
+2025-05-20 06:48:11,547 - INFO - Epoch 60: Loss = 4275.8016, Accuracy = 57.96%
+2025-05-20 06:48:19,230 - INFO - Epoch 61: Loss = 4279.4913, Accuracy = 58.07%
+2025-05-20 06:48:26,933 - INFO - Epoch 62: Loss = 4266.7682, Accuracy = 58.31%
+2025-05-20 06:48:34,605 - INFO - Epoch 63: Loss = 4244.3134, Accuracy = 58.50%
+2025-05-20 06:48:42,304 - INFO - Epoch 64: Loss = 4245.0592, Accuracy = 58.77%
+2025-05-20 06:48:42,316 - INFO - [Gradient Period 50 Run 10] Training time: 486.50s
+2025-05-20 06:48:43,096 - INFO - ✅ Regular Evaluation Accuracy: 10.99%
+2025-05-20 06:48:44,248 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 35.74%
+2025-05-20 06:48:44,347 - INFO - ✅ Regular Evaluation Accuracy: 1.52%
+2025-05-20 06:48:44,603 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 23.84%
+2025-05-20 06:48:44,941 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:48:45,278 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 16.92%
+2025-05-20 06:48:45,279 - INFO - Nuts
+2025-05-20 06:48:45,575 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:48:45,843 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%
+2025-05-20 06:48:45,844 - INFO - Spices
+2025-05-20 06:48:46,243 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:48:46,490 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 9.87%
+2025-05-20 06:48:46,490 - INFO - Herbs
+2025-05-20 06:48:46,779 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:48:47,030 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 8.52%
+2025-05-20 06:48:47,030 - INFO - Fruits
+2025-05-20 06:48:47,317 - INFO - ✅ Regular Evaluation Accuracy: 8.86%
+2025-05-20 06:48:47,567 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 28.52%
+2025-05-20 06:48:47,567 - INFO - Vegetables
+2025-05-20 06:48:47,849 - INFO - ✅ Regular Evaluation Accuracy: 0.00%
+2025-05-20 06:48:48,097 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 0.00%

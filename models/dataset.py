@@ -42,7 +42,6 @@ class PairedDataset(Dataset):
                 smell_vec = smell_vec.unsqueeze(0)  # → (1, feature_dim)
 
         return gcms_vec, smell_vec
-    
 
 
 class FusionDataset(Dataset):
@@ -104,7 +103,9 @@ class UniqueGCMSampler(Sampler):
         self.unique_gcms = list(self.gcms_to_indices.keys())
 
     def __iter__(self):
-        gcms_queues = {key: list(indices) for key, indices in self.gcms_to_indices.items()}
+        gcms_queues = {
+            key: list(indices) for key, indices in self.gcms_to_indices.items()
+        }
         all_batches = []
 
         # Keep looping until all queues are empty

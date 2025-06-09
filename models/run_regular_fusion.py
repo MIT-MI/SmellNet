@@ -34,15 +34,24 @@ def main():
 
     for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
         logger.info(category)
-        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(training_path, testing_path, real_time_testing_path=real_time_testing_path, categories=[category])
+        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+            training_path,
+            testing_path,
+            real_time_testing_path=real_time_testing_path,
+            categories=[category],
+        )
 
         gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
         train_data, train_label, _ = process_data_regular(training_data, le=le)
         test_data, test_label, _ = process_data_regular(testing_data, le=le)
-        real_test_data, real_test_label, _ = process_data_regular(real_time_testing_data, le=le)
+        real_test_data, real_test_label, _ = process_data_regular(
+            real_time_testing_data, le=le
+        )
 
-        training_pair_data, _ = create_pair_data(train_data, train_label, gcms_scaled, le, fusion=True)
+        training_pair_data, _ = create_pair_data(
+            train_data, train_label, gcms_scaled, le, fusion=True
+        )
 
         sensor_model = Encoder(input_dim=12, output_dim=32)
         gcms_model = Encoder(input_dim=17, output_dim=32)
@@ -52,7 +61,7 @@ def main():
             gcms_encoder=gcms_model,
             combined_dim=100,
             output_dim=len(le.classes_),
-            gcms_dropout_p=0.3
+            gcms_dropout_p=0.3,
         )
 
         batch_size = 32
@@ -65,13 +74,12 @@ def main():
         # fusion_train(data_loader, model, logger, epochs=num_epochs, noisy=True)
 
         # torch.save(model.state_dict(), 'saved_models/fusion/dropout_model_weights.pth')
-        
 
-        model.load_state_dict(torch.load('saved_models/fusion/noisy_model_weights.pth'))
+        model.load_state_dict(torch.load("saved_models/fusion/noisy_model_weights.pth"))
 
         dataset = TensorDataset(torch.tensor(test_data), torch.tensor(test_label))
         data_loader = DataLoader(dataset, batch_size=batch_size)
-        
+
         fusion_evaluate(model, data_loader, le)
 
 
