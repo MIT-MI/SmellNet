@@ -131,10 +131,29 @@ def run_experiment(name, runs, **kwargs):
         logger.info(f"[{name} Run {run_id+1}] Training time: {end_time:.2f}s")
 
 
+def load_model(model_path):
+    model = SmellReproductionLSTMNet(
+        input_dim=4,
+        hidden_dim=256,
+        embedding_dim=12,
+        num_classes=12,
+    )
+    model.load_state_dict(torch.load(model_path))
+    model.eval()
+
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+    print(f"Succesfully loaded model on to device {device}")
+    return model
+
+
 if __name__ == "__main__":
     # logger = logging.getLogger()
     # runs = 10
 
     # run_experiment("Gradient Period 25", runs)
     # run_experiment("Gradient Period 50", runs, period_len=50)
-    run_experiment("Gradient", 1)
+    # run_experiment("Gradient", 1)
+
+    model_path = "/home/dewei/workspace/SmellNet/saved_models/four_channel_reconstruction/model_weights.pth"
+    load_model(model_path)
