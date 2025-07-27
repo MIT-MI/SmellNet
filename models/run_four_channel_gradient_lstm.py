@@ -4,6 +4,7 @@ from train import *
 from evaluate import *
 import logging
 import os
+import random
 import time
 import torch
 from collections import Counter
@@ -55,12 +56,12 @@ def main():
 
     # Create DataLoaders
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    test_loader = DataLoader(test_dataset, batch_size=1, shuffle=False)
 
     # Model
     model = SmellReproductionLSTMNet(
         input_dim=4,
-        hidden_dim=128,
+        hidden_dim=256,
         embedding_dim=12,
         num_classes=12,
     )
@@ -71,9 +72,9 @@ def main():
     # Optional: Evaluate on test set
     evaluate_model(test_loader, model, logger)
 
-    return model
+    # return model
 
-    # # torch.save(model.state_dict(), f'saved_models/lstm/gradient_period_{period_len}_model_weights.pth')
+    torch.save(model.state_dict(), f'/home/dewei/workspace/SmellNet/saved_models/four_channel_reconstruction/model_weights.pth')
     # dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
     # data_loader = DataLoader(dataset, batch_size=batch_size)
     # model.load_state_dict(torch.load(f'saved_models/lstm/gradient_period_{period_len}_model_weights.pth'))
@@ -97,7 +98,14 @@ def evaluate_model(test_loader, model, logger):
             batch_label = batch_label.to(device, dtype=torch.float32)
             
             logits, _ = model(batch_x)
-            loss = criterion(logits, batch_label)
+
+            if random.random() < 0.01:
+                loss = criterion(logits, batch_label)
+                probs = torch.exp(logits)
+                print(probs)
+                print(batch_label)
+            else:
+                loss = criterion(logits, batch_label)
             total_loss += loss.item()
 
             preds = torch.argmax(logits, dim=1)

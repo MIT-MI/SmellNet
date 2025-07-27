@@ -275,12 +275,15 @@ def fusion_train(
         )
 
 
-def soft_cross_entropy(pred, target):
+def soft_cross_entropy(pred, target, verbose=False):
     """
     pred: log-probabilities or probabilities from the model (batch, num_classes)
     target: soft labels (batch, num_classes)
     """
     log_probs = torch.log_softmax(pred, dim=1)
+    if verbose:
+        print("Predicted Distributions", pred)
+        print("Actual Distribution", target)
     return -(target * log_probs).sum(dim=1).mean()
 
 
@@ -299,7 +302,7 @@ def reproduction_train(
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
     
     # Use KLDivLoss since model outputs log probabilities (log_softmax)
-    criterion = soft_cross_entropy
+    criterion = nn.KLDivLoss(reduction='batchmean')
 
     model.train()
     logger.info(f"Training on device: {device}")
