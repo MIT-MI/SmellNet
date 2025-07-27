@@ -76,8 +76,8 @@ def train(
             total += batch_label.size(0)
 
         # Calculate accuracy
-        # accuracy = correct / total * 100
-        # logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
+        accuracy = correct / total * 100
+        logger.info(f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%")
 
 
 def contrastive_train(
@@ -273,6 +273,71 @@ def fusion_train(
         logger.info(
             f"Epoch {epoch + 1:02d}: Loss = {total_loss:.4f}, Accuracy = {accuracy:.2f}%"
         )
+
+
+def soft_cross_entropy(pred, target):
+    """
+    pred: log-probabilities or probabilities from the model (batch, num_classes)
+    target: soft labels (batch, num_classes)
+    """
+    log_probs = torch.log_softmax(pred, dim=1)
+    return -(target * log_probs).sum(dim=1).mean()
+
+
+def reproduction_train(
+    train_loader,
+    model,
+    logger,
+    epochs=50,
+    feature_dropout_fn=None,
+    noisy=False,
+    lstm=False,
+):
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    model.to(device)
+
+    optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
+    
+    # Use KLDivLoss since model outputs log probabilities (log_softmax)
+    criterion = soft_cross_entropy
+
+    model.train()
+    logger.info(f"Training on device: {device}")
+
+    for epoch in range(epochs):
+        total_loss = 0
+
+        for batch_x, batch_label in train_loader:
+            # Apply data augmentation
+            if noisy:
+                batch_x = apply_noise_injection(batch_x, noise_scale=0.05)
+
+            if feature_dropout_fn:
+                batch_x = apply_random_feature_dropout(batch_x)
+
+            # Move data to device
+            batch_x = batch_x.to(device, dtype=torch.float32)
+            batch_label = batch_label.to(device, dtype=torch.float32)  # soft labels
+
+            optimizer.zero_grad()
+
+            # Forward pass
+            if not lstm:
+                logits = model(batch_x)
+            else:
+                logits, embedding = model(batch_x)
+
+            # Compute loss (logits should already be log_softmax from model)
+            loss = criterion(logits, batch_label)
+
+            loss.backward()
+            torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
+            optimizer.step()
+
+            total_loss += loss.item()
+
+        avg_loss = total_loss / len(train_loader)
+        logger.info(f"Epoch {epoch + 1:02d}: Loss = {avg_loss:.4f}")
 
 
 if __name__ == "__main__":

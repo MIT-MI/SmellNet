@@ -75,6 +75,36 @@ class LSTMNet(nn.Module):
         embedding = self.embedding_layer(pooled)
         out = self.classifier(embedding)
         return out, embedding
+    
+
+class SmellReproductionLSTMNet(nn.Module):
+    def __init__(self, input_dim, hidden_dim, embedding_dim, num_classes=12, use_log_softmax=True):
+        super().__init__()
+        self.lstm = nn.LSTM(input_dim, hidden_dim, batch_first=True)
+        self.embedding_layer = nn.Linear(hidden_dim, embedding_dim)
+        self.classifier = nn.Linear(embedding_dim, num_classes)
+        self.use_log_softmax = use_log_softmax  # For KLDivLoss
+
+    def forward(self, x):
+        # x: (batch, seq_len, input_dim)
+        lstm_out, _ = self.lstm(x)  # lstm_out: (batch, seq_len, hidden_dim)
+        
+        # Average pooling over time
+        pooled = torch.mean(lstm_out, dim=1)  # (batch, hidden_dim)
+        
+        # Embedding layer
+        embedding = self.embedding_layer(pooled)  # (batch, embedding_dim)
+        
+        # Classifier
+        logits = self.classifier(embedding)  # (batch, num_classes)
+        
+        # Probability output (softmax or log-softmax)
+        if self.use_log_softmax:
+            out = F.log_softmax(logits, dim=1)
+        else:
+            out = F.softmax(logits, dim=1)
+
+        return out, embedding
 
 
 # class FusionModelWithGCMSDropout(nn.Module):

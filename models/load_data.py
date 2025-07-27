@@ -16,7 +16,7 @@ def subtract_first_row(df):
 
 def load_sensor_data(
     training_path,
-    testing_path,
+    testing_path=None,
     ingredients=None,
     categories=None,
     real_time_testing_path=None,
@@ -40,6 +40,9 @@ def load_sensor_data(
                     df = pd.read_csv(cur_path)
                     training_data[folder_name].append(df)
                     min_len = min(min_len, df.shape[0])  # Update minimum length
+    
+    if not testing_path:
+        return training_data, min_len
 
     for folder_name in os.listdir(testing_path):
         folder_path = os.path.join(testing_path, folder_name)
@@ -62,7 +65,7 @@ def load_sensor_data(
                             df = pd.read_csv(cur_path)
                             testing_data[folder_name].append(df)
                             min_len = min(min_len, df.shape[0])  # Update minimum length
-    print(real_time_testing_path)
+    
     if real_time_testing_path:
         real_time_testing_data = defaultdict(list)
         for folder_name in os.listdir(real_time_testing_path):
@@ -432,3 +435,121 @@ def preprocess_frequency_cleaning(sensor_batch, sampling_rate=1.0, cutoff=0.05):
         cleaned = clean_sample_channels(sensor_batch[i], sampling_rate, cutoff)
         cleaned_batch.append(cleaned)
     return np.array(cleaned_batch)
+
+
+def load_four_channel_sensor_data(
+    training_path,
+    ingredients=None,
+    categories=None,
+    real_time_testing_path=None,
+):
+    data = defaultdict(list)
+
+    min_len = float("inf")  # Track minimum length across all series
+
+    # Helper: subtract first row
+    def subtract_first_row(df):
+        return df - df.iloc[0]
+
+    # Walk through the training directory
+    for folder_name in os.listdir(training_path):
+        folder_path = os.path.join(training_path, folder_name)
+        if os.path.isdir(folder_path):  # Make sure it's a folder
+            for filename in os.listdir(folder_path):
+                if filename.endswith(".csv"):
+                    cur_path = os.path.join(folder_path, filename)
+                    df = pd.read_csv(cur_path)
+                    data[folder_name].append(df)
+                    min_len = min(min_len, df.shape[0])  # Update minimum length
+
+    if real_time_testing_path:
+        real_time_testing_data = defaultdict(list)
+        for folder_name in os.listdir(real_time_testing_path):
+            folder_path = os.path.join(real_time_testing_path, folder_name)
+
+            if os.path.isdir(folder_path):  # Make sure it's a folder
+                for filename in os.listdir(folder_path):
+                    if filename.endswith(".csv"):
+                        cur_path = os.path.join(folder_path, filename)
+                        df = pd.read_csv(cur_path)
+                        real_time_testing_data[folder_name].append(df)
+                        min_len = min(min_len, df.shape[0])  # Update minimum length
+        
+        return data, real_time_testing_data, min_len
+    else:
+        
+        return data, min_len
+    
+
+ALL_INGREDIENTS = [
+    'banana', 'mandarin_orange', 'pear', 'apple', 'mango', 'peach',
+    'strawberry', 'cloves', 'coriander', 'garlic', 'almond', 'cumin'
+]
+
+
+def split_into_windows(df, window_size=30, stride=30):
+    """
+    Splits a 1Hz dataframe into overlapping windows.
+
+    Args:
+        df (pd.DataFrame): Input dataframe (1 row = 1 second).
+        window_size (int): Number of rows per window (default: 30s).
+        stride (int): Step size between windows (default: 30s = no overlap).
+
+    Returns:
+        List of numpy arrays, each representing one window.
+    """
+    windows = []
+    for start in range(0, len(df) - window_size + 1, stride):
+        window = df.iloc[start:start + window_size].values
+        windows.append(window)
+    return np.array(windows)
+
+
+def parse_ingredient_label(ingredient_str):
+    """
+    Convert a string like 'almond_100' or 'orange_50_peach_50'
+    into a 12-element array (sum = 1).
+    """
+    label_vector = np.zeros(len(ALL_INGREDIENTS))
+    parts = ingredient_str.split('_')
+
+    for i in range(0, len(parts), 2):
+        ing = parts[i]
+        perc = float(parts[i + 1])
+        if ing in ALL_INGREDIENTS:
+            idx = ALL_INGREDIENTS.index(ing)
+            label_vector[idx] = perc
+
+    total = label_vector.sum()
+    if total > 0:
+        label_vector = label_vector / total
+
+    return label_vector
+
+
+def process_directory_to_windows(data, window_size=30, stride=30, target_channels=None):
+    """
+    Processes a list of CSV files into fixed-size windows.
+    
+    Args:
+        file_paths (list): List of file paths to CSV files.
+        window_size (int): Window size in seconds (rows).
+        stride (int): Step size for windowing.
+        target_channels (list): List of columns to keep (optional).
+        
+    Returns:
+        X: numpy array of shape [num_windows, window_size, num_channels]
+    """
+    X, y = [], []
+
+    for ingredient, dfs in data.items():
+        label_vector = parse_ingredient_label(ingredient)
+        for df in dfs:
+            if target_channels:
+                df = df[[c for c in target_channels if c in df.columns]]
+            windows = split_into_windows(df, window_size, stride)
+            X.extend(windows)
+            y.extend([label_vector] * len(windows))  # repeat label for all windows
+
+    return np.array(X), np.array(y)
