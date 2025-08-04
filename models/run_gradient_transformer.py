@@ -7,7 +7,7 @@ import os
 import time
 import torch
 
-log_dir = "/home/dewei/workspace/SmellNet/logs"
+log_dir = "/home/dewei/workspace/SmellNet/rebuttal/logs"
 
 log_file_path = os.path.join(log_dir, f"transformer_gradient_{time.time()}.log")
 
@@ -25,14 +25,15 @@ def main(period_len=25):
     # set up logging
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/SmellNet/training"
-    testing_path = "/home/dewei/workspace/SmellNet/testing"
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
     gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
+
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
@@ -71,16 +72,17 @@ def main_evaluate(model, period_len=25):
     # set up logging
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/SmellNet/training"
-    testing_path = "/home/dewei/workspace/SmellNet/testing"
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_nut"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
     gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
     batch_size = 32
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
+
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
@@ -102,14 +104,16 @@ def main_evaluate(model, period_len=25):
     )
     data_loader = DataLoader(dataset, batch_size=batch_size)
 
+    logger.info("Online testing for spice")
     regular_evaluate(model, data_loader, le, logger)
     regular_evaluate_top5(model, data_loader, le, logger)
 
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_nuts"
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
+
 
     real_testing_data, real_testing_label, _ = prepare_data_transformer_gradient(
         real_time_testing_data, le=le, period_len=period_len
@@ -120,6 +124,7 @@ def main_evaluate(model, period_len=25):
     )
     data_loader = DataLoader(dataset, batch_size=batch_size)
 
+    logger.info("Online testing for nuts")
     regular_evaluate(model, data_loader, le, logger)
     regular_evaluate_top5(model, data_loader, le, logger)
 
@@ -130,6 +135,8 @@ def main_evaluate(model, period_len=25):
             testing_path,
             real_time_testing_path=real_time_testing_path,
             categories=[category],
+            max_range=None,
+            channels=None
         )
 
         gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
@@ -164,7 +171,7 @@ def run_experiment(name, runs, **kwargs):
 
 if __name__ == "__main__":
     logger = logging.getLogger()
-    runs = 10
+    runs = 1
 
     run_experiment("Gradient Period 25", runs)
-    run_experiment("Gradient Period 50", runs, period_len=50)
+    # run_experiment("Gradient Period 50", runs, period_len=50)

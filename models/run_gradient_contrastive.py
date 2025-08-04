@@ -73,7 +73,7 @@ ingredient_to_category = {
 
 log_dir = "/home/dewei/workspace/SmellNet/logs"
 
-log_file_path = os.path.join(log_dir, f"contrastive_gradient_{time.time()}.log")
+log_file_path = os.path.join(log_dir, f"60_max_contrastive_gradient_{time.time()}.log")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -158,14 +158,15 @@ def plot_per_ingredient_accuracy(
 def main(period_len=25):
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/SmellNet/training"
-    testing_path = "/home/dewei/workspace/SmellNet/testing"
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
     gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
+    channels = ["NO2","C2H5OH","VOC","CO","Alcohol","LPG"]
     # Load all ingredients (remove ingredients=["cashew"])
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, channels=channels
     )
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
@@ -185,7 +186,7 @@ def main(period_len=25):
     )
 
     train_dataset = PairedDataset(training_pair_data)
-    sensor_model = Encoder(input_dim=12, output_dim=32)
+    sensor_model = Encoder(input_dim=len(channels), output_dim=32)
     gcms_model = Encoder(input_dim=17, output_dim=32)
 
     batch_size = 32
@@ -232,13 +233,15 @@ def main_evaluate(gcms_model, sensor_model, period_len=25):
     # set up logging
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/SmellNet/training"
-    testing_path = "/home/dewei/workspace/SmellNet/testing"
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_nut"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_nuts"
     gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
+    channels = ["NO2","C2H5OH","VOC","CO","Alcohol","LPG"]
+
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, channels=channels
     )
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
@@ -263,10 +266,10 @@ def main_evaluate(gcms_model, sensor_model, period_len=25):
         logger,
     )
 
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, channels=channels
     )
 
     real_testing_data, real_testing_label, _ = prepare_data_gradient(
@@ -289,6 +292,7 @@ def main_evaluate(gcms_model, sensor_model, period_len=25):
             testing_path,
             real_time_testing_path=real_time_testing_path,
             categories=[category],
+            channels=channels
         )
 
         gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
@@ -318,7 +322,7 @@ def run_experiment(name, runs, **kwargs):
 
 if __name__ == "__main__":
     logger = logging.getLogger()
-    runs = 10
+    runs = 1
 
     run_experiment("Gradient Period 25", runs)
     run_experiment("Gradient Period 50", runs, period_len=50)

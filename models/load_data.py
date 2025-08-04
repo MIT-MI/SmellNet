@@ -20,6 +20,8 @@ def load_sensor_data(
     ingredients=None,
     categories=None,
     real_time_testing_path=None,
+    max_range=None,
+    channels=None
 ):
     training_data = defaultdict(list)
     testing_data = defaultdict(list)
@@ -38,9 +40,13 @@ def load_sensor_data(
                 if filename.endswith(".csv"):
                     cur_path = os.path.join(folder_path, filename)
                     df = pd.read_csv(cur_path)
+                    if max_range:
+                        df = df.iloc[-max_range:]
+                    if channels:
+                        df = df[channels]
                     training_data[folder_name].append(df)
                     min_len = min(min_len, df.shape[0])  # Update minimum length
-    
+                    
     if not testing_path:
         return training_data, min_len
 
@@ -54,6 +60,10 @@ def load_sensor_data(
                         if filename.endswith(".csv"):
                             cur_path = os.path.join(folder_path, filename)
                             df = pd.read_csv(cur_path)
+                            if max_range:
+                                df = df.iloc[-max_range:]
+                            if channels:
+                                df = df[channels]
                             testing_data[folder_name].append(df)
                             min_len = min(min_len, df.shape[0])  # Update minimum length
         else:
@@ -63,6 +73,11 @@ def load_sensor_data(
                         if filename.endswith(".csv"):
                             cur_path = os.path.join(folder_path, filename)
                             df = pd.read_csv(cur_path)
+                            if max_range:
+                                df = df.iloc[-max_range:]
+                            if channels:
+                                
+                                df = df[channels]
                             testing_data[folder_name].append(df)
                             min_len = min(min_len, df.shape[0])  # Update minimum length
     
@@ -76,6 +91,10 @@ def load_sensor_data(
                     if filename.endswith(".csv"):
                         cur_path = os.path.join(folder_path, filename)
                         df = pd.read_csv(cur_path)
+                        if max_range:
+                            df = df.iloc[-max_range:]
+                        if channels:
+                            df = df[channels]
                         real_time_testing_data[folder_name].append(df)
                         min_len = min(min_len, df.shape[0])  # Update minimum length
         
@@ -541,7 +560,10 @@ def process_directory_to_windows(data, window_size=30, stride=30, target_channel
     Returns:
         X: numpy array of shape [num_windows, window_size, num_channels]
     """
-    X, y = [], []
+    import random
+
+    train_X, train_y = [], []
+    test_X, test_y = [], []
 
     for ingredient, dfs in data.items():
         label_vector = parse_ingredient_label(ingredient)
@@ -549,7 +571,11 @@ def process_directory_to_windows(data, window_size=30, stride=30, target_channel
             if target_channels:
                 df = df[[c for c in target_channels if c in df.columns]]
             windows = split_into_windows(df, window_size, stride)
-            X.extend(windows)
-            y.extend([label_vector] * len(windows))  # repeat label for all windows
+            if random.random() < 0.2:
+                test_X.extend(windows)
+                test_y.extend([label_vector] * len(windows))  # repeat label for all windows
+            else:
+                train_X.extend(windows)
+                train_y.extend([label_vector] * len(windows))  # repeat label for all windows
 
-    return np.array(X), np.array(y)
+    return np.array(train_X), np.array(train_y), np.array(test_X), np.array(test_y)

@@ -7,10 +7,12 @@ import logging
 import os
 import time
 import torch
+import csv
+import numpy as np
 
-log_dir = "/home/dewei/workspace/smell-net/logs"
+log_dir = "/home/dewei/workspace/SmellNet/rebuttal/logs"
 
-log_file_path = os.path.join(log_dir, f"{time.time()}.log")
+log_file_path = os.path.join(log_dir, f"start_one_lstm_gradient_{time.time()}.log")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -21,46 +23,44 @@ logging.basicConfig(
     ],
 )
 
+CHANNELS = ["NO2","C2H5OH","VOC","CO","Alcohol","LPG"]
 
-def main():
+def main(period_len=25):
     # set up logging
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/smell-net/training"
-    testing_path = "/home/dewei/workspace/smell-net/testing"
-    real_time_testing_path = "/home/dewei/workspace/smell-net/real_time_testing_spice"
-    gcms_path = "/home/dewei/workspace/smell-net/processed_full_gcms_dataframe.csv"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
+    gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
-    period_len = 25
-
-    # for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
-    #     logger.info(category)
+    channels = ["NO2","C2H5OH","VOC","CO","Alcohol","LPG"]
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
-    train_data, train_label, _ = prepare_data_transformer_gradient(
+    training_data, training_label, _ = prepare_data_transformer_gradient(
         training_data, le=le, period_len=period_len
     )
-    test_data, test_label, _ = prepare_data_transformer_gradient(
+    testing_data, testing_label, _ = prepare_data_transformer_gradient(
         testing_data, le=le, period_len=period_len
     )
-    real_test_data, real_test_label, _ = prepare_data_transformer_gradient(
+    real_testing_data, real_testing_label, _ = prepare_data_transformer_gradient(
         real_time_testing_data, le=le, period_len=period_len
     )
 
-    training_pair_data, _ = create_pair_data(train_data, train_label, gcms_scaled, le)
+    training_pair_data, _ = create_pair_data(training_data, training_label, gcms_scaled, le)
 
-    train_dataset = PairedDataset(training_pair_data)
+    training_dataset = PairedDataset(training_pair_data)
 
     batch_size = 32
     num_epochs = 256
 
-    # sampler = UniqueGCMSampler(train_dataset.data, batch_size)
-    # loader = DataLoader(train_dataset, batch_size=batch_size, sampler=sampler)
+    sampler = UniqueGCMSampler(training_dataset.data, batch_size)
+    data_loader = DataLoader(training_dataset, batch_size=batch_size, sampler=sampler)
 
     sensor_model = LSTMNet(
         input_dim=12,
@@ -71,28 +71,190 @@ def main():
 
     gcms_model = Encoder(input_dim=17, output_dim=len(le.classes_))
 
-    # contrastive_train(gcms_model, sensor_model, loader, logger, num_epochs=num_epochs, lstm=True)
+    # train(data_loader, model, logger, epochs=num_epochs, lstm=True)
 
-    # torch.save(sensor_model.state_dict(), f'saved_models/lstm_contrastive/gradient_sensor_model_weights.pth')
-    # torch.save(gcms_model.state_dict(), f'saved_models/lstm_contrastive/gradient_gcms_model_weights.pth')
+    contrastive_train(gcms_model, sensor_model, data_loader, logger, num_epochs=num_epochs, lstm=True)
 
-    sensor_model.load_state_dict(
-        torch.load(f"saved_models/lstm_contrastive/gradient_sensor_model_weights.pth")
+    return gcms_model, sensor_model
+
+    # # torch.save(model.state_dict(), f'saved_models/lstm/gradient_period_{period_len}_model_weights.pth')
+    # dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
+    # data_loader = DataLoader(dataset, batch_size=batch_size)
+    # model.load_state_dict(torch.load(f'saved_models/lstm/gradient_period_{period_len}_model_weights.pth'))
+    # regular_evaluate(model, data_loader, le, logger, lstm=True)
+    # regular_evaluate_top5(model, data_loader, le, logger, lstm=True)
+
+
+def evaluate_channel_importance(gcms_model, sensor_model, testing_data, testing_label, le, logger, lstm=True):
+    """
+    Evaluate the importance of each sensor channel by permuting or zeroing it out
+    and measuring the performance drop.
+    """
+    testing_data = np.array(testing_data)
+    num_channels = testing_data.shape[-1]
+    baseline_dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
+    baseline_loader = DataLoader(baseline_dataset, batch_size=32)
+    
+    logger.info("Baseline performance (no ablation):")
+    baseline_top1 = regular_evaluate(model, baseline_loader, le, logger, lstm=lstm)
+    
+    importance_results = []
+    for ch in range(num_channels):
+        modified_data = testing_data.copy()
+        # Option 1: Zero out the channel
+        modified_data[:, :, ch] = 0  
+        # Option 2 (alternative): Randomly shuffle the channel values
+        # np.random.shuffle(modified_data[:, :, ch])
+
+        dataset = TensorDataset(torch.tensor(modified_data), torch.tensor(testing_label))
+        data_loader = DataLoader(dataset, batch_size=32)
+        logger.info(f"Ablating channel {ch} ({le.classes_[ch] if ch < len(le.classes_) else ch}):")
+        top1 = regular_evaluate(model, data_loader, le, logger, lstm=lstm)
+        importance_results.append((ch, baseline_top1 - top1))
+
+    return importance_results
+
+
+def main_evaluate(gcms_model, sensor_model, period_len=25):
+    # set up logging
+    logger = logging.getLogger()
+
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
+    gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
+
+    batch_size = 32
+
+    
+
+    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
-    gcms_model.load_state_dict(
-        torch.load(f"saved_models/lstm_contrastive/gradient_gcms_model_weights.pth")
+
+    gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
+
+    testing_data, testing_label, _ = prepare_data_transformer_gradient(
+        testing_data, le=le, period_len=period_len
     )
+    real_testing_data, real_testing_label, _ = prepare_data_transformer_gradient(
+        real_time_testing_data, le=le, period_len=period_len
+    )
+
+    dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
+    data_loader = DataLoader(dataset, batch_size=batch_size)
 
     contrastive_evaluate(
-        real_test_data,
+        testing_data,
         gcms_scaled,
-        real_test_label,
+        testing_label,
         gcms_model,
         sensor_model,
         logger,
         lstm=True,
     )
 
+    dataset = TensorDataset(
+        torch.tensor(real_testing_data), torch.tensor(real_testing_label)
+    )
+    data_loader = DataLoader(dataset, batch_size=batch_size)
+
+    logger.info("Online testing for spice")
+    contrastive_evaluate(
+        real_testing_data,
+        gcms_scaled,
+        real_testing_label,
+        gcms_model,
+        sensor_model,
+        logger,
+        lstm=True,
+    )
+
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_nuts"
+
+    training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
+    )
+
+    real_testing_data, real_testing_label, _ = prepare_data_transformer_gradient(
+        real_time_testing_data, le=le, period_len=period_len
+    )
+
+    dataset = TensorDataset(
+        torch.tensor(real_testing_data), torch.tensor(real_testing_label)
+    )
+    data_loader = DataLoader(dataset, batch_size=batch_size)
+
+    logger.info("Online testing for nuts")
+    contrastive_evaluate(
+        real_testing_data,
+        gcms_scaled,
+        real_testing_label,
+        gcms_model,
+        sensor_model,
+        logger,
+        lstm=True,
+    )
+
+    for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
+        logger.info(category)
+        training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
+            training_path,
+            testing_path,
+            real_time_testing_path=real_time_testing_path,
+            categories=[category],
+            max_range=None,
+            channels=None
+        )
+
+        gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
+
+        testing_data, testing_label, _ = prepare_data_transformer_gradient(
+            testing_data, le=le, period_len=period_len
+        )
+
+        batch_size = 32
+        epochs = 64
+
+        dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
+        data_loader = DataLoader(dataset, batch_size=batch_size)
+
+        contrastive_evaluate(
+            testing_data,
+            gcms_scaled,
+            testing_label,
+            gcms_model,
+            sensor_model,
+            logger,
+            lstm=True,
+        )
+
+    # importance_results = evaluate_channel_importance(model, testing_data, testing_label, le, logger, lstm=True)
+    # logger.info(f"Channel importance results: {importance_results}")
+
+    # with open("channel_importance_results.csv", "w", newline="") as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(["Channel Index", "Accuracy Drop"])
+    #     writer.writerows(importance_results)
+
+
+def run_experiment(name, runs, **kwargs):
+    logger = logging.getLogger()
+    logger.info(
+        f"------------------------------------{name}-------------------------------------------"
+    )
+    for run_id in range(runs):
+        logger.info(f"[{name} Run {run_id+1}] Starting")
+        start_time = time.time()
+        gcms_model, sensor_model = main(**kwargs)
+        end_time = time.time() - start_time
+        logger.info(f"[{name} Run {run_id+1}] Training time: {end_time:.2f}s")
+        main_evaluate(gcms_model, sensor_model, **kwargs)
+
 
 if __name__ == "__main__":
-    main()
+    logger = logging.getLogger()
+    runs = 1
+
+    run_experiment("Gradient Period 25", runs)
+    # run_experiment("Gradient Period 50", runs, period_len=50)

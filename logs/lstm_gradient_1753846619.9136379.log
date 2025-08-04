@@ -1,0 +1,308 @@
+2025-07-29 23:36:59,914 - INFO - ------------------------------------Gradient Period 25-------------------------------------------
+2025-07-29 23:36:59,914 - INFO - [Gradient Period 25 Run 1] Starting
+2025-07-29 23:37:02,990 - INFO - Training on device: cuda
+2025-07-29 23:37:03,415 - INFO - Epoch 01: Loss = 296.4558, Accuracy = 1.49%
+2025-07-29 23:37:03,593 - INFO - Epoch 02: Loss = 293.3274, Accuracy = 6.17%
+2025-07-29 23:37:03,767 - INFO - Epoch 03: Loss = 287.5862, Accuracy = 7.70%
+2025-07-29 23:37:03,940 - INFO - Epoch 04: Loss = 275.3164, Accuracy = 7.49%
+2025-07-29 23:37:04,114 - INFO - Epoch 05: Loss = 259.2176, Accuracy = 9.64%
+2025-07-29 23:37:04,288 - INFO - Epoch 06: Loss = 246.3889, Accuracy = 12.58%
+2025-07-29 23:37:04,461 - INFO - Epoch 07: Loss = 236.5389, Accuracy = 14.61%
+2025-07-29 23:37:04,635 - INFO - Epoch 08: Loss = 229.1392, Accuracy = 15.31%
+2025-07-29 23:37:04,808 - INFO - Epoch 09: Loss = 223.4453, Accuracy = 16.51%
+2025-07-29 23:37:04,981 - INFO - Epoch 10: Loss = 218.9392, Accuracy = 18.50%
+2025-07-29 23:37:05,154 - INFO - Epoch 11: Loss = 214.7275, Accuracy = 18.54%
+2025-07-29 23:37:05,329 - INFO - Epoch 12: Loss = 210.6773, Accuracy = 20.61%
+2025-07-29 23:37:05,503 - INFO - Epoch 13: Loss = 207.0355, Accuracy = 21.15%
+2025-07-29 23:37:05,676 - INFO - Epoch 14: Loss = 203.2778, Accuracy = 23.22%
+2025-07-29 23:37:05,849 - INFO - Epoch 15: Loss = 200.4664, Accuracy = 23.88%
+2025-07-29 23:37:06,022 - INFO - Epoch 16: Loss = 197.4295, Accuracy = 24.96%
+2025-07-29 23:37:06,195 - INFO - Epoch 17: Loss = 194.4448, Accuracy = 26.24%
+2025-07-29 23:37:06,370 - INFO - Epoch 18: Loss = 192.1294, Accuracy = 26.49%
+2025-07-29 23:37:06,543 - INFO - Epoch 19: Loss = 190.7266, Accuracy = 27.73%
+2025-07-29 23:37:06,716 - INFO - Epoch 20: Loss = 187.5504, Accuracy = 27.69%
+2025-07-29 23:37:06,889 - INFO - Epoch 21: Loss = 185.3732, Accuracy = 28.52%
+2025-07-29 23:37:07,061 - INFO - Epoch 22: Loss = 183.2331, Accuracy = 29.88%
+2025-07-29 23:37:07,234 - INFO - Epoch 23: Loss = 180.9846, Accuracy = 31.37%
+2025-07-29 23:37:07,409 - INFO - Epoch 24: Loss = 178.9351, Accuracy = 31.71%
+2025-07-29 23:37:07,582 - INFO - Epoch 25: Loss = 176.5798, Accuracy = 31.71%
+2025-07-29 23:37:07,755 - INFO - Epoch 26: Loss = 175.0539, Accuracy = 32.12%
+2025-07-29 23:37:07,928 - INFO - Epoch 27: Loss = 173.3278, Accuracy = 31.79%
+2025-07-29 23:37:08,100 - INFO - Epoch 28: Loss = 171.2202, Accuracy = 32.41%
+2025-07-29 23:37:08,273 - INFO - Epoch 29: Loss = 169.1246, Accuracy = 33.28%
+2025-07-29 23:37:08,446 - INFO - Epoch 30: Loss = 167.5998, Accuracy = 33.77%
+2025-07-29 23:37:08,619 - INFO - Epoch 31: Loss = 165.7315, Accuracy = 34.06%
+2025-07-29 23:37:08,791 - INFO - Epoch 32: Loss = 164.1595, Accuracy = 33.61%
+2025-07-29 23:37:08,964 - INFO - Epoch 33: Loss = 162.6394, Accuracy = 34.06%
+2025-07-29 23:37:09,137 - INFO - Epoch 34: Loss = 161.1391, Accuracy = 35.18%
+2025-07-29 23:37:09,311 - INFO - Epoch 35: Loss = 160.0428, Accuracy = 35.31%
+2025-07-29 23:37:09,484 - INFO - Epoch 36: Loss = 158.4704, Accuracy = 36.05%
+2025-07-29 23:37:09,657 - INFO - Epoch 37: Loss = 157.8220, Accuracy = 36.01%
+2025-07-29 23:37:09,830 - INFO - Epoch 38: Loss = 155.7850, Accuracy = 37.33%
+2025-07-29 23:37:10,002 - INFO - Epoch 39: Loss = 153.6917, Accuracy = 37.58%
+2025-07-29 23:37:10,175 - INFO - Epoch 40: Loss = 152.6194, Accuracy = 38.00%
+2025-07-29 23:37:10,348 - INFO - Epoch 41: Loss = 151.6974, Accuracy = 38.16%
+2025-07-29 23:37:10,520 - INFO - Epoch 42: Loss = 150.6459, Accuracy = 38.62%
+2025-07-29 23:37:10,693 - INFO - Epoch 43: Loss = 148.6292, Accuracy = 39.69%
+2025-07-29 23:37:10,866 - INFO - Epoch 44: Loss = 147.7381, Accuracy = 40.02%
+2025-07-29 23:37:11,038 - INFO - Epoch 45: Loss = 146.2996, Accuracy = 40.19%
+2025-07-29 23:37:11,211 - INFO - Epoch 46: Loss = 145.0878, Accuracy = 40.40%
+2025-07-29 23:37:11,384 - INFO - Epoch 47: Loss = 143.8344, Accuracy = 41.31%
+2025-07-29 23:37:11,557 - INFO - Epoch 48: Loss = 142.9302, Accuracy = 40.65%
+2025-07-29 23:37:11,730 - INFO - Epoch 49: Loss = 142.0652, Accuracy = 40.89%
+2025-07-29 23:37:11,903 - INFO - Epoch 50: Loss = 140.2130, Accuracy = 41.97%
+2025-07-29 23:37:12,075 - INFO - Epoch 51: Loss = 139.2380, Accuracy = 43.17%
+2025-07-29 23:37:12,248 - INFO - Epoch 52: Loss = 138.4691, Accuracy = 42.43%
+2025-07-29 23:37:12,421 - INFO - Epoch 53: Loss = 137.0826, Accuracy = 44.00%
+2025-07-29 23:37:12,593 - INFO - Epoch 54: Loss = 136.1431, Accuracy = 43.21%
+2025-07-29 23:37:12,766 - INFO - Epoch 55: Loss = 135.0169, Accuracy = 43.34%
+2025-07-29 23:37:12,939 - INFO - Epoch 56: Loss = 134.0281, Accuracy = 44.12%
+2025-07-29 23:37:13,111 - INFO - Epoch 57: Loss = 133.4349, Accuracy = 43.50%
+2025-07-29 23:37:13,285 - INFO - Epoch 58: Loss = 131.6323, Accuracy = 44.91%
+2025-07-29 23:37:13,458 - INFO - Epoch 59: Loss = 131.8632, Accuracy = 45.03%
+2025-07-29 23:37:13,631 - INFO - Epoch 60: Loss = 130.8419, Accuracy = 46.40%
+2025-07-29 23:37:13,804 - INFO - Epoch 61: Loss = 130.8313, Accuracy = 46.27%
+2025-07-29 23:37:13,977 - INFO - Epoch 62: Loss = 129.4004, Accuracy = 45.49%
+2025-07-29 23:37:14,150 - INFO - Epoch 63: Loss = 128.2627, Accuracy = 46.85%
+2025-07-29 23:37:14,322 - INFO - Epoch 64: Loss = 126.9486, Accuracy = 46.73%
+2025-07-29 23:37:14,495 - INFO - Epoch 65: Loss = 125.4430, Accuracy = 47.89%
+2025-07-29 23:37:14,668 - INFO - Epoch 66: Loss = 125.2495, Accuracy = 47.64%
+2025-07-29 23:37:14,841 - INFO - Epoch 67: Loss = 124.1389, Accuracy = 48.51%
+2025-07-29 23:37:15,013 - INFO - Epoch 68: Loss = 123.5537, Accuracy = 48.97%
+2025-07-29 23:37:15,186 - INFO - Epoch 69: Loss = 123.2015, Accuracy = 49.17%
+2025-07-29 23:37:15,359 - INFO - Epoch 70: Loss = 121.9479, Accuracy = 49.63%
+2025-07-29 23:37:15,532 - INFO - Epoch 71: Loss = 121.2814, Accuracy = 49.96%
+2025-07-29 23:37:15,705 - INFO - Epoch 72: Loss = 120.9964, Accuracy = 49.88%
+2025-07-29 23:37:15,878 - INFO - Epoch 73: Loss = 119.5732, Accuracy = 50.95%
+2025-07-29 23:37:16,050 - INFO - Epoch 74: Loss = 118.2015, Accuracy = 51.57%
+2025-07-29 23:37:16,223 - INFO - Epoch 75: Loss = 117.1055, Accuracy = 50.25%
+2025-07-29 23:37:16,395 - INFO - Epoch 76: Loss = 116.9567, Accuracy = 51.53%
+2025-07-29 23:37:16,568 - INFO - Epoch 77: Loss = 116.1518, Accuracy = 51.41%
+2025-07-29 23:37:16,740 - INFO - Epoch 78: Loss = 114.8870, Accuracy = 52.07%
+2025-07-29 23:37:16,913 - INFO - Epoch 79: Loss = 115.3229, Accuracy = 52.48%
+2025-07-29 23:37:17,086 - INFO - Epoch 80: Loss = 113.7410, Accuracy = 52.40%
+2025-07-29 23:37:17,258 - INFO - Epoch 81: Loss = 112.1995, Accuracy = 54.39%
+2025-07-29 23:37:17,433 - INFO - Epoch 82: Loss = 111.0757, Accuracy = 54.76%
+2025-07-29 23:37:17,606 - INFO - Epoch 83: Loss = 111.3244, Accuracy = 53.81%
+2025-07-29 23:37:17,778 - INFO - Epoch 84: Loss = 110.3529, Accuracy = 54.55%
+2025-07-29 23:37:17,951 - INFO - Epoch 85: Loss = 109.7645, Accuracy = 54.59%
+2025-07-29 23:37:18,124 - INFO - Epoch 86: Loss = 109.1622, Accuracy = 54.51%
+2025-07-29 23:37:18,296 - INFO - Epoch 87: Loss = 106.9644, Accuracy = 55.59%
+2025-07-29 23:37:18,468 - INFO - Epoch 88: Loss = 108.6497, Accuracy = 55.17%
+2025-07-29 23:37:18,640 - INFO - Epoch 89: Loss = 106.9360, Accuracy = 55.75%
+2025-07-29 23:37:18,813 - INFO - Epoch 90: Loss = 105.2981, Accuracy = 57.00%
+2025-07-29 23:37:18,984 - INFO - Epoch 91: Loss = 105.0212, Accuracy = 56.25%
+2025-07-29 23:37:19,156 - INFO - Epoch 92: Loss = 103.6980, Accuracy = 56.29%
+2025-07-29 23:37:19,328 - INFO - Epoch 93: Loss = 103.0485, Accuracy = 57.16%
+2025-07-29 23:37:19,501 - INFO - Epoch 94: Loss = 102.8744, Accuracy = 58.73%
+2025-07-29 23:37:19,673 - INFO - Epoch 95: Loss = 101.5222, Accuracy = 58.36%
+2025-07-29 23:37:19,845 - INFO - Epoch 96: Loss = 100.5049, Accuracy = 57.91%
+2025-07-29 23:37:20,017 - INFO - Epoch 97: Loss = 101.3511, Accuracy = 58.53%
+2025-07-29 23:37:20,189 - INFO - Epoch 98: Loss = 101.8708, Accuracy = 57.66%
+2025-07-29 23:37:20,362 - INFO - Epoch 99: Loss = 98.8047, Accuracy = 59.23%
+2025-07-29 23:37:20,534 - INFO - Epoch 100: Loss = 99.7237, Accuracy = 58.03%
+2025-07-29 23:37:20,706 - INFO - Epoch 101: Loss = 98.0036, Accuracy = 58.82%
+2025-07-29 23:37:20,878 - INFO - Epoch 102: Loss = 97.9617, Accuracy = 59.73%
+2025-07-29 23:37:21,050 - INFO - Epoch 103: Loss = 96.0978, Accuracy = 59.40%
+2025-07-29 23:37:21,224 - INFO - Epoch 104: Loss = 95.0312, Accuracy = 60.60%
+2025-07-29 23:37:21,396 - INFO - Epoch 105: Loss = 94.5280, Accuracy = 59.89%
+2025-07-29 23:37:21,568 - INFO - Epoch 106: Loss = 94.7668, Accuracy = 60.76%
+2025-07-29 23:37:21,741 - INFO - Epoch 107: Loss = 93.5640, Accuracy = 60.55%
+2025-07-29 23:37:21,913 - INFO - Epoch 108: Loss = 91.6669, Accuracy = 61.96%
+2025-07-29 23:37:22,085 - INFO - Epoch 109: Loss = 92.3125, Accuracy = 61.18%
+2025-07-29 23:37:22,257 - INFO - Epoch 110: Loss = 89.4783, Accuracy = 63.04%
+2025-07-29 23:37:22,429 - INFO - Epoch 111: Loss = 89.5366, Accuracy = 63.00%
+2025-07-29 23:37:22,601 - INFO - Epoch 112: Loss = 89.1277, Accuracy = 63.08%
+2025-07-29 23:37:22,774 - INFO - Epoch 113: Loss = 88.5822, Accuracy = 62.67%
+2025-07-29 23:37:22,946 - INFO - Epoch 114: Loss = 87.2812, Accuracy = 63.70%
+2025-07-29 23:37:23,119 - INFO - Epoch 115: Loss = 88.0574, Accuracy = 62.62%
+2025-07-29 23:37:23,291 - INFO - Epoch 116: Loss = 87.2516, Accuracy = 63.25%
+2025-07-29 23:37:23,463 - INFO - Epoch 117: Loss = 85.3660, Accuracy = 65.48%
+2025-07-29 23:37:23,636 - INFO - Epoch 118: Loss = 84.8423, Accuracy = 64.94%
+2025-07-29 23:37:23,808 - INFO - Epoch 119: Loss = 84.1416, Accuracy = 65.85%
+2025-07-29 23:37:23,980 - INFO - Epoch 120: Loss = 83.9206, Accuracy = 65.98%
+2025-07-29 23:37:24,153 - INFO - Epoch 121: Loss = 83.7036, Accuracy = 65.36%
+2025-07-29 23:37:24,326 - INFO - Epoch 122: Loss = 83.7183, Accuracy = 66.18%
+2025-07-29 23:37:24,498 - INFO - Epoch 123: Loss = 82.7823, Accuracy = 65.36%
+2025-07-29 23:37:24,672 - INFO - Epoch 124: Loss = 80.9519, Accuracy = 66.85%
+2025-07-29 23:37:24,844 - INFO - Epoch 125: Loss = 81.3002, Accuracy = 65.94%
+2025-07-29 23:37:25,017 - INFO - Epoch 126: Loss = 79.6709, Accuracy = 66.43%
+2025-07-29 23:37:25,189 - INFO - Epoch 127: Loss = 78.9024, Accuracy = 67.67%
+2025-07-29 23:37:25,361 - INFO - Epoch 128: Loss = 78.7834, Accuracy = 68.09%
+2025-07-29 23:37:25,534 - INFO - Epoch 129: Loss = 78.5267, Accuracy = 68.05%
+2025-07-29 23:37:25,706 - INFO - Epoch 130: Loss = 77.5515, Accuracy = 67.14%
+2025-07-29 23:37:25,878 - INFO - Epoch 131: Loss = 77.8639, Accuracy = 67.26%
+2025-07-29 23:37:26,051 - INFO - Epoch 132: Loss = 75.7598, Accuracy = 68.42%
+2025-07-29 23:37:26,223 - INFO - Epoch 133: Loss = 76.1980, Accuracy = 68.09%
+2025-07-29 23:37:26,396 - INFO - Epoch 134: Loss = 74.9183, Accuracy = 68.25%
+2025-07-29 23:37:26,569 - INFO - Epoch 135: Loss = 74.9492, Accuracy = 69.25%
+2025-07-29 23:37:26,742 - INFO - Epoch 136: Loss = 73.8876, Accuracy = 69.74%
+2025-07-29 23:37:26,914 - INFO - Epoch 137: Loss = 72.6818, Accuracy = 70.49%
+2025-07-29 23:37:27,087 - INFO - Epoch 138: Loss = 73.4476, Accuracy = 69.74%
+2025-07-29 23:37:27,259 - INFO - Epoch 139: Loss = 71.3383, Accuracy = 70.03%
+2025-07-29 23:37:27,431 - INFO - Epoch 140: Loss = 71.8761, Accuracy = 70.24%
+2025-07-29 23:37:27,604 - INFO - Epoch 141: Loss = 72.0516, Accuracy = 70.20%
+2025-07-29 23:37:27,776 - INFO - Epoch 142: Loss = 69.7269, Accuracy = 71.32%
+2025-07-29 23:37:27,948 - INFO - Epoch 143: Loss = 70.0525, Accuracy = 70.82%
+2025-07-29 23:37:28,120 - INFO - Epoch 144: Loss = 68.9134, Accuracy = 71.36%
+2025-07-29 23:37:28,293 - INFO - Epoch 145: Loss = 68.8061, Accuracy = 71.90%
+2025-07-29 23:37:28,465 - INFO - Epoch 146: Loss = 67.6285, Accuracy = 72.89%
+2025-07-29 23:37:28,637 - INFO - Epoch 147: Loss = 68.9279, Accuracy = 71.52%
+2025-07-29 23:37:28,810 - INFO - Epoch 148: Loss = 66.7014, Accuracy = 72.19%
+2025-07-29 23:37:28,982 - INFO - Epoch 149: Loss = 66.0340, Accuracy = 72.76%
+2025-07-29 23:37:29,154 - INFO - Epoch 150: Loss = 65.6241, Accuracy = 73.22%
+2025-07-29 23:37:29,326 - INFO - Epoch 151: Loss = 64.7875, Accuracy = 73.76%
+2025-07-29 23:37:29,499 - INFO - Epoch 152: Loss = 65.4536, Accuracy = 72.72%
+2025-07-29 23:37:29,671 - INFO - Epoch 153: Loss = 65.4323, Accuracy = 73.14%
+2025-07-29 23:37:29,843 - INFO - Epoch 154: Loss = 65.0661, Accuracy = 73.88%
+2025-07-29 23:37:30,017 - INFO - Epoch 155: Loss = 64.9388, Accuracy = 73.05%
+2025-07-29 23:37:30,190 - INFO - Epoch 156: Loss = 64.0733, Accuracy = 73.51%
+2025-07-29 23:37:30,363 - INFO - Epoch 157: Loss = 62.5703, Accuracy = 74.71%
+2025-07-29 23:37:30,535 - INFO - Epoch 158: Loss = 61.8927, Accuracy = 75.25%
+2025-07-29 23:37:30,708 - INFO - Epoch 159: Loss = 60.7129, Accuracy = 75.33%
+2025-07-29 23:37:30,880 - INFO - Epoch 160: Loss = 60.6499, Accuracy = 74.67%
+2025-07-29 23:37:31,053 - INFO - Epoch 161: Loss = 60.6600, Accuracy = 75.21%
+2025-07-29 23:37:31,225 - INFO - Epoch 162: Loss = 60.0407, Accuracy = 75.33%
+2025-07-29 23:37:31,398 - INFO - Epoch 163: Loss = 60.7536, Accuracy = 75.46%
+2025-07-29 23:37:31,570 - INFO - Epoch 164: Loss = 60.1847, Accuracy = 75.70%
+2025-07-29 23:37:31,743 - INFO - Epoch 165: Loss = 58.3402, Accuracy = 75.41%
+2025-07-29 23:37:31,915 - INFO - Epoch 166: Loss = 57.3997, Accuracy = 76.74%
+2025-07-29 23:37:32,088 - INFO - Epoch 167: Loss = 58.0333, Accuracy = 76.82%
+2025-07-29 23:37:32,260 - INFO - Epoch 168: Loss = 58.0142, Accuracy = 76.16%
+2025-07-29 23:37:32,433 - INFO - Epoch 169: Loss = 56.8851, Accuracy = 77.40%
+2025-07-29 23:37:32,605 - INFO - Epoch 170: Loss = 56.3804, Accuracy = 77.36%
+2025-07-29 23:37:32,778 - INFO - Epoch 171: Loss = 55.8253, Accuracy = 77.40%
+2025-07-29 23:37:32,950 - INFO - Epoch 172: Loss = 54.3773, Accuracy = 78.02%
+2025-07-29 23:37:33,123 - INFO - Epoch 173: Loss = 56.2763, Accuracy = 76.70%
+2025-07-29 23:37:33,295 - INFO - Epoch 174: Loss = 55.3690, Accuracy = 77.40%
+2025-07-29 23:37:33,468 - INFO - Epoch 175: Loss = 53.9148, Accuracy = 77.48%
+2025-07-29 23:37:33,641 - INFO - Epoch 176: Loss = 53.0728, Accuracy = 78.35%
+2025-07-29 23:37:33,813 - INFO - Epoch 177: Loss = 53.1075, Accuracy = 78.81%
+2025-07-29 23:37:33,986 - INFO - Epoch 178: Loss = 53.4653, Accuracy = 78.39%
+2025-07-29 23:37:34,158 - INFO - Epoch 179: Loss = 51.0947, Accuracy = 78.64%
+2025-07-29 23:37:34,330 - INFO - Epoch 180: Loss = 50.6983, Accuracy = 78.93%
+2025-07-29 23:37:34,503 - INFO - Epoch 181: Loss = 51.4713, Accuracy = 78.48%
+2025-07-29 23:37:34,675 - INFO - Epoch 182: Loss = 50.5449, Accuracy = 79.55%
+2025-07-29 23:37:34,847 - INFO - Epoch 183: Loss = 50.5767, Accuracy = 79.35%
+2025-07-29 23:37:35,020 - INFO - Epoch 184: Loss = 48.9558, Accuracy = 79.59%
+2025-07-29 23:37:35,192 - INFO - Epoch 185: Loss = 49.0005, Accuracy = 79.47%
+2025-07-29 23:37:35,364 - INFO - Epoch 186: Loss = 48.6141, Accuracy = 79.97%
+2025-07-29 23:37:35,537 - INFO - Epoch 187: Loss = 48.9432, Accuracy = 80.55%
+2025-07-29 23:37:35,711 - INFO - Epoch 188: Loss = 49.7163, Accuracy = 80.17%
+2025-07-29 23:37:35,883 - INFO - Epoch 189: Loss = 47.5506, Accuracy = 81.04%
+2025-07-29 23:37:36,056 - INFO - Epoch 190: Loss = 47.5942, Accuracy = 80.17%
+2025-07-29 23:37:36,228 - INFO - Epoch 191: Loss = 46.8954, Accuracy = 80.75%
+2025-07-29 23:37:36,401 - INFO - Epoch 192: Loss = 46.7323, Accuracy = 81.13%
+2025-07-29 23:37:36,573 - INFO - Epoch 193: Loss = 48.3508, Accuracy = 80.63%
+2025-07-29 23:37:36,745 - INFO - Epoch 194: Loss = 45.8274, Accuracy = 82.04%
+2025-07-29 23:37:36,918 - INFO - Epoch 195: Loss = 45.5742, Accuracy = 82.24%
+2025-07-29 23:37:37,090 - INFO - Epoch 196: Loss = 45.5242, Accuracy = 81.83%
+2025-07-29 23:37:37,263 - INFO - Epoch 197: Loss = 44.2993, Accuracy = 82.24%
+2025-07-29 23:37:37,435 - INFO - Epoch 198: Loss = 45.0207, Accuracy = 81.79%
+2025-07-29 23:37:37,608 - INFO - Epoch 199: Loss = 43.5199, Accuracy = 81.91%
+2025-07-29 23:37:37,780 - INFO - Epoch 200: Loss = 43.7341, Accuracy = 82.16%
+2025-07-29 23:37:37,953 - INFO - Epoch 201: Loss = 43.9584, Accuracy = 82.70%
+2025-07-29 23:37:38,125 - INFO - Epoch 202: Loss = 43.6873, Accuracy = 82.62%
+2025-07-29 23:37:38,297 - INFO - Epoch 203: Loss = 42.5045, Accuracy = 83.03%
+2025-07-29 23:37:38,470 - INFO - Epoch 204: Loss = 42.0562, Accuracy = 83.57%
+2025-07-29 23:37:38,643 - INFO - Epoch 205: Loss = 40.7802, Accuracy = 84.06%
+2025-07-29 23:37:38,815 - INFO - Epoch 206: Loss = 41.4726, Accuracy = 83.90%
+2025-07-29 23:37:38,988 - INFO - Epoch 207: Loss = 41.3382, Accuracy = 83.20%
+2025-07-29 23:37:39,160 - INFO - Epoch 208: Loss = 39.7655, Accuracy = 83.61%
+2025-07-29 23:37:39,332 - INFO - Epoch 209: Loss = 40.9257, Accuracy = 83.98%
+2025-07-29 23:37:39,505 - INFO - Epoch 210: Loss = 44.2229, Accuracy = 83.28%
+2025-07-29 23:37:39,677 - INFO - Epoch 211: Loss = 41.5349, Accuracy = 83.44%
+2025-07-29 23:37:39,850 - INFO - Epoch 212: Loss = 40.9557, Accuracy = 83.49%
+2025-07-29 23:37:40,022 - INFO - Epoch 213: Loss = 41.2785, Accuracy = 83.53%
+2025-07-29 23:37:40,195 - INFO - Epoch 214: Loss = 41.1945, Accuracy = 83.40%
+2025-07-29 23:37:40,367 - INFO - Epoch 215: Loss = 38.3456, Accuracy = 84.69%
+2025-07-29 23:37:40,540 - INFO - Epoch 216: Loss = 39.7130, Accuracy = 84.56%
+2025-07-29 23:37:40,712 - INFO - Epoch 217: Loss = 40.4755, Accuracy = 84.56%
+2025-07-29 23:37:40,885 - INFO - Epoch 218: Loss = 38.1421, Accuracy = 85.76%
+2025-07-29 23:37:41,058 - INFO - Epoch 219: Loss = 37.3438, Accuracy = 86.34%
+2025-07-29 23:37:41,230 - INFO - Epoch 220: Loss = 38.3558, Accuracy = 85.26%
+2025-07-29 23:37:41,404 - INFO - Epoch 221: Loss = 37.1791, Accuracy = 86.67%
+2025-07-29 23:37:41,577 - INFO - Epoch 222: Loss = 37.3960, Accuracy = 85.76%
+2025-07-29 23:37:41,750 - INFO - Epoch 223: Loss = 37.4760, Accuracy = 84.93%
+2025-07-29 23:37:41,923 - INFO - Epoch 224: Loss = 35.2575, Accuracy = 86.88%
+2025-07-29 23:37:42,095 - INFO - Epoch 225: Loss = 36.2074, Accuracy = 86.88%
+2025-07-29 23:37:42,268 - INFO - Epoch 226: Loss = 36.3742, Accuracy = 86.13%
+2025-07-29 23:37:42,440 - INFO - Epoch 227: Loss = 35.3978, Accuracy = 85.68%
+2025-07-29 23:37:42,612 - INFO - Epoch 228: Loss = 34.7045, Accuracy = 86.84%
+2025-07-29 23:37:42,785 - INFO - Epoch 229: Loss = 34.9498, Accuracy = 86.96%
+2025-07-29 23:37:42,958 - INFO - Epoch 230: Loss = 36.2463, Accuracy = 86.26%
+2025-07-29 23:37:43,130 - INFO - Epoch 231: Loss = 34.0626, Accuracy = 87.29%
+2025-07-29 23:37:43,303 - INFO - Epoch 232: Loss = 34.8453, Accuracy = 87.21%
+2025-07-29 23:37:43,475 - INFO - Epoch 233: Loss = 33.7804, Accuracy = 87.54%
+2025-07-29 23:37:43,648 - INFO - Epoch 234: Loss = 32.8697, Accuracy = 87.38%
+2025-07-29 23:37:43,820 - INFO - Epoch 235: Loss = 33.6743, Accuracy = 87.79%
+2025-07-29 23:37:43,993 - INFO - Epoch 236: Loss = 32.7494, Accuracy = 88.62%
+2025-07-29 23:37:44,165 - INFO - Epoch 237: Loss = 33.3472, Accuracy = 87.42%
+2025-07-29 23:37:44,338 - INFO - Epoch 238: Loss = 31.7564, Accuracy = 87.83%
+2025-07-29 23:37:44,511 - INFO - Epoch 239: Loss = 32.2306, Accuracy = 87.54%
+2025-07-29 23:37:44,684 - INFO - Epoch 240: Loss = 33.1059, Accuracy = 87.38%
+2025-07-29 23:37:44,857 - INFO - Epoch 241: Loss = 32.8718, Accuracy = 88.08%
+2025-07-29 23:37:45,029 - INFO - Epoch 242: Loss = 31.3400, Accuracy = 87.87%
+2025-07-29 23:37:45,202 - INFO - Epoch 243: Loss = 32.4532, Accuracy = 87.50%
+2025-07-29 23:37:45,374 - INFO - Epoch 244: Loss = 31.4710, Accuracy = 88.82%
+2025-07-29 23:37:45,547 - INFO - Epoch 245: Loss = 29.8702, Accuracy = 88.95%
+2025-07-29 23:37:45,719 - INFO - Epoch 246: Loss = 30.5885, Accuracy = 88.91%
+2025-07-29 23:37:45,892 - INFO - Epoch 247: Loss = 30.3982, Accuracy = 88.53%
+2025-07-29 23:37:46,065 - INFO - Epoch 248: Loss = 29.5266, Accuracy = 88.45%
+2025-07-29 23:37:46,237 - INFO - Epoch 249: Loss = 28.5750, Accuracy = 89.61%
+2025-07-29 23:37:46,410 - INFO - Epoch 250: Loss = 29.5000, Accuracy = 88.99%
+2025-07-29 23:37:46,582 - INFO - Epoch 251: Loss = 29.6520, Accuracy = 89.57%
+2025-07-29 23:37:46,755 - INFO - Epoch 252: Loss = 28.9426, Accuracy = 89.28%
+2025-07-29 23:37:46,927 - INFO - Epoch 253: Loss = 29.4774, Accuracy = 88.74%
+2025-07-29 23:37:47,101 - INFO - Epoch 254: Loss = 29.5435, Accuracy = 89.61%
+2025-07-29 23:37:47,274 - INFO - Epoch 255: Loss = 28.3839, Accuracy = 89.53%
+2025-07-29 23:37:47,447 - INFO - Epoch 256: Loss = 28.2536, Accuracy = 89.20%
+2025-07-29 23:37:47,450 - INFO - [Gradient Period 25 Run 1] Training time: 47.54s
+2025-07-29 23:37:48,127 - INFO - ✅ Regular Evaluation Accuracy: 46.15%
+2025-07-29 23:37:48,200 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 89.60%
+2025-07-29 23:37:48,233 - INFO - ✅ Regular Evaluation Accuracy: 20.77%
+2025-07-29 23:37:48,247 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 67.69%
+2025-07-29 23:37:48,724 - INFO - ✅ Regular Evaluation Accuracy: 3.92%
+2025-07-29 23:37:48,736 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 21.57%
+2025-07-29 23:37:48,736 - INFO - Nuts
+2025-07-29 23:37:49,164 - INFO - ✅ Regular Evaluation Accuracy: 33.98%
+2025-07-29 23:37:49,175 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 84.47%
+2025-07-29 23:37:49,175 - INFO - Spices
+2025-07-29 23:37:49,596 - INFO - ✅ Regular Evaluation Accuracy: 56.84%
+2025-07-29 23:37:49,606 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.58%
+2025-07-29 23:37:49,606 - INFO - Herbs
+2025-07-29 23:37:50,025 - INFO - ✅ Regular Evaluation Accuracy: 32.99%
+2025-07-29 23:37:50,036 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 87.63%
+2025-07-29 23:37:50,036 - INFO - Fruits
+2025-07-29 23:37:50,451 - INFO - ✅ Regular Evaluation Accuracy: 59.57%
+2025-07-29 23:37:50,461 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 91.49%
+2025-07-29 23:37:50,461 - INFO - Vegetables
+2025-07-29 23:37:50,887 - INFO - ✅ Regular Evaluation Accuracy: 48.91%
+2025-07-29 23:37:50,897 - INFO - ✅ Regular Evaluation Top-5 Accuracy: 93.48%
+2025-07-29 23:37:50,897 - INFO - Baseline performance (no ablation):
+2025-07-29 23:37:50,905 - INFO - ✅ Regular Evaluation Accuracy: 48.91%
+2025-07-29 23:37:50,905 - INFO - Ablating channel 0 (allspice):
+2025-07-29 23:37:50,912 - INFO - ✅ Regular Evaluation Accuracy: 43.48%
+2025-07-29 23:37:50,913 - INFO - Ablating channel 1 (almond):
+2025-07-29 23:37:50,920 - INFO - ✅ Regular Evaluation Accuracy: 32.61%
+2025-07-29 23:37:50,921 - INFO - Ablating channel 2 (angelica):
+2025-07-29 23:37:50,928 - INFO - ✅ Regular Evaluation Accuracy: 47.83%
+2025-07-29 23:37:50,928 - INFO - Ablating channel 3 (apple):
+2025-07-29 23:37:50,936 - INFO - ✅ Regular Evaluation Accuracy: 19.57%
+2025-07-29 23:37:50,936 - INFO - Ablating channel 4 (asparagus):
+2025-07-29 23:37:50,943 - INFO - ✅ Regular Evaluation Accuracy: 46.74%
+2025-07-29 23:37:50,943 - INFO - Ablating channel 5 (avocado):
+2025-07-29 23:37:50,951 - INFO - ✅ Regular Evaluation Accuracy: 38.04%
+2025-07-29 23:37:50,951 - INFO - Ablating channel 6 (banana):
+2025-07-29 23:37:50,958 - INFO - ✅ Regular Evaluation Accuracy: 45.65%
+2025-07-29 23:37:50,959 - INFO - Ablating channel 7 (brazil_nut):
+2025-07-29 23:37:50,966 - INFO - ✅ Regular Evaluation Accuracy: 48.91%
+2025-07-29 23:37:50,966 - INFO - Ablating channel 8 (broccoli):
+2025-07-29 23:37:50,973 - INFO - ✅ Regular Evaluation Accuracy: 48.91%
+2025-07-29 23:37:50,974 - INFO - Ablating channel 9 (brussel_sprouts):
+2025-07-29 23:37:50,981 - INFO - ✅ Regular Evaluation Accuracy: 32.61%
+2025-07-29 23:37:50,981 - INFO - Ablating channel 10 (cabbage):
+2025-07-29 23:37:50,988 - INFO - ✅ Regular Evaluation Accuracy: 23.91%
+2025-07-29 23:37:50,989 - INFO - Ablating channel 11 (cashew):
+2025-07-29 23:37:50,996 - INFO - ✅ Regular Evaluation Accuracy: 46.74%
+2025-07-29 23:37:50,996 - INFO - Channel importance results: [(0, 5.434782608695649), (1, 16.304347826086953), (2, 1.0869565217391255), (3, 29.34782608695652), (4, 2.173913043478258), (5, 10.869565217391298), (6, 3.2608695652173907), (7, 0.0), (8, 0.0), (9, 16.304347826086953), (10, 24.999999999999996), (11, 2.173913043478258)]

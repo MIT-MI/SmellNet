@@ -116,8 +116,8 @@ def contrastive_train(
             if feature_dropout_fn:
                 x_sensor = apply_random_feature_dropout(x_sensor)
 
-            x_gcms = x_gcms.to(device)
-            x_sensor = x_sensor.to(device)
+            x_gcms = x_gcms.to(device=device, dtype=torch.float32)
+            x_sensor = x_sensor.to(device=device, dtype=torch.float32)
 
             optimizer.zero_grad()
 
@@ -300,55 +300,62 @@ def reproduction_train(
     model.to(device)
 
     optimizer = torch.optim.Adam(model.parameters(), lr=1e-4)
-    
-    # Use KLDivLoss since model outputs log probabilities (log_softmax)
+
+    # Model must output log probabilities if using KLDivLoss
     criterion = nn.KLDivLoss(reduction='batchmean')
 
-    model.train()
     logger.info(f"Training on device: {device}")
+    model.train()
 
     for epoch in range(epochs):
-        total_loss = 0
+        total_loss = 0.0
+        total_kl = 0.0
+        total_l1 = 0.0
+        total_cos = 0.0
+        total_batches = 0
 
         for batch_x, batch_label in train_loader:
-            # Apply data augmentation
             if noisy:
                 batch_x = apply_noise_injection(batch_x, noise_scale=0.05)
 
             if feature_dropout_fn:
                 batch_x = apply_random_feature_dropout(batch_x)
 
-            # Move data to device
             batch_x = batch_x.to(device, dtype=torch.float32)
-            batch_label = batch_label.to(device, dtype=torch.float32)  # soft labels
+            batch_label = batch_label.to(device, dtype=torch.float32)
 
             optimizer.zero_grad()
 
-            # Forward pass
-            if not lstm:
-                logits = model(batch_x)
+            # Forward
+            if lstm:
+                logits, _ = model(batch_x)
             else:
-                logits, embedding = model(batch_x)
+                logits = model(batch_x)
 
-            # Compute loss (logits should already be log_softmax from model)
-            loss = criterion(logits, batch_label)
+            # Convert to log-probabilities
+            log_probs = F.log_softmax(logits, dim=1)
+            probs = torch.exp(log_probs)
 
+            # Compute KL divergence loss
+            loss = criterion(log_probs, batch_label)
             loss.backward()
             torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=1.0)
             optimizer.step()
 
+            # Metrics for logging
+            l1_error = torch.abs(probs - batch_label).mean().item()
+            cosine_sim = F.cosine_similarity(probs, batch_label, dim=1).mean().item()
+
             total_loss += loss.item()
+            total_l1 += l1_error
+            total_cos += cosine_sim
+            total_batches += 1
 
-        avg_loss = total_loss / len(train_loader)
-        logger.info(f"Epoch {epoch + 1:02d}: Loss = {avg_loss:.4f}")
+        avg_loss = total_loss / total_batches
+        avg_l1 = total_l1 / total_batches
+        avg_cos = total_cos / total_batches
 
-
-if __name__ == "__main__":
-    training_path = "/home/dewei/workspace/smell-net/training"
-    testing_path = "/home/dewei/workspace/smell-net/testing"
-    training_data, testing_data, min_len = load_data(training_path, testing_path)
-    train_loader, le = prepare_tensors(training_data, min_len)
-    model = TimeSeriesTransformer(
-        input_dim=12, model_dim=64, num_classes=len(le.classes_)
-    )
-    train(train_loader, model)
+        logger.info(
+            f"Epoch {epoch+1:02d}: KLDiv Loss = {avg_loss:.4f} | "
+            f"L1 Error = {avg_l1:.4f} | Cosine Sim = {avg_cos:.4f}"
+        )

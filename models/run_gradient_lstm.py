@@ -6,10 +6,12 @@ import logging
 import os
 import time
 import torch
+import csv
+import numpy as np
 
-log_dir = "/home/dewei/workspace/SmellNet/logs"
+log_dir = "/home/dewei/workspace/SmellNet/rebuttal/logs"
 
-log_file_path = os.path.join(log_dir, f"lstm_gradient_{time.time()}.log")
+log_file_path = os.path.join(log_dir, f"start_one_lstm_gradient_{time.time()}.log")
 
 logging.basicConfig(
     level=logging.INFO,
@@ -20,21 +22,21 @@ logging.basicConfig(
     ],
 )
 
+CHANNELS = ["NO2","C2H5OH","VOC","CO","Alcohol","LPG"]
 
 def main(period_len=25):
     # set up logging
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/SmellNet/training"
-    testing_path = "/home/dewei/workspace/SmellNet/testing"
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
     gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
-    # for category in ["Nuts", "Spices", "Herbs", "Fruits", "Vegetables"]:
-    #     logger.info(category)
+    channels = ["NO2","C2H5OH","VOC","CO","Alcohol","LPG"]
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
@@ -73,19 +75,52 @@ def main(period_len=25):
     # regular_evaluate_top5(model, data_loader, le, logger, lstm=True)
 
 
+def evaluate_channel_importance(model, testing_data, testing_label, le, logger, lstm=True):
+    """
+    Evaluate the importance of each sensor channel by permuting or zeroing it out
+    and measuring the performance drop.
+    """
+    testing_data = np.array(testing_data)
+    print(testing_data.shape)
+    num_channels = testing_data.shape[-1]
+    baseline_dataset = TensorDataset(torch.tensor(testing_data), torch.tensor(testing_label))
+    baseline_loader = DataLoader(baseline_dataset, batch_size=32)
+    
+    logger.info("Baseline performance (no ablation):")
+    baseline_top1 = regular_evaluate(model, baseline_loader, le, logger, lstm=lstm)
+    
+    importance_results = []
+    for ch in range(num_channels):
+        modified_data = testing_data.copy()
+        # Option 1: Zero out the channel
+        modified_data[:, :, ch] = 0  
+        # Option 2 (alternative): Randomly shuffle the channel values
+        # np.random.shuffle(modified_data[:, :, ch])
+
+        dataset = TensorDataset(torch.tensor(modified_data), torch.tensor(testing_label))
+        data_loader = DataLoader(dataset, batch_size=32)
+        logger.info(f"Ablating channel {ch} ({le.classes_[ch] if ch < len(le.classes_) else ch}):")
+        top1 = regular_evaluate(model, data_loader, le, logger, lstm=lstm)
+        importance_results.append((ch, baseline_top1 - top1))
+
+    return importance_results
+
+
 def main_evaluate(model, period_len=25):
     # set up logging
     logger = logging.getLogger()
 
-    training_path = "/home/dewei/workspace/SmellNet/training"
-    testing_path = "/home/dewei/workspace/SmellNet/testing"
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_nut"
+    training_path = "/home/dewei/workspace/SmellNet/data/offline_training"
+    testing_path = "/home/dewei/workspace/SmellNet/data/offline_testing"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_spices"
     gcms_path = "/home/dewei/workspace/SmellNet/processed_full_gcms_dataframe.csv"
 
     batch_size = 32
 
+    
+
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
 
     gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
@@ -108,13 +143,14 @@ def main_evaluate(model, period_len=25):
     )
     data_loader = DataLoader(dataset, batch_size=batch_size)
 
+    logger.info("Online testing for spice")
     regular_evaluate(model, data_loader, le, logger, lstm=True)
     regular_evaluate_top5(model, data_loader, le, logger, lstm=True)
 
-    real_time_testing_path = "/home/dewei/workspace/SmellNet/real_time_testing_spice"
+    real_time_testing_path = "/home/dewei/workspace/SmellNet/data/online_nuts"
 
     training_data, testing_data, real_time_testing_data, min_len = load_sensor_data(
-        training_path, testing_path, real_time_testing_path=real_time_testing_path
+        training_path, testing_path, real_time_testing_path=real_time_testing_path, max_range=None, channels=None
     )
 
     real_testing_data, real_testing_label, _ = prepare_data_transformer_gradient(
@@ -126,6 +162,7 @@ def main_evaluate(model, period_len=25):
     )
     data_loader = DataLoader(dataset, batch_size=batch_size)
 
+    logger.info("Online testing for nuts")
     regular_evaluate(model, data_loader, le, logger, lstm=True)
     regular_evaluate_top5(model, data_loader, le, logger, lstm=True)
 
@@ -136,12 +173,14 @@ def main_evaluate(model, period_len=25):
             testing_path,
             real_time_testing_path=real_time_testing_path,
             categories=[category],
+            max_range=None,
+            channels=None
         )
 
         gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_path)
 
         testing_data, testing_label, _ = prepare_data_transformer_gradient(
-            real_time_testing_data, le=le, period_len=period_len
+            testing_data, le=le, period_len=period_len
         )
 
         batch_size = 32
@@ -152,6 +191,14 @@ def main_evaluate(model, period_len=25):
 
         regular_evaluate(model, data_loader, le, logger, lstm=True)
         regular_evaluate_top5(model, data_loader, le, logger, lstm=True)
+
+    # importance_results = evaluate_channel_importance(model, testing_data, testing_label, le, logger, lstm=True)
+    # logger.info(f"Channel importance results: {importance_results}")
+
+    # with open("channel_importance_results.csv", "w", newline="") as f:
+    #     writer = csv.writer(f)
+    #     writer.writerow(["Channel Index", "Accuracy Drop"])
+    #     writer.writerows(importance_results)
 
 
 def run_experiment(name, runs, **kwargs):
@@ -170,7 +217,7 @@ def run_experiment(name, runs, **kwargs):
 
 if __name__ == "__main__":
     logger = logging.getLogger()
-    runs = 10
+    runs = 1
 
     run_experiment("Gradient Period 25", runs)
-    run_experiment("Gradient Period 50", runs, period_len=50)
+    # run_experiment("Gradient Period 50", runs, period_len=50)
