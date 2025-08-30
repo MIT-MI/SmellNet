@@ -1,0 +1,72 @@
+2025-08-07 17:33:32,236 - INFO - ------------------------------------Gradient-------------------------------------------
+2025-08-07 17:33:32,236 - INFO - [Gradient Run 1] Starting
+2025-08-07 17:33:34,554 - INFO - Training on device: cuda
+2025-08-07 17:33:34,872 - INFO - Epoch 01: KLDiv Loss = 2.2922 | L1 Error = 0.1484 | Cosine Sim = 0.3263
+2025-08-07 17:33:34,996 - INFO - Epoch 02: KLDiv Loss = 2.1869 | L1 Error = 0.1463 | Cosine Sim = 0.3617
+2025-08-07 17:33:35,119 - INFO - Epoch 03: KLDiv Loss = 2.0784 | L1 Error = 0.1433 | Cosine Sim = 0.3979
+2025-08-07 17:33:35,243 - INFO - Epoch 04: KLDiv Loss = 1.9589 | L1 Error = 0.1391 | Cosine Sim = 0.4353
+2025-08-07 17:33:35,366 - INFO - Epoch 05: KLDiv Loss = 1.8575 | L1 Error = 0.1354 | Cosine Sim = 0.4682
+2025-08-07 17:33:35,490 - INFO - Epoch 06: KLDiv Loss = 1.7733 | L1 Error = 0.1317 | Cosine Sim = 0.4941
+2025-08-07 17:33:35,613 - INFO - Epoch 07: KLDiv Loss = 1.6977 | L1 Error = 0.1283 | Cosine Sim = 0.5194
+2025-08-07 17:33:35,737 - INFO - Epoch 08: KLDiv Loss = 1.6322 | L1 Error = 0.1251 | Cosine Sim = 0.5396
+2025-08-07 17:33:35,861 - INFO - Epoch 09: KLDiv Loss = 1.5777 | L1 Error = 0.1222 | Cosine Sim = 0.5566
+2025-08-07 17:33:35,987 - INFO - Epoch 10: KLDiv Loss = 1.5305 | L1 Error = 0.1196 | Cosine Sim = 0.5707
+2025-08-07 17:33:36,111 - INFO - Epoch 11: KLDiv Loss = 1.4866 | L1 Error = 0.1169 | Cosine Sim = 0.5835
+2025-08-07 17:33:36,235 - INFO - Epoch 12: KLDiv Loss = 1.4476 | L1 Error = 0.1145 | Cosine Sim = 0.5942
+2025-08-07 17:33:36,358 - INFO - Epoch 13: KLDiv Loss = 1.4126 | L1 Error = 0.1123 | Cosine Sim = 0.6040
+2025-08-07 17:33:36,480 - INFO - Epoch 14: KLDiv Loss = 1.3808 | L1 Error = 0.1104 | Cosine Sim = 0.6135
+2025-08-07 17:33:36,603 - INFO - Epoch 15: KLDiv Loss = 1.3494 | L1 Error = 0.1086 | Cosine Sim = 0.6225
+2025-08-07 17:33:36,725 - INFO - Epoch 16: KLDiv Loss = 1.3209 | L1 Error = 0.1065 | Cosine Sim = 0.6302
+2025-08-07 17:33:36,848 - INFO - Epoch 17: KLDiv Loss = 1.2973 | L1 Error = 0.1048 | Cosine Sim = 0.6372
+2025-08-07 17:33:36,973 - INFO - Epoch 18: KLDiv Loss = 1.2680 | L1 Error = 0.1032 | Cosine Sim = 0.6459
+2025-08-07 17:33:37,096 - INFO - Epoch 19: KLDiv Loss = 1.2449 | L1 Error = 0.1015 | Cosine Sim = 0.6523
+2025-08-07 17:33:37,218 - INFO - Epoch 20: KLDiv Loss = 1.2161 | L1 Error = 0.0996 | Cosine Sim = 0.6620
+2025-08-07 17:33:37,341 - INFO - Epoch 21: KLDiv Loss = 1.1953 | L1 Error = 0.0980 | Cosine Sim = 0.6673
+2025-08-07 17:33:37,463 - INFO - Epoch 22: KLDiv Loss = 1.1704 | L1 Error = 0.0962 | Cosine Sim = 0.6754
+2025-08-07 17:33:37,586 - INFO - Epoch 23: KLDiv Loss = 1.1489 | L1 Error = 0.0948 | Cosine Sim = 0.6809
+2025-08-07 17:33:37,709 - INFO - Epoch 24: KLDiv Loss = 1.1308 | L1 Error = 0.0934 | Cosine Sim = 0.6867
+2025-08-07 17:33:37,835 - INFO - Epoch 25: KLDiv Loss = 1.1074 | L1 Error = 0.0919 | Cosine Sim = 0.6934
+2025-08-07 17:33:37,959 - INFO - Epoch 26: KLDiv Loss = 1.0929 | L1 Error = 0.0907 | Cosine Sim = 0.6975
+2025-08-07 17:33:38,082 - INFO - Epoch 27: KLDiv Loss = 1.0698 | L1 Error = 0.0890 | Cosine Sim = 0.7050
+2025-08-07 17:33:38,204 - INFO - Epoch 28: KLDiv Loss = 1.0543 | L1 Error = 0.0879 | Cosine Sim = 0.7088
+2025-08-07 17:33:38,327 - INFO - Epoch 29: KLDiv Loss = 1.0349 | L1 Error = 0.0863 | Cosine Sim = 0.7139
+2025-08-07 17:33:38,449 - INFO - Epoch 30: KLDiv Loss = 1.0249 | L1 Error = 0.0853 | Cosine Sim = 0.7164
+2025-08-07 17:33:38,572 - INFO - Epoch 31: KLDiv Loss = 1.0013 | L1 Error = 0.0837 | Cosine Sim = 0.7227
+2025-08-07 17:33:38,695 - INFO - Epoch 32: KLDiv Loss = 0.9891 | L1 Error = 0.0826 | Cosine Sim = 0.7269
+2025-08-07 17:33:38,818 - INFO - Epoch 33: KLDiv Loss = 0.9766 | L1 Error = 0.0818 | Cosine Sim = 0.7286
+2025-08-07 17:33:38,940 - INFO - Epoch 34: KLDiv Loss = 0.9579 | L1 Error = 0.0802 | Cosine Sim = 0.7358
+2025-08-07 17:33:39,063 - INFO - Epoch 35: KLDiv Loss = 0.9490 | L1 Error = 0.0794 | Cosine Sim = 0.7372
+2025-08-07 17:33:39,185 - INFO - Epoch 36: KLDiv Loss = 0.9304 | L1 Error = 0.0782 | Cosine Sim = 0.7424
+2025-08-07 17:33:39,308 - INFO - Epoch 37: KLDiv Loss = 0.9169 | L1 Error = 0.0769 | Cosine Sim = 0.7471
+2025-08-07 17:33:39,430 - INFO - Epoch 38: KLDiv Loss = 0.9025 | L1 Error = 0.0758 | Cosine Sim = 0.7496
+2025-08-07 17:33:39,553 - INFO - Epoch 39: KLDiv Loss = 0.8900 | L1 Error = 0.0748 | Cosine Sim = 0.7533
+2025-08-07 17:33:39,677 - INFO - Epoch 40: KLDiv Loss = 0.8849 | L1 Error = 0.0745 | Cosine Sim = 0.7537
+2025-08-07 17:33:39,800 - INFO - Epoch 41: KLDiv Loss = 0.8721 | L1 Error = 0.0734 | Cosine Sim = 0.7571
+2025-08-07 17:33:39,922 - INFO - Epoch 42: KLDiv Loss = 0.8503 | L1 Error = 0.0719 | Cosine Sim = 0.7642
+2025-08-07 17:33:40,045 - INFO - Epoch 43: KLDiv Loss = 0.8476 | L1 Error = 0.0714 | Cosine Sim = 0.7636
+2025-08-07 17:33:40,167 - INFO - Epoch 44: KLDiv Loss = 0.8308 | L1 Error = 0.0703 | Cosine Sim = 0.7692
+2025-08-07 17:33:40,290 - INFO - Epoch 45: KLDiv Loss = 0.8257 | L1 Error = 0.0696 | Cosine Sim = 0.7688
+2025-08-07 17:33:40,413 - INFO - Epoch 46: KLDiv Loss = 0.8159 | L1 Error = 0.0688 | Cosine Sim = 0.7728
+2025-08-07 17:33:40,535 - INFO - Epoch 47: KLDiv Loss = 0.8003 | L1 Error = 0.0678 | Cosine Sim = 0.7762
+2025-08-07 17:33:40,658 - INFO - Epoch 48: KLDiv Loss = 0.7916 | L1 Error = 0.0671 | Cosine Sim = 0.7781
+2025-08-07 17:33:40,781 - INFO - Epoch 49: KLDiv Loss = 0.7806 | L1 Error = 0.0662 | Cosine Sim = 0.7820
+2025-08-07 17:33:40,903 - INFO - Epoch 50: KLDiv Loss = 0.7776 | L1 Error = 0.0656 | Cosine Sim = 0.7824
+2025-08-07 17:33:41,027 - INFO - Epoch 51: KLDiv Loss = 0.7616 | L1 Error = 0.0647 | Cosine Sim = 0.7874
+2025-08-07 17:33:41,149 - INFO - Epoch 52: KLDiv Loss = 0.7556 | L1 Error = 0.0641 | Cosine Sim = 0.7882
+2025-08-07 17:33:41,271 - INFO - Epoch 53: KLDiv Loss = 0.7510 | L1 Error = 0.0637 | Cosine Sim = 0.7895
+2025-08-07 17:33:41,394 - INFO - Epoch 54: KLDiv Loss = 0.7376 | L1 Error = 0.0629 | Cosine Sim = 0.7939
+2025-08-07 17:33:41,515 - INFO - Epoch 55: KLDiv Loss = 0.7245 | L1 Error = 0.0619 | Cosine Sim = 0.7974
+2025-08-07 17:33:41,639 - INFO - Epoch 56: KLDiv Loss = 0.7298 | L1 Error = 0.0621 | Cosine Sim = 0.7951
+2025-08-07 17:33:41,762 - INFO - Epoch 57: KLDiv Loss = 0.7077 | L1 Error = 0.0608 | Cosine Sim = 0.8020
+2025-08-07 17:33:41,884 - INFO - Epoch 58: KLDiv Loss = 0.7018 | L1 Error = 0.0600 | Cosine Sim = 0.8025
+2025-08-07 17:33:42,006 - INFO - Epoch 59: KLDiv Loss = 0.6882 | L1 Error = 0.0592 | Cosine Sim = 0.8073
+2025-08-07 17:33:42,128 - INFO - Epoch 60: KLDiv Loss = 0.6754 | L1 Error = 0.0583 | Cosine Sim = 0.8113
+2025-08-07 17:33:42,251 - INFO - Epoch 61: KLDiv Loss = 0.6705 | L1 Error = 0.0579 | Cosine Sim = 0.8130
+2025-08-07 17:33:42,373 - INFO - Epoch 62: KLDiv Loss = 0.6751 | L1 Error = 0.0578 | Cosine Sim = 0.8110
+2025-08-07 17:33:42,495 - INFO - Epoch 63: KLDiv Loss = 0.6613 | L1 Error = 0.0569 | Cosine Sim = 0.8154
+2025-08-07 17:33:42,617 - INFO - Epoch 64: KLDiv Loss = 0.6481 | L1 Error = 0.0562 | Cosine Sim = 0.8195
+2025-08-07 17:33:43,339 - INFO - Test: Loss = 3.0353, Quant Error = 1.5341
+2025-08-07 17:33:43,339 - INFO - Dynamic Top-K Accuracy (per sample): 23.63%
+2025-08-07 17:33:43,345 - INFO - [Gradient Run 1] Training time: 11.11s
+2025-08-07 17:33:43,706 - INFO - Test: Loss = 3.0578, Quant Error = 1.5177
+2025-08-07 17:33:43,706 - INFO - Dynamic Top-K Accuracy (per sample): 29.32%

@@ -1,0 +1,8 @@
+2025-08-07 17:20:06,687 - INFO - ------------------------------------Gradient-------------------------------------------
+2025-08-07 17:20:06,687 - INFO - [Gradient Run 1] Starting
+2025-08-07 17:20:09,051 - INFO - Training on device: cuda
+2025-08-07 17:20:09,912 - INFO - Test: Loss = 2.5592, Quant Error = 1.7273
+2025-08-07 17:20:09,912 - INFO - Dynamic Top-K Accuracy (per sample): 18.44%
+2025-08-07 17:20:09,918 - INFO - [Gradient Run 1] Training time: 3.23s
+2025-08-07 17:20:10,288 - INFO - Test: Loss = 2.5784, Quant Error = 1.7786
+2025-08-07 17:20:10,288 - INFO - Dynamic Top-K Accuracy (per sample): 15.48%

@@ -175,3 +175,50 @@ class TranslationModel(nn.Module):
         gcms_pred = self.gcms_head(feat)
         class_logits = self.classifier(feat)
         return gcms_pred, class_logits
+
+
+class DistributionEncoder(nn.Module):
+    def __init__(self, input_dim, hidden_dim=64, output_dim=12, temperature=1.0):
+        super().__init__()
+        self.output_dim = output_dim
+        self.temperature = temperature
+
+        self.encoder = nn.Sequential(
+            nn.Linear(input_dim, hidden_dim),
+            nn.LayerNorm(hidden_dim),
+            nn.SiLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.LayerNorm(hidden_dim),
+            nn.SiLU(),
+            nn.Dropout(0.1),
+            nn.Linear(hidden_dim, output_dim),  # logits layer
+        )
+
+    def forward(self, x, return_probs=True):
+        logits = self.encoder(x)                      # [N, output_dim]
+        if return_probs:
+            probs = F.softmax(logits / self.temperature, dim=-1)  # sum=1
+            return logits, probs
+        return logits
+    
+
+class SmellCNN(nn.Module):
+    def __init__(self, num_classes=12):
+        super().__init__()
+        # in: (N, 1, T, F)
+        self.conv1 = nn.Conv2d(1, 16, kernel_size=3, padding=1)
+        self.conv2 = nn.Conv2d(16, 32, kernel_size=3, padding=1)
+        self.pool  = nn.AdaptiveMaxPool2d((32, 16))  # (T,F) -> fixed (32,16)
+        self.fc1   = nn.Linear(32 * 32 * 16, 256)
+        self.fc2   = nn.Linear(256, num_classes)
+
+    def forward(self, x):
+        x = F.relu(self.conv1(x))     # (N,16,T,F)
+        x = F.relu(self.conv2(x))     # (N,32,T,F)
+        x = self.pool(x)              # (N,32,32,16) fixed size
+        x = torch.flatten(x, 1)       # (N, 32*32*16)
+        x = F.relu(self.fc1(x))
+        logits = self.fc2(x)          # (N,12)
+        probs = F.softmax(logits, dim=1)  # distribution that sums to 1
+        return probs

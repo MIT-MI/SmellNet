@@ -1,0 +1,2 @@
+2025-08-05 14:22:30,475 - INFO - Test: Loss = 6.5810, Quant Error = 1.5444
+2025-08-05 14:22:30,475 - INFO - Dynamic Top-K Accuracy (per sample): 25.56%

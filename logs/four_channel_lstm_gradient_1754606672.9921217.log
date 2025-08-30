@@ -1,0 +1,11 @@
+2025-08-07 18:44:32,993 - INFO - ------------------------------------Gradient-------------------------------------------
+2025-08-07 18:44:32,993 - INFO - [Gradient Run 1] Starting
+2025-08-07 18:44:35,478 - INFO - Training on device: cuda
+2025-08-07 18:44:36,122 - INFO - Epoch 01: KLDiv Loss = 2.2928 | L1 Error = 0.1475 | Cosine Sim = 0.3300
+2025-08-07 18:44:36,591 - INFO - Epoch 02: KLDiv Loss = 2.2022 | L1 Error = 0.1451 | Cosine Sim = 0.3570
+2025-08-07 18:44:37,056 - INFO - Epoch 03: KLDiv Loss = 2.1563 | L1 Error = 0.1432 | Cosine Sim = 0.3690
+2025-08-07 18:44:37,636 - INFO - Epoch 04: KLDiv Loss = 2.1284 | L1 Error = 0.1420 | Cosine Sim = 0.3759
+2025-08-07 18:44:38,105 - INFO - Epoch 05: KLDiv Loss = 2.1097 | L1 Error = 0.1412 | Cosine Sim = 0.3809
+2025-08-07 18:44:38,572 - INFO - Epoch 06: KLDiv Loss = 2.0934 | L1 Error = 0.1405 | Cosine Sim = 0.3856
+2025-08-07 18:44:39,042 - INFO - Epoch 07: KLDiv Loss = 2.0831 | L1 Error = 0.1401 | Cosine Sim = 0.3880
+2025-08-07 18:44:39,509 - INFO - Epoch 08: KLDiv Loss = 2.0754 | L1 Error = 0.1396 | Cosine Sim = 0.3904

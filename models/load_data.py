@@ -8,6 +8,7 @@ from sklearn.preprocessing import LabelEncoder, StandardScaler
 from utils import ingredient_to_category
 from dataset import PairedDataset, FusionDataset
 from scipy.fft import fft, ifft, fftfreq
+import re
 
 
 def subtract_first_row(df):
@@ -186,6 +187,8 @@ def prepare_data_gradient(
 ):
     X = []
     y = []
+
+    print(data.items())
 
     for ingredient, dfs in data.items():
         for df in dfs:
@@ -461,6 +464,7 @@ def load_four_channel_sensor_data(
     ingredients=None,
     categories=None,
     real_time_testing_path=None,
+    gradient=False
 ):
     data = defaultdict(list)
 
@@ -501,7 +505,7 @@ def load_four_channel_sensor_data(
     
 
 ALL_INGREDIENTS = [
-    'banana', 'mandarin_orange', 'pear', 'apple', 'mango', 'peach',
+    'banana', 'orange', 'pear', 'apple', 'mango', 'peach',
     'strawberry', 'cloves', 'coriander', 'garlic', 'almond', 'cumin'
 ]
 
@@ -547,19 +551,23 @@ def parse_ingredient_label(ingredient_str):
     return label_vector
 
 
-def process_directory_to_windows(data, window_size=30, stride=30, target_channels=None):
+def process_directory_to_windows(data, ratio=0.2, window_size=30, stride=30, target_channels=None, testing=False):
     """
-    Processes a list of CSV files into fixed-size windows.
+    Processes sensor data into fixed-size windows, separating mixtures and single-ingredient examples.
     
+    - Single-ingredient data → train only
+    - Mixtures → split 75% train / 25% test
+
     Args:
-        file_paths (list): List of file paths to CSV files.
-        window_size (int): Window size in seconds (rows).
-        stride (int): Step size for windowing.
-        target_channels (list): List of columns to keep (optional).
-        
+        data (dict): {ingredient_key: list of pandas DataFrames}
+        window_size (int): window size in rows
+        stride (int): step size for windowing
+        target_channels (list): optional subset of columns to retain
+
     Returns:
-        X: numpy array of shape [num_windows, window_size, num_channels]
+        train_X, train_y, test_X, test_y: np.ndarrays
     """
+    import numpy as np
     import random
 
     train_X, train_y = [], []
@@ -567,15 +575,301 @@ def process_directory_to_windows(data, window_size=30, stride=30, target_channel
 
     for ingredient, dfs in data.items():
         label_vector = parse_ingredient_label(ingredient)
+        label_vector = np.asarray(label_vector, dtype=float)
+
+        if sum(label_vector) < 0.99:
+            print(ingredient)
+            raise ValueError
+
+        is_mixture = np.count_nonzero(label_vector > 0) > 1
+
+        # if random.random() < 0.2 and is_mixture:
+        #     destination_X = test_X
+        #     destination_y = test_y
+        # else:
+        #     destination_X = train_X
+        #     destination_y = train_y
+
+        # if testing:
+        #     destination_X = test_X
+        #     destination_y = test_y
+
         for df in dfs:
             if target_channels:
                 df = df[[c for c in target_channels if c in df.columns]]
-            windows = split_into_windows(df, window_size, stride)
-            if random.random() < 0.2:
-                test_X.extend(windows)
-                test_y.extend([label_vector] * len(windows))  # repeat label for all windows
-            else:
-                train_X.extend(windows)
-                train_y.extend([label_vector] * len(windows))  # repeat label for all windows
 
-    return np.array(train_X), np.array(train_y), np.array(test_X), np.array(test_y)
+            df = df - df.iloc[0]
+
+            windows = split_into_windows(df, window_size, stride)
+            labels = [label_vector] * len(windows)
+
+            if random.random() < ratio or testing:
+                destination_X = test_X
+                destination_y = test_y
+            else:
+                destination_X = train_X
+                destination_y = train_y
+
+            destination_X.extend(windows)
+            destination_y.extend(labels)
+            
+
+    return (
+        np.asarray(train_X),
+        np.asarray(train_y),
+        np.asarray(test_X),
+        np.asarray(test_y),
+    )
+
+
+def prepare_data_gradient(
+    data,
+    dropped_columns=None,
+    period_len=50,
+    trim_len=10,
+    le=None,
+    contrastive_learning=False,
+):
+    X = []
+    y = []
+
+    print(data.items())
+
+    for ingredient, dfs in data.items():
+        for df in dfs:
+            df = df.copy()
+
+            # Drop specified columns (safely)
+            if dropped_columns:
+                df.drop(
+                    columns=[col for col in dropped_columns if col in df.columns],
+                    inplace=True,
+                )
+
+            # Compute gradient (difference)
+            diff_data = df.diff(periods=period_len)
+            diff_data = diff_data.iloc[
+                period_len:
+            ]  # Drop first `period_len` rows with NaNs
+
+            # Trim first and last `trim_len` rows if enough data
+            if diff_data.shape[0] > 2 * trim_len:
+                diff_data = diff_data.iloc[trim_len:-trim_len]
+
+            # Keep only sensor columns
+            sensor_cols = [
+                col
+                for col in diff_data.columns
+                if (dropped_columns is None) or (col not in dropped_columns)
+            ]
+
+            # Remove rows where all sensors are zero
+            diff_data = diff_data[~(diff_data[sensor_cols] == 0).all(axis=1)]
+
+            if diff_data.shape[0] > 0:
+                X.append(diff_data[sensor_cols].values)
+                y.extend([ingredient] * diff_data.shape[0])
+
+    X_concat = np.concatenate(X, axis=0)  # shape: (total_rows, num_features)
+
+    if le is None:
+        le = LabelEncoder()
+        y_encoded = le.fit_transform(y)
+    else:
+        y_encoded = le.transform(y)
+
+    return X_concat, y_encoded, le
+
+
+def load_smell_recognition_data(directory_path):
+    ALL_INGREDIENTS = [
+        'banana', 'orange', 'pear', 'apple', 'mango', 'peach',
+        'strawberry', 'clove', 'coriander', 'garlic', 'almond', 'cumin'
+    ]
+
+    filenames = set()
+
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            filenames.add(file.split(".")[0])  # Remove extension
+
+    data = []
+
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            name = file.split(".")[0]
+            name_cleaned = name.lower().replace("__", "_").replace("-", "_")
+
+            # Load your CSV (features) first
+            df = pd.read_csv(os.path.join(root, file))
+
+            # Initialize all zeros
+            ingredient_percentages = {ingredient: 0 for ingredient in ALL_INGREDIENTS}
+
+            parts = name_cleaned.split("_")
+
+            def fill_from_pairs(parts_list):
+                """Parse ingredient/percentage pairs like ['banana','50','mango','50']."""
+                for i in range(0, len(parts_list), 2):
+                    ing = parts_list[i]
+                    pct_str = parts_list[i + 1]
+                    if not ing.isalpha():
+                        raise ValueError(f"Invalid ingredient token '{ing}' in filename '{name}'.")
+                    if not pct_str.isdigit():
+                        raise ValueError(f"Invalid percentage token '{pct_str}' in filename '{name}'.")
+                    pct = int(pct_str)
+                    if not (0 <= pct <= 100):
+                        raise ValueError(f"Percentage out of range {pct} in filename '{name}'.")
+                    if ing in ingredient_percentages:
+                        ingredient_percentages[ing] = pct
+                    else:
+                        raise ValueError(f"Unknown ingredient '{ing}' in filename '{name}'.")
+
+            parsed = False
+
+            # Case A: clean even-length list of pairs
+            if len(parts) % 2 == 0 and len(parts) > 0:
+                try:
+                    fill_from_pairs(parts)
+                    parsed = True
+                except ValueError:
+                    parsed = False  # fall back to regex
+
+            # Case B: fallback — match mashed styles like 'banana50_orange50'
+            if not parsed:
+                pairs = re.findall(r'([a-z]+)[_]?(\d+)', name_cleaned)
+                if pairs:
+                    # Ensure everything in the filename is covered by the pairs we found
+                    # (optional strictness). We'll trust pairs if present.
+                    for ing, pct_str in pairs:
+                        pct = int(pct_str)
+                        if not (0 <= pct <= 100):
+                            raise ValueError(f"Percentage out of range {pct} in filename '{name}'.")
+                        if ing in ingredient_percentages:
+                            ingredient_percentages[ing] = pct
+                        else:
+                            raise ValueError(f"Unknown ingredient '{ing}' in filename '{name}'.")
+                    parsed = True
+
+            # Case C: single ingredient with no percentage -> assume 100
+            if not parsed:
+                # If all tokens are alpha and only one unique ingredient, assume 100
+                if all(tok.isalpha() for tok in parts) and len(set(parts)) == 1:
+                    ing = parts[0]
+                    if ing in ingredient_percentages:
+                        ingredient_percentages[ing] = 100
+                        parsed = True
+
+            if not parsed:
+                raise ValueError(f"Unrecognized filename format: '{name}'")
+
+            label_vector = [ingredient_percentages[ing] / 100 for ing in ALL_INGREDIENTS]
+
+            # Validate sum is exactly 100
+            total = sum(label_vector)
+            if total < 0.99:
+                raise ValueError(
+                    f"Percentages must sum to 100 (got {total}) for file '{file}' "
+                    f"-> vector {label_vector}"
+                )
+
+            data.append((df[:600], label_vector))
+
+    return data
+
+
+def load_smell_recognition_data_test(directory_path):
+    ALL_INGREDIENTS = [
+        'banana', 'orange', 'pear', 'apple', 'mango', 'peach',
+        'strawberry', 'clove', 'coriander', 'garlic', 'almond', 'cumin'
+    ]
+
+    filenames = set()
+
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            filenames.add(file.split(".")[0])  # Remove extension
+
+    data = []
+
+    for root, dirs, files in os.walk(directory_path):
+        for file in files:
+            name = file.split(".")[0]
+            name_cleaned = name.lower().replace("__", "_").replace("-", "_")
+
+            # Load your CSV (features) first
+            df = pd.read_csv(os.path.join(root, file))
+
+            # Initialize all zeros
+            ingredient_percentages = {ingredient: 0 for ingredient in ALL_INGREDIENTS}
+
+            parts = name_cleaned.split("_")
+
+            def fill_from_pairs(parts_list):
+                """Parse ingredient/percentage pairs like ['banana','50','mango','50']."""
+                for i in range(0, len(parts_list), 2):
+                    ing = parts_list[i]
+                    pct_str = parts_list[i + 1]
+                    if not ing.isalpha():
+                        raise ValueError(f"Invalid ingredient token '{ing}' in filename '{name}'.")
+                    if not pct_str.isdigit():
+                        raise ValueError(f"Invalid percentage token '{pct_str}' in filename '{name}'.")
+                    pct = int(pct_str)
+                    if not (0 <= pct <= 100):
+                        raise ValueError(f"Percentage out of range {pct} in filename '{name}'.")
+                    if ing in ingredient_percentages:
+                        ingredient_percentages[ing] = pct
+                    else:
+                        raise ValueError(f"Unknown ingredient '{ing}' in filename '{name}'.")
+
+            parsed = False
+
+            # Case A: clean even-length list of pairs
+            if len(parts) % 2 == 0 and len(parts) > 0:
+                try:
+                    fill_from_pairs(parts)
+                    parsed = True
+                except ValueError:
+                    parsed = False  # fall back to regex
+
+            # Case B: fallback — match mashed styles like 'banana50_orange50'
+            if not parsed:
+                pairs = re.findall(r'([a-z]+)[_]?(\d+)', name_cleaned)
+                if pairs:
+                    # Ensure everything in the filename is covered by the pairs we found
+                    # (optional strictness). We'll trust pairs if present.
+                    for ing, pct_str in pairs:
+                        pct = int(pct_str)
+                        if not (0 <= pct <= 100):
+                            raise ValueError(f"Percentage out of range {pct} in filename '{name}'.")
+                        if ing in ingredient_percentages:
+                            ingredient_percentages[ing] = pct
+                        else:
+                            raise ValueError(f"Unknown ingredient '{ing}' in filename '{name}'.")
+                    parsed = True
+
+            # Case C: single ingredient with no percentage -> assume 100
+            if not parsed:
+                # If all tokens are alpha and only one unique ingredient, assume 100
+                if all(tok.isalpha() for tok in parts) and len(set(parts)) == 1:
+                    ing = parts[0]
+                    if ing in ingredient_percentages:
+                        ingredient_percentages[ing] = 100
+                        parsed = True
+
+            if not parsed:
+                raise ValueError(f"Unrecognized filename format: '{name}'")
+
+            label_vector = [ingredient_percentages[ing] / 100 for ing in ALL_INGREDIENTS]
+
+            # Validate sum is exactly 100
+            total = sum(label_vector)
+            if total < 0.99:
+                raise ValueError(
+                    f"Percentages must sum to 100 (got {total}) for file '{file}' "
+                    f"-> vector {label_vector}"
+                )
+
+            data.append((df[:600], label_vector))
+
+    return data
