@@ -85,6 +85,7 @@ class SmellTemporalCNN(nn.Module):
         self.proj   = nn.Conv1d(base*2, 128, kernel_size=1)
         # global pooling over time keeps long-range info
         self.head   = nn.Linear(128, num_classes)
+        self.presence_head = nn.Linear(128, num_classes)
 
     def forward(self, x):
         # x: (B, 1, T, F) or (B, T, F). Convert to (B, C=F, T)
@@ -97,8 +98,9 @@ class SmellTemporalCNN(nn.Module):
         h = self.block2(h)
         h = self.proj(h)                 # (B,128,T)
         h = F.adaptive_avg_pool1d(h, 1).squeeze(-1)  # (B,128)
-        logits = self.head(h)            # (B,C)
-        return logits
+        logits = self.head(h)
+        presence_logits = self.presence_head(h)
+        return logits, presence_logits
 
 
 # -----------------------------
