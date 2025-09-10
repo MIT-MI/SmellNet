@@ -2,20 +2,12 @@
 # Evaluate a saved SmellNet model (TCN / LSTM / Transformer) without training.
 # Supports evaluating on PURE-only or MIXTURE-only subsets of val/test.
 #
-# Examples:
-#   python eval_saved_models.py \
-#       --weights models_all/std/transformer_lr3e-4_wd3e-4_a1.0_b0.8_sp0.5_k4_lag0_s42.pt \
-#       --train-dir /path/to/train --test-dir /path/to/test \
-#       --arch transformer --batch-size 32 --max-len 600 --lag 0
-#
-#   # Pure-only:
-#   python eval_saved_models.py ... --eval-pure-only
-#
-#   # Mixture-only:
-#   python eval_saved_models.py ... --eval-mixture-only
-#
-# If you trained with no-standardization, add --no-standardize for evaluation.
-import argparse, random
+# Now supports:
+#   --per-class-save <prefix>  -> writes <prefix>_VAL.csv and <prefix>_TEST.csv
+#   --no-temp                  -> skip temperature scaling
+#   --calibrate-on all|subset  -> where to fit temp (default: subset)
+#   --thresh-on    all|subset  -> where to sweep presence threshold (default: subset)
+import argparse, random, math
 from dataclasses import dataclass
 from typing import List, Tuple, Optional
 
@@ -25,6 +17,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 from torch.utils.data import Dataset, DataLoader, Subset
 from sklearn.preprocessing import StandardScaler
+import json, csv, os
 
 # --------- Try to import project modules (fallbacks included) ---------
 try:
@@ -148,6 +141,89 @@ def dyn_topk(pred: torch.Tensor, tgt: torch.Tensor) -> float:
         total += P
     return 100.0 * hits / max(total, 1)
 
+
+def _load_class_names(n_classes: int, path: Optional[str]):
+    if path is None:
+        return [f"class_{i}" for i in range(n_classes)]
+    try:
+        if path.lower().endswith(".json"):
+            with open(path, "r") as f:
+                names = json.load(f)
+        else:
+            with open(path, "r") as f:
+                names = [ln.strip() for ln in f if ln.strip()]
+        if len(names) != n_classes:
+            print(f"[WARN] {path} has {len(names)} names but model has {n_classes} classes. Using indices.")
+            return [f"class_{i}" for i in range(n_classes)]
+        return names
+    except Exception as e:
+        print(f"[WARN] Failed to read class names from {path}: {e}. Using indices.")
+        return [f"class_{i}" for i in range(n_classes)]
+
+@torch.no_grad()
+def _collect_probs_and_targets(model, loader, device, temp_scaler=None, has_presence_head=True):
+    model.eval()
+    all_pred, all_tgt = [], []
+    for x, y in loader:
+        x = x.to(device); y = y.to(device)
+        if has_presence_head:
+            logits, _ = model(x)
+        else:
+            logits = model(x)
+        if temp_scaler is not None:
+            logits = temp_scaler(logits)
+        probs = torch.softmax(logits, dim=1)
+        all_pred.append(probs.cpu())
+        all_tgt.append(y.cpu())
+    return torch.cat(all_pred, 0), torch.cat(all_tgt, 0)
+
+def _per_class_metrics(pred: torch.Tensor, tgt: torch.Tensor, eps: float, thr: float):
+    B, C = pred.shape
+    out = []
+    with torch.no_grad():
+        for c in range(C):
+            gt = tgt[:, c]
+            pd = pred[:, c]
+            mask = gt > eps
+            nz = int(mask.sum().item())
+            if nz == 0:
+                out.append({"mae": float("nan"), "mse": float("nan"), "nonzero": 0, "within": float("nan")})
+                continue
+            diff = (pd[mask] - gt[mask]).abs()
+            mae = float(diff.mean().item())
+            mse = float(((pd[mask] - gt[mask]) ** 2).mean().item())
+            within = float((diff < thr).float().mean().item())
+            out.append({"mae": mae, "mse": mse, "nonzero": nz, "within": within})
+    return out
+
+def _print_per_class_table(title: str, names: list[str], stats: list[dict], thr: float):
+    bar = "-" * 90
+    print(bar)
+    print(title)
+    print(bar)
+    print(f"{'Ingredient':<16} | {'MAE':>7} | {'MSE':>10} | {'Non-zero GTs':>12} | Within {thr:.1f}")
+    print("-" * 90)
+    for name, st in zip(names, stats):
+        if st["nonzero"] == 0:
+            print(f"{name:<16} | {'nan':>7} | {'nan':>10} | {0:>12} | {'N/A':>10}")
+        else:
+            within_pct = 100.0 * st["within"]
+            k_in = int(round(st["within"] * st["nonzero"]))
+            print(f"{name:<16} | {st['mae']:>7.4f} | {st['mse']:>10.6f} | {st['nonzero']:>12} | "
+                  f"{k_in}/{st['nonzero']} ({within_pct:.1f}%)")
+
+def _save_per_class_csv(path: str, names: list[str], stats: list[dict], thr: float):
+    os.makedirs(os.path.dirname(path), exist_ok=True) if os.path.dirname(path) else None
+    import math as _m
+    with open(path, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["ingredient", "mae", "mse", "nonzero_gts", f"within_{thr}"])
+        for name, st in zip(names, stats):
+            mae = "" if _m.isnan(st["mae"]) else f"{st['mae']:.6f}"
+            mse = "" if _m.isnan(st["mse"]) else f"{st['mse']:.6f}"
+            within = "" if _m.isnan(st["within"]) else f"{st['within']:.4f}"
+            w.writerow([name, mae, mse, st["nonzero"], within])
+
 class TempScaler(nn.Module):
     def __init__(self): super().__init__(); self.t = nn.Parameter(torch.ones(1))
     def forward(self, logits): return logits / self.t.clamp_min(1e-3)
@@ -266,6 +342,22 @@ def main():
     ap.add_argument("--eval-pure-only", action="store_true")
     ap.add_argument("--eval-mixture-only", action="store_true")
     ap.add_argument("--pure-eps", type=float, default=1e-6)
+    # per-class
+    ap.add_argument("--per-class", action="store_true",
+                help="Print per-ingredient analysis (MAE, MSE, non-zero count, within-threshold) for VAL/TEST.")
+    ap.add_argument("--thr-acc", type=float, default=0.2,
+                    help="Absolute error tolerance for 'Within x' accuracy (default: 0.2).")
+    ap.add_argument("--class-names", type=str, default=None,
+                help="Optional path to class names (JSON list or TXT: one name per line).")
+    ap.add_argument("--per-class-save", type=str, default=None,
+                help="Prefix to save per-class CSVs as <prefix>_VAL.csv and <prefix>_TEST.csv")
+    # calibration controls
+    ap.add_argument("--no-temp", action="store_true",
+                help="Skip temperature scaling.")
+    ap.add_argument("--calibrate-on", choices=["subset","all"], default="subset",
+                help="Fit temperature on validation 'subset' (PURE/MIX) or 'all' validation data.")
+    ap.add_argument("--thresh-on", choices=["subset","all"], default="subset",
+                help="Sweep presence threshold on 'subset' or 'all' validation data.")
 
     args = ap.parse_args()
     set_seed(args.seed)
@@ -301,7 +393,6 @@ def main():
     # Build model
     in_ch = val_ds.X.shape[-1]
     arch = args.arch
-    # infer if not provided
     if arch is None:
         wname = args.weights.lower()
         if "transformer" in wname: arch = "transformer"
@@ -335,31 +426,35 @@ def main():
     if args.eval_pure_only:
         vidx = pure_indices_from_dataset(val_ds, eps=args.pure_eps)
         tidx = pure_indices_from_dataset(test_ds, eps=args.pure_eps) if test_ds is not None else []
+        subset_name = "PURE"
     elif args.eval_mixture_only:
         vidx = mixture_indices_from_dataset(val_ds, eps=args.pure_eps)
         tidx = mixture_indices_from_dataset(test_ds, eps=args.pure_eps) if test_ds is not None else []
+        subset_name = "MIX"
     else:
-        vidx, tidx = None, None
+        vidx, tidx, subset_name = None, None, "ALL"
 
-    if args.eval_pure_only or args.eval_mixture_only:
-        subset_name = "PURE" if args.eval_pure_only else "MIX"
-        print(f"[SUBSET] {subset_name} (eps={args.pure_eps:g})")
-        if vidx is not None:
-            print(f"[INFO] VAL {len(val_ds)} -> {len(vidx)} samples")
-            if len(vidx) > 0:
-                eval_val_loader = DataLoader(Subset(val_ds, vidx), batch_size=args.batch_size, shuffle=False)
-        if eval_test_loader is not None and tidx is not None:
-            print(f"[INFO] TEST {len(test_ds)} -> {len(tidx)} samples")
-            if len(tidx) > 0:
-                eval_test_loader = DataLoader(Subset(test_ds, tidx), batch_size=args.batch_size, shuffle=False)
-    else:
-        print("[SUBSET] ALL")
+    print(f"[SUBSET] {subset_name} (eps={args.pure_eps:g})")
+    if vidx is not None:
+        print(f"[INFO] VAL {len(val_ds)} -> {len(vidx)} samples")
+        if len(vidx) > 0:
+            eval_val_loader = DataLoader(Subset(val_ds, vidx), batch_size=args.batch_size, shuffle=False)
+    if eval_test_loader is not None and tidx is not None:
+        print(f"[INFO] TEST {len(test_ds)} -> {len(tidx)} samples")
+        if len(tidx) > 0:
+            eval_test_loader = DataLoader(Subset(test_ds, tidx), batch_size=args.batch_size, shuffle=False)
 
-    # Calibration on eval-val, threshold sweep, evaluate
+    # Calibration / thresholds
     has_presence_head = hasattr(model, "presence_head")
-    temp_scaler = fit_temperature(model, eval_val_loader, device, has_presence_head=has_presence_head)
-    best_t, _ = sweep_presence_thresh(model, eval_val_loader, device, temp_scaler=temp_scaler, has_presence_head=has_presence_head)
+    calib_loader  = eval_val_loader if args.calibrate_on == "subset" else val_loader
+    thresh_loader = eval_val_loader if args.thresh_on    == "subset" else val_loader
 
+    temp_scaler = None
+    if not args.no_temp:
+        temp_scaler = fit_temperature(model, calib_loader, device, has_presence_head=has_presence_head)
+    best_t, _ = sweep_presence_thresh(model, thresh_loader, device, temp_scaler=temp_scaler, has_presence_head=has_presence_head)
+
+    # Evaluate
     val_out = evaluate(model, eval_val_loader, device, temp_scaler=temp_scaler, has_presence_head=has_presence_head, present_thresh=best_t)
     print(f"[VAL thresh={best_t:.2f}] KL={val_out.kl:.4f} MAE={val_out.mae:.4f} @0.1={val_out.thr01:.3f} @0.2={val_out.thr02:.3f} "
           f"dynTopK={val_out.dyn_topk:.2f}% Pres(F1/Prec/Rec)={val_out.presence_f1 if val_out.presence_f1 is not None else float('nan'):.3f}/"
@@ -372,6 +467,35 @@ def main():
               f"dynTopK={test_out.dyn_topk:.2f}% Pres(F1/Prec/Rec)={test_out.presence_f1 if test_out.presence_f1 is not None else float('nan'):.3f}/"
               f"{test_out.presence_precision if test_out.presence_precision is not None else float('nan'):.3f}/"
               f"{test_out.presence_recall if test_out.presence_recall is not None else float('nan'):.3f}")
+
+    # Per-class analysis
+    if args.per_class:
+        names = _load_class_names(num_classes, args.class_names)
+
+        # VAL
+        val_pred, val_tgt = _collect_probs_and_targets(model, eval_val_loader, device,
+                                                       temp_scaler=temp_scaler,
+                                                       has_presence_head=has_presence_head)
+        val_stats = _per_class_metrics(val_pred, val_tgt, eps=args.pure_eps, thr=args.thr_acc)
+        _print_per_class_table("PER-INGREDIENT ANALYSIS (VAL)", names, val_stats, args.thr_acc)
+        if args.per_class_save:
+            _save_per_class_csv(args.per_class_save + "_VAL.csv", names, val_stats, args.thr_acc)
+        else:
+            os.makedirs("analysis_eval", exist_ok=True)
+            _save_per_class_csv("analysis_eval/per_class_val.csv", names, val_stats, args.thr_acc)
+
+        # TEST
+        if eval_test_loader is not None:
+            test_pred, test_tgt = _collect_probs_and_targets(model, eval_test_loader, device,
+                                                             temp_scaler=temp_scaler,
+                                                             has_presence_head=has_presence_head)
+            test_stats = _per_class_metrics(test_pred, test_tgt, eps=args.pure_eps, thr=args.thr_acc)
+            _print_per_class_table("PER-INGREDIENT ANALYSIS (TEST)", names, test_stats, args.thr_acc)
+            if args.per_class_save:
+                _save_per_class_csv(args.per_class_save + "_TEST.csv", names, test_stats, args.thr_acc)
+            else:
+                os.makedirs("analysis_eval", exist_ok=True)
+                _save_per_class_csv("analysis_eval/per_class_test.csv", names, test_stats, args.thr_acc)
 
 if __name__ == "__main__":
     main()
