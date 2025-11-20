@@ -1,0 +1,105 @@
+_wandb:
+    value:
+        cli_version: 0.22.3
+        e:
+            00kiwqewgq8ygou3jddlyelkpbpu9op7:
+                codePath: ts_classification/_run.py
+                codePathLocal: ts_classification/_run.py
+                cpu_count: 64
+                cpu_count_logical: 128
+                cudaVersion: "13.0"
+                disk:
+                    /:
+                        total: "931234627584"
+                        used: "625502883840"
+                email: keane.ongweiyang@u.nus.edu
+                executable: /home/keaneong/scratch/keane/miniconda3/envs/mm_ts/bin/python
+                git:
+                    commit: a420d51e0382a233c49d1c3b96904e8a92f252af
+                    remote: https://github.com/MIT-MI/SmellNet.git
+                gpu: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                gpu_count: 8
+                gpu_nvidia:
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-610d2053-81e2-7ed3-97b6-67c7a438b0f9
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-05de2d81-6754-b7b5-783c-bfbc9c0b835c
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-83f7af2c-b182-ec47-4acb-1515b41ff535
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-8699248c-95e2-6e94-f681-189546dd027f
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-4470edaa-bfc7-7407-a916-49ab62b97bb4
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-4cc79eb2-5208-5af7-167c-5f7c694196b7
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-36887cd5-d132-ef47-8250-6bf20f07638f
+                    - architecture: Blackwell
+                      cudaCores: 24064
+                      memoryTotal: "102641958912"
+                      name: NVIDIA RTX PRO 6000 Blackwell Max-Q Workstation Edition
+                      uuid: GPU-b5c69f4c-95d2-c6de-5980-4366814cfe9b
+                host: mib
+                memory:
+                    total: "1623020105728"
+                os: Linux-6.8.0-79-generic-x86_64-with-glibc2.39
+                program: /home/keaneong/SmellNet/ts_classification/_run.py
+                python: CPython 3.12.12
+                root: /home/keaneong/SmellNet
+                startedAt: "2025-11-20T22:11:36.470274Z"
+                writerId: 00kiwqewgq8ygou3jddlyelkpbpu9op7
+        m: []
+        python_version: 3.12.12
+        t:
+            "1":
+                - 1
+                - 5
+                - 53
+                - 100
+            "2":
+                - 1
+                - 5
+                - 53
+                - 100
+            "3":
+                - 15
+                - 16
+            "4": 3.12.12
+            "5": 0.22.3
+            "12": 0.22.3
+            "13": linux-x86_64
+batch_size:
+    value: 2
+epochs:
+    value: 10
+grad_clip:
+    value: 3
+learning_rate:
+    value: 0.001
+save_frequency:
+    value: 1
+val_frequency:
+    value: 1
+weight_decay:
+    value: 1e-05

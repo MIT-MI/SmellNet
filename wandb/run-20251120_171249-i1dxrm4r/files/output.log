@@ -1,0 +1,44 @@
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+
+==================================================
+Testing on test set...
+==================================================
+
+Test Results:
+  Loss: 8.9528
+  Accuracy: 75.00%
+  F1 (weighted): 0.6667
+  F1 (macro): 0.6667
+  Precision (weighted): 0.6250
+  Recall (weighted): 0.7500
+Training complete: {'train_accuracy': 1.0, 'train_f1_weighted': 1.0, 'train_f1_macro': 1.0, 'train_f1_micro': 1.0, 'train_precision_weighted': 1.0, 'train_precision_macro': 1.0, 'train_precision_micro': 1.0, 'train_recall_weighted': 1.0, 'train_recall_macro': 1.0, 'train_recall_micro': 1.0, 'train_loss': 1.1026807378300418e-06, 'test_accuracy': 0.75, 'test_f1_weighted': 0.6666666666666666, 'test_f1_macro': 0.6666666666666666, 'test_f1_micro': 0.75, 'test_precision_weighted': 0.625, 'test_precision_macro': 0.625, 'test_precision_micro': 0.75, 'test_recall_weighted': 0.75, 'test_recall_macro': 0.75, 'test_recall_micro': 0.75, 'test_f1_class_banana': 1.0, 'test_precision_class_banana': 1.0, 'test_recall_class_banana': 1.0, 'test_f1_class_apple': 1.0, 'test_precision_class_apple': 1.0, 'test_recall_class_apple': 1.0, 'test_f1_class_mango': 0.0, 'test_precision_class_mango': 0.0, 'test_recall_class_mango': 0.0, 'test_f1_class_mandarin_orange': 0.6666666666666666, 'test_precision_class_mandarin_orange': 0.5, 'test_recall_class_mandarin_orange': 1.0, 'test_loss': 8.952768988907337}
+Saved metadata to /home/keaneong/SmellNet/ts_classification/ckpts/metadata.json

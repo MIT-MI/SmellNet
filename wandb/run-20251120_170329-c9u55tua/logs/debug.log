@@ -1,0 +1,23 @@
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_setup.py:_flush():81] Current SDK version is 0.22.3
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_setup.py:_flush():81] Configure stats pid to 429771
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_setup.py:_flush():81] Loading settings from /home/keaneong/.config/wandb/settings
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_setup.py:_flush():81] Loading settings from /home/keaneong/SmellNet/wandb/settings
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_setup.py:_flush():81] Loading settings from environment variables
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_init.py:setup_run_log_directory():706] Logging user logs to /home/keaneong/SmellNet/wandb/run-20251120_170329-c9u55tua/logs/debug.log
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_init.py:setup_run_log_directory():707] Logging internal logs to /home/keaneong/SmellNet/wandb/run-20251120_170329-c9u55tua/logs/debug-internal.log
+2025-11-20 17:03:29,779 INFO    MainThread:429771 [wandb_init.py:init():833] calling init triggers
+2025-11-20 17:03:29,780 INFO    MainThread:429771 [wandb_init.py:init():838] wandb.init called with sweep_config: {}
+config: {'epochs': 10, 'learning_rate': 0.0001, 'weight_decay': 1e-05, 'grad_clip': 1.0, 'batch_size': 16, 'val_frequency': 1, 'save_frequency': 1, '_wandb': {}}
+2025-11-20 17:03:29,780 INFO    MainThread:429771 [wandb_init.py:init():881] starting backend
+2025-11-20 17:03:29,987 INFO    MainThread:429771 [wandb_init.py:init():884] sending inform_init request
+2025-11-20 17:03:29,993 INFO    MainThread:429771 [wandb_init.py:init():892] backend started and connected
+2025-11-20 17:03:29,995 INFO    MainThread:429771 [wandb_init.py:init():962] updated telemetry
+2025-11-20 17:03:30,005 INFO    MainThread:429771 [wandb_init.py:init():986] communicating run to backend with 90.0 second timeout
+2025-11-20 17:03:31,807 INFO    MainThread:429771 [wandb_init.py:init():1033] starting run threads in backend
+2025-11-20 17:03:32,031 INFO    MainThread:429771 [wandb_run.py:_console_start():2506] atexit reg
+2025-11-20 17:03:32,031 INFO    MainThread:429771 [wandb_run.py:_redirect():2354] redirect: wrap_raw
+2025-11-20 17:03:32,031 INFO    MainThread:429771 [wandb_run.py:_redirect():2423] Wrapping output streams.
+2025-11-20 17:03:32,031 INFO    MainThread:429771 [wandb_run.py:_redirect():2446] Redirects installed.
+2025-11-20 17:03:32,035 INFO    MainThread:429771 [wandb_init.py:init():1073] run started, returning control to user process
+2025-11-20 17:03:51,393 INFO    wandb-AsyncioManager-main:429771 [service_client.py:_forward_responses():80] Reached EOF.
+2025-11-20 17:03:51,393 INFO    wandb-AsyncioManager-main:429771 [mailbox.py:close():137] Closing mailbox, abandoning 1 handles.

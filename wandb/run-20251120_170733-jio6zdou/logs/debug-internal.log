@@ -1,0 +1,11 @@
+{"time":"2025-11-20T17:07:34.157238672-05:00","level":"INFO","msg":"stream: starting","core version":"0.22.3"}
+{"time":"2025-11-20T17:07:39.495448676-05:00","level":"INFO","msg":"stream: created new stream","id":"jio6zdou"}
+{"time":"2025-11-20T17:07:39.495548445-05:00","level":"INFO","msg":"handler: started","stream_id":"jio6zdou"}
+{"time":"2025-11-20T17:07:39.495640252-05:00","level":"INFO","msg":"stream: started","id":"jio6zdou"}
+{"time":"2025-11-20T17:07:39.495661544-05:00","level":"INFO","msg":"writer: started","stream_id":"jio6zdou"}
+{"time":"2025-11-20T17:07:39.495662676-05:00","level":"INFO","msg":"sender: started","stream_id":"jio6zdou"}
+{"time":"2025-11-20T17:07:46.597152533-05:00","level":"INFO","msg":"stream: closing","id":"jio6zdou"}
+{"time":"2025-11-20T17:07:46.875527616-05:00","level":"INFO","msg":"fileTransfer: Close: file transfer manager closed"}
+{"time":"2025-11-20T17:07:47.019712537-05:00","level":"INFO","msg":"handler: closed","stream_id":"jio6zdou"}
+{"time":"2025-11-20T17:07:47.019896192-05:00","level":"INFO","msg":"sender: closed","stream_id":"jio6zdou"}
+{"time":"2025-11-20T17:07:47.019909221-05:00","level":"INFO","msg":"stream: closed","id":"jio6zdou"}

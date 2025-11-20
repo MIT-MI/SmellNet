@@ -1,0 +1,9 @@
+# Core dependencies
+torch>=1.7.0
+numpy>=1.19.0
+pandas>=1.1.0
+scikit-learn>=0.24.0  # Required for metrics computation (F1, precision, recall)
+pyyaml>=5.4.0
+
+# Optional dependencies
+wandb>=0.15.0  # For experiment tracking and logging

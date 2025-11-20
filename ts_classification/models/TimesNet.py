@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.fft
-from layers.Embed import DataEmbedding
-from layers.Conv_Blocks import Inception_Block_V1
+from .layers.Embed import DataEmbedding
+from .layers.Conv_Blocks import Inception_Block_V1
 
 
 def FFT_for_Period(x, k=2):
@@ -210,6 +210,6 @@ class Model(nn.Module):
             dec_out = self.anomaly_detection(x_enc)
             return dec_out  # [B, L, D]
         if self.task_name == 'classification':
-            dec_out = self.classification(x_enc, x_mark_enc)
+            dec_out = self.classification(x_enc, x_mark_enc) # (Batch size (number of samples), seq_len (number of time steps), num_features (i.e. 3 sensors) )
             return dec_out  # [B, N]
         return None

@@ -98,10 +98,22 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         help="Weight decay.",
     )
     parser.add_argument(
+        "--train-split",
+        type=float,
+        default=config_defaults.get("train_split", 0.7),
+        help="Training split ratio.",
+    )
+    parser.add_argument(
         "--val-split",
         type=float,
-        default=config_defaults.get("val_split", 0.2),
+        default=config_defaults.get("val_split", 0.15),
         help="Validation split ratio.",
+    )
+    parser.add_argument(
+        "--test-split",
+        type=float,
+        default=config_defaults.get("test_split", 0.15),
+        help="Test split ratio.",
     )
     parser.add_argument(
         "--num-workers",
@@ -194,6 +206,58 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         action="store_true",
         help="Enable torch.cuda.amp mixed precision.",
     )
+    parser.add_argument(
+        "--val-frequency",
+        type=int,
+        default=config_defaults.get("val_frequency", 1),
+        help="Validate every N epochs.",
+    )
+    parser.add_argument(
+        "--save-frequency",
+        type=int,
+        default=config_defaults.get("save_frequency", 1),
+        help="Save checkpoint every N epochs.",
+    )
+    parser.add_argument(
+        "--save-best-only",
+        action="store_true",
+        help="Only save best checkpoint.",
+    )
+    parser.add_argument(
+        "--keep-best-k",
+        type=int,
+        default=config_defaults.get("keep_best_k", 3),
+        help="Number of best checkpoints to keep.",
+    )
+    parser.add_argument(
+        "--use-wandb",
+        action="store_true",
+        help="Enable WandB logging.",
+    )
+    parser.add_argument(
+        "--wandb-project",
+        type=str,
+        default=config_defaults.get("wandb_project", "smell-net"),
+        help="WandB project name.",
+    )
+    parser.add_argument(
+        "--wandb-entity",
+        type=str,
+        default=config_defaults.get("wandb_entity"),
+        help="WandB entity (team) name.",
+    )
+    parser.add_argument(
+        "--wandb-run-name",
+        type=str,
+        default=config_defaults.get("wandb_run_name"),
+        help="Custom WandB run name.",
+    )
+    parser.add_argument(
+        "--wandb-tags",
+        nargs="+",
+        default=config_defaults.get("wandb_tags", []),
+        help="Tags for WandB run.",
+    )
     return parser.parse_args()
 
 
@@ -230,14 +294,17 @@ def save_metadata(
     label_map: dict,
     features: List[str],
     args: argparse.Namespace,
+    resolved_classes: List[str],
 ) -> Path:
     metadata = {
         "label_to_id": label_map,
         "features": features,
         "seq_len": args.seq_len,
-        "classes": args.classes,
+        "classes": resolved_classes,  # Save resolved classes, not original spec
         "normalization": args.normalization,
+        "train_split": args.train_split,
         "val_split": args.val_split,
+        "test_split": args.test_split,
         "seed": args.seed,
     }
     save_dir.mkdir(parents=True, exist_ok=True)
@@ -270,11 +337,18 @@ def main() -> None:
     # Now parse full args with config as defaults (CLI args will override config)
     args = parse_args(config)
     
-    # Handle mixed_precision: if config has it as True and CLI didn't set it, use config value
+    # Handle boolean flags: if config has them as True and CLI didn't set them, use config values
     if not args.mixed_precision and config.get("mixed_precision", False):
-        # Check if --mixed-precision was explicitly provided in CLI
         if "--mixed-precision" not in sys.argv:
             args.mixed_precision = True
+
+    if not args.save_best_only and config.get("save_best_only", False):
+        if "--save-best-only" not in sys.argv:
+            args.save_best_only = True
+
+    if not args.use_wandb and config.get("use_wandb", False):
+        if "--use-wandb" not in sys.argv:
+            args.use_wandb = True
     
     # Validate required arguments
     if not args.classes:
@@ -290,41 +364,61 @@ def main() -> None:
         if "classes" in metadata:
             args.classes = metadata["classes"]
         args.normalization = metadata.get("normalization", args.normalization)
+        args.train_split = metadata.get("train_split", args.train_split)
         args.val_split = metadata.get("val_split", args.val_split)
+        args.test_split = metadata.get("test_split", args.test_split)
         args.seed = metadata.get("seed", args.seed)
 
     set_seed(args.seed)
     data_root = args.data_root.expanduser().resolve()
 
+    # Prepare classes for resolution (handle YAML parsing quirks)
+    classes_input = args.classes
+    if isinstance(args.classes, list) and len(args.classes) == 1:
+        arg = args.classes[0]
+        # Check if it's "all" or a number
+        if isinstance(arg, str) and arg.lower() == "all":
+            classes_input = "all"
+        elif isinstance(arg, str) and arg.isdigit():
+            classes_input = int(arg)
+
     train_loader = None
     val_loader = None
+    test_loader = None
     label_map = {}
     features: List[str] = []
+    resolved_classes: List[str] = []
 
     if args.mode == "train":
-        train_loader, val_loader, label_map, features = create_dataloaders(
+        train_loader, val_loader, test_loader, label_map, features, resolved_classes = create_dataloaders(
             data_root=data_root,
-            classes=args.classes,
+            classes=classes_input,
             feature_columns=args.features,
             seq_len=args.seq_len,
             batch_size=args.batch_size,
+            train_split=args.train_split,
             val_split=args.val_split,
+            test_split=args.test_split,
             num_workers=args.num_workers,
             seed=args.seed,
             normalization=args.normalization,
         )
     else:  # eval
-        _, val_loader, label_map, features = create_dataloaders(
+        _, val_loader, test_loader, label_map, features, resolved_classes = create_dataloaders(
             data_root=data_root,
-            classes=args.classes,
+            classes=classes_input,
             feature_columns=args.features,
             seq_len=args.seq_len,
             batch_size=args.batch_size,
+            train_split=0.0,  # No training set for eval mode
             val_split=args.val_split,
+            test_split=args.test_split,
             num_workers=args.num_workers,
             seed=args.seed,
             normalization=args.normalization,
         )
+
+    print(f"Using {len(resolved_classes)} classes: {resolved_classes[:5]}{'...' if len(resolved_classes) > 5 else ''}")
 
     model_config = build_timesnet_config(len(features), len(label_map), args)
     model = TimesNet(model_config)
@@ -342,19 +436,33 @@ def main() -> None:
         log_interval=args.log_interval,
         save_dir=args.save_dir.expanduser().resolve(),
         mixed_precision=args.mixed_precision,
+        val_frequency=args.val_frequency,
+        save_frequency=args.save_frequency,
+        save_best_only=args.save_best_only,
+        keep_best_k=args.keep_best_k,
+        use_wandb=args.use_wandb,
+        wandb_project=args.wandb_project,
+        wandb_entity=args.wandb_entity,
+        wandb_run_name=args.wandb_run_name,
+        wandb_tags=args.wandb_tags,
     )
+
+    # Create inverse label map for class names
+    class_names = [name for name, _ in sorted(label_map.items(), key=lambda x: x[1])]
 
     trainer = ClassificationTrainer(
         model=model,
         train_loader=train_loader,
         val_loader=val_loader,
         config=trainer_config,
+        test_loader=test_loader,
+        class_names=class_names,
     )
 
     if args.mode == "train":
         history = trainer.fit()
         print("Training complete:", history)
-        metadata_path = save_metadata(trainer_config.save_dir, label_map, features, args)
+        metadata_path = save_metadata(trainer_config.save_dir, label_map, features, args, resolved_classes)
         print(f"Saved metadata to {metadata_path}")
     else:
         metrics = trainer.validate(loader=val_loader)

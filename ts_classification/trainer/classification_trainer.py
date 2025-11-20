@@ -1,10 +1,13 @@
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Iterable, Optional
+from typing import Dict, Iterable, List, Optional
 
+import numpy as np
 import torch
 from torch import nn
 from torch.utils.data import DataLoader
+
+from evaluate import compute_metrics
 
 
 @dataclass
@@ -17,6 +20,23 @@ class TrainerConfig:
     save_dir: Path = Path("checkpoints")
     mixed_precision: bool = False
 
+    # Validation frequency control
+    val_frequency: int = 1  # Validate every N epochs
+
+    # Checkpoint save frequency control
+    save_frequency: int = 1  # Save checkpoint every N epochs
+
+    # Save best checkpoint options
+    save_best_only: bool = False  # Only keep best checkpoint
+    keep_best_k: int = 3  # Keep top-K best checkpoints
+
+    # WandB logging
+    use_wandb: bool = False
+    wandb_project: str = "smell-net"
+    wandb_entity: Optional[str] = None
+    wandb_run_name: Optional[str] = None
+    wandb_tags: List[str] = field(default_factory=list)
+
 
 class ClassificationTrainer:
     def __init__(
@@ -26,12 +46,16 @@ class ClassificationTrainer:
         val_loader: Optional[DataLoader],
         config: TrainerConfig,
         device: Optional[str] = None,
+        test_loader: Optional[DataLoader] = None,
+        class_names: Optional[List[str]] = None,
     ) -> None:
         self.model = model
         self.train_loader = train_loader
         self.val_loader = val_loader
+        self.test_loader = test_loader
         self.config = config
         self.device = torch.device(device or ("cuda" if torch.cuda.is_available() else "cpu"))
+        self.class_names = class_names or []
 
         self.model.to(self.device)
         self.criterion = nn.CrossEntropyLoss()
@@ -44,6 +68,32 @@ class ClassificationTrainer:
         self.best_val_acc = 0.0
         self.config.save_dir.mkdir(parents=True, exist_ok=True)
 
+        # Track best checkpoints for management
+        self.best_checkpoints: List[Path] = []
+
+        # Initialize WandB if enabled
+        if self.config.use_wandb:
+            try:
+                import wandb
+                wandb.init(
+                    project=self.config.wandb_project,
+                    entity=self.config.wandb_entity,
+                    name=self.config.wandb_run_name,
+                    tags=self.config.wandb_tags,
+                    config={
+                        "epochs": self.config.num_epochs,
+                        "learning_rate": self.config.learning_rate,
+                        "weight_decay": self.config.weight_decay,
+                        "grad_clip": self.config.grad_clip,
+                        "batch_size": train_loader.batch_size if train_loader else None,
+                        "val_frequency": self.config.val_frequency,
+                        "save_frequency": self.config.save_frequency,
+                    }
+                )
+            except ImportError:
+                print("Warning: wandb is not installed. Disabling WandB logging.")
+                self.config.use_wandb = False
+
     def fit(self) -> Dict[str, float]:
         if self.train_loader is None:
             raise ValueError("Training loader is not provided.")
@@ -53,7 +103,13 @@ class ClassificationTrainer:
             train_metrics = self._run_epoch(epoch)
             history.update({f"train_{k}": v for k, v in train_metrics.items()})
 
-            if self.val_loader is not None:
+            # Validate only at specified frequency or on last epoch
+            should_validate = (
+                self.val_loader is not None
+                and (epoch % self.config.val_frequency == 0 or epoch == self.config.num_epochs)
+            )
+
+            if should_validate:
                 val_metrics = self.validate()
                 history.update({f"val_{k}": v for k, v in val_metrics.items()})
 
@@ -61,18 +117,62 @@ class ClassificationTrainer:
                     self.best_val_acc = val_metrics["accuracy"]
                     self._save_checkpoint(epoch, best=True)
 
-            self._save_checkpoint(epoch, best=False)
+            # Save checkpoint at specified frequency or on last epoch
+            if epoch % self.config.save_frequency == 0 or epoch == self.config.num_epochs:
+                self._save_checkpoint(epoch, best=False)
+
+            # Log to WandB if enabled
+            if self.config.use_wandb:
+                try:
+                    import wandb
+                    wandb_log = {"epoch": epoch}
+                    wandb_log.update({f"train/{k}": v for k, v in train_metrics.items()})
+                    if should_validate:
+                        wandb_log.update({f"val/{k}": v for k, v in val_metrics.items()})
+                        wandb_log["best_val_acc"] = self.best_val_acc
+                    wandb.log(wandb_log)
+                except ImportError:
+                    pass
+
+        # Run final test evaluation if test loader is available
+        if self.test_loader is not None:
+            test_metrics = self.test(include_per_class=True)
+            history.update({f"test_{k}": v for k, v in test_metrics.items()})
+
+            # Log test metrics to WandB
+            if self.config.use_wandb:
+                try:
+                    import wandb
+                    wandb.log({f"test/{k}": v for k, v in test_metrics.items()})
+                except ImportError:
+                    pass
 
         return history
 
-    def validate(self, loader: Optional[DataLoader] = None) -> Dict[str, float]:
+    def validate(
+        self,
+        loader: Optional[DataLoader] = None,
+        include_per_class: bool = False
+    ) -> Dict[str, float]:
+        """
+        Validate the model with comprehensive metrics.
+
+        Args:
+            loader: DataLoader to use (defaults to self.val_loader)
+            include_per_class: If True, include per-class metrics
+
+        Returns:
+            Dictionary with loss, accuracy, F1, precision, recall (weighted/macro/micro)
+            and optionally per-class metrics
+        """
         eval_loader = loader or self.val_loader
         if eval_loader is None:
             raise ValueError("Validation loader is not provided.")
 
         self.model.eval()
         total_loss = 0.0
-        total_correct = 0
+        all_predictions = []
+        all_targets = []
         total_samples = 0
 
         with torch.no_grad():
@@ -83,17 +183,58 @@ class ClassificationTrainer:
 
                 total_loss += loss.item() * targets.size(0)
                 predictions = torch.argmax(logits, dim=1)
-                total_correct += (predictions == targets).sum().item()
+                all_predictions.extend(predictions.cpu().numpy())
+                all_targets.extend(targets.cpu().numpy())
                 total_samples += targets.size(0)
 
         avg_loss = total_loss / max(1, total_samples)
-        accuracy = total_correct / max(1, total_samples)
-        return {"loss": avg_loss, "accuracy": accuracy}
+
+        # Compute comprehensive metrics
+        metrics = compute_metrics(
+            np.array(all_predictions),
+            np.array(all_targets),
+            include_per_class=include_per_class,
+            class_names=self.class_names if include_per_class else None
+        )
+        metrics["loss"] = avg_loss
+
+        return metrics
+
+    def test(self, include_per_class: bool = True) -> Dict[str, float]:
+        """
+        Evaluate the model on the test set with comprehensive metrics.
+
+        Args:
+            include_per_class: If True, include per-class metrics
+
+        Returns:
+            Dictionary with comprehensive metrics
+        """
+        if self.test_loader is None:
+            raise ValueError("Test loader is not provided.")
+
+        print("\n" + "=" * 50)
+        print("Testing on test set...")
+        print("=" * 50)
+
+        test_metrics = self.validate(loader=self.test_loader, include_per_class=include_per_class)
+
+        # Print summary
+        print(f"\nTest Results:")
+        print(f"  Loss: {test_metrics['loss']:.4f}")
+        print(f"  Accuracy: {test_metrics['accuracy']*100:.2f}%")
+        print(f"  F1 (weighted): {test_metrics['f1_weighted']:.4f}")
+        print(f"  F1 (macro): {test_metrics['f1_macro']:.4f}")
+        print(f"  Precision (weighted): {test_metrics['precision_weighted']:.4f}")
+        print(f"  Recall (weighted): {test_metrics['recall_weighted']:.4f}")
+
+        return test_metrics
 
     def _run_epoch(self, epoch: int) -> Dict[str, float]:
         self.model.train()
         total_loss = 0.0
-        total_correct = 0
+        all_predictions = []
+        all_targets = []
         total_samples = 0
 
         for step, batch in enumerate(self.train_loader, start=1):
@@ -115,7 +256,8 @@ class ClassificationTrainer:
 
             total_loss += loss.item() * targets.size(0)
             predictions = torch.argmax(logits, dim=1)
-            total_correct += (predictions == targets).sum().item()
+            all_predictions.extend(predictions.cpu().numpy())
+            all_targets.extend(targets.cpu().numpy())
             total_samples += targets.size(0)
 
             if step % self.config.log_interval == 0:
@@ -124,9 +266,29 @@ class ClassificationTrainer:
                     f"Loss: {loss.item():.4f}"
                 )
 
+                # Log to WandB if enabled
+                if self.config.use_wandb:
+                    try:
+                        import wandb
+                        wandb.log({
+                            "train/step_loss": loss.item(),
+                            "train/step": step + (epoch - 1) * len(self.train_loader),
+                            "epoch": epoch,
+                        })
+                    except ImportError:
+                        pass
+
         avg_loss = total_loss / max(1, total_samples)
-        accuracy = total_correct / max(1, total_samples)
-        return {"loss": avg_loss, "accuracy": accuracy}
+
+        # Compute comprehensive metrics for training
+        metrics = compute_metrics(
+            np.array(all_predictions),
+            np.array(all_targets),
+            include_per_class=False  # Don't include per-class for training (too verbose)
+        )
+        metrics["loss"] = avg_loss
+
+        return metrics
 
     def _move_batch_to_device(self, batch):
         inputs, masks, targets = batch
@@ -145,6 +307,22 @@ class ClassificationTrainer:
         suffix = "best" if best else f"epoch_{epoch}"
         path = self.config.save_dir / f"classifier_{suffix}.pt"
         torch.save(checkpoint, path)
+
+        # Manage best checkpoint storage
+        if best:
+            if self.config.save_best_only:
+                # Remove all previous best checkpoints
+                for old_path in self.best_checkpoints:
+                    if old_path.exists():
+                        old_path.unlink()
+                self.best_checkpoints = [path]
+            else:
+                # Keep top-K best checkpoints
+                self.best_checkpoints.append(path)
+                if len(self.best_checkpoints) > self.config.keep_best_k:
+                    old_path = self.best_checkpoints.pop(0)
+                    if old_path.exists():
+                        old_path.unlink()
 
 
 __all__ = ["ClassificationTrainer", "TrainerConfig"]

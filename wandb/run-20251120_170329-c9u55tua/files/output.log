@@ -1,0 +1,44 @@
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 1 | Step 10/10 | Loss: 4.1151
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 2 | Step 10/10 | Loss: 3.8455
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 3 | Step 10/10 | Loss: 3.6588
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 4 | Step 10/10 | Loss: 2.0187
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 5 | Step 10/10 | Loss: 2.1540
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 6 | Step 10/10 | Loss: 1.2671
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 7 | Step 10/10 | Loss: 0.6664
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 8 | Step 10/10 | Loss: 1.2122
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 9 | Step 10/10 | Loss: 0.3907
+/home/keaneong/SmellNet/ts_classification/trainer/classification_trainer.py:243: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=self.config.mixed_precision):
+Epoch 10 | Step 10/10 | Loss: 0.4007
+
+==================================================
+Testing on test set...
+==================================================
+
+Test Results:
+  Loss: 3.2155
+  Accuracy: 25.00%
+  F1 (weighted): 0.2005
+  F1 (macro): 0.2005
+  Precision (weighted): 0.2007
+  Recall (weighted): 0.2500
+Training complete: {'train_accuracy': 0.9266666666666666, 'train_f1_weighted': 0.9171904761904761, 'train_f1_macro': 0.9171904761904761, 'train_f1_micro': 0.9266666666666666, 'train_precision_weighted': 0.932, 'train_precision_macro': 0.932, 'train_precision_micro': 0.9266666666666666, 'train_recall_weighted': 0.9266666666666666, 'train_recall_macro': 0.9266666666666665, 'train_recall_micro': 0.9266666666666666, 'train_loss': 0.4160102224349976, 'test_accuracy': 0.25, 'test_f1_weighted': 0.20046031746031748, 'test_f1_macro': 0.20046031746031748, 'test_f1_micro': 0.25, 'test_precision_weighted': 0.2007142857142857, 'test_precision_macro': 0.2007142857142857, 'test_precision_micro': 0.25, 'test_recall_weighted': 0.25, 'test_recall_macro': 0.25, 'test_recall_micro': 0.25, 'test_f1_class_allspice': 0.0, 'test_precision_class_allspice': 0.0, 'test_recall_class_allspice': 0.0, 'test_f1_class_almond': 0.5, 'test_precision_class_almond': 0.3333333333333333, 'test_recall_class_almond': 1.0, 'test_f1_class_angelica': 0.0, 'test_precision_class_angelica': 0.0, 'test_recall_class_angelica': 0.0, 'test_f1_class_apple': 0.25, 'test_precision_class_apple': 0.16666666666666666, 'test_recall_class_apple': 0.5, 'test_f1_class_asparagus': 0.0, 'test_precision_class_asparagus': 0.0, 'test_recall_class_asparagus': 0.0, 'test_f1_class_avocado': 0.0, 'test_precision_class_avocado': 0.0, 'test_recall_class_avocado': 0.0, 'test_f1_class_banana': 0.0, 'test_precision_class_banana': 0.0, 'test_recall_class_banana': 0.0, 'test_f1_class_brazil_nut': 0.0, 'test_precision_class_brazil_nut': 0.0, 'test_recall_class_brazil_nut': 0.0, 'test_f1_class_broccoli': 0.0, 'test_precision_class_broccoli': 0.0, 'test_recall_class_broccoli': 0.0, 'test_f1_class_brussel_sprouts': 0.4, 'test_precision_class_brussel_sprouts': 0.3333333333333333, 'test_recall_class_brussel_sprouts': 0.5, 'test_f1_class_cabbage': 0.0, 'test_precision_class_cabbage': 0.0, 'test_recall_class_cabbage': 0.0, 'test_f1_class_cashew': 0.0, 'test_precision_class_cashew': 0.0, 'test_recall_class_cashew': 0.0, 'test_f1_class_cauliflower': 0.0, 'test_precision_class_cauliflower': 0.0, 'test_recall_class_cauliflower': 0.0, 'test_f1_class_chamomile': 0.0, 'test_precision_class_chamomile': 0.0, 'test_recall_class_chamomile': 0.0, 'test_f1_class_chervil': 0.4444444444444445, 'test_precision_class_chervil': 0.2857142857142857, 'test_recall_class_chervil': 1.0, 'test_f1_class_chestnuts': 0.6666666666666666, 'test_precision_class_chestnuts': 1.0, 'test_recall_class_chestnuts': 0.5, 'test_f1_class_chives': 0.0, 'test_precision_class_chives': 0.0, 'test_recall_class_chives': 0.0, 'test_f1_class_cinnamon': 0.0, 'test_precision_class_cinnamon': 0.0, 'test_recall_class_cinnamon': 0.0, 'test_f1_class_cloves': 0.5, 'test_precision_class_cloves': 0.5, 'test_recall_class_cloves': 0.5, 'test_f1_class_coriander': 0.3333333333333333, 'test_precision_class_coriander': 0.25, 'test_recall_class_coriander': 0.5, 'test_f1_class_cumin': 0.5, 'test_precision_class_cumin': 0.5, 'test_recall_class_cumin': 0.5, 'test_f1_class_dill': 0.4, 'test_precision_class_dill': 0.3333333333333333, 'test_recall_class_dill': 0.5, 'test_f1_class_garlic': 0.0, 'test_precision_class_garlic': 0.0, 'test_recall_class_garlic': 0.0, 'test_f1_class_ginger': 0.0, 'test_precision_class_ginger': 0.0, 'test_recall_class_ginger': 0.0, 'test_f1_class_hazelnut': 0.0, 'test_precision_class_hazelnut': 0.0, 'test_recall_class_hazelnut': 0.0, 'test_f1_class_kiwi': 0.28571428571428575, 'test_precision_class_kiwi': 0.2, 'test_recall_class_kiwi': 0.5, 'test_f1_class_lemon': 0.0, 'test_precision_class_lemon': 0.0, 'test_recall_class_lemon': 0.0, 'test_f1_class_mandarin_orange': 0.0, 'test_precision_class_mandarin_orange': 0.0, 'test_recall_class_mandarin_orange': 0.0, 'test_f1_class_mango': 0.0, 'test_precision_class_mango': 0.0, 'test_recall_class_mango': 0.0, 'test_f1_class_mint': 0.0, 'test_precision_class_mint': 0.0, 'test_recall_class_mint': 0.0, 'test_f1_class_mugwort': 0.5714285714285715, 'test_precision_class_mugwort': 0.4, 'test_recall_class_mugwort':
+Saved metadata to /home/keaneong/SmellNet/ts_classification/ckpts/metadata.json
