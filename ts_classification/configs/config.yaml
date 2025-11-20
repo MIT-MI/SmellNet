@@ -1,0 +1,40 @@
+# Default configuration for TimesNet smell classification
+# Command-line arguments will override these values
+
+# Mode: "train" or "eval"
+mode: train
+
+# Data configuration
+data_root: smell_ts_dataset/SmellNet
+classes:
+  - banana
+  - apple
+features: null  # null means use all numeric columns, or specify: [NO2, VOC, CO, ...]
+seq_len: 512
+batch_size: 16
+val_split: 0.2
+num_workers: 0
+normalization: zscore  # zscore, minmax, or none
+seed: 42
+
+# Training configuration
+epochs: 20
+learning_rate: 0.001
+weight_decay: 0.00001
+grad_clip: 1.0
+log_interval: 10
+mixed_precision: false
+
+# Model configuration
+dropout: 0.1
+d_model: 64
+d_ff: 128
+layers: 2
+top_k: 5
+num_kernels: 6
+
+# Paths
+save_dir: artifacts
+checkpoint: null  # Path to checkpoint for eval mode
+metadata: null    # Path to metadata JSON from training
+
