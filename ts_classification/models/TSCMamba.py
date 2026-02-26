@@ -136,7 +136,8 @@ class Model(nn.Module):
                 nn.Linear((configs.projected_space * 3) // 2, configs.num_class),
             )
 
-    def classification(self, x_enc: torch.Tensor, x_mark_enc: torch.Tensor) -> torch.Tensor:
+    def _backbone(self, x_enc: torch.Tensor, x_mark_enc: torch.Tensor) -> torch.Tensor:
+        """Shared backbone → [B, projected_space*3] pooled representation."""
         # x_enc: [B, T, C] → [B, C, T]
         x = x_enc.transpose(1, 2)
 
@@ -196,8 +197,14 @@ class Model(nn.Module):
         else:
             x3, _ = x3.max(1)
 
-        x3 = self.flatten(x3)
-        return self.classifier(x3)  # [B, num_class]
+        return self.flatten(x3)  # [B, projected_space*3]
+
+    def encode(self, x_enc: torch.Tensor, x_mark_enc: torch.Tensor) -> torch.Tensor:
+        """Backbone embedding for contrastive pre-training → [B, projected_space*3]."""
+        return self._backbone(x_enc, x_mark_enc)
+
+    def classification(self, x_enc: torch.Tensor, x_mark_enc: torch.Tensor) -> torch.Tensor:
+        return self.classifier(self._backbone(x_enc, x_mark_enc))  # [B, num_class]
 
     def forward(
         self,

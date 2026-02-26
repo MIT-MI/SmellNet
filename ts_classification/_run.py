@@ -18,9 +18,9 @@ from trainer import ClassificationTrainer, TrainerConfig
 def load_config(config_path: Optional[Path] = None) -> Dict[str, Any]:
     """Load configuration from YAML file."""
     if config_path is None:
-        # Default to configs/config.yaml relative to this script
+        # Default to configs/finetune_config.yaml relative to this script
         script_dir = Path(__file__).parent
-        config_path = script_dir / "configs" / "config.yaml"
+        config_path = script_dir / "configs" / "finetune_config.yaml"
     else:
         config_path = Path(config_path).expanduser().resolve()
     

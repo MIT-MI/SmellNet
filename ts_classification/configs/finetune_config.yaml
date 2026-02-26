@@ -1,0 +1,76 @@
+# Fine-tuning / classification training configuration
+# Used by: _run.py
+# Command-line arguments will override these values.
+
+# Mode: "train" or "eval"
+mode: train
+
+# --- Data ---
+data_root: smell_ts_dataset/SmellNet
+classes:
+  - banana
+  - apple
+  - mango
+  - mandarin_orange
+  - asparagus
+  # Alternatives:
+  # classes: all    # auto-discover all class folders
+  # classes: 30     # randomly select 30 classes
+features: [NO2, VOC, CO, C2H5OH, Alcohol, LPG]  # null = use all numeric columns
+seq_len: 512
+batch_size: 2
+train_split: 0.8
+val_split: 0.0
+test_split: 0.2
+num_workers: 0
+normalization: zscore  # zscore | minmax | none
+seed: 42
+
+# --- Model ---
+model: timesnet  # timesnet | transformer | tscmamba | tslanet
+dropout: 0.001
+# TimesNet / Transformer
+d_model: 64
+d_ff: 128
+layers: 2
+top_k: 5
+num_kernels: 6
+# TSCMamba / TSLANet shared
+patch_size: 8
+# TSCMamba
+projected_space: 64
+mamba_d_state: 16
+mamba_dconv: 4
+mamba_expand: 2
+num_mambas: 2
+# TSLANet
+emb_dim: 128
+depth: 2
+
+# --- Training ---
+epochs: 15
+learning_rate: 0.001
+weight_decay: 0.00001
+grad_clip: 3.0
+log_interval: 10
+mixed_precision: false
+
+# --- Validation ---
+val_frequency: 1
+
+# --- Checkpoints ---
+save_frequency: 1
+save_best_only: true
+keep_best_k: 3
+
+# --- WandB ---
+use_wandb: true
+wandb_project: smell-net
+wandb_entity: null
+wandb_run_name: null
+wandb_tags: []
+
+# --- Paths ---
+save_dir: /home/keaneong/SmellNet/ts_classification/ckpts
+checkpoint: null   # path to pretrained or previous checkpoint (optional)
+metadata: null     # path to metadata.json from a previous training run (optional)

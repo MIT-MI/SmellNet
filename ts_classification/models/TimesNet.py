@@ -180,6 +180,16 @@ class Model(nn.Module):
                       1, self.pred_len + self.seq_len, 1)))
         return dec_out
 
+    def encode(self, x_enc, x_mark_enc):
+        """Backbone embedding for contrastive pre-training → [B, d_model]."""
+        enc_out = self.enc_embedding(x_enc, None)
+        for i in range(self.layer):
+            enc_out = self.layer_norm(self.model[i](enc_out))
+        output = self.act(enc_out)
+        output = self.dropout(output)
+        output = output * x_mark_enc.unsqueeze(-1)
+        return output.mean(dim=1)  # [B, d_model]
+
     def classification(self, x_enc, x_mark_enc):
         # embedding
         enc_out = self.enc_embedding(x_enc, None)  # [B,T,C]

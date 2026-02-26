@@ -95,6 +95,15 @@ class Model(nn.Module):
         dec_out = self.projection(enc_out)
         return dec_out
 
+    def encode(self, x_enc, x_mark_enc):
+        """Backbone embedding for contrastive pre-training → [B, d_model]."""
+        enc_out = self.enc_embedding(x_enc, None)
+        enc_out, _ = self.encoder(enc_out, attn_mask=None)
+        output = self.act(enc_out)
+        output = self.dropout(output)
+        output = output * x_mark_enc.unsqueeze(-1)
+        return output.mean(dim=1)  # [B, d_model]
+
     def classification(self, x_enc, x_mark_enc):
         # Embedding
         enc_out = self.enc_embedding(x_enc, None)

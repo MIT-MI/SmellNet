@@ -1,0 +1,73 @@
+# Contrastive pre-training configuration
+# Used by: pretrain_run.py
+# Command-line arguments will override these values.
+
+# --- Data ---
+data_root: smell_ts_dataset/SmellNet
+classes:
+  - banana
+  - apple
+  - mango
+  - mandarin_orange
+  - asparagus
+  # Alternatives:
+  # classes: all    # auto-discover all class folders
+  # classes: 30     # randomly select 30 classes
+features: [NO2, VOC, CO, C2H5OH, Alcohol, LPG]  # null = use all numeric columns
+seq_len: 512
+batch_size: 16
+train_split: 0.85
+val_split: 0.15
+test_split: 0.0
+num_workers: 0
+normalization: zscore  # zscore | minmax | none
+seed: 42
+
+# --- Backbone model ---
+model: timesnet  # timesnet | transformer | tscmamba | tslanet
+dropout: 0.1
+# TimesNet / Transformer
+d_model: 64
+d_ff: 128
+layers: 2
+top_k: 5
+num_kernels: 6
+# TSCMamba / TSLANet shared
+patch_size: 8
+# TSCMamba
+projected_space: 64
+mamba_d_state: 16
+mamba_dconv: 4
+mamba_expand: 2
+num_mambas: 2
+# TSLANet
+emb_dim: 128
+depth: 2
+
+# --- Contrastive training ---
+pretrain_epochs: 50
+pretrain_lr: 0.001
+pretrain_weight_decay: 0.0001
+temperature: 0.07          # SupCon temperature τ (lower = sharper distribution)
+proj_dim: 128              # projection head output dimension
+proj_hidden: 256           # projection head hidden dimension
+grad_clip: 1.0
+log_interval: 10
+
+# Augmentations to randomly sample from when creating two views of each batch.
+# Available: jitter | scale | time_shift | window_slice | magnitude_warp
+aug_list:
+  - jitter
+  - scale
+  - time_shift
+  - magnitude_warp
+
+# --- WandB ---
+use_wandb: true
+wandb_project: smell-net-pretrain
+wandb_entity: null
+wandb_run_name: null
+wandb_tags: []
+
+# --- Paths ---
+pretrain_save_dir: /home/keaneong/SmellNet/ts_classification/pretrain_ckpts

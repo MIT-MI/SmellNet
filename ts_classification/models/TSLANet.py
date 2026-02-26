@@ -227,6 +227,21 @@ class Model(nn.Module):
             nn.init.constant_(m.bias, 0)
             nn.init.constant_(m.weight, 1.0)
 
+    def _backbone(self, x_enc: torch.Tensor, x_mark_enc: torch.Tensor) -> torch.Tensor:
+        """Shared backbone → [B, emb_dim] mean-pooled patch representation."""
+        # x_enc: [B, T, C] → [B, C, T] for Conv1d patch embedding
+        x = x_enc.transpose(1, 2)
+        x = self.patch_embed(x)    # [B, num_patches, emb_dim]
+        x = x + self.pos_embed
+        x = self.pos_drop(x)
+        for blk in self.tsla_blocks:
+            x = blk(x)
+        return x.mean(1)           # [B, emb_dim]
+
+    def encode(self, x_enc: torch.Tensor, x_mark_enc: torch.Tensor) -> torch.Tensor:
+        """Backbone embedding for contrastive pre-training → [B, emb_dim]."""
+        return self._backbone(x_enc, x_mark_enc)
+
     def forward(
         self,
         x_enc: torch.Tensor,
@@ -235,15 +250,4 @@ class Model(nn.Module):
         x_mark_dec=None,
         mask=None,
     ) -> torch.Tensor:
-        # x_enc: [B, T, C] → transpose to [B, C, T] for Conv1d patch embedding
-        x = x_enc.transpose(1, 2)
-
-        x = self.patch_embed(x)          # [B, num_patches, emb_dim]
-        x = x + self.pos_embed
-        x = self.pos_drop(x)
-
-        for blk in self.tsla_blocks:
-            x = blk(x)
-
-        x = x.mean(1)                    # [B, emb_dim]
-        return self.head(x)              # [B, num_class]
+        return self.head(self._backbone(x_enc, x_mark_enc))  # [B, num_class]
