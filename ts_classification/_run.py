@@ -9,6 +9,9 @@ import yaml
 
 from dataloader import create_dataloaders
 from models.TimesNet import Model as TimesNet
+from models.Transformer import Model as Transformer
+from models.TSCMamba import Model as TSCMamba
+from models.TSLANet import Model as TSLANet
 from trainer import ClassificationTrainer, TrainerConfig
 
 
@@ -48,6 +51,12 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         choices=["train", "eval"],
         default=config_defaults.get("mode", "train"),
         help="Choose 'train' to run fit(), 'eval' to run validate().",
+    )
+    parser.add_argument(
+        "--model",
+        choices=["timesnet", "transformer", "tscmamba", "tslanet"],
+        default=config_defaults.get("model", "timesnet"),
+        help="Model architecture to use.",
     )
     parser.add_argument(
         "--data-root",
@@ -258,6 +267,61 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         default=config_defaults.get("wandb_tags", []),
         help="Tags for WandB run.",
     )
+
+    # ---- TSCMamba / TSLANet shared ----
+    parser.add_argument(
+        "--patch-size",
+        type=int,
+        default=config_defaults.get("patch_size", 8),
+        help="Patch size for TSCMamba (stride=patch_size) and TSLANet (stride=patch_size//2).",
+    )
+
+    # ---- TSCMamba-specific ----
+    parser.add_argument(
+        "--projected-space",
+        type=int,
+        default=config_defaults.get("projected_space", 64),
+        help="TSCMamba: projection/patch output dimension.",
+    )
+    parser.add_argument(
+        "--mamba-d-state",
+        type=int,
+        default=config_defaults.get("mamba_d_state", 16),
+        help="TSCMamba: Mamba SSM state dimension.",
+    )
+    parser.add_argument(
+        "--mamba-dconv",
+        type=int,
+        default=config_defaults.get("mamba_dconv", 4),
+        help="TSCMamba: Mamba local convolution width.",
+    )
+    parser.add_argument(
+        "--mamba-expand",
+        type=int,
+        default=config_defaults.get("mamba_expand", 2),
+        help="TSCMamba: Mamba expansion factor.",
+    )
+    parser.add_argument(
+        "--num-mambas",
+        type=int,
+        default=config_defaults.get("num_mambas", 2),
+        help="TSCMamba: number of stacked Mamba blocks.",
+    )
+
+    # ---- TSLANet-specific ----
+    parser.add_argument(
+        "--emb-dim",
+        type=int,
+        default=config_defaults.get("emb_dim", 128),
+        help="TSLANet: patch embedding dimension.",
+    )
+    parser.add_argument(
+        "--depth",
+        type=int,
+        default=config_defaults.get("depth", 2),
+        help="TSLANet: number of TSLANet layers.",
+    )
+
     return parser.parse_args()
 
 
@@ -289,6 +353,74 @@ def build_timesnet_config(
     )
 
 
+def build_transformer_config(
+    num_features: int, num_classes: int, args: argparse.Namespace
+) -> SimpleNamespace:
+    return SimpleNamespace(
+        task_name="classification",
+        seq_len=args.seq_len,
+        label_len=args.seq_len,
+        pred_len=0,
+        enc_in=num_features,
+        dec_in=num_features,
+        c_out=num_features,
+        d_model=args.d_model,
+        d_ff=args.d_ff,
+        n_heads=8,
+        e_layers=args.layers,
+        d_layers=1,
+        dropout=args.dropout,
+        embed="fixed",
+        freq="h",
+        activation="gelu",
+        num_class=num_classes,
+        factor=1,
+        output_attention=False,
+    )
+
+
+def build_tscmamba_config(
+    num_features: int, num_classes: int, args: argparse.Namespace
+) -> SimpleNamespace:
+    return SimpleNamespace(
+        task_name="classification",
+        seq_len=args.seq_len,
+        enc_in=num_features,
+        num_class=num_classes,
+        projected_space=args.projected_space,
+        patch_size=args.patch_size,
+        d_state=args.mamba_d_state,
+        dconv=args.mamba_dconv,
+        e_fact=args.mamba_expand,
+        num_mambas=args.num_mambas,
+        initial_focus=1.0,
+        dropout=args.dropout,
+        max_pooling=0,
+        additive_fusion=1,
+        only_forward_scan=1,
+        flip_dir=1,
+        reverse_flip=0,
+    )
+
+
+def build_tslanet_config(
+    num_features: int, num_classes: int, args: argparse.Namespace
+) -> SimpleNamespace:
+    return SimpleNamespace(
+        task_name="classification",
+        seq_len=args.seq_len,
+        enc_in=num_features,
+        num_class=num_classes,
+        emb_dim=args.emb_dim,
+        depth=args.depth,
+        patch_size=args.patch_size,
+        dropout=args.dropout,
+        use_icb=True,
+        use_asb=True,
+        adaptive_filter=True,
+    )
+
+
 def save_metadata(
     save_dir: Path,
     label_map: dict,
@@ -306,6 +438,7 @@ def save_metadata(
         "val_split": args.val_split,
         "test_split": args.test_split,
         "seed": args.seed,
+        "model": args.model,
     }
     save_dir.mkdir(parents=True, exist_ok=True)
     metadata_path = save_dir / "metadata.json"
@@ -420,8 +553,23 @@ def main() -> None:
 
     print(f"Using {len(resolved_classes)} classes: {resolved_classes[:5]}{'...' if len(resolved_classes) > 5 else ''}")
 
-    model_config = build_timesnet_config(len(features), len(label_map), args)
-    model = TimesNet(model_config)
+    model_name = args.model.lower()
+    if model_name == "timesnet":
+        model_config = build_timesnet_config(len(features), len(label_map), args)
+        model = TimesNet(model_config)
+    elif model_name == "transformer":
+        model_config = build_transformer_config(len(features), len(label_map), args)
+        model = Transformer(model_config)
+    elif model_name == "tscmamba":
+        model_config = build_tscmamba_config(len(features), len(label_map), args)
+        model = TSCMamba(model_config)
+    elif model_name == "tslanet":
+        model_config = build_tslanet_config(len(features), len(label_map), args)
+        model = TSLANet(model_config)
+    else:
+        raise ValueError(f"Unknown model: {args.model}")
+
+    print(f"Using model: {model_name}")
 
     if args.checkpoint:
         checkpoint = torch.load(args.checkpoint, map_location="cpu")
