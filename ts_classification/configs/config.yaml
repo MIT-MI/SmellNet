@@ -12,10 +12,11 @@ classes:
   - apple
   - mango
   - mandarin_orange
+  - asparagus
   # Alternative class selection options:
   # classes: all  # Auto-discover all available classes
   # classes: 30   # Randomly select 30 classes
-features: [NO2, VOC, CO, C2H5OH, Alcohol, LPG, Benzene]  # null means use all numeric columns, or specify: [NO2, VOC, CO, ...]
+features: [NO2, VOC, CO, C2H5OH, Alcohol, LPG]  # null means use all numeric columns, or specify: [NO2, VOC, CO, ...]
 seq_len: 512
 batch_size: 2
 train_split: 0.8   # Proportion for training set (can be 0 to omit)

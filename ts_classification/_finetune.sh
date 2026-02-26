@@ -3,7 +3,7 @@ set -euo pipefail
 
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 DATA_ROOT="${PROJECT_ROOT}/smell_ts_dataset/SmellNet"
-DEFAULT_CLASSES=("banana" "apple")
+DEFAULT_CLASSES=("diego_mixtures" "apple")
 DEFAULT_FEATURES=("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
 
 python "${PROJECT_ROOT}/ts_classification/_run.py" \
