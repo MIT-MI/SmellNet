@@ -1,0 +1,3 @@
+[submodule "misc/Time-Series-Library"]
+	path = misc/Time-Series-Library
+	url = https://github.com/thuml/Time-Series-Library.git
