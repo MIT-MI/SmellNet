@@ -8,7 +8,7 @@ DEFAULT_FEATURES=("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
 CHECKPOINT_PATH="${PROJECT_ROOT}/artifacts/classifier_best.pt"
 METADATA_PATH="${PROJECT_ROOT}/artifacts/metadata.json"
 
-python "${PROJECT_ROOT}/ts_classification/_run.py" \
+python "${PROJECT_ROOT}/_run.py" \
   --mode eval \
   --data-root "${DATA_ROOT}" \
   --classes "${DEFAULT_CLASSES[@]}" \
