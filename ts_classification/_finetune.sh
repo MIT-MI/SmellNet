@@ -14,8 +14,8 @@ python "${SCRIPT_DIR}/_run.py" \
   --features "${DEFAULT_FEATURES[@]}" \
   --model "tscmamba" \
   --seq-len 512 \
-  --batch-size 16 \
+  --batch-size 2 \
   --epochs 30 \
   --learning-rate 1e-3 \
-  --save-dir "${PROJECT_ROOT}/artifacts" \
+  --save-dir "${PROJECT_ROOT}/smell_model_ckpts" \
   "$@"

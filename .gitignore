@@ -1,3 +1,4 @@
 smell_ts_dataset
+smell_model_ckpts/
 ts_classification/ckpts/
 wandb/
