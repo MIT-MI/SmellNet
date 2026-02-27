@@ -59,7 +59,9 @@ log_interval: 10
 mixed_precision: false
 
 # --- Validation ---
-val_frequency: 1
+val_frequency: 1      # validate every N epochs during training
+eval_at_end: true     # run a final evaluation after the last training epoch
+eval_split: test      # which split to use for eval mode and end-of-training eval: val | test
 
 # --- Checkpoints ---
 save_frequency: 1

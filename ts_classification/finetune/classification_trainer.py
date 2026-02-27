@@ -22,6 +22,7 @@ class TrainerConfig:
 
     # Validation frequency control
     val_frequency: int = 1  # Validate every N epochs
+    eval_at_end: bool = True  # Run a final evaluation after the last training epoch
 
     # Checkpoint save frequency control
     save_frequency: int = 1  # Save checkpoint every N epochs
@@ -134,8 +135,8 @@ class ClassificationTrainer:
                 except ImportError:
                     pass
 
-        # Run final test evaluation if test loader is available
-        if self.test_loader is not None:
+        # Run final test evaluation if test loader is available and eval_at_end is enabled
+        if self.config.eval_at_end and self.test_loader is not None:
             test_metrics = self.test(include_per_class=True)
             history.update({f"test_{k}": v for k, v in test_metrics.items()})
 

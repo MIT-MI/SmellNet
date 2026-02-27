@@ -12,6 +12,9 @@ METADATA_PATH="${PROJECT_ROOT}/artifacts/metadata.json"
 WANDB_PROJECT="smell-net"
 WANDB_RUN_NAME=""   # leave empty to let WandB auto-generate a name
 
+# --- Evaluation split ---
+EVAL_SPLIT="test"   # which split to evaluate on: val | test
+
 python "${SCRIPT_DIR}/_finetune_run.py" \
   --mode eval \
   --data-root "${DATA_ROOT}" \
@@ -20,6 +23,7 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --seq-len 512 \
   --checkpoint "${CHECKPOINT_PATH}" \
   --metadata "${METADATA_PATH}" \
+  --eval-split "${EVAL_SPLIT}" \
   --wandb-project "${WANDB_PROJECT}" \
   ${WANDB_RUN_NAME:+--wandb-run-name "${WANDB_RUN_NAME}"} \
   "$@"

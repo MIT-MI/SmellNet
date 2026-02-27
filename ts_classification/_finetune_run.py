@@ -222,6 +222,17 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         help="Validate every N epochs.",
     )
     parser.add_argument(
+        "--eval-at-end",
+        action="store_true",
+        help="Run a final evaluation after the last training epoch.",
+    )
+    parser.add_argument(
+        "--eval-split",
+        choices=["val", "test"],
+        default=config_defaults.get("eval_split", "test"),
+        help="Which split to evaluate on: 'val' or 'test' (used in eval mode and eval-at-end).",
+    )
+    parser.add_argument(
         "--save-frequency",
         type=int,
         default=config_defaults.get("save_frequency", 1),
@@ -505,6 +516,10 @@ def main() -> None:
     if not args.use_wandb and config.get("use_wandb", False):
         if "--use-wandb" not in sys.argv:
             args.use_wandb = True
+
+    if not args.eval_at_end and config.get("eval_at_end", True):
+        if "--eval-at-end" not in sys.argv:
+            args.eval_at_end = True
     
     # Validate required arguments
     if not args.classes:
@@ -612,6 +627,7 @@ def main() -> None:
         save_dir=args.save_dir.expanduser().resolve(),
         mixed_precision=args.mixed_precision,
         val_frequency=args.val_frequency,
+        eval_at_end=args.eval_at_end,
         save_frequency=args.save_frequency,
         save_best_only=args.save_best_only,
         keep_best_k=args.keep_best_k,
@@ -641,9 +657,23 @@ def main() -> None:
         metadata_path = save_metadata(trainer_config.save_dir, label_map, features, args, resolved_classes)
         print(f"Saved metadata to {metadata_path}")
     else:
-        metrics = trainer.validate(loader=val_loader)
+        # Choose which split to evaluate on
+        if args.eval_split == "test":
+            eval_loader = test_loader
+            split_name = "test"
+        else:
+            eval_loader = val_loader
+            split_name = "val"
+
+        if eval_loader is None:
+            raise ValueError(
+                f"--eval-split {args.eval_split!r} was requested but the {split_name} loader is "
+                f"empty. Check your --{split_name}-split ratio."
+            )
+
+        metrics = trainer.validate(loader=eval_loader, include_per_class=True)
         print(
-            f"Evaluation complete. "
+            f"Evaluation complete ({split_name} split). "
             f"Loss: {metrics['loss']:.4f}, Accuracy: {metrics['accuracy']*100:.2f}%"
         )
 
