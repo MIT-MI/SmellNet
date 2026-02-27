@@ -12,6 +12,7 @@ python "${SCRIPT_DIR}/_run.py" \
   --data-root "${DATA_ROOT}" \
   --classes "${DEFAULT_CLASSES[@]}" \
   --features "${DEFAULT_FEATURES[@]}" \
+  --model "tscmamba" \
   --seq-len 512 \
   --batch-size 16 \
   --epochs 30 \
