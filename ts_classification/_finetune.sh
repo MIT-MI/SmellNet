@@ -6,7 +6,7 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"              # SmellNet/
 DATA_ROOT="${PROJECT_ROOT}/smell_ts_dataset/SmellNet"
 # DEFAULT_CLASSES=("apple" "banana" "asparagus" "avocado")
 DEFAULT_CLASSES="all"
-DEFAULT_FEATURES=("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
+DEFAULT_FEATURES="all"
 
 WANDB_PROJECT="smell-net"
 WANDB_RUN_NAME="all_test"   # leave empty to let WandB auto-generate a name
@@ -18,8 +18,8 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --features "${DEFAULT_FEATURES[@]}" \
   --model "timesnet" \
   --seq-len 512 \
-  --batch-size 2 \
-  --epochs 7 \
+  --batch-size 32 \
+  --epochs 10 \
   --learning-rate 1e-3 \
   --val-frequency 1 \
   --eval-split "test" \
