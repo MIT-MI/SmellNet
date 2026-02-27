@@ -16,6 +16,5 @@ python "${SCRIPT_DIR}/_run.py" \
   --batch-size 16 \
   --epochs 30 \
   --learning-rate 1e-3 \
-  --val-split 0.2 \
   --save-dir "${PROJECT_ROOT}/artifacts" \
   "$@"
