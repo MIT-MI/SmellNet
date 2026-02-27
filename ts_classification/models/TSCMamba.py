@@ -37,13 +37,7 @@ import math
 import torch
 import torch.nn as nn
 
-try:
-    from mamba_ssm import Mamba
-except ImportError as e:
-    raise ImportError(
-        "mamba_ssm is required for TSCMamba. "
-        "Install it with: pip install mamba-ssm"
-    ) from e
+from mamba_ssm import Mamba
 
 
 class PatchEmbedding1D(nn.Module):
