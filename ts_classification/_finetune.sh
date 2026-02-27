@@ -4,7 +4,7 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"  # ts_classification/
 PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"              # SmellNet/
 DATA_ROOT="${PROJECT_ROOT}/smell_ts_dataset/SmellNet"
-DEFAULT_CLASSES=("diego_mixtures" "apple")
+DEFAULT_CLASSES=("apple" "banana" "asparagus" "avocado")
 DEFAULT_FEATURES=("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
 
 python "${SCRIPT_DIR}/_run.py" \
