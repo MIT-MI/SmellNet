@@ -10,8 +10,8 @@ import yaml
 from dataloader import create_dataloaders
 from models.TimesNet import Model as TimesNet
 from models.Transformer import Model as Transformer
-from models.TSCMamba import Model as TSCMamba
 from models.TSLANet import Model as TSLANet
+# TSCMamba is imported lazily below (mamba_ssm requires a compiled CUDA extension)
 from trainer import ClassificationTrainer, TrainerConfig
 
 
@@ -587,6 +587,7 @@ def main() -> None:
         model_config = build_transformer_config(len(features), len(label_map), args)
         model = Transformer(model_config)
     elif model_name == "tscmamba":
+        from models.TSCMamba import Model as TSCMamba  # lazy: requires mamba_ssm CUDA ext
         model_config = build_tscmamba_config(len(features), len(label_map), args)
         model = TSCMamba(model_config)
     elif model_name == "tslanet":

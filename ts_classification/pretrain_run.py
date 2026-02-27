@@ -31,8 +31,8 @@ from typing import Any, Dict, Optional
 from dataloader import create_dataloaders
 from models.TimesNet import Model as TimesNet
 from models.Transformer import Model as Transformer
-from models.TSCMamba import Model as TSCMamba
 from models.TSLANet import Model as TSLANet
+# TSCMamba is imported lazily below (mamba_ssm requires a compiled CUDA extension)
 from pretrain import ContrastiveConfig, ContrastivePretrainer
 
 # Re-use the model config builders from _run.py
@@ -206,6 +206,7 @@ def main() -> None:
     elif model_name == "transformer":
         model = Transformer(build_transformer_config(num_features, num_classes, args))
     elif model_name == "tscmamba":
+        from models.TSCMamba import Model as TSCMamba  # lazy: requires mamba_ssm CUDA ext
         model = TSCMamba(build_tscmamba_config(num_features, num_classes, args))
     elif model_name == "tslanet":
         model = TSLANet(build_tslanet_config(num_features, num_classes, args))
