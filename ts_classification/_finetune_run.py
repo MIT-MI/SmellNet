@@ -623,6 +623,46 @@ def main() -> None:
         model.load_state_dict(checkpoint["model_state"])
         print(f"Loaded checkpoint from {args.checkpoint}")
 
+    wandb_run_config = {
+        # Data
+        "model": args.model,
+        "num_classes": len(label_map),
+        "classes": resolved_classes,
+        "num_features": len(features),
+        "features": features,
+        "seq_len": args.seq_len,
+        "normalization": args.normalization,
+        "train_split": args.train_split,
+        "val_split": args.val_split,
+        "test_split": args.test_split,
+        "seed": args.seed,
+        # Training
+        "batch_size": args.batch_size,
+        "epochs": args.epochs,
+        "learning_rate": args.learning_rate,
+        "weight_decay": args.weight_decay,
+        "grad_clip": args.grad_clip,
+        "mixed_precision": args.mixed_precision,
+        "device": str(device),
+        # Model architecture (shared)
+        "dropout": args.dropout,
+        "d_model": args.d_model,
+        "d_ff": args.d_ff,
+        "layers": args.layers,
+        "top_k": args.top_k,
+        "num_kernels": args.num_kernels,
+        "patch_size": args.patch_size,
+        # TSCMamba
+        "projected_space": args.projected_space,
+        "mamba_d_state": args.mamba_d_state,
+        "mamba_dconv": args.mamba_dconv,
+        "mamba_expand": args.mamba_expand,
+        "num_mambas": args.num_mambas,
+        # TSLANet
+        "emb_dim": args.emb_dim,
+        "depth": args.depth,
+    }
+
     trainer_config = TrainerConfig(
         num_epochs=args.epochs,
         learning_rate=args.learning_rate,
@@ -641,6 +681,7 @@ def main() -> None:
         wandb_entity=args.wandb_entity,
         wandb_run_name=args.wandb_run_name,
         wandb_tags=args.wandb_tags,
+        wandb_config=wandb_run_config,
     )
 
     # Create inverse label map for class names

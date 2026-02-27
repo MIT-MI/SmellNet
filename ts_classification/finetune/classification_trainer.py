@@ -1,6 +1,6 @@
 from dataclasses import dataclass, field
 from pathlib import Path
-from typing import Dict, Iterable, List, Optional
+from typing import Any, Dict, Iterable, List, Optional
 
 import numpy as np
 import torch
@@ -37,6 +37,7 @@ class TrainerConfig:
     wandb_entity: Optional[str] = None
     wandb_run_name: Optional[str] = None
     wandb_tags: List[str] = field(default_factory=list)
+    wandb_config: Optional[Dict[str, Any]] = None  # Full run config logged to WandB
 
 
 class ClassificationTrainer:
@@ -82,7 +83,7 @@ class ClassificationTrainer:
                     entity=self.config.wandb_entity,
                     name=self.config.wandb_run_name,
                     tags=self.config.wandb_tags,
-                    config={
+                    config=self.config.wandb_config or {
                         "epochs": self.config.num_epochs,
                         "learning_rate": self.config.learning_rate,
                         "weight_decay": self.config.weight_decay,
@@ -90,7 +91,7 @@ class ClassificationTrainer:
                         "batch_size": train_loader.batch_size if train_loader else None,
                         "val_frequency": self.config.val_frequency,
                         "save_frequency": self.config.save_frequency,
-                    }
+                    },
                 )
             except ImportError:
                 print("Warning: wandb is not installed. Disabling WandB logging.")
