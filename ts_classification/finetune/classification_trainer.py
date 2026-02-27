@@ -67,6 +67,7 @@ class ClassificationTrainer:
         )
         self.scaler = torch.cuda.amp.GradScaler(enabled=self.config.mixed_precision)
         self.best_val_acc = 0.0
+        self.global_step = 0
         self.config.save_dir.mkdir(parents=True, exist_ok=True)
 
         # Track best checkpoints for management
@@ -118,6 +119,12 @@ class ClassificationTrainer:
                     self.best_val_acc = val_metrics["accuracy"]
                     self._save_checkpoint(epoch, best=True)
 
+            # Run test metrics every epoch
+            test_metrics = None
+            if self.test_loader is not None:
+                test_metrics = self.validate(loader=self.test_loader)
+                history.update({f"test_{k}": v for k, v in test_metrics.items()})
+
             # Save checkpoint at specified frequency or on last epoch
             if epoch % self.config.save_frequency == 0 or epoch == self.config.num_epochs:
                 self._save_checkpoint(epoch, best=False)
@@ -131,20 +138,24 @@ class ClassificationTrainer:
                     if should_validate:
                         wandb_log.update({f"val/{k}": v for k, v in val_metrics.items()})
                         wandb_log["best_val_acc"] = self.best_val_acc
-                    wandb.log(wandb_log)
+                    if test_metrics is not None:
+                        wandb_log.update({f"test/{k}": v for k, v in test_metrics.items()})
+                    wandb.log(wandb_log, step=self.global_step)
                 except ImportError:
                     pass
 
-        # Run final test evaluation if test loader is available and eval_at_end is enabled
+        # Run final test evaluation with per-class breakdown if eval_at_end is enabled
         if self.config.eval_at_end and self.test_loader is not None:
             test_metrics = self.test(include_per_class=True)
             history.update({f"test_{k}": v for k, v in test_metrics.items()})
 
-            # Log test metrics to WandB
+            # Log per-class metrics to WandB (scalar metrics already logged per-epoch)
             if self.config.use_wandb:
                 try:
                     import wandb
-                    wandb.log({f"test/{k}": v for k, v in test_metrics.items()})
+                    per_class = {k: v for k, v in test_metrics.items() if k.startswith("class_")}
+                    if per_class:
+                        wandb.log({f"test/{k}": v for k, v in per_class.items()}, step=self.global_step)
                 except ImportError:
                     pass
 
@@ -260,6 +271,7 @@ class ClassificationTrainer:
             all_predictions.extend(predictions.cpu().numpy())
             all_targets.extend(targets.cpu().numpy())
             total_samples += targets.size(0)
+            self.global_step += 1
 
             if step % self.config.log_interval == 0:
                 print(
@@ -271,11 +283,7 @@ class ClassificationTrainer:
                 if self.config.use_wandb:
                     try:
                         import wandb
-                        wandb.log({
-                            "train/step_loss": loss.item(),
-                            "train/step": step + (epoch - 1) * len(self.train_loader),
-                            "epoch": epoch,
-                        })
+                        wandb.log({"train/step_loss": loss.item()}, step=self.global_step)
                     except ImportError:
                         pass
 
