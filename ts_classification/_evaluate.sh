@@ -9,7 +9,10 @@ DEFAULT_FEATURES=("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
 CHECKPOINT_PATH="${PROJECT_ROOT}/artifacts/classifier_best.pt"
 METADATA_PATH="${PROJECT_ROOT}/artifacts/metadata.json"
 
-python "${SCRIPT_DIR}/_run.py" \
+WANDB_PROJECT="smell-net"
+WANDB_RUN_NAME=""   # leave empty to let WandB auto-generate a name
+
+python "${SCRIPT_DIR}/_finetune_run.py" \
   --mode eval \
   --data-root "${DATA_ROOT}" \
   --classes "${DEFAULT_CLASSES[@]}" \
@@ -17,4 +20,6 @@ python "${SCRIPT_DIR}/_run.py" \
   --seq-len 512 \
   --checkpoint "${CHECKPOINT_PATH}" \
   --metadata "${METADATA_PATH}" \
+  --wandb-project "${WANDB_PROJECT}" \
+  ${WANDB_RUN_NAME:+--wandb-run-name "${WANDB_RUN_NAME}"} \
   "$@"
