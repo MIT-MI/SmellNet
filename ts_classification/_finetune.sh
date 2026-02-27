@@ -6,7 +6,7 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"              # SmellNet/
 DATA_ROOT="${PROJECT_ROOT}/smell_ts_dataset/SmellNet"
 # DEFAULT_CLASSES=("apple" "banana" "asparagus" "avocado")
 DEFAULT_CLASSES="all"
-DEFAULT_FEATURES="all"
+DEFAULT_FEATURES="all"   # "all" = auto-detect all numeric columns, or e.g. ("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
 
 WANDB_PROJECT="smell-net"
 WANDB_RUN_NAME="all_test"   # leave empty to let WandB auto-generate a name
