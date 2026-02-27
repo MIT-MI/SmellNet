@@ -1,9 +1,9 @@
 """
 Contrastive pre-training entry point for SmellNet time-series classifiers.
 
-Mirrors _run.py for data / model configuration, but runs SupCon pre-training
+Mirrors _finetune_run.py for data / model configuration, but runs SupCon pre-training
 instead of supervised classification.  After training the backbone weights are
-saved and can be loaded by _run.py via --checkpoint for fine-tuning.
+saved and can be loaded by _finetune_run.py via --checkpoint for fine-tuning.
 
 Typical workflow
 ----------------
@@ -15,7 +15,7 @@ python pretrain_run.py \\
     --pretrain-epochs 50
 
 # 2. Fine-tune with the pre-trained encoder
-python _run.py \\
+python _finetune_run.py \\
     --model tslanet \\
     --classes all \\
     --data-root smell_ts_dataset/SmellNet \\
@@ -35,8 +35,8 @@ from models.TSLANet import Model as TSLANet
 # TSCMamba is imported lazily below (mamba_ssm requires a compiled CUDA extension)
 from pretrain import ContrastiveConfig, ContrastivePretrainer
 
-# Re-use the model config builders from _run.py
-from _run import (
+# Re-use the model config builders from _finetune_run.py
+from _finetune_run import (
     build_timesnet_config,
     build_transformer_config,
     build_tscmamba_config,
@@ -247,7 +247,7 @@ def main() -> None:
 
     encoder_path = trainer.save_encoder()
 
-    # Save metadata alongside the encoder so _run.py can reconstruct data settings
+    # Save metadata alongside the encoder so _finetune_run.py can reconstruct data settings
     meta = {
         "model": model_name,
         "features": features,
@@ -261,7 +261,7 @@ def main() -> None:
         json.dump(meta, f, indent=2)
 
     print(f"\nTo fine-tune, run:")
-    print(f"  python _run.py \\")
+    print(f"  python _finetune_run.py \\")
     print(f"    --model {model_name} \\")
     print(f"    --data-root {data_root} \\")
     print(f"    --classes {' '.join(resolved_classes[:3])}{'  ...' if len(resolved_classes) > 3 else ''} \\")

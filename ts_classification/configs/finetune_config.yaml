@@ -1,5 +1,5 @@
 # Fine-tuning / classification training configuration
-# Used by: _run.py
+# Used by: _finetune_run.py
 # Command-line arguments will override these values.
 
 # Mode: "train" or "eval"
