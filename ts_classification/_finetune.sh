@@ -23,9 +23,9 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --features "${DEFAULT_FEATURES[@]}" \
   --model "timesnet" \
   --seq-len 512 \
-  --batch-size 2 \
-  --epochs 7 \
-  --learning-rate 1e-3 \
+  --batch-size 10 \
+  --epochs 10 \
+  --learning-rate 1e-4 \
   --val-frequency "${VAL_FREQUENCY}" \
   --eval-split "${EVAL_SPLIT}" \
   ${EVAL_AT_END:+--eval-at-end} \
