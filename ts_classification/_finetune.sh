@@ -11,11 +11,6 @@ DEFAULT_FEATURES=("NO2" "C2H5OH" "VOC" "CO" "Alcohol" "LPG" "Benzene")
 WANDB_PROJECT="smell-net"
 WANDB_RUN_NAME="all_test"   # leave empty to let WandB auto-generate a name
 
-# --- Validation ---
-VAL_FREQUENCY=1       # validate every N epochs (1 = every epoch)
-EVAL_AT_END=true      # run a final evaluation after the last training epoch
-EVAL_SPLIT="test"     # which split to use for the end-of-training eval: val | test
-
 python "${SCRIPT_DIR}/_finetune_run.py" \
   --mode train \
   --data-root "${DATA_ROOT}" \
@@ -23,12 +18,12 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --features "${DEFAULT_FEATURES[@]}" \
   --model "timesnet" \
   --seq-len 512 \
-  --batch-size 10 \
-  --epochs 10 \
-  --learning-rate 1e-4 \
-  --val-frequency "${VAL_FREQUENCY}" \
-  --eval-split "${EVAL_SPLIT}" \
-  ${EVAL_AT_END:+--eval-at-end} \
+  --batch-size 2 \
+  --epochs 7 \
+  --learning-rate 1e-3 \
+  --val-frequency 1 \
+  --eval-split "test" \
+  --eval-at-end \
   --save-dir "${PROJECT_ROOT}/smell_model_ckpts" \
   --wandb-project "${WANDB_PROJECT}" \
   ${WANDB_RUN_NAME:+--wandb-run-name "${WANDB_RUN_NAME}"} \
