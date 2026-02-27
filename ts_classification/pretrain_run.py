@@ -26,10 +26,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from typing import Any, Dict, List, Optional
-
-import torch
-import yaml
+from typing import Any, Dict, Optional
 
 from dataloader import create_dataloaders
 from models.TimesNet import Model as TimesNet
@@ -61,6 +58,18 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
 
     # ---- Config file ----
     parser.add_argument("--config", type=Path, default=None)
+
+    # ---- Device ----
+    parser.add_argument(
+        "--device",
+        type=str,
+        default=cfg.get("device", "auto"),
+        help=(
+            "Device to run on. "
+            "'auto' uses CUDA if available, else CPU. "
+            "Examples: cpu, cuda, cuda:0, cuda:1."
+        ),
+    )
 
     # ---- Data ----
     parser.add_argument("--data-root", type=Path,
@@ -203,8 +212,7 @@ def main() -> None:
     else:
         raise ValueError(f"Unknown model: {args.model}")
 
-    print(f"Backbone: {model_name}  |  "
-          f"Device: {'cuda' if torch.cuda.is_available() else 'cpu'}")
+    print(f"Backbone: {model_name}  |  Device: {args.device}")
 
     pretrain_config = ContrastiveConfig(
         num_epochs=args.pretrain_epochs,
@@ -217,6 +225,7 @@ def main() -> None:
         grad_clip=args.grad_clip,
         save_dir=args.pretrain_save_dir.expanduser().resolve(),
         log_interval=args.log_interval,
+        device=args.device,
         use_wandb=args.use_wandb,
         wandb_project=args.wandb_project,
         wandb_entity=args.wandb_entity,

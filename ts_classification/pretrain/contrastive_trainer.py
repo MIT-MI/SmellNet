@@ -50,6 +50,7 @@ class ContrastiveConfig:
     grad_clip: float = 1.0
     save_dir: Path = Path("pretrain_ckpts")
     log_interval: int = 10
+    device: str = "auto"   # auto | cpu | cuda | cuda:0 | cuda:1 | ...
     use_wandb: bool = False
     wandb_project: str = "smell-net-pretrain"
     wandb_entity: Optional[str] = None
@@ -108,7 +109,12 @@ class ContrastivePretrainer:
         self.train_loader = train_loader
         self.val_loader = val_loader
         self.config = config
-        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+        d = config.device.lower()
+        if d == "auto":
+            self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        else:
+            self.device = torch.device(d)
 
         self.model.to(self.device)
 

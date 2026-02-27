@@ -268,6 +268,18 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         help="Tags for WandB run.",
     )
 
+    # ---- Device ----
+    parser.add_argument(
+        "--device",
+        type=str,
+        default=config_defaults.get("device", "auto"),
+        help=(
+            "Device to run on. "
+            "'auto' uses CUDA if available, else CPU. "
+            "Examples: cpu, cuda, cuda:0, cuda:1."
+        ),
+    )
+
     # ---- TSCMamba / TSLANet shared ----
     parser.add_argument(
         "--patch-size",
@@ -323,6 +335,17 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
     )
 
     return parser.parse_args()
+
+
+def resolve_device(device_str: str) -> torch.device:
+    """Convert a device string to a torch.device.
+
+    'auto' → cuda if available, else cpu.
+    Any other value is passed directly to torch.device().
+    """
+    if device_str.lower() == "auto":
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+    return torch.device(device_str)
 
 
 def set_seed(seed: int) -> None:
@@ -553,6 +576,9 @@ def main() -> None:
 
     print(f"Using {len(resolved_classes)} classes: {resolved_classes[:5]}{'...' if len(resolved_classes) > 5 else ''}")
 
+    device = resolve_device(args.device)
+    print(f"Device: {device}")
+
     model_name = args.model.lower()
     if model_name == "timesnet":
         model_config = build_timesnet_config(len(features), len(label_map), args)
@@ -603,6 +629,7 @@ def main() -> None:
         train_loader=train_loader,
         val_loader=val_loader,
         config=trainer_config,
+        device=str(device),
         test_loader=test_loader,
         class_names=class_names,
     )

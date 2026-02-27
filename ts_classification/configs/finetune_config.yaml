@@ -26,6 +26,9 @@ num_workers: 0
 normalization: zscore  # zscore | minmax | none
 seed: 42
 
+# --- Device ---
+device: auto  # auto | cpu | cuda | cuda:0 | cuda:1 | ...
+
 # --- Model ---
 model: timesnet  # timesnet | transformer | tscmamba | tslanet
 dropout: 0.001
