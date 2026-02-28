@@ -40,7 +40,21 @@ def _validate_feature_columns(
 
 
 class SmellDataset(Dataset):
-    """Dataset that loads smell sensor CSV files and returns padded sequences."""
+    """Dataset that loads smell sensor CSV files and returns padded sequences.
+
+    Args:
+        samples: List of SampleRecord objects (path, label, label_name).
+        feature_columns: Columns to use; None = auto-detect all numeric columns.
+        seq_len: Fixed sequence length (pad/truncate).
+        normalization: "zscore" | "minmax" | "none".
+        window_stride: If set, extract multiple sliding windows per CSV with this
+            stride. None = single window per CSV (default, current behaviour).
+            Only intended for use on the training split.
+        temporal_diff: If True, apply first-order temporal differencing to every
+            channel before windowing. Applied identically on all splits so that
+            the model always sees the same feature representation.
+        diff_lag: Lag p for temporal differencing: ∆xt = xt - xt-p (default 1).
+    """
 
     def __init__(
         self,
@@ -48,6 +62,9 @@ class SmellDataset(Dataset):
         feature_columns: Optional[Sequence[str]] = None,
         seq_len: int = 512,
         normalization: str = "zscore",
+        window_stride: Optional[int] = None,
+        temporal_diff: bool = False,
+        diff_lag: int = 1,
     ) -> None:
         if not samples:
             raise ValueError("SmellDataset requires at least one sample.")
@@ -55,6 +72,9 @@ class SmellDataset(Dataset):
         self.samples = list(samples)
         self.seq_len = seq_len
         self.normalization = normalization.lower() if normalization else "none"
+        self.window_stride = window_stride
+        self.temporal_diff = temporal_diff
+        self.diff_lag = diff_lag
 
         auto_columns = _infer_numeric_columns(self.samples[0].path)
         if feature_columns:
@@ -73,22 +93,49 @@ class SmellDataset(Dataset):
     def __getitem__(self, idx: int) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
         return self.series[idx], self.masks[idx], self.labels[idx]
 
+    # ------------------------------------------------------------------
+    # Internal helpers
+    # ------------------------------------------------------------------
+
     def _preload_all(self) -> Tuple[List[torch.Tensor], List[torch.Tensor], List[torch.Tensor]]:
         data_tensors: List[torch.Tensor] = []
         mask_tensors: List[torch.Tensor] = []
         label_tensors: List[torch.Tensor] = []
         for sample in self.samples:
-            seq, mask = self._load_sample(sample.path)
-            data_tensors.append(seq)
-            mask_tensors.append(mask)
-            label_tensors.append(torch.tensor(sample.label, dtype=torch.long))
+            windows = self._load_windows(sample.path)
+            for seq, mask in windows:
+                data_tensors.append(seq)
+                mask_tensors.append(mask)
+                label_tensors.append(torch.tensor(sample.label, dtype=torch.long))
         return data_tensors, mask_tensors, label_tensors
 
-    def _load_sample(self, csv_path: Path) -> Tuple[torch.Tensor, torch.Tensor]:
+    def _load_windows(self, csv_path: Path) -> List[Tuple[torch.Tensor, torch.Tensor]]:
+        """Load a CSV and return one or more (padded_seq, mask) windows."""
         df = pd.read_csv(csv_path, usecols=self.feature_columns)
         series = df.to_numpy(dtype=np.float32)
         series = self._normalize(series)
 
+        if self.temporal_diff:
+            series = self._apply_temporal_diff(series)
+
+        if self.window_stride is None:
+            # Single window — original behaviour
+            return [self._pad_to_seq_len(series)]
+
+        # Sliding windows
+        n = len(series)
+        windows = []
+        start = 0
+        while start < n:
+            chunk = series[start : start + self.seq_len]
+            windows.append(self._pad_to_seq_len(chunk))
+            if start + self.seq_len >= n:
+                break
+            start += self.window_stride
+        return windows
+
+    def _pad_to_seq_len(self, series: np.ndarray) -> Tuple[torch.Tensor, torch.Tensor]:
+        """Pad or truncate a series to seq_len; return (tensor, mask)."""
         padded = np.zeros((self.seq_len, self.num_features), dtype=np.float32)
         mask = np.zeros((self.seq_len,), dtype=np.float32)
 
@@ -97,6 +144,11 @@ class SmellDataset(Dataset):
         mask[:effective_len] = 1.0
 
         return torch.from_numpy(padded), torch.from_numpy(mask)
+
+    def _apply_temporal_diff(self, series: np.ndarray) -> np.ndarray:
+        """First-order temporal difference: ∆xt = xt - xt-p, dropping first p rows."""
+        p = self.diff_lag
+        return series[p:] - series[:-p]
 
     def _normalize(self, series: np.ndarray) -> np.ndarray:
         if self.normalization == "zscore":
@@ -275,6 +327,9 @@ def create_dataloaders(
     num_workers: int = 0,
     seed: int = 42,
     normalization: str = "zscore",
+    train_window_stride: Optional[int] = None,
+    temporal_diff: bool = False,
+    diff_lag: int = 1,
 ) -> Tuple[Optional[DataLoader], Optional[DataLoader], Optional[DataLoader], Dict[str, int], List[str], List[str]]:
     """
     Create train, validation, and test dataloaders with automatic class resolution.
@@ -284,6 +339,12 @@ def create_dataloaders(
             - "all": auto-discover all available classes
             - integer N: randomly select N classes
             - list of strings: use explicit class names
+        train_window_stride: Sliding window stride for the training split only.
+            None = single window per CSV (default). Val/test always use a single
+            window to preserve evaluation robustness.
+        temporal_diff: Apply first-order temporal differencing (∆xt = xt - xt-p)
+            to all splits before windowing.
+        diff_lag: Lag p for temporal differencing (default 1).
 
     Returns:
         Tuple of (train_loader, val_loader, test_loader, label_map, feature_columns, resolved_classes).
@@ -309,8 +370,12 @@ def create_dataloaders(
             feature_columns=feature_columns,
             seq_len=seq_len,
             normalization=normalization,
+            window_stride=train_window_stride,
+            temporal_diff=temporal_diff,
+            diff_lag=diff_lag,
         )
         feature_cols = train_dataset.feature_columns
+        print(f"Train windows: {len(train_dataset)} (from {len(train_samples)} files)")
         train_loader = DataLoader(
             train_dataset,
             batch_size=batch_size,
@@ -319,7 +384,7 @@ def create_dataloaders(
             pin_memory=torch.cuda.is_available(),
         )
 
-    # Create validation dataset and loader
+    # Create validation dataset and loader (single window per file)
     val_loader = None
     if val_samples:
         val_dataset = SmellDataset(
@@ -327,6 +392,9 @@ def create_dataloaders(
             feature_columns=feature_cols,
             seq_len=seq_len,
             normalization=normalization,
+            window_stride=None,
+            temporal_diff=temporal_diff,
+            diff_lag=diff_lag,
         )
         val_loader = DataLoader(
             val_dataset,
@@ -336,7 +404,7 @@ def create_dataloaders(
             pin_memory=torch.cuda.is_available(),
         )
 
-    # Create test dataset and loader
+    # Create test dataset and loader (single window per file)
     test_loader = None
     if test_samples:
         test_dataset = SmellDataset(
@@ -344,6 +412,9 @@ def create_dataloaders(
             feature_columns=feature_cols,
             seq_len=seq_len,
             normalization=normalization,
+            window_stride=None,
+            temporal_diff=temporal_diff,
+            diff_lag=diff_lag,
         )
         test_loader = DataLoader(
             test_dataset,
@@ -354,4 +425,3 @@ def create_dataloaders(
         )
 
     return train_loader, val_loader, test_loader, label_map, feature_cols, resolved_classes
-

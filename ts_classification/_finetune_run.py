@@ -137,6 +137,23 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         help="Feature normalization strategy.",
     )
     parser.add_argument(
+        "--window-stride",
+        type=int,
+        default=config_defaults.get("window_stride", None),
+        help="Sliding window stride for training split (None = single window per CSV).",
+    )
+    parser.add_argument(
+        "--temporal-diff",
+        action="store_true",
+        help="Apply first-order temporal differencing (∆xt = xt - xt-p) to all splits.",
+    )
+    parser.add_argument(
+        "--diff-lag",
+        type=int,
+        default=config_defaults.get("diff_lag", 1),
+        help="Lag p for temporal differencing (default 1).",
+    )
+    parser.add_argument(
         "--dropout",
         type=float,
         default=config_defaults.get("dropout", 0.1),
@@ -520,7 +537,11 @@ def main() -> None:
     if not args.eval_at_end and config.get("eval_at_end", True):
         if "--eval-at-end" not in sys.argv:
             args.eval_at_end = True
-    
+
+    if not args.temporal_diff and config.get("temporal_diff", False):
+        if "--temporal-diff" not in sys.argv:
+            args.temporal_diff = True
+
     # Validate required arguments
     if not args.classes:
         raise ValueError("--classes must be provided either in config or via CLI.")
@@ -578,6 +599,9 @@ def main() -> None:
             num_workers=args.num_workers,
             seed=args.seed,
             normalization=args.normalization,
+            train_window_stride=args.window_stride,
+            temporal_diff=args.temporal_diff,
+            diff_lag=args.diff_lag,
         )
     else:  # eval
         _, val_loader, test_loader, label_map, features, resolved_classes = create_dataloaders(
@@ -592,6 +616,9 @@ def main() -> None:
             num_workers=args.num_workers,
             seed=args.seed,
             normalization=args.normalization,
+            train_window_stride=None,  # No sliding windows in eval mode
+            temporal_diff=args.temporal_diff,
+            diff_lag=args.diff_lag,
         )
 
     print(f"Using {len(resolved_classes)} classes: {resolved_classes[:5]}{'...' if len(resolved_classes) > 5 else ''}")
@@ -632,6 +659,9 @@ def main() -> None:
         "features": features,
         "seq_len": args.seq_len,
         "normalization": args.normalization,
+        "window_stride": args.window_stride,
+        "temporal_diff": args.temporal_diff,
+        "diff_lag": args.diff_lag,
         "train_split": args.train_split,
         "val_split": args.val_split,
         "test_split": args.test_split,
