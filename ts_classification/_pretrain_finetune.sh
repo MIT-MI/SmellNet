@@ -24,7 +24,7 @@ PROJ_DIM=128
 PROJ_HIDDEN=256
 # AUG_LIST="jitter scale time_shift magnitude_warp"
 AUG_LIST="none"
-PRETRAIN_BATCH_SIZE=50
+PRETRAIN_BATCH_SIZE=36
 PRETRAIN_SAVE_DIR="/scratch/keane/smellnet/pretrain_ckpts"
 
 WANDB_PROJECT_PRETRAIN="smell-net"

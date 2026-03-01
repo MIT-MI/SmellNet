@@ -136,6 +136,10 @@ class ContrastivePretrainer:
         )
 
         self.augment: Callable = get_augmentation(config.aug_list)
+        # n_views=1 when aug_list is ["none"] — skips the second view entirely,
+        # avoiding the degenerate self-twin problem. Loss still works on cross-sample
+        # class pairs (supervised metric learning). n_views=2 is standard SupCon.
+        self.n_views = 1 if config.aug_list == ["none"] else 2
 
         config.save_dir.mkdir(parents=True, exist_ok=True)
 
@@ -255,22 +259,23 @@ class ContrastivePretrainer:
         labels: torch.Tensor,
     ) -> torch.Tensor:
         """
-        One contrastive step: two augmented views → encode → project → SupConLoss.
+        One contrastive step: augmented view(s) → encode → project → SupConLoss.
+
+        n_views=2 (default): two independently augmented views → standard SupCon.
+        n_views=1 (aug_list=["none"]): single view → supervised metric learning
+            using only cross-sample class pairs; no degenerate self-twin.
         """
-        # Two independently augmented views of the same batch
         x1 = self.augment(inputs)
-        x2 = self.augment(inputs)
+        e1 = self.model.encode(x1, masks)                      # [B, emb_dim]
+        z1 = F.normalize(self.proj_head(e1), dim=-1)           # [B, proj_dim]
 
-        # Encode with shared backbone
-        e1 = self.model.encode(x1, masks)   # [B, emb_dim]
-        e2 = self.model.encode(x2, masks)   # [B, emb_dim]
-
-        # Project and L2-normalise
-        z1 = F.normalize(self.proj_head(e1), dim=-1)   # [B, proj_dim]
-        z2 = F.normalize(self.proj_head(e2), dim=-1)   # [B, proj_dim]
-
-        # Stack into [B, 2, proj_dim] for SupConLoss
-        features = torch.stack([z1, z2], dim=1)
+        if self.n_views == 2:
+            x2 = self.augment(inputs)
+            e2 = self.model.encode(x2, masks)                  # [B, emb_dim]
+            z2 = F.normalize(self.proj_head(e2), dim=-1)       # [B, proj_dim]
+            features = torch.stack([z1, z2], dim=1)            # [B, 2, proj_dim]
+        else:
+            features = z1.unsqueeze(1)                         # [B, 1, proj_dim]
 
         return self.criterion(features, labels)
 
