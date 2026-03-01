@@ -27,10 +27,10 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --val-frequency 1 \
   --eval-split "test" \
   --eval-at-end \
-  --window-stride 256 \
+  --window-stride 50 \
   --temporal-diff \
   --diff-lag 1 \
-  --save-dir "${PROJECT_ROOT}/smell_model_ckpts" \
+  --save-dir "/scratch/keane/smellnet/smell_model_ckpts" \
   --wandb-project "${WANDB_PROJECT}" \
   ${WANDB_RUN_NAME:+--wandb-run-name "${WANDB_RUN_NAME}"} \
   "$@"
