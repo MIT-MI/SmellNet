@@ -651,8 +651,27 @@ def main() -> None:
 
     if args.load_pretrained_checkpoint:
         checkpoint = torch.load(args.load_pretrained_checkpoint, map_location="cpu")
-        model.load_state_dict(checkpoint["model_state"])
-        print(f"Loaded pretrained checkpoint from {args.load_pretrained_checkpoint}")
+        # Strip the classification head — it was never trained during contrastive pretraining
+        # (contrastive loss flows through backbone + projection head only).
+        # This keeps fresh random init for the head and avoids num_class mismatches.
+        state = {k: v for k, v in checkpoint["model_state"].items() if not k.startswith("head.")}
+        missing, unexpected = model.load_state_dict(state, strict=False)
+        non_head_missing = [k for k in missing if not k.startswith("head.")]
+        if non_head_missing:
+            print(f"  [ckpt] WARNING — backbone keys not in checkpoint (kept random init): {non_head_missing}")
+        if unexpected:
+            print(f"  [ckpt] Unexpected keys ignored: {unexpected}")
+        # Validate for NaN — indicates a corrupted pretrain run (e.g. from the losses.py NaN bug)
+        nan_params = [n for n, p in model.named_parameters() if p.isnan().any()]
+        if nan_params:
+            raise RuntimeError(
+                f"Loaded checkpoint contains NaN weights in {len(nan_params)} parameter tensor(s) "
+                f"(first few: {nan_params[:3]}). "
+                "Re-run pretraining — the checkpoint is corrupted."
+            )
+        n_backbone = sum(v.numel() for v in state.values())
+        print(f"Loaded pretrained backbone from {args.load_pretrained_checkpoint} "
+              f"({n_backbone:,} parameters; classification head re-initialized fresh)")
 
     wandb_run_config = {
         # Data
