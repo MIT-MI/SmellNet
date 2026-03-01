@@ -11,12 +11,15 @@ DEFAULT_FEATURES="all"   # "all" = auto-detect all numeric columns, or e.g. ("NO
 WANDB_PROJECT="smell-net"
 WANDB_RUN_NAME="all_test"   # leave empty to let WandB auto-generate a name
 
+# different models to choose from:
+# timesnet | transformer | tscmamba | tslanet
+
 python "${SCRIPT_DIR}/_finetune_run.py" \
   --mode train \
   --data-root "${DATA_ROOT}" \
   --classes "${DEFAULT_CLASSES[@]}" \
   --features "${DEFAULT_FEATURES[@]}" \
-  --model "timesnet" \
+  --model "tslanet" \
   --seq-len 512 \
   --batch-size 32 \
   --epochs 10 \
