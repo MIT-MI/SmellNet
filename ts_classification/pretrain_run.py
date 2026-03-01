@@ -181,6 +181,11 @@ def main() -> None:
     set_seed(args.seed)
     data_root = args.data_root.expanduser().resolve()
 
+    # Resolve features: "all" → None (auto-detect all numeric columns)
+    if isinstance(args.features, list) and len(args.features) == 1:
+        if isinstance(args.features[0], str) and args.features[0].lower() == "all":
+            args.features = None
+
     # Resolve "all" / integer shorthand
     classes_input = args.classes
     if isinstance(args.classes, list) and len(args.classes) == 1:

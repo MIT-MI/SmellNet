@@ -65,6 +65,11 @@ def window_slice(x: torch.Tensor, reduce_ratio: float = 0.9) -> torch.Tensor:
     return out
 
 
+def identity(x: torch.Tensor) -> torch.Tensor:
+    """No-op augmentation — returns the input unchanged."""
+    return x
+
+
 def magnitude_warp(
     x: torch.Tensor,
     sigma: float = 0.2,
@@ -91,6 +96,7 @@ _AUGMENTATIONS: dict[str, Callable] = {
     "time_shift": time_shift,
     "window_slice": window_slice,
     "magnitude_warp": magnitude_warp,
+    "none": identity,
 }
 
 _DEFAULT_AUG_LIST = ["jitter", "scale", "time_shift", "magnitude_warp"]
@@ -133,6 +139,7 @@ def get_augmentation(
 
 
 __all__ = [
+    "identity",
     "jitter",
     "scale",
     "time_shift",

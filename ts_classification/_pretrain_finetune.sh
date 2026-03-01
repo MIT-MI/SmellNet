@@ -16,29 +16,30 @@ WINDOW_STRIDE="200"      # none or integer
 TEMPORAL_DIFF="none"      # none/0/false = off; positive integer = lag
 
 # ── Pretrain ──────────────────────────────────────────────────────────────────
-PRETRAIN_EPOCHS=50
+PRETRAIN_EPOCHS=10
 PRETRAIN_LR=1e-3
 PRETRAIN_WEIGHT_DECAY=1e-4
 TEMPERATURE=0.07
 PROJ_DIM=128
 PROJ_HIDDEN=256
-AUG_LIST="jitter scale time_shift magnitude_warp"
-PRETRAIN_BATCH_SIZE=32
+# AUG_LIST="jitter scale time_shift magnitude_warp"
+AUG_LIST="none"
+PRETRAIN_BATCH_SIZE=50
 PRETRAIN_SAVE_DIR="/scratch/keane/smellnet/pretrain_ckpts"
 
-WANDB_PROJECT_PRETRAIN="smell-net-pretrain"
-WANDB_RUN_NAME_PRETRAIN=""   # leave empty to auto-generate
+WANDB_PROJECT_PRETRAIN="smell-net"
+WANDB_RUN_NAME_PRETRAIN="pretrain_tsla"   # leave empty to auto-generate
 
 # ── Fine-tune ─────────────────────────────────────────────────────────────────
 FINETUNE_EPOCHS=300
 FINETUNE_LR=1e-3
-FINETUNE_BATCH_SIZE=32
+FINETUNE_BATCH_SIZE=50
 FINETUNE_SAVE_DIR="/scratch/keane/smellnet/smell_model_ckpts"
 SAVE_FREQUENCY=5
 VAL_FREQUENCY=1
 
 WANDB_PROJECT_FINETUNE="smell-net"
-WANDB_RUN_NAME_FINETUNE=""   # leave empty to auto-generate
+WANDB_RUN_NAME_FINETUNE="finetune_pretrained_tsla"   # leave empty to auto-generate
 
 # ── Step 1: Pretrain ──────────────────────────────────────────────────────────
 echo "================================================================"
