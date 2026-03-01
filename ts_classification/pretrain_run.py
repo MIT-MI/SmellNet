@@ -84,6 +84,18 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
     parser.add_argument("--num-workers", type=int, default=cfg.get("num_workers", 0))
     parser.add_argument("--normalization", choices=["zscore", "minmax", "none"],
                         default=cfg.get("normalization", "zscore"))
+    parser.add_argument(
+        "--window-stride",
+        type=lambda x: None if x.lower() == "none" else int(x),
+        default=cfg.get("window_stride", None),
+        help="Sliding window stride for training split (None or omit = single window per CSV).",
+    )
+    parser.add_argument(
+        "--temporal-diff",
+        type=lambda x: False if x.lower() in ("false", "none", "0") else int(x),
+        default=cfg.get("temporal_diff", False),
+        help="Temporal differencing lag p. Positive int to enable, 0/false/none to disable.",
+    )
     parser.add_argument("--seed", type=int, default=cfg.get("seed", 42))
 
     # ---- Model ----
@@ -190,6 +202,9 @@ def main() -> None:
         num_workers=args.num_workers,
         seed=args.seed,
         normalization=args.normalization,
+        train_window_stride=args.window_stride,
+        temporal_diff=bool(args.temporal_diff),
+        diff_lag=int(args.temporal_diff) if args.temporal_diff else 1,
     )
 
     print(f"Classes ({len(resolved_classes)}): "
@@ -254,6 +269,8 @@ def main() -> None:
         "seq_len": args.seq_len,
         "classes": resolved_classes,
         "normalization": args.normalization,
+        "temporal_diff": args.temporal_diff,
+        "window_stride": args.window_stride,
         "label_to_id": label_map,
     }
     meta_path = pretrain_config.save_dir / "pretrain_metadata.json"

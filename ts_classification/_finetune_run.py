@@ -138,20 +138,19 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
     )
     parser.add_argument(
         "--window-stride",
-        type=int,
+        type=lambda x: None if x.lower() == "none" else int(x),
         default=config_defaults.get("window_stride", None),
-        help="Sliding window stride for training split (None = single window per CSV).",
+        help="Sliding window stride for training split (None or omit = single window per CSV).",
     )
     parser.add_argument(
         "--temporal-diff",
-        action="store_true",
-        help="Apply first-order temporal differencing (∆xt = xt - xt-p) to all splits.",
-    )
-    parser.add_argument(
-        "--diff-lag",
-        type=int,
-        default=config_defaults.get("diff_lag", 1),
-        help="Lag p for temporal differencing (default 1).",
+        type=lambda x: False if x.lower() in ("false", "none", "0") else int(x),
+        default=config_defaults.get("temporal_diff", False),
+        help=(
+            "Temporal differencing lag p (∆xt = xt - xt-p). "
+            "Pass a positive integer to enable (e.g. --temporal-diff 1), "
+            "or 0/false/none to disable."
+        ),
     )
     parser.add_argument(
         "--dropout",
@@ -213,19 +212,19 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         default=Path(config_defaults.get("save_dir", "artifacts")),
         help="Directory for checkpoints/metadata.",
     )
-    checkpoint_default = config_defaults.get("checkpoint")
+    checkpoint_default = config_defaults.get("load_pretrained_checkpoint")
     parser.add_argument(
-        "--checkpoint",
+        "--load-pretrained-checkpoint",
         type=Path,
         default=Path(checkpoint_default) if checkpoint_default else None,
-        help="Checkpoint path to load (required for eval).",
+        help="Path to a pretrained encoder checkpoint to load (required for eval).",
     )
-    metadata_default = config_defaults.get("metadata")
+    metadata_default = config_defaults.get("load_pretrained_metadata")
     parser.add_argument(
-        "--metadata",
+        "--load-pretrained-metadata",
         type=Path,
         default=Path(metadata_default) if metadata_default else None,
-        help="Metadata JSON from a previous training run.",
+        help="Metadata JSON saved alongside a pretrained encoder.",
     )
     parser.add_argument(
         "--mixed-precision",
@@ -538,18 +537,21 @@ def main() -> None:
         if "--eval-at-end" not in sys.argv:
             args.eval_at_end = True
 
-    if not args.temporal_diff and config.get("temporal_diff", False):
-        if "--temporal-diff" not in sys.argv:
-            args.temporal_diff = True
-
     # Validate required arguments
     if not args.classes:
         raise ValueError("--classes must be provided either in config or via CLI.")
-    if args.mode == "eval" and not args.checkpoint:
-        raise ValueError("--checkpoint is required when mode is 'eval'.")
+    if args.mode == "eval" and not args.load_pretrained_checkpoint:
+        raise ValueError("--load-pretrained-checkpoint is required when mode is 'eval'.")
 
-    metadata = load_metadata(args.metadata)
+    metadata = load_metadata(args.load_pretrained_metadata)
     if metadata:
+        print(
+            f"[metadata] Restoring from {args.load_pretrained_metadata}: "
+            f"seq_len={metadata.get('seq_len')}, "
+            f"normalization={metadata.get('normalization')}, "
+            f"features={metadata.get('features')}, "
+            f"temporal_diff={metadata.get('temporal_diff', 'not set')}"
+        )
         # Keep user overrides if explicitly provided.
         args.features = args.features or metadata.get("features")
         args.seq_len = metadata.get("seq_len", args.seq_len)
@@ -560,6 +562,8 @@ def main() -> None:
         args.val_split = metadata.get("val_split", args.val_split)
         args.test_split = metadata.get("test_split", args.test_split)
         args.seed = metadata.get("seed", args.seed)
+        if "temporal_diff" in metadata and "--temporal-diff" not in sys.argv:
+            args.temporal_diff = metadata["temporal_diff"]
 
     set_seed(args.seed)
     data_root = args.data_root.expanduser().resolve()
@@ -600,8 +604,8 @@ def main() -> None:
             seed=args.seed,
             normalization=args.normalization,
             train_window_stride=args.window_stride,
-            temporal_diff=args.temporal_diff,
-            diff_lag=args.diff_lag,
+            temporal_diff=bool(args.temporal_diff),
+            diff_lag=int(args.temporal_diff) if args.temporal_diff else 1,
         )
     else:  # eval
         _, val_loader, test_loader, label_map, features, resolved_classes = create_dataloaders(
@@ -617,8 +621,8 @@ def main() -> None:
             seed=args.seed,
             normalization=args.normalization,
             train_window_stride=None,  # No sliding windows in eval mode
-            temporal_diff=args.temporal_diff,
-            diff_lag=args.diff_lag,
+            temporal_diff=bool(args.temporal_diff),
+            diff_lag=int(args.temporal_diff) if args.temporal_diff else 1,
         )
 
     print(f"Using {len(resolved_classes)} classes: {resolved_classes[:5]}{'...' if len(resolved_classes) > 5 else ''}")
@@ -645,10 +649,10 @@ def main() -> None:
 
     print(f"Using model: {model_name}")
 
-    if args.checkpoint:
-        checkpoint = torch.load(args.checkpoint, map_location="cpu")
+    if args.load_pretrained_checkpoint:
+        checkpoint = torch.load(args.load_pretrained_checkpoint, map_location="cpu")
         model.load_state_dict(checkpoint["model_state"])
-        print(f"Loaded checkpoint from {args.checkpoint}")
+        print(f"Loaded pretrained checkpoint from {args.load_pretrained_checkpoint}")
 
     wandb_run_config = {
         # Data
@@ -660,8 +664,7 @@ def main() -> None:
         "seq_len": args.seq_len,
         "normalization": args.normalization,
         "window_stride": args.window_stride,
-        "temporal_diff": args.temporal_diff,
-        "diff_lag": args.diff_lag,
+        "temporal_diff": args.temporal_diff,  # False or int lag
         "train_split": args.train_split,
         "val_split": args.val_split,
         "test_split": args.test_split,

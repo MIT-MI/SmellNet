@@ -14,6 +14,12 @@ WANDB_RUN_NAME="all_test"   # leave empty to let WandB auto-generate a name
 # different models to choose from:
 # timesnet | transformer | tscmamba | tslanet
 
+# Set these to load a pretrained encoder backbone; leave empty to train from scratch
+PRETRAIN_ENCODER=""  # e.g. "/scratch/keane/smellnet/pretrain_ckpts/pretrained_encoder.pt"
+PRETRAIN_METADATA="" # e.g. "/scratch/keane/smellnet/pretrain_ckpts/pretrain_metadata.json"
+
+# --window-stride can be none or an integer;
+
 python "${SCRIPT_DIR}/_finetune_run.py" \
   --mode train \
   --data-root "${DATA_ROOT}" \
@@ -27,10 +33,12 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --val-frequency 1 \
   --eval-split "test" \
   --eval-at-end \
-  --window-stride 50 \
-  --temporal-diff \
-  --diff-lag 1 \
+  --window-stride "none" \
+  --temporal-diff "none" \
+  --save-frequency 5 \
   --save-dir "/scratch/keane/smellnet/smell_model_ckpts" \
   --wandb-project "${WANDB_PROJECT}" \
   ${WANDB_RUN_NAME:+--wandb-run-name "${WANDB_RUN_NAME}"} \
+  ${PRETRAIN_ENCODER:+--load-pretrained-checkpoint "${PRETRAIN_ENCODER}"} \
+  ${PRETRAIN_METADATA:+--load-pretrained-metadata "${PRETRAIN_METADATA}"} \
   "$@"
