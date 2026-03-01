@@ -82,7 +82,8 @@ class SupConLoss(nn.Module):
         num_pos = pos_mask.sum(dim=1).clamp(min=1).float()    # [2B]
 
         # Per-anchor loss: mean over positives of (sim - log_denom)
-        pos_sim = (sim * pos_mask.float()).sum(dim=1)          # [2B]
+        # Use masked_fill instead of * pos_mask.float() to avoid -inf * 0 = NaN
+        pos_sim = sim.masked_fill(~pos_mask, 0.0).sum(dim=1)  # [2B]
         loss_per_anchor = -(self.temperature / self.base_temperature) * (
             pos_sim / num_pos - log_denom
         )
