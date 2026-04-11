@@ -134,14 +134,14 @@ class ClassificationTrainer:
             if self.config.use_wandb:
                 try:
                     import wandb
-                    wandb_log = {"epoch": epoch}
+                    wandb_log = {}
                     wandb_log.update({f"train/{k}": v for k, v in train_metrics.items()})
                     if should_validate:
                         wandb_log.update({f"val/{k}": v for k, v in val_metrics.items()})
                         wandb_log["best_val_acc"] = self.best_val_acc
                     if test_metrics is not None:
                         wandb_log.update({f"test/{k}": v for k, v in test_metrics.items()})
-                    wandb.log(wandb_log, step=self.global_step)
+                    wandb.log(wandb_log, step=epoch)
                 except ImportError:
                     pass
 
@@ -156,9 +156,16 @@ class ClassificationTrainer:
                     import wandb
                     per_class = {k: v for k, v in test_metrics.items() if k.startswith("class_")}
                     if per_class:
-                        wandb.log({f"test/{k}": v for k, v in per_class.items()}, step=self.global_step)
+                        wandb.log({f"test/{k}": v for k, v in per_class.items()}, step=self.config.num_epochs)
                 except ImportError:
                     pass
+
+        # Print best checkpoint summary
+        if self.best_checkpoints:
+            best_path = self.best_checkpoints[-1]
+            print(f"\nBest checkpoint: {best_path.name}  (val_acc: {self.best_val_acc*100:.2f}%)")
+        else:
+            print(f"\nNo best checkpoint saved (val_acc never improved above 0).")
 
         return history
 
@@ -279,14 +286,6 @@ class ClassificationTrainer:
                     f"Epoch {epoch} | Step {step}/{len(self.train_loader)} | "
                     f"Loss: {loss.item():.4f}"
                 )
-
-                # Log to WandB if enabled
-                if self.config.use_wandb:
-                    try:
-                        import wandb
-                        wandb.log({"train/step_loss": loss.item()}, step=self.global_step)
-                    except ImportError:
-                        pass
 
         avg_loss = total_loss / max(1, total_samples)
 
