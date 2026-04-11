@@ -314,7 +314,7 @@ class ClassificationTrainer:
             "optimizer_state": self.optimizer.state_dict(),
             "best_val_acc": self.best_val_acc,
         }
-        suffix = "best" if best else f"epoch_{epoch}"
+        suffix = f"epoch_{epoch}_best" if best else f"epoch_{epoch}"
         path = self.config.save_dir / f"classifier_{suffix}.pt"
         torch.save(checkpoint, path)
 

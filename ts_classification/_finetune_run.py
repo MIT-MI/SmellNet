@@ -227,6 +227,12 @@ def parse_args(config: Optional[Dict[str, Any]] = None) -> argparse.Namespace:
         help="Metadata JSON saved alongside a pretrained encoder.",
     )
     parser.add_argument(
+        "--checkpoint",
+        type=Path,
+        default=None,
+        help="Path to a trained classifier checkpoint (.pt) to load for eval mode.",
+    )
+    parser.add_argument(
         "--mixed-precision",
         action="store_true",
         help="Enable torch.cuda.amp mixed precision.",
@@ -673,6 +679,12 @@ def main() -> None:
         print(f"Loaded pretrained backbone from {args.load_pretrained_checkpoint} "
               f"({n_backbone:,} parameters; classification head re-initialized fresh)")
 
+    if args.checkpoint:
+        ckpt = torch.load(args.checkpoint, map_location="cpu")
+        model.load_state_dict(ckpt["model_state"])
+        print(f"Loaded classifier checkpoint from {args.checkpoint} "
+              f"(epoch {ckpt.get('epoch', '?')}, best_val_acc={ckpt.get('best_val_acc', 0.0):.4f})")
+
     wandb_run_config = {
         # Data
         "model": args.model,
@@ -774,6 +786,13 @@ def main() -> None:
             f"Evaluation complete ({split_name} split). "
             f"Loss: {metrics['loss']:.4f}, Accuracy: {metrics['accuracy']*100:.2f}%"
         )
+
+        if trainer.config.use_wandb:
+            try:
+                import wandb
+                wandb.log({f"eval/{k}": v for k, v in metrics.items() if isinstance(v, (int, float))})
+            except ImportError:
+                pass
 
 
 if __name__ == "__main__":
