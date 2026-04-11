@@ -6,12 +6,12 @@ PROJECT_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"              # SmellNet/
 DATA_ROOT="${PROJECT_ROOT}/smell_ts_dataset/SmellNet"
 DEFAULT_CLASSES="all"
 DEFAULT_FEATURES="all"
-CHECKPOINT_PATH="/scratch/keane/smellnet/smell_model_ckpts_tslanet/classifier_epoch_10_best.pt"
+CHECKPOINT_PATH="/home/keaneong/scratch/keane/smellnet/smell_model_ckpts_tslanet/classifier_epoch_35.pt"
 
 DEVICE="cuda:0"  # e.g. cuda:0, cuda:1, cpu, auto
 
 WANDB_PROJECT="smell-net"
-WANDB_RUN_NAME=""   # leave empty to let WandB auto-generate a name
+WANDB_RUN_NAME="classifier_epoch_35"   # leave empty to let WandB auto-generate a name
 
 # different models to choose from:
 # timesnet | transformer | tscmamba | tslanet

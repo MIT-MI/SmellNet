@@ -125,6 +125,10 @@ class ClassificationTrainer:
             if self.test_loader is not None:
                 test_metrics = self.validate(loader=self.test_loader)
                 history.update({f"test_{k}": v for k, v in test_metrics.items()})
+                # No val set — use test acc as proxy for best checkpoint tracking
+                if not should_validate and test_metrics["accuracy"] > self.best_val_acc:
+                    self.best_val_acc = test_metrics["accuracy"]
+                    self._save_checkpoint(epoch, best=True)
 
             # Save checkpoint at specified frequency or on last epoch
             if epoch % self.config.save_frequency == 0 or epoch == self.config.num_epochs:
@@ -138,9 +142,10 @@ class ClassificationTrainer:
                     wandb_log.update({f"train/{k}": v for k, v in train_metrics.items()})
                     if should_validate:
                         wandb_log.update({f"val/{k}": v for k, v in val_metrics.items()})
-                        wandb_log["best_val_acc"] = self.best_val_acc
                     if test_metrics is not None:
                         wandb_log.update({f"test/{k}": v for k, v in test_metrics.items()})
+                    if self.best_val_acc > 0.0:
+                        wandb_log["best_acc"] = self.best_val_acc
                     wandb.log(wandb_log, step=epoch)
                 except ImportError:
                     pass
