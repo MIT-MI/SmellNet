@@ -31,7 +31,7 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --device "${DEVICE}" \
   --seq-len 512 \
   --batch-size 32 \
-  --epochs 10 \
+  --epochs 200 \
   --learning-rate 1e-3 \
   --val-frequency 1 \
   --eval-split "test" \
