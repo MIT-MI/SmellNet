@@ -36,7 +36,7 @@ python "${SCRIPT_DIR}/_finetune_run.py" \
   --val-frequency 1 \
   --eval-split "test" \
   --eval-at-end \
-  --window-stride "none" \
+  --window-stride "100" \
   --temporal-diff "none" \
   --save-frequency 5 \
   --save-dir "/scratch/keane/smellnet/smell_model_ckpts_tslanet" \
