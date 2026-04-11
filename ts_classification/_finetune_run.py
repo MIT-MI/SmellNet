@@ -620,7 +620,7 @@ def main() -> None:
             feature_columns=args.features,
             seq_len=args.seq_len,
             batch_size=args.batch_size,
-            train_split=0.0,  # No training set for eval mode
+            train_split=args.train_split,  # Keep same split ratios so val/test partitions match training
             val_split=args.val_split,
             test_split=args.test_split,
             num_workers=args.num_workers,
