@@ -546,8 +546,8 @@ def main() -> None:
     # Validate required arguments
     if not args.classes:
         raise ValueError("--classes must be provided either in config or via CLI.")
-    if args.mode == "eval" and not args.load_pretrained_checkpoint:
-        raise ValueError("--load-pretrained-checkpoint is required when mode is 'eval'.")
+    if args.mode == "eval" and not args.checkpoint:
+        raise ValueError("--checkpoint is required when mode is 'eval'.")
 
     metadata = load_metadata(args.load_pretrained_metadata)
     if metadata:
