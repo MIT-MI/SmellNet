@@ -21,6 +21,7 @@ from models import Transformer, GCMSMLPEncoder, LSTMNet, MLPClassifier, CNN1DCla
 # Data helpers
 from load_data import (
     load_sensor_data,
+    load_sensor_data_leave_day_out,
     load_gcms_data,
     make_sliding_window_dataset,
     diff_data_like,
@@ -53,6 +54,8 @@ class RunSpec:
     fft: bool
     fft_cutoff: float
     sampling_rate: float
+    held_out_day: int | None
+    leave_one_channel_training: str | None = None
 
 def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Run model/contrastive/gradient/window sweeps.")
@@ -91,6 +94,27 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--sampling-rate", type=float, default=1.0,
                 help="Sampling rate (Hz) of your sensor.")
 
+    p.add_argument(
+        "--ablate-channels",
+        action="store_true",
+        help="During eval, mask each channel to 0 (post-standardization) one at a time and report metric deltas."
+    )
+
+    p.add_argument(
+        "--held-out-day",
+        type=int,
+    )
+
+    p.add_argument(
+        "--leave-one-channel-training",
+        type=str,
+        default=None,
+        help=(
+            "Name of a sensor channel to drop entirely from training/eval "
+            "(different from ablation masking)."
+        ),
+    )
+
     return p
 
 def iter_run_specs(args: argparse.Namespace) -> Iterable[RunSpec]:
@@ -113,9 +137,9 @@ def iter_run_specs(args: argparse.Namespace) -> Iterable[RunSpec]:
             fft=(args.fft == "on"),
             fft_cutoff=args.fft_cutoff,
             sampling_rate=args.sampling_rate,
+            held_out_day=args.held_out_day,
+            leave_one_channel_training=args.leave_one_channel_training,  # <-- here
         )
-
-
 
 # ----------------------- Model factory -----------------------
 def get_model(
@@ -261,26 +285,173 @@ def _jsonable(x):
     if isinstance(x, (list, tuple)): return [_jsonable(v) for v in x]
     return x
 
+def _infer_channel_names_fallback(C: int) -> List[str]:
+    # You can wire in real names if you have them; numeric fallback is safe.
+    return [f"ch{i}" for i in range(C)]
+
+def _make_loader(X_np: np.ndarray, y_np: np.ndarray, batch_size: int):
+    ds = TensorDataset(torch.from_numpy(X_np), torch.from_numpy(y_np))
+    return DataLoader(ds, batch_size=batch_size, shuffle=False, drop_last=False)
+
+def channel_ablation_eval_classification(
+    model: nn.Module,
+    *,
+    Xte_np: np.ndarray,       # (N,T,C)
+    yte_np: np.ndarray,       # (N,)
+    device: torch.device,
+    dtype: torch.dtype,
+    batch_size: int,
+    ingredient_to_category,
+    class_names,
+    topk=(1,5),
+    channel_names: Optional[List[str]] = None,
+) -> Dict[str, dict]:
+    """
+    Returns:
+      {
+        "baseline": {...metrics...},
+        "per_channel": {
+            "<name>": { ...metrics..., "delta@1": baseline_acc1 - acc1, "delta@5": ... }
+        }
+      }
+    """
+    N, T, C = Xte_np.shape
+    if channel_names is None or len(channel_names) != C:
+        channel_names = _infer_channel_names_fallback(C)
+
+    # Baseline
+    baseline_loader = _make_loader(Xte_np, yte_np, batch_size)
+    baseline = evaluate(
+        model, baseline_loader,
+        device=device, dtype=dtype, topk=topk,
+        ingredient_to_category=ingredient_to_category, class_names=class_names
+    )
+
+    # Per-channel mask
+    per_channel: Dict[str, dict] = {}
+    for c in range(C):
+        X_mask = Xte_np.copy()
+        X_mask[:, :, c] = 0.0  # mask to zero AFTER standardization
+        dl = _make_loader(X_mask, yte_np, batch_size)
+        res = evaluate(
+            model, dl,
+            device=device, dtype=dtype, topk=topk,
+            ingredient_to_category=ingredient_to_category, class_names=class_names
+        )
+        # deltas
+        res["delta@1"] = float(baseline.get("acc@1", 0.0) - res.get("acc@1", 0.0))
+        if "acc@5" in baseline and "acc@5" in res:
+            res["delta@5"] = float(baseline["acc@5"] - res["acc@5"])
+        if "f1_macro" in baseline and "f1_macro" in res:
+            res["delta_f1_macro"] = float(baseline["f1_macro"] - res["f1_macro"])
+        per_channel[channel_names[c]] = res
+
+    return {"baseline": baseline, "per_channel": per_channel}
+
+
+def channel_ablation_eval_contrastive(
+    gcms_encoder: nn.Module,
+    sensor_encoder: nn.Module,
+    *,
+    gcms_scaled: np.ndarray,   # (Ng, Dg)
+    Xte_np: np.ndarray,        # (N,T,C)
+    yte_np: np.ndarray,        # (N,)
+    device: torch.device,
+    dtype: torch.dtype,
+    batch_size: int,
+    ingredient_to_category,
+    class_names,
+    topk=(1,5),
+    channel_names: Optional[List[str]] = None,
+) -> Dict[str, dict]:
+    N, T, C = Xte_np.shape
+    if channel_names is None or len(channel_names) != C:
+        channel_names = _infer_channel_names_fallback(C)
+
+    # Baseline (no masking)
+    baseline = evaluate_contrastive(
+        gcms_encoder, sensor_encoder,
+        gcms_data=gcms_scaled,
+        sensor_data=torch.from_numpy(Xte_np),
+        sensor_labels=torch.from_numpy(yte_np),
+        device=device, dtype=dtype, batch_size=batch_size,
+        ingredient_to_category=ingredient_to_category, class_names=class_names,
+        topk=topk,
+    )
+
+    per_channel: Dict[str, dict] = {}
+    for c in range(C):
+        X_mask = Xte_np.copy()
+        X_mask[:, :, c] = 0.0
+        res = evaluate_contrastive(
+            gcms_encoder, sensor_encoder,
+            gcms_data=gcms_scaled,
+            sensor_data=torch.from_numpy(X_mask),
+            sensor_labels=torch.from_numpy(yte_np),
+            device=device, dtype=dtype, batch_size=batch_size,
+            ingredient_to_category=ingredient_to_category, class_names=class_names,
+            topk=topk,
+        )
+        # deltas
+        res["delta@1"] = float(baseline.get("acc@1", 0.0) - res.get("acc@1", 0.0))
+        if "acc@5" in baseline and "acc@5" in res:
+            res["delta@5"] = float(baseline["acc@5"] - res["acc@5"])
+        if "f1_macro" in baseline and "f1_macro" in res:
+            res["delta_f1_macro"] = float(baseline["f1_macro"] - res["f1_macro"])
+        per_channel[channel_names[c]] = res
+
+    return {"baseline": baseline, "per_channel": per_channel}
+
+
 def append_results_jsonl(run_dir: Path, spec, *, results: dict | None = None, error: str | None = None, **extras):
-    """
-    Appends one JSON record to <run_dir>/results.jsonl.
-    Put your metrics in `results` (e.g., {'acc@1':..., 'acc@5':..., 'per_category':...}).
-    Any extra keyword args are added at top-level (e.g., dataset sizes, paths).
-    """
     rec = {
         "timestamp": datetime.now().isoformat(timespec="seconds"),
         "run_name": run_dir.name,
         **_spec_to_dict(spec),
-        **extras,
     }
     if results is not None:
         rec["results"] = _jsonable(results)
     if error is not None:
         rec["error"] = error
 
+    # NEW: make every extra JSON-safe (e.g., 'ablation' that has ndarrays)
+    for k, v in extras.items():
+        rec[k] = _jsonable(v)
+
     out_path = run_dir / "results.jsonl"
     with out_path.open("a", encoding="utf-8") as f:
         f.write(json.dumps(rec, separators=(",", ":"), ensure_ascii=False) + "\n")
+
+def dump_ablation_txt(run_dir: Path, spec: RunSpec, ablation: dict, filename: str = "ablation.txt") -> str:
+    """
+    Write an easy-to-read text report with baseline acc@1 and per-channel Δacc@1 (and Δacc@5 if present).
+    Returns the file path as a string.
+    """
+    path = run_dir / filename
+    base = float(ablation.get("baseline", {}).get("acc@1", 0.0))
+
+    # Collect rows sorted by largest Δacc@1
+    rows = []
+    for ch, res in ablation.get("per_channel", {}).items():
+        d1 = float(res.get("delta@1", 0.0) or 0.0)
+        masked = float(res.get("acc@1", 0.0) or 0.0)
+        d5 = res.get("delta@5", None)
+        rows.append((ch, d1, masked, d5))
+    rows.sort(key=lambda t: t[1], reverse=True)
+
+    lines = []
+    lines.append("==== Channel ablation ====")
+    lines.append(f"model={spec.model} contrastive={int(spec.contrastive)} grad={spec.gradient} window={spec.window_size}")
+    lines.append(f"Baseline acc@1: {base:.4f}%")
+    lines.append("")
+    lines.append("Channel\tΔacc@1 (pts)\tmasked acc@1\tΔacc@5 (pts)")
+    for ch, d1, masked, d5 in rows:
+        d5s = "-" if d5 is None else f"{float(d5):.4f}"
+        lines.append(f"{ch}\t{d1:.4f}\t\t{masked:.4f}%\t\t{d5s}")
+
+    with path.open("w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    return str(path)
 
 def _make_run_name(prefix: str, spec) -> str:
     base = f"{spec.model}-c{int(spec.contrastive)}-g{spec.gradient}-w{spec.window_size}-bs{spec.batch_size}-lr{spec.lr}-seed{spec.seed}"
@@ -351,12 +522,27 @@ def main():
         device = pick_device(spec.device)
 
         # ---------- Load sensor data dicts ----------
-        train_data, test_data, real_data = load_sensor_data(
-            training_path=args.train_dir,
-            testing_path=args.test_dir,
-            real_time_testing_path=args.real_test_dir,
-            removed_filtered_columns=["Benzene", "Temperature", "Pressure", "Humidity", "Gas_Resistance", "Altitude"],
-        )
+        if spec.held_out_day is None:
+            # Standard split: whatever you originally used (offline_training vs offline_testing)
+            removed_filtered_columns = []
+
+            train_data, test_data, real_data = load_sensor_data(
+                training_path=args.train_dir,
+                testing_path=args.test_dir,
+                real_time_testing_path=args.real_test_dir,
+                removed_filtered_columns=removed_filtered_columns,
+            )
+        else:
+            # Leave-day-out: merge all sessions, then split by day
+            print(f"\n===== Leave-day-out: holding out day {spec.held_out_day} =====")
+            train_data, test_data, real_data = load_sensor_data_leave_day_out(
+                training_path=args.train_dir,
+                testing_path=args.test_dir,
+                held_out_day=spec.held_out_day,
+                ingredients=None,        # or your ingredients subset
+                categories=None,         # or your categories
+                real_time_testing_path=args.real_test_dir,
+            )
 
         # Optional differencing
         if spec.gradient and spec.gradient > 0:
@@ -438,7 +624,62 @@ def main():
                 ingredient_to_category=ingredient_to_category,   # <— add
                 class_names=le.classes_,   
             )
-            # (Optional) save or log 'results'
+
+        if args.ablate_channels:
+            # If you have real channel names, wire them here. Fallback uses ch0..ch{C-1}.
+            chan_names = _infer_channel_names_fallback(C)
+
+            if not spec.contrastive:
+                ablation = channel_ablation_eval_classification(
+                    model,
+                    Xte_np=Xte_np, yte_np=yte_np,
+                    device=device, dtype=dtype, batch_size=spec.batch_size,
+                    ingredient_to_category=ingredient_to_category, class_names=le.classes_,
+                    topk=(1,5), channel_names=chan_names,
+                )
+            else:
+                ablation = channel_ablation_eval_contrastive(
+                    gcms_encoder, sensor_encoder,
+                    gcms_scaled=gcms_scaled,
+                    Xte_np=Xte_np, yte_np=yte_np,
+                    device=device, dtype=dtype, batch_size=spec.batch_size,
+                    ingredient_to_category=ingredient_to_category, class_names=le.classes_,
+                    topk=(1,5), channel_names=chan_names,
+                )
+
+            # Log a compact per-channel delta summary to CSV's "extra" field
+            # (full details go to results.jsonl)
+            deltas = {k: {
+                        "Δacc@1": round(v.get("delta@1", 0.0), 3),
+                        "Δacc@5": round(v.get("delta@5", 0.0), 3) if "delta@5" in v else None,
+                    }
+                    for k, v in ablation["per_channel"].items()}
+            spec_csv.write(
+                stage="ablation",
+                extra=json.dumps({"ablation_deltas": deltas}, separators=(",", ":"), sort_keys=True)
+            )
+
+            # Append full ablation detail to results.jsonl
+            append_results_jsonl(
+                run_dir, spec, results=results,
+                dataset={"train_windows": int(Xtr_np.shape[0]),
+                        "test_windows": int(Xte_np.shape[0]),
+                        "T": int(Xtr_np.shape[1]), "C": int(Xtr_np.shape[2]),
+                        "classes": int(K)},
+                checkpoint=str((Path(args.save_dir) / f"{run_name}.pt").resolve()),
+            )
+
+            txt_path = dump_ablation_txt(run_dir, spec, ablation)
+
+            # Also print a readable top-1 delta ranking
+            drops = sorted(
+                ((name, ch_res.get("delta@1", 0.0)) for name, ch_res in ablation["per_channel"].items()),
+                key=lambda t: t[1], reverse=True
+            )
+            print("\nChannel ablation (Δacc@1, larger = more important):")
+            for name, d in drops:
+                print(f"  {name:>8s}: +{d:.2f} pts")
+        else:
             spec_csv.write(stage="eval_contrastive", acc1=results.get("acc@1"), acc5=results.get("acc@5"), extra = json.dumps({
                 "per_category": results.get("per_category", {}),
                 "fft": getattr(spec, "fft", False),

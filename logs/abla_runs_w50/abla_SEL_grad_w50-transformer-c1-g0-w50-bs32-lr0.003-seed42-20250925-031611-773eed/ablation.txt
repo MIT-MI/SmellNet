@@ -1,0 +1,11 @@
+==== Channel ablation ====
+model=transformer contrastive=1 grad=0 window=50
+Baseline acc@1: 35.2162%
+
+Channel	Δacc@1 (pts)	masked acc@1	Δacc@5 (pts)
+ch0	20.8297		14.3866%		40.4237
+ch1	20.6531		14.5631%		31.3327
+ch3	20.1236		15.0927%		20.3001
+ch2	15.3575		19.8588%		23.6540
+ch5	11.8270		23.3892%		9.0026
+ch4	7.5905		27.6258%		10.8561

@@ -18,7 +18,7 @@ def load_sensor_data(
     ingredients=None,
     categories=None,
     real_time_testing_path=None,
-    removed_filtered_columns=[],
+    removed_filtered_columns=["Benzene", "Temperature", "Pressure", "Humidity", "Gas_Resistance", "Altitude"],
 ):
     training_data = defaultdict(list)
     testing_data = defaultdict(list)
@@ -338,3 +338,106 @@ def load_smell_recognition_data(directory_path):
             data.append((df[:600], label_vector))
 
     return data
+
+
+def load_sensor_data_leave_day_out(
+    training_path,
+    testing_path,
+    held_out_day,
+    ingredients=None,
+    categories=None,
+    real_time_testing_path=None,
+    removed_filtered_columns=[],
+):
+    """
+    Leave-day-out loader.
+
+    Folder structure (same as you showed):
+
+        training_path/
+            allspice/
+                allspice_1.csv
+                allspice_2.csv
+                ...
+            almond/
+                almond_1.csv
+                ...
+
+        testing_path/
+            allspice/
+                allspice_6.csv
+            almond/
+                almond_6.csv
+            ...
+
+    The number before '.csv' is interpreted as the *day*.
+    We combine files from both paths, then:
+        - files with day == held_out_day  -> testing_data
+        - files with day != held_out_day  -> training_data
+    """
+
+    training_data = defaultdict(list)
+    testing_data = defaultdict(list)
+
+    def subtract_first_row(df: pd.DataFrame) -> pd.DataFrame:
+        return df - df.iloc[0]
+
+    def iter_ingredient_files(root):
+        """Yield (ingredient_name, full_filepath, day_int) for all csv files under root."""
+        if root is None or not os.path.isdir(root):
+            return
+        for folder_name in os.listdir(root):
+            folder_path = os.path.join(root, folder_name)
+            if not os.path.isdir(folder_path):
+                continue
+            for filename in os.listdir(folder_path):
+                if not filename.endswith(".csv"):
+                    continue
+                # filename format: <ingredient>_<day>.csv
+                stem = os.path.splitext(filename)[0]      # e.g. "allspice_3"
+                day_str = stem.split("_")[-1]             # "3"
+                try:
+                    day = int(day_str)
+                except ValueError:
+                    # If something weird sneaks in, skip it
+                    print(f"[WARN] Could not parse day from filename '{filename}', skipping.")
+                    continue
+                yield folder_name, os.path.join(folder_path, filename), day
+
+    # Collect from BOTH training_path and testing_path
+    for folder_name, cur_path, day in list(iter_ingredient_files(training_path)) + \
+                                     list(iter_ingredient_files(testing_path)):
+
+        # Optional ingredient / category filters (same logic as your original function)
+        if ingredients is not None and folder_name not in ingredients:
+            continue
+        if ingredients is None and categories is not None:
+            # assumes ingredient_to_category is defined in your module
+            if ingredient_to_category[folder_name] not in categories:
+                continue
+
+        df = pd.read_csv(cur_path)
+        df = subtract_first_row(df)
+        df = df.drop(columns=removed_filtered_columns, errors="ignore")
+
+        if day == held_out_day:
+            testing_data[folder_name].append(df)
+        else:
+            training_data[folder_name].append(df)
+
+    # Real-time testing data is treated exactly as before (no day split)
+    real_time_testing_data = defaultdict(list)
+    if real_time_testing_path is not None and os.path.isdir(real_time_testing_path):
+        for folder_name in os.listdir(real_time_testing_path):
+            folder_path = os.path.join(real_time_testing_path, folder_name)
+            if not os.path.isdir(folder_path):
+                continue
+            for filename in os.listdir(folder_path):
+                if filename.endswith(".csv"):
+                    cur_path = os.path.join(folder_path, filename)
+                    df = pd.read_csv(cur_path)
+                    df = subtract_first_row(df)
+                    df = df.drop(columns=removed_filtered_columns, errors="ignore")
+                    real_time_testing_data[folder_name].append(df)
+
+    return training_data, testing_data, real_time_testing_data

@@ -282,7 +282,7 @@ def mix_synthetic_batch(x, y, p=0.6, max_components=3):
 from dataclasses import dataclass
 @dataclass
 class EvalOut:
-    kl: float; mae: float; thr01: float; thr02: float; dyn_topk: float; presence_f1: float; presence_precision: float; presence_recall: float
+    kl: float; mae: float; thr01: float; thr02: float; dyn_topk: float; cos: float; presence_f1: float; presence_precision: float; presence_recall: float
 
 def thr_acc_nonzero(pred, tgt, th):
     diff = (pred - tgt).abs(); accs = []
@@ -299,6 +299,24 @@ def dyn_topk(pred, tgt):
         k = min(P, C); top_idx = torch.topk(pred[b], k=k, dim=0).indices
         hits += torch.isin(true_idx, top_idx).sum().item(); total += P
     return 100.0 * hits / max(total, 1)
+
+def mean_cosine_similarity(pred, tgt):
+    """
+    pred, tgt: torch tensors of shape (B, C), non-negative, usually normalized
+    Returns mean cosine similarity over samples with at least one nonzero target.
+    """
+    eps = 1e-8
+    cos_vals = []
+    B, C = pred.shape
+    for b in range(B):
+        p = pred[b]
+        t = tgt[b]
+        if t.sum() <= eps:   # skip completely empty targets (shouldn't really happen)
+            continue
+        p_norm = p / (p.norm(p=2) + eps)
+        t_norm = t / (t.norm(p=2) + eps)
+        cos_vals.append(torch.dot(p_norm, t_norm).item())
+    return float(np.mean(cos_vals)) if cos_vals else 0.0
 
 class TempScaler(nn.Module):
     def __init__(self): super().__init__(); self.t = nn.Parameter(torch.ones(1))
@@ -334,12 +352,14 @@ def evaluate(model, loader, device, temp_scaler: TempScaler | None = None, prese
     precision = pres_tp / max(pres_tp + pres_fp, 1e-8)
     recall    = pres_tp / max(pres_tp + pres_fn, 1e-8)
     f1        = 2 * precision * recall / max(precision + recall, 1e-8)
+    cos       = mean_cosine_similarity(pred, tgt)
     return EvalOut(
         kl=float(np.mean(kls)),
         mae=float(np.mean(maes)),
         thr01=thr_acc_nonzero(pred, tgt, 0.1),
         thr02=thr_acc_nonzero(pred, tgt, 0.2),
         dyn_topk=dyn_topk(pred, tgt),
+        cos=cos,
         presence_f1=f1, presence_precision=precision, presence_recall=recall,
     )
 
@@ -471,6 +491,7 @@ def main():
                 "acc@0.1": val_out.thr01,
                 "acc@0.2": val_out.thr02,
                 "dynTopK%": val_out.dyn_topk,
+                "cosine": val_out.cos,
                 "presence": {
                     "f1": val_out.presence_f1,
                     "precision": val_out.presence_precision,
@@ -485,6 +506,7 @@ def main():
                 "acc@0.1": unseen_test_out.thr01,
                 "acc@0.2": unseen_test_out.thr02,
                 "dynTopK%": unseen_test_out.dyn_topk,
+                "cosine": unseen_test_out.cos,
                 "presence": {
                     "f1": unseen_test_out.presence_f1,
                     "precision": unseen_test_out.presence_precision,
@@ -515,7 +537,10 @@ def main():
                 checkpoint=str(ckpt_path.resolve())
             )
 
-            print(f"[OK] {run_name}  | KL={val_out.kl:.4f}  MAE={val_out.mae:.4f}  @0.1={val_out.thr01:.3f}  F1={val_out.presence_f1:.3f}")
+            print(
+                f"[OK] {run_name}  | KL={val_out.kl:.4f}  MAE={val_out.mae:.4f}  "
+                f"@0.1={val_out.thr01:.3f}  cos={val_out.cos:.3f}  F1={val_out.presence_f1:.3f}"
+            )
 
         except Exception as e:
             append_results_jsonl(Path(args.log_dir)/run_name, spec, results=None, error=str(e))

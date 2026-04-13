@@ -94,6 +94,7 @@ def flatten_record(rec: dict) -> dict:
     out["acc@0.1"] = _to_float(res.get("acc@0.1"))
     out["acc@0.2"] = _to_float(res.get("acc@0.2"))
     out["dynTopK%"] = _to_float(res.get("dynTopK%"))
+    out["cosine"]  = _to_float(res.get("cosine"))
 
     # presence block
     pres = res.get("presence") or {}
@@ -110,12 +111,12 @@ def flatten_record(rec: dict) -> dict:
     return out
 
 
-def load_runs(root: Path) -> pd.DataFrame:
+def load_runs(root: Path, which_line: str = "second") -> pd.DataFrame:
     rows = []
     for jf in find_jsonl_files(root):
         try:
             with jf.open("r", encoding="utf-8") as f:
-                for lineno, line in enumerate(f, start=1):  # <-- track order
+                for lineno, line in enumerate(f, start=0):  # you can keep start=0
                     line = line.strip()
                     if not line:
                         continue
@@ -125,8 +126,9 @@ def load_runs(root: Path) -> pd.DataFrame:
                         continue
                     row = flatten_record(rec)
                     row["_source_file"] = str(jf)
-                    row["_lineno"] = lineno               # <-- keep file order
+                    row["_lineno"] = lineno
                     rows.append(row)
+                    break
         except Exception:
             continue
 
@@ -134,20 +136,24 @@ def load_runs(root: Path) -> pd.DataFrame:
     if df.empty:
         raise SystemExit(f"No runs found under {root}")
 
-    # --- NEW: prefer the *last* row written for a given run_name ---
-    # If run_name is missing for any row, we skip dedup on those.
+    # --- choose which line (first or second) per run_name ---
     if "run_name" in df.columns:
-        df = (df
-              .sort_values(["_source_file", "run_name", "_lineno"])
-              .drop_duplicates(subset=["run_name"], keep="last")
-             )
-    # ---------------------------------------------------------------
+        df = df.sort_values(["_source_file", "run_name", "_lineno"])
+
+        # map which_line -> keep argument for drop_duplicates
+        if which_line == "first":
+            keep = "first"   # line 1
+        else:
+            keep = "last"    # line 2 (default)
+
+        df = df.drop_duplicates(subset=["run_name"], keep=keep)
+    # --------------------------------------------------------
 
     # Cast numerics (unchanged)
     for c in [
         "gradient","window","epochs","batch","lr","seed","fft_cutoff","sampling_rate","stride",
         "ds_train_windows","ds_test_windows","ds_T","ds_C","ds_classes",
-        "kl","mae","acc@0.1","acc@0.2","dynTopK%",
+        "kl","mae","acc@0.1","acc@0.2","dynTopK%","cosine",
         "presence_f1","presence_precision","presence_recall"
     ]:
         if c in df.columns:
@@ -159,6 +165,7 @@ def load_runs(root: Path) -> pd.DataFrame:
     return df
 
 
+
 # --------------------------- selection helpers ---------------------------
 
 # Whether higher is better for each metric
@@ -167,6 +174,7 @@ _HIGHER_IS_BETTER = {
     "mae": False,
     "acc@0.1": True,
     "acc@0.2": True,
+    "cosine": True,
     "dynTopK%": True,
     "presence_f1": True,
     "presence_precision": True,
@@ -192,7 +200,7 @@ def best_by_model(df: pd.DataFrame, metric: str) -> pd.DataFrame:
     d = _sort_by_metric(df.copy(), metric)
     keep = [
         "model","gradient","window","seed","lr","batch","epochs",
-        "kl","mae","acc@0.1","acc@0.2","dynTopK%","presence_f1","presence_precision","presence_recall",
+        "kl","mae","acc@0.1","acc@0.2","dynTopK%","cosine","presence_f1","presence_precision","presence_recall",
         "run_name","timestamp","_source_file"
     ]
     keep = [c for c in keep if c in d.columns]
@@ -206,7 +214,7 @@ def best_by_model_and_gradient(df: pd.DataFrame, metric: str) -> pd.DataFrame:
     d = _sort_by_metric(df.copy(), metric)
     keep = [
         "model","gradient","window","seed","lr","batch","epochs",
-        "kl","mae","acc@0.1","acc@0.2","dynTopK%","presence_f1","presence_precision","presence_recall",
+        "kl","mae","acc@0.1","acc@0.2","dynTopK%","cosine","presence_f1","presence_precision","presence_recall",
         "run_name","timestamp","_source_file"
     ]
     keep = [c for c in keep if c in d.columns]
@@ -219,7 +227,7 @@ def top_overall(df: pd.DataFrame, n: int, metric: str) -> pd.DataFrame:
     d = _sort_by_metric(df.copy(), metric)
     cols = [
         "model","gradient","window","seed","lr","batch","epochs",
-        "kl","mae","acc@0.1","acc@0.2","dynTopK%","presence_f1","presence_precision","presence_recall",
+        "kl","mae","acc@0.1","acc@0.2","dynTopK%","cosine","presence_f1","presence_precision","presence_recall",
         "run_name","timestamp","_source_file"
     ]
     cols = [c for c in cols if c in d.columns]
@@ -248,6 +256,14 @@ def main():
                     choices=list(_HIGHER_IS_BETTER.keys()),
                     help="Metric used to pick best runs (default: acc@0.2)")
     ap.add_argument("--top-n", type=int, default=20, help="How many runs to list in topN_overall.csv")
+
+    # NEW: choose line 1 or line 2
+    ap.add_argument(
+        "--which-line",
+        choices=["first", "second"],
+        default="second",
+        help="For runs with multiple JSON lines per run_name, keep the 'first' or 'second' line (default: second).",
+    )
 
     # Optional filters
     ap.add_argument("--models", nargs="*", default=None, help="Restrict to these models")

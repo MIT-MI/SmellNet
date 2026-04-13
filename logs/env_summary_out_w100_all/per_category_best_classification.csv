@@ -1,0 +1,6 @@
+run_name,model,contrastive,gradient,window,seed,category,n,acc1,acc5
+SEL_grad_w100-transformer-c0-g25-w100-bs32-lr0.001-seed42-20251117-042012-35f10d,transformer,False,25,100,42,Fruits,99,23.232323232323232,60.60606060606061
+SEL_grad_w100-transformer-c0-g25-w100-bs32-lr0.001-seed42-20251117-042012-35f10d,transformer,False,25,100,42,Herbs,98,24.489795918367346,64.28571428571429
+SEL_grad_w100-transformer-c0-g25-w100-bs32-lr0.001-seed42-20251117-042012-35f10d,transformer,False,25,100,42,Nuts,107,14.953271028037381,63.55140186915887
+SEL_grad_w100-transformer-c0-g25-w100-bs32-lr0.001-seed42-20251117-042012-35f10d,transformer,False,25,100,42,Spices,98,28.57142857142857,71.42857142857143
+SEL_grad_w100-transformer-c0-g25-w100-bs32-lr0.001-seed42-20251117-042012-35f10d,transformer,False,25,100,42,Vegetables,100,19.0,70.0

@@ -1,0 +1,2 @@
+timestamp,model,contrastive,gradient,window,epochs,batch,lr,seed,stage,epoch,acc@1,acc@5,loss,extra
+2025-09-25T03:17:26,transformer,1,0,50,90,32,0.003,42,ablation,,,,,"{""ablation_deltas"":{""ch0"":{""\u0394acc@1"":20.83,""\u0394acc@5"":40.424},""ch1"":{""\u0394acc@1"":20.653,""\u0394acc@5"":31.333},""ch2"":{""\u0394acc@1"":15.357,""\u0394acc@5"":23.654},""ch3"":{""\u0394acc@1"":20.124,""\u0394acc@5"":20.3},""ch4"":{""\u0394acc@1"":7.59,""\u0394acc@5"":10.856},""ch5"":{""\u0394acc@1"":11.827,""\u0394acc@5"":9.003}}}"
