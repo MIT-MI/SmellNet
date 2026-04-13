@@ -2,7 +2,7 @@
 # Users must download these after cloning — they are NOT committed to Git.
 data/
 ICLR_data/
-gcms_processed/   # GC-MS bundle: get from Hugging Face (DeweiFeng/smell-net), place at repo root
+gcms_processed/
 gcms_data/
 
 # Large / derived tables and embeddings (download from HF after clone)
