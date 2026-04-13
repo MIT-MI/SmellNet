@@ -6,6 +6,7 @@ ICLR_data/   # legacy folder name; use base_data/
 gcms_processed/
 gcms_data/
 mixture_data/
+text_data/
 
 # Large / derived tables and embeddings (download from HF after clone)
 *.npy
