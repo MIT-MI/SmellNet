@@ -57,10 +57,13 @@ def load_iclr_aggregated() -> pd.DataFrame:
                 df["category"] = category
                 rows.append(df)
     if not rows:
-        # Fallback: use GCMS data if sensor CSVs not found
-        gcms_path = PROJECT_ROOT / "ICLR_data" / "gcms_dataframe.csv"
-        if gcms_path.exists():
-            return load_gcms_data(gcms_path)
+        # Fallback: GC-MS table if sensor CSVs not found
+        for gcms_path in (
+            PROJECT_ROOT / "ICLR_data" / "gcms_dataframe.csv",
+            PROJECT_ROOT / "gcms_processed" / "gcms_dataframe.csv",
+        ):
+            if gcms_path.exists():
+                return load_gcms_data(gcms_path)
         raise FileNotFoundError(
             f"No CSV data found in {ICLR_DATA}/training or {ICLR_DATA}/testing"
         )

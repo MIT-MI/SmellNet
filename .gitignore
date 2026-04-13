@@ -1,8 +1,9 @@
 # --- Datasets & paper assets you host elsewhere (e.g. Hugging Face) ---
+# Users must download these after cloning — they are NOT committed to Git.
 data/
 ICLR_data/
+gcms_processed/   # GC-MS bundle: get from Hugging Face (DeweiFeng/smell-net), place at repo root
 gcms_data/
-gcms_analysis/gcms_processed/
 
 # Large / derived tables and embeddings (download from HF after clone)
 *.npy
@@ -10,8 +11,6 @@ gcms_analysis/gcms_processed/
 *.parquet
 full_gcms_dataframe.csv
 processed_full_gcms_dataframe.csv
-gcms_analysis/gcms_food_vectors.csv
-
 # Raw or duplicated exports from acquisition scripts
 data_collection/*.csv
 

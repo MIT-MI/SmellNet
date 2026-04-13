@@ -28,9 +28,9 @@ plt.rcParams.update({
 })
 
 SCRIPT_DIR = Path(__file__).resolve().parent
+REPO_ROOT = SCRIPT_DIR.parent
 PLOTS_DIR = SCRIPT_DIR / "plots"
-DATA_DIR = SCRIPT_DIR.parent / "gcms_data"
-GCMS_PROCESSED = SCRIPT_DIR / "gcms_processed"
+GCMS_PROCESSED = REPO_ROOT / "gcms_processed"
 
 # Food category mapping for coloring (nuts, spices, fruits, vegetables, herbs)
 # Supports both FooDB names (e.g. "Peanut") and CSV names (e.g. "peanuts")
@@ -87,7 +87,7 @@ def _save(name: str, fmt: str = "png"):
 def load_gcms_data():
     """Load food-level GC-MS vectors from npz or CSV."""
     npz_path = GCMS_PROCESSED / "gcms_food_vectors.npz"
-    csv_path = SCRIPT_DIR / "gcms_food_vectors.csv"
+    csv_path = GCMS_PROCESSED / "gcms_food_vectors.csv"
 
     if npz_path.exists():
         data = np.load(npz_path, allow_pickle=True)
@@ -111,7 +111,7 @@ def load_gcms_data():
 
     raise FileNotFoundError(
         f"Neither {npz_path} nor {csv_path} found. "
-        "Run gcms_analysis.py first to build gcms_processed/, or ensure gcms_food_vectors.csv exists."
+        "Run gcms_analysis/analysis.py to build gcms_processed/, or place gcms_food_vectors.csv under gcms_processed/."
     )
 
 

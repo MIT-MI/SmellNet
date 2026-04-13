@@ -14,7 +14,7 @@ for lr in 0.0003 0.001 0.003; do
           --train-dir "$REPO/ICLR_data/training" \
           --test-dir "$REPO/ICLR_data/testing" \
           --real-test-dir "$REPO/ICLR_data/testing" \
-          --gcms-csv "$REPO/gcms_analysis/gcms_food_vectors.csv" \
+          --gcms-csv "$REPO/gcms_processed/gcms_food_vectors.csv" \
           --models "$m" --contrastive on --gradients "$g" --window-sizes "$w" \
           --seed "${seed}" \
           --epochs 90 --batch-size 32 --lr "$lr" \

@@ -1,0 +1,29 @@
+# SmellNet — Python dependencies
+# Install: pip install -r requirements.txt
+# For a specific PyTorch CUDA build, see https://pytorch.org/ and install torch first if needed.
+
+# --- Core (training, evaluation, GC-MS CSV utilities) ---
+numpy>=1.22
+pandas>=1.4
+scikit-learn>=1.2
+matplotlib>=3.6
+torch>=2.0
+
+# --- Figures & GC-MS analysis scripts ---
+seaborn>=0.12
+adjustText>=0.8
+
+# --- Optional: t-SNE / UMAP analysis (analysis/tsne_analysis.py) ---
+openTSNE>=1.0
+umap-learn>=0.5
+
+# --- Optional: CLIP text encoding (scripts/encode_text_description.py) ---
+transformers>=4.30
+
+# --- Optional: data collection & demos ---
+pyserial>=3.5
+tqdm>=4.60
+joblib>=1.2
+
+# --- Optional: interactive plots (analysis/create_sunburst.py) ---
+plotly>=5.0

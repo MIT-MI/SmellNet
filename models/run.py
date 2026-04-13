@@ -77,7 +77,12 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--train-dir", type=str, required=True, help="Training CSV folders (sensor).")
     p.add_argument("--test-dir", type=str, required=True, help="Testing CSV folders (sensor).")
     p.add_argument("--real-test-dir", type=str, required=True, help="real-time test folder.")
-    p.add_argument("--gcms-csv", type=str, default=True, help="GCMS CSV (needed for contrastive).")
+    p.add_argument(
+        "--gcms-csv",
+        type=str,
+        default=None,
+        help="GC-MS feature CSV (first column food labels). Default: <repo>/gcms_processed/gcms_food_vectors.csv",
+    )
     p.add_argument("--no-standardize", action="store_true", help="Disable StandardScaler on (N,T,C) windows (train-only fit).")
 
     # Misc
@@ -550,8 +555,11 @@ def main():
             test_data  = diff_data_like(test_data,  periods=spec.gradient)
 
         # ---------- LabelEncoder alignment ----------
-        # If we have GCMS CSV (contrastive), use its LabelEncoder to keep indices aligned.
-        gcms_scaled, y_encoded, le, scaler = load_gcms_data(args.gcms_csv)
+        # GC-MS CSV defines class order; required for both classification and contrastive paths.
+        gcms_csv = args.gcms_csv
+        if gcms_csv is None:
+            gcms_csv = str(Path(__file__).resolve().parent.parent / "gcms_processed" / "gcms_food_vectors.csv")
+        gcms_scaled, y_encoded, le, scaler = load_gcms_data(gcms_csv)
 
         # ---------- Build sliding-window tensors ----------
         stride = args.stride if args.stride is not None else max(1, spec.window_size // 2)

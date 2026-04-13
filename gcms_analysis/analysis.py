@@ -8,13 +8,14 @@ from food import food_ids as FOOD_QUERIES
 import numpy as np
 
 _REPO_ROOT = Path(__file__).resolve().parent.parent
-JSON_DIR = _REPO_ROOT / "gcms_data" / "foodb_2020_04_07_json"
+# FooDB extracts and experimental spectra live under repo-root gcms_processed/ (see README).
+JSON_DIR = _REPO_ROOT / "gcms_processed" / "foodb_2020_04_07_json"
 
 CONTENT_JSON = JSON_DIR / "Content.json"
 COMPOUND_JSON = JSON_DIR / "Compound.json"
 FOOD_JSON = JSON_DIR / "Food.json"
 
-CMS_DIR = _REPO_ROOT / "gcms_data" / "foodb_experimental_cms_spectra"
+CMS_DIR = _REPO_ROOT / "gcms_processed" / "foodb_experimental_cms_spectra"
 
 def load_json_records(path: Path):
     """
@@ -468,7 +469,7 @@ def main():
 
     build_all_gcms_datasets(
         food_to_spectra,
-        out_dir="gcms_processed",
+        out_dir=str(_REPO_ROOT / "gcms_processed"),
         mz_min=40.0,
         mz_max=500.0,
         bin_size=1.0,

@@ -1,56 +1,110 @@
-# SmellNet
-
-**SmellNet** is a comparatively large, open dataset for **sensor-based machine olfaction**: real-world smell measurements from a compact array of low-cost **metal-oxide (MOX)** gas sensors. The [ICLR 2026](#paper-and-citation) paper describes about **828,000** time-series readings across **50** base substances (nuts, spices, herbs, fruits, and vegetables) and **43** mixtures with **fixed ingredient volumetric ratios**, spanning about **68 hours** of controlled acquisition, with **GC–MS** priors and **text metadata** aligned to substances.
-
-The benchmark supports substance **classification** (six sensor channels on the base task), **mixture distribution prediction** (four Grove channels in the paper’s mixture setup), cross-modal sensor–chemistry alignment, and temporal modeling (including first-order differencing and sliding windows). The paper introduces **ScentFormer**, a Transformer-based architecture combining temporal differencing and sliding-window augmentation. Reported results include **63.3%** Top-1 accuracy on **SmellNet-Base** with GC–MS supervision, and **50.2%** Top-1@0.1 on the **test-seen** split of **SmellNet-Mixture**.
+# SmellNet: A Large-scale Dataset for Real-world Smell Recognition
 
 <p align="center">
-  <img src="data_stats/smellnet_sunburst.png" alt="SmellNet overview (substance categories)" width="48%" />
-  <img src="data_stats/PCA_sensor_data_category_iclr.png" alt="PCA of sensor data by category" width="48%" />
+  <a href="assets/cashew.jpg"><img src="assets/cashew.jpg" alt="Sensor setup detecting cashew" width="31%"/></a>
+  <a href="assets/CO_NO2_timeseries.png"><img src="assets/CO_NO2_timeseries.png" alt="Time-series signals from CO and NO2 sensors" width="31%"/></a>
+  <a href="assets/model_predictions.png"><img src="assets/model_predictions.png" alt="Top-5 model predictions" width="31%"/></a>
+  <em>Overview of the smell sensing and modeling pipeline: hardware setup, multichannel sensor responses, and example model predictions.</em>
 </p>
 
----
+<p align="center">
+  <a href="https://arxiv.org/abs/2506.00239">Paper</a> •
+  <a href="https://huggingface.co/datasets/DeweiFeng/smell-net/tree/main">Dataset</a> •
+  <a href="https://iclr.cc/media/PosterPDFs/ICLR%202026/10008694.png?t=1776021318.4790535">Poster</a> •
+  <a href="https://github.com/MIT-MI/SmellNet">Code</a> • 
+  <a href="https://www.youtube.com/watch?v=F-emEVOO9jo">Demo</a>
+</p>
 
-## Dataset access
+SmellNet is a benchmark for **sensor-based machine olfaction** built from **portable low-cost MOX gas sensors**. It supports both **single-substance recognition** and **mixture prediction**, and introduces **ScentFormer**, a temporal model for learning from multichannel smell sensor time series with optional **training-time GC-MS supervision**.
 
-The released dataset is on Hugging Face:
+## Highlights
 
-**[SmellNet on Hugging Face](https://huggingface.co/datasets/DeweiFeng/smell-net/tree/main)**
+- **828K** sensor timesteps
+- **50** base substances across nuts, spices, herbs, fruits, and vegetables
+- **43** controlled mixtures
+- **68 hours** of recordings
+- Benchmark tasks for both **classification** and **mixture-ratio prediction**
+- Optional **sensor-chemistry alignment** using ingredient-level **GC-MS** representations
 
-The paper links the companion code repository as **[github.com/MIT-MI/SmellNet](https://github.com/MIT-MI/SmellNet)** (use whichever fork you are cloning from for issues and PRs).
+## Main Results
 
-Each substance has one or more CSV time series; metadata and chemical tables support multimodal and contrastive setups.
+ScentFormer achieves:
 
----
+- **63.3% Top-1 accuracy** on **SmellNet-Base** with GC-MS supervision
+- **50.2% Top-1@0.1** on **seen mixtures**
+- **16.0% Top-1@0.1** on **unseen mixtures**
 
-## Repository layout
+<p align="center">
+  <img src="assets/smellnet_results.png" alt="Main results on SmellNet-Base classification and mixture prediction (seen vs. unseen)" width="920"/>
+  <br/>
+  <em>Main benchmark results: SmellNet-Base and mixture tasks.</em>
+</p>
 
-| Path | Description |
-|------|-------------|
-| `models/` | Training and evaluation code: `run.py` (classification / contrastive), `run_mixture.py` (mixture), `train.py`, `dataset.py`, `load_data.py`, `analyze_runs.py`, etc. **Run commands from this directory** (or use `scripts/run_experiments.sh`, which `cd`s here). |
-| `scripts/` | One-off utilities and example shell sweeps: `create_iclr_data.py`, `encode_text_description.py`, figure regeneration scripts, `run_experiment.bash`, `run_analysis.bash`, `run_experiments.sh`. |
-| `analysis/` | Notebooks and standalone analysis scripts (outputs often go to `data_stats/`). |
-| `gcms_analysis/` | GC–MS processing scripts and figures; processed tensors live under `gcms_analysis/gcms_processed/` (gitignored; build locally or fetch from Hugging Face). |
-| `data_collection/` | Serial acquisition helpers used with the Arduino stack. |
-| `preprocessing/` | Legacy path cleanup and raw-to-folder utilities (paths are relative to the repo root). |
-| `data_stats/` | Summary plots and tables produced by analysis (checked in for the paper where applicable). |
-| `figures/paper/` | Default output location for regenerated bar charts (e.g. from `scripts/regenerate_smellnet_all_graphs.py`). |
-| `Arduino/` | Sensor libraries and firmware used during data collection. |
-| `data/` | Full per-substance sensor CSV trees after you download or unpack the dataset (gitignored at repo root). |
-| `ICLR_data/` | Curated six-channel trees matching the paper’s `run.py` defaults (gitignored; build with `scripts/create_iclr_data.py` or download from Hugging Face). |
-| `gcms_data/` | Raw FooDB / GC–MS inputs for `gcms_analysis/` pipelines (gitignored). |
+These results show that temporal modeling is effective for smell recognition, while **generalization to unseen mixtures remains a core challenge**.
 
-**Data note:** Large CSVs, embeddings, zip drops, and run logs are listed in `.gitignore`. After cloning, download the SmellNet assets from Hugging Face (see above) and place them under `data/`, `ICLR_data/`, and `gcms_analysis/` as described in the dataset card.
+## What is in this repository?
 
-**Historical note:** Older notebooks may mention `offline_training`, `offline_testing`, or `smell-net` paths; equivalent trees in this repo are under `data/` and `ICLR_data/`. Pass the directories you have on disk into the CLI flags.
+This repository contains:
 
----
+- code for training and evaluating smell-recognition models
+- preprocessing and analysis utilities for sensor data
+- GC-MS processing pipelines for cross-modal supervision
+- Arduino and data-collection utilities used in the sensing setup
+- scripts for reproducing main experiments and regenerating figures
 
-## Running experiments
+**Large files (sensor recordings, `gcms_processed/`, etc.) are not stored in Git.** Download them from the [SmellNet dataset on Hugging Face](https://huggingface.co/datasets/DeweiFeng/smell-net/tree/main) and place them in the paths described in [Quick Start](#quick-start) so scripts can find them locally.
 
-Training entrypoints live under `models/`. Paths are passed explicitly (there is no single hard-coded data root).
+## Benchmark Tasks
 
-**Classification / contrastive (SmellNet-Base-style):** after installing [dependencies](#dependencies):
+### SmellNet-Base
+
+A **50-way classification** benchmark for recognizing single substances from multichannel sensor time series.
+
+### SmellNet-Mixture
+
+A benchmark for predicting **normalized mixture ratios** over 12 base odorants, including:
+
+- **seen mixtures**: known combinations under new recording sessions
+- **unseen mixtures**: novel combinations for compositional generalization
+
+## Method Overview
+
+The overall pipeline is:
+
+1. collect multichannel sensor responses from portable MOX sensors
+2. optionally apply **temporal differencing** to emphasize signal dynamics
+3. segment the signal into **sliding windows**
+4. train temporal models such as **CNNs, LSTMs, and ScentFormer**
+5. optionally align sensor embeddings with **ingredient-level GC-MS embeddings** during training
+
+<p align="center">
+  <img src="assets/modeling_pipeline.png" alt="From sensor signals to predictions" width="920"/>
+</p>
+
+## Quick Start
+
+### 1) Clone the repository
+
+```bash
+git clone https://github.com/MIT-MI/SmellNet.git
+cd SmellNet
+```
+
+### 2) Install a minimal environment
+
+```bash
+pip install -r requirements.txt
+```
+
+This installs dependencies for training, analysis, and optional tools (serial capture, t-SNE/UMAP, Plotly). If you only need a minimal stack, you can install the core packages by hand (`torch`, `pandas`, `numpy`, `scikit-learn`, `matplotlib`). For a particular **CUDA** version of PyTorch, install `torch` from [pytorch.org](https://pytorch.org/) first, then run `pip install -r requirements.txt` (pip will keep your existing torch if it satisfies the constraint).
+
+### 3) Download the dataset
+
+Download the released files from **[Hugging Face — `DeweiFeng/smell-net`](https://huggingface.co/datasets/DeweiFeng/smell-net/tree/main)** and unpack them into this clone. The dataset card lists archives and filenames.
+
+## Running Experiments
+
+### SmellNet-Base classification / contrastive training
 
 ```bash
 cd models
@@ -58,65 +112,66 @@ python run.py \
   --train-dir ../ICLR_data/training \
   --test-dir ../ICLR_data/testing \
   --real-test-dir ../ICLR_data/testing \
-  --gcms-csv ../gcms_analysis/gcms_food_vectors.csv \
+  --gcms-csv ../gcms_processed/gcms_food_vectors.csv \
   --models transformer \
-  --epochs 90 --batch-size 32 --lr 0.001
+  --epochs 90 \
+  --batch-size 32 \
+  --lr 0.001
 ```
 
-See `scripts/run_experiment.bash` for a fuller sweep (models, windows, contrastive mode, gradients). For mixture experiments, use `models/run_mixture.py` and the commented template at the bottom of `scripts/run_experiment.bash`.
+For fuller sweeps, see:
 
-`scripts/run_experiments.sh` is a thin wrapper that `cd`s into `models/` and runs `python run.py` with whatever arguments you pass (paths are relative to `models/`, e.g. `./scripts/run_experiments.sh --train-dir ../ICLR_data/training --help`).
+- `scripts/run_experiment.bash`
+- `scripts/run_experiments.sh`
 
----
+### Mixture prediction
 
-## Dependencies
+Use:
 
-There is no pinned `requirements.txt` in this repository. The `models/` code expects **PyTorch**, **pandas**, **NumPy**, and **scikit-learn**; plotting utilities use **matplotlib**. Check imports in `models/run.py`, `models/load_data.py`, and `models/run_mixture.py` for the exact set. Use **Python 3.10+** unless you verify an older interpreter for your setup.
+- `models/run_mixture.py`
 
----
+and the commented mixture template in:
+
+- `scripts/run_experiment.bash`
+
+## Repository Structure
+
+```text
+models/           training and evaluation code
+scripts/          experiment wrappers and figure-generation utilities
+analysis/         notebooks and analysis scripts
+gcms_analysis/    scripts to build GC-MS embeddings (outputs go to gcms_processed/)
+data_collection/  acquisition helpers and sensor-side tooling
+data_stats/       summary plots and tables
+figures/paper/    regenerated paper figures
+preprocessing/    raw-to-structured data utilities
+Arduino/          firmware and sensor libraries
+```
 
 ## Applications
 
-Illustrative downstream areas include allergen-relevant sensing, food and beverage QC, digital olfaction interfaces, and research-oriented health and environmental sensing (always subject to validation and regulation outside controlled studies).
+SmellNet can support research and prototyping in:
 
----
+- machine olfaction
+- food and beverage monitoring
+- allergen-relevant sensing
+- multimodal sensing
+- environmental and industrial monitoring
+- digital olfaction and human-AI interaction
 
-## Paper and citation
+## Citation
 
-The work appears as a **conference paper at ICLR 2026**:
-
-**SmellNet: A Large-Scale Dataset for Real-World Smell Recognition**  
-Dewei Feng, Wei Dai, Carol Li, Alistair Pernigo, Paul Pu Liang — MIT Media Lab and MIT EECS.
-
-An extended preprint is also on arXiv as **[2506.00239](https://arxiv.org/abs/2506.00239)** (author list and wording may differ slightly from the proceedings version).
-
-If you use SmellNet or this code, please cite the ICLR paper. Example BibTeX (fill in `url` / `pages` from OpenReview or the official proceedings when you have them):
+If you use SmellNet in your work, please cite:
 
 ```bibtex
 @inproceedings{feng2026smellnet,
-  title={{SmellNet}: A Large-Scale Dataset for Real-World Smell Recognition},
+  title={SmellNet: A Large-Scale Dataset for Real-World Smell Recognition},
   author={Feng, Dewei and Dai, Wei and Li, Carol and Pernigo, Alistair and Liang, Paul Pu},
   booktitle={International Conference on Learning Representations (ICLR)},
-  year={2026},
+  year={2026}
 }
 ```
 
-Optional arXiv record (may not match proceedings metadata exactly):
+## Contact
 
-```bibtex
-@misc{feng2025smellnetarxiv,
-  title={{SmellNet}: A Large-scale Dataset for Real-world Smell Recognition},
-  author={Feng, Dewei and Dai, Wei and Li, Carol and Pernigo, Alistair and Wen, Yunge and Liang, Paul Pu},
-  year={2025},
-  eprint={2506.00239},
-  archivePrefix={arXiv},
-  primaryClass={cs.AI},
-  url={https://arxiv.org/abs/2506.00239},
-}
-```
-
----
-
-## License
-
-Add or link your code and data licenses here if they are not already in the repository root.
+For questions or collaboration, please contact **Dewei Feng** at **dewei@mit.edu**.

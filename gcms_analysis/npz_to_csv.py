@@ -57,10 +57,11 @@ pretty_to_internal = {
     "Common cabbage": "cabbage",
 }
 
-# ---------- paths ----------
-_SCRIPT_DIR = Path(__file__).resolve().parent
-npz_path = _SCRIPT_DIR / "gcms_processed" / "gcms_food_vectors.npz"
-out_csv = _SCRIPT_DIR / "gcms_food_vectors.csv"
+# ---------- paths (repo-root gcms_processed/) ----------
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+GCMS_PROCESSED = _REPO_ROOT / "gcms_processed"
+npz_path = GCMS_PROCESSED / "gcms_food_vectors.npz"
+out_csv = GCMS_PROCESSED / "gcms_food_vectors.csv"
 
 
 # ---------- load NPZ ----------
