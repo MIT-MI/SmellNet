@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate PCA plots from the ICLR data.
+Generate PCA plots from SmellNet-Base data (base_data/).
 Extracted from analysis/data_analysis.ipynb (Cells 16, 18, 22).
 
 Produces:
@@ -18,11 +18,11 @@ from sklearn.preprocessing import StandardScaler
 
 # --- Paths ---
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ICLR_DATA = PROJECT_ROOT / "ICLR data"
+BASE_DATA = PROJECT_ROOT / "base_data"
 OUTPUT_DIR = PROJECT_ROOT / "data_stats"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ICLR data uses 6 sensor columns only
+# base_data uses 6 sensor columns only
 SENSOR_COLUMNS = ["NO2", "C2H5OH", "VOC", "CO", "Alcohol", "LPG"]
 
 INGREDIENT_TO_CATEGORY = {
@@ -85,10 +85,10 @@ INGREDIENT_TO_CATEGORY = {
 
 
 def load_iclr_aggregated() -> pd.DataFrame:
-    """Load all CSVs from ICLR data/training and testing into one aggregated DataFrame."""
+    """Load all CSVs from base_data/training and base_data/testing into one aggregated DataFrame."""
     rows = []
     for split in ["training", "testing"]:
-        split_path = ICLR_DATA / split
+        split_path = BASE_DATA / split
         if not split_path.exists():
             continue
         for folder_name in os.listdir(split_path):
@@ -103,7 +103,7 @@ def load_iclr_aggregated() -> pd.DataFrame:
                 df["category"] = category
                 rows.append(df)
     if not rows:
-        raise FileNotFoundError(f"No CSV data found in {ICLR_DATA}/training or {ICLR_DATA}/testing")
+        raise FileNotFoundError(f"No CSV data found in {BASE_DATA}/training or {BASE_DATA}/testing")
     return pd.concat(rows, ignore_index=True)
 
 
@@ -229,7 +229,7 @@ def plot_pca_per_category(agg_df: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    print("Loading ICLR data...")
+    print("Loading base_data...")
     agg_df = load_iclr_aggregated()
     print(f"Loaded {len(agg_df)} rows, {agg_df['ingredient'].nunique()} ingredients")
 

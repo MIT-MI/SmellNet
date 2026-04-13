@@ -12,11 +12,11 @@ from sklearn.preprocessing import StandardScaler
 
 # --- Paths ---
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ICLR_DATA = PROJECT_ROOT / "ICLR_data"
+BASE_DATA = PROJECT_ROOT / "base_data"
 OUTPUT_DIR = PROJECT_ROOT / "data_stats"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ICLR sensor columns
+# SmellNet-Base sensor columns
 SENSOR_COLUMNS = ["NO2", "C2H5OH", "VOC", "CO", "Alcohol", "LPG"]
 
 INGREDIENT_TO_CATEGORY = {
@@ -39,10 +39,10 @@ INGREDIENT_TO_CATEGORY = {
 
 
 def load_iclr_aggregated() -> pd.DataFrame:
-    """Load all CSVs from ICLR data/training and testing into one aggregated DataFrame."""
+    """Load all CSVs from base_data/training and base_data/testing into one aggregated DataFrame."""
     rows = []
     for split in ["training", "testing"]:
-        split_path = ICLR_DATA / split
+        split_path = BASE_DATA / split
         if not split_path.exists():
             continue
         for folder_name in os.listdir(split_path):
@@ -58,7 +58,7 @@ def load_iclr_aggregated() -> pd.DataFrame:
                 rows.append(df)
     if not rows:
         raise FileNotFoundError(
-            f"No CSV data found in {ICLR_DATA}/training or {ICLR_DATA}/testing"
+            f"No CSV data found in {BASE_DATA}/training or {BASE_DATA}/testing"
         )
     return pd.concat(rows, ignore_index=True)
 
@@ -91,7 +91,7 @@ def compute_pca_loadings(agg_df: pd.DataFrame) -> pd.DataFrame:
 
 
 def main() -> None:
-    print("Loading ICLR data...")
+    print("Loading base_data...")
     agg_df = load_iclr_aggregated()
     print(f"Loaded {len(agg_df)} rows, {agg_df['ingredient'].nunique()} ingredients")
 

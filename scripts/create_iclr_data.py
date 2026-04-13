@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create ICLR data copy: same structure as data/ but CSVs only have NO2,C2H5OH,VOC,CO,Alcohol,LPG."""
+"""Create SmellNet-Base layout under base_data/: same structure as data/ but CSVs only have NO2,C2H5OH,VOC,CO,Alcohol,LPG."""
 
 import csv
 import shutil
@@ -7,7 +7,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SRC = REPO_ROOT / "data"
-DST = REPO_ROOT / "ICLR_data"
+DST = REPO_ROOT / "base_data"
 KEEP_COLUMNS = ["NO2", "C2H5OH", "VOC", "CO", "Alcohol", "LPG"]
 
 

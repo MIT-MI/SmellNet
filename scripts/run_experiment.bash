@@ -11,9 +11,9 @@ seed="${seed:-42}"
 #     for g in 0 25; do
 #       for w in 50 100; do
 #         python run.py \
-#           --train-dir "$REPO/ICLR_data/training" \
-#           --test-dir "$REPO/ICLR_data/testing" \
-#           --real-test-dir "$REPO/ICLR_data/testing" \
+#           --train-dir "$REPO/base_data/training" \
+#           --test-dir "$REPO/base_data/testing" \
+#           --real-test-dir "$REPO/base_data/testing" \
 #           --gcms-csv "$REPO/gcms_processed/gcms_food_vectors.csv" \
 #           --models "$m" --contrastive on --gradients "$g" --window-sizes "$w" \
 #           --seed "${seed}" \

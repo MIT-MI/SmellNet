@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Time-series figure: CO (top) and CO temporal difference with lag p (bottom).
-Uses ICLR data (6 sensor columns). Style: blue lines, light grey grid, shared x-axis.
+Uses SmellNet-Base data under base_data/ (6 sensor columns). Style: blue lines, light grey grid, shared x-axis.
 
 Temporal difference: value at t minus value at t - p (pandas diff with periods=p).
 
@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Paths
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ICLR_DATA = PROJECT_ROOT / "ICLR_data"
+BASE_DATA = PROJECT_ROOT / "base_data"
 OUTPUT_DIR = PROJECT_ROOT / "data_stats" / "time_series_analysis"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -70,7 +70,7 @@ def plot_sample(sample_csv: Path, out_stem: str) -> None:
 
 def main():
     for class_name, fname, out_stem in SAMPLES:
-        sample_csv = ICLR_DATA / "testing" / class_name / fname
+        sample_csv = BASE_DATA / "testing" / class_name / fname
         plot_sample(sample_csv, out_stem)
 
 

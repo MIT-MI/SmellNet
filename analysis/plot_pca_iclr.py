@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Generate all PCA plots using ICLR data (6 sensor columns only).
+Generate all PCA plots using SmellNet-Base data under base_data/ (6 sensor columns only).
 Produces: (1) overall PCA by Ingredient Category, (2) one PCA per category by Ingredient.
 """
 
@@ -14,11 +14,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ICLR_DATA = PROJECT_ROOT / "ICLR data"
+BASE_DATA = PROJECT_ROOT / "base_data"
 OUTPUT_DIR = PROJECT_ROOT / "data_stats"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ICLR data: 6 sensor columns only
+# base_data: 6 sensor columns only
 SENSOR_COLUMNS = ["NO2", "C2H5OH", "VOC", "CO", "Alcohol", "LPG"]
 
 INGREDIENT_TO_CATEGORY = {
@@ -51,9 +51,9 @@ LEGEND_FONTSIZE = 12
 
 
 def load_iclr_data():
-    """Load all CSVs from ICLR data/training and testing; return one DataFrame with ingredient and category."""
-    training_path = ICLR_DATA / "training"
-    testing_path = ICLR_DATA / "testing"
+    """Load all CSVs from base_data/training and base_data/testing; return one DataFrame with ingredient and category."""
+    training_path = BASE_DATA / "training"
+    testing_path = BASE_DATA / "testing"
     rows = []
     for split_path, split_name in [(training_path, "train"), (testing_path, "test")]:
         if not split_path.exists():
@@ -149,7 +149,7 @@ def plot_pca_per_category(agg_df):
 
 
 def main():
-    print("Loading ICLR data...")
+    print("Loading base_data...")
     agg_df = load_iclr_data()
     print(f"Loaded {len(agg_df)} rows, {agg_df['ingredient'].nunique()} ingredients")
     print("Overall PCA by category...")

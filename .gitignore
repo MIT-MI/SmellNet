@@ -1,7 +1,8 @@
 # --- Datasets & paper assets you host elsewhere (e.g. Hugging Face) ---
 # Users must download these after cloning — they are NOT committed to Git.
 data/
-ICLR_data/
+base_data/
+ICLR_data/   # legacy folder name; use base_data/
 gcms_processed/
 gcms_data/
 mixture_data/

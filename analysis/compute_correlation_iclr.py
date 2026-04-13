@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Compute and plot the correlation matrix for ICLR sensor data.
+Compute and plot the correlation matrix for SmellNet-Base sensor data (base_data/).
 Reference: analysis/data_analysis.ipynb Cell 15.
 """
 
@@ -12,11 +12,11 @@ from pathlib import Path
 
 # --- Paths ---
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-ICLR_DATA = PROJECT_ROOT / "ICLR_data"
+BASE_DATA = PROJECT_ROOT / "base_data"
 OUTPUT_DIR = PROJECT_ROOT / "data_stats"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
-# ICLR sensor columns (6 columns, same as generate_pca_iclr)
+# SmellNet-Base sensor columns (6 columns, same as generate_pca_iclr)
 SENSOR_COLUMNS = ["NO2", "C2H5OH", "VOC", "CO", "Alcohol", "LPG"]
 
 INGREDIENT_TO_CATEGORY = {
@@ -39,10 +39,10 @@ INGREDIENT_TO_CATEGORY = {
 
 
 def load_iclr_aggregated() -> pd.DataFrame:
-    """Load all CSVs from ICLR data/training and testing into one aggregated DataFrame."""
+    """Load all CSVs from base_data/training and base_data/testing into one aggregated DataFrame."""
     rows = []
     for split in ["training", "testing"]:
-        split_path = ICLR_DATA / split
+        split_path = BASE_DATA / split
         if not split_path.exists():
             continue
         for folder_name in os.listdir(split_path):
@@ -59,19 +59,19 @@ def load_iclr_aggregated() -> pd.DataFrame:
     if not rows:
         # Fallback: GC-MS table if sensor CSVs not found
         for gcms_path in (
-            PROJECT_ROOT / "ICLR_data" / "gcms_dataframe.csv",
+            PROJECT_ROOT / "base_data" / "gcms_dataframe.csv",
             PROJECT_ROOT / "gcms_processed" / "gcms_dataframe.csv",
         ):
             if gcms_path.exists():
                 return load_gcms_data(gcms_path)
         raise FileNotFoundError(
-            f"No CSV data found in {ICLR_DATA}/training or {ICLR_DATA}/testing"
+            f"No CSV data found in {BASE_DATA}/training or {BASE_DATA}/testing"
         )
     return pd.concat(rows, ignore_index=True)
 
 
 def load_gcms_data(gcms_path: Path) -> pd.DataFrame:
-    """Load GCMS chemical composition data (alternative ICLR dataset)."""
+    """Load GCMS chemical composition data (fallback when sensor CSVs are missing)."""
     df = pd.read_csv(gcms_path)
     # First column is food_name, rest are numeric features
     feature_cols = [c for c in df.columns if c != "food_name"]
@@ -109,7 +109,7 @@ def compute_and_plot_correlation(agg_df: pd.DataFrame) -> None:
         cbar_kws={"shrink": 0.75},
         annot_kws={"size": 20},
     )
-    plt.title("ICLR Data: Feature Correlation Matrix", fontsize=30, fontweight="bold")
+    plt.title("SmellNet-Base: Feature Correlation Matrix", fontsize=30, fontweight="bold")
     plt.xticks(rotation=45, ha="right", fontsize=25)
     plt.yticks(rotation=45, fontsize=25)
     plt.tight_layout(pad=2.0)
@@ -126,7 +126,7 @@ def compute_and_plot_correlation(agg_df: pd.DataFrame) -> None:
 
 
 def main() -> None:
-    print("Loading ICLR data...")
+    print("Loading base_data...")
     agg_df = load_iclr_aggregated()
     print(f"Loaded {len(agg_df)} rows, {agg_df['ingredient'].nunique()} ingredients")
 

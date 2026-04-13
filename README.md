@@ -109,9 +109,9 @@ Download the released files from **[Hugging Face — `DeweiFeng/smell-net`](http
 ```bash
 cd models
 python run.py \
-  --train-dir ../ICLR_data/training \
-  --test-dir ../ICLR_data/testing \
-  --real-test-dir ../ICLR_data/testing \
+  --train-dir ../base_data/training \
+  --test-dir ../base_data/testing \
+  --real-test-dir ../base_data/testing \
   --gcms-csv ../gcms_processed/gcms_food_vectors.csv \
   --models transformer \
   --epochs 90 \
@@ -140,6 +140,8 @@ and the commented mixture template in:
 models/           training and evaluation code
 scripts/          experiment wrappers and figure-generation utilities
 analysis/         notebooks and analysis scripts
+base_data/        SmellNet-Base sensor CSVs (training/testing; not in git — download from Hugging Face)
+gcms_processed/   GC-MS vectors (not in git; download from Hugging Face)
 gcms_analysis/    scripts to build GC-MS embeddings (outputs go to gcms_processed/)
 data_collection/  acquisition helpers and sensor-side tooling
 data_stats/       summary plots and tables
