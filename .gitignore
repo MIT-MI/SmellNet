@@ -4,6 +4,7 @@ data/
 ICLR_data/
 gcms_processed/
 gcms_data/
+mixture_data/
 
 # Large / derived tables and embeddings (download from HF after clone)
 *.npy
