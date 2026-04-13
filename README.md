@@ -9,7 +9,7 @@
 
 <p align="center">
   <a href="https://arxiv.org/abs/2506.00239">Paper</a> •
-  <a href="https://huggingface.co/datasets/DeweiFeng/smell-net/tree/main">Dataset</a> •
+  <a href="https://huggingface.co/datasets/DeweiFeng/SmellNet/tree/main">Dataset</a> •
   <a href="https://iclr.cc/media/PosterPDFs/ICLR%202026/10008694.png?t=1776021318.4790535">Poster</a> •
   <a href="https://github.com/MIT-MI/SmellNet">Code</a> • 
   <a href="https://www.youtube.com/watch?v=F-emEVOO9jo">Demo</a>
