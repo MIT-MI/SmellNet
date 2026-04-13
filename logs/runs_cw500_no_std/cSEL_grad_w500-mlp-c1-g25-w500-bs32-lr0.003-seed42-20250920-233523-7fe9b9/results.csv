@@ -1,2 +1,0 @@
-timestamp,model,contrastive,gradient,window,epochs,batch,lr,seed,stage,epoch,acc@1,acc@5,loss,extra
-2025-09-20T23:35:26,mlp,1,25,500,60,32,0.003,42,eval_contrastive,,31.372550129890442,68.6274528503418,,"{""cutoff"":0.05,""fft"":false,""gradient"":25,""per_category"":{""Fruits"":{""acc@1"":40.0,""acc@5"":80.0,""n"":10},""Herbs"":{""acc@1"":50.0,""acc@5"":80.0,""n"":10},""Nuts"":{""acc@1"":27.27272727272727,""acc@5"":36.36363636363637,""n"":11},""Spices"":{""acc@1"":30.0,""acc@5"":90.0,""n"":10},""Vegetables"":{""acc@1"":10.0,""acc@5"":60.0,""n"":10}}}"

@@ -1,3 +1,5 @@
 gcms_data/
 ICLR_data/
-chi_paper_data/
+logs/
+data/
+gcms_analysis/gcms_processed/
