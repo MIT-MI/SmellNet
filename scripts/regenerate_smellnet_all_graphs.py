@@ -4,6 +4,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from matplotlib.ticker import MaxNLocator
 
+REPO_ROOT = Path(__file__).resolve().parent.parent
+FIG_DIR = REPO_ROOT / "figures" / "paper"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+
 models = ["MLP", "CNN", "LSTM", "ScentFormer"]
 sensor_only_best_acc1 = [26.8, 52.7, 57.9, 56.1]
 cross_modal_best_acc1 = [30.8, 58.9, 56.9, 63.3]
@@ -87,7 +91,7 @@ def add_value_labels_small(ax, bars, color, fmt="{:.4f}", fontsize=10):
 
 
 def save_chart(fig, stem):
-    out = Path(f"{stem}.png")
+    out = FIG_DIR / f"{stem}.png"
     kwargs = dict(
         bbox_inches="tight",
         facecolor="white",
@@ -95,7 +99,7 @@ def save_chart(fig, stem):
         pad_inches=0.02,
     )
     fig.savefig(out, **kwargs)
-    fig.savefig(f"{stem}.pdf", **kwargs)
+    fig.savefig(FIG_DIR / f"{stem}.pdf", **kwargs)
     plt.close(fig)
 
 DEFAULT_FIGSIZE = (9.0, 5.2)

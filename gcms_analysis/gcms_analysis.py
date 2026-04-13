@@ -49,13 +49,14 @@ def _save_plot(name: str):
 # FooDB JSON + experimental GC-MS metadata
 # ---------------------------------------------------------------------
 
-JSON_DIR = Path("/home/dewei/workspace/SmellNet/gcms_data/foodb_2020_04_07_json")
+_REPO_ROOT = Path(__file__).resolve().parent.parent
+JSON_DIR = _REPO_ROOT / "gcms_data" / "foodb_2020_04_07_json"
 
 CONTENT_JSON = JSON_DIR / "Content.json"
 COMPOUND_JSON = JSON_DIR / "Compound.json"
 FOOD_JSON = JSON_DIR / "Food.json"
 
-CMS_DIR = Path("/home/dewei/workspace/SmellNet/gcms_data/foodb_experimental_cms_spectra")
+CMS_DIR = _REPO_ROOT / "gcms_data" / "foodb_experimental_cms_spectra"
 
 def load_json_records(path: Path):
     """

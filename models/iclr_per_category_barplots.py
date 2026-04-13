@@ -2,8 +2,12 @@
 # Per-category acc@1 bar plots: Regular vs Contrastive, using provided data.
 # Requirements: matplotlib, numpy
 
-import numpy as np
+from pathlib import Path
+
 import matplotlib.pyplot as plt
+import numpy as np
+
+_REPO = Path(__file__).resolve().parent.parent
 
 # ---- Data (Regular then Contrastive: rows = categories, cols = MLP, CNN, LSTM, ScentFormer) ----
 CATEGORIES = ["Fruits", "Herbs", "Nuts", "Spices", "Vegetables"]
@@ -30,8 +34,10 @@ COLORS = ["#da81c1", "#7dbfa7"]
 REGULAR_COLOR, CONTRASTIVE_COLOR = COLORS[0], COLORS[1]
 
 # ---- Output ----
-OUTPUT_PNG = "/home/dewei/workspace/SmellNet/models/iclr_per_category_barplots.png"
-OUTPUT_PDF = "/home/dewei/workspace/SmellNet/models/iclr_per_category_barplots.pdf"
+FIG_DIR = _REPO / "figures" / "paper"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
+OUTPUT_PNG = FIG_DIR / "iclr_per_category_barplots.png"
+OUTPUT_PDF = FIG_DIR / "iclr_per_category_barplots.pdf"
 
 # ---- Plot (bigger fonts, 4 panels) ----
 FONT_SIZE = 20

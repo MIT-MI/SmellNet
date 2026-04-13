@@ -1,9 +1,12 @@
 from collections import defaultdict
 import os
+from pathlib import Path
+
 import pandas as pd
 
-root_dir = "/home/dewei/workspace/smell-net/real_time_testing_spice"
-test_dir = "/home/dewei/workspace/smell-net/processed_real_time_testing_spice"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+root_dir = str(REPO_ROOT / "data" / "real_time_testing_spice")
+test_dir = str(REPO_ROOT / "data" / "processed_real_time_testing_spice")
 
 data_paths = defaultdict(list)
 min_len = float('inf')  # Track minimum length across all series

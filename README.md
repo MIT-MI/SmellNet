@@ -5,8 +5,8 @@
 The benchmark supports substance **classification** (six sensor channels on the base task), **mixture distribution prediction** (four Grove channels in the paper’s mixture setup), cross-modal sensor–chemistry alignment, and temporal modeling (including first-order differencing and sliding windows). The paper introduces **ScentFormer**, a Transformer-based architecture combining temporal differencing and sliding-window augmentation. Reported results include **63.3%** Top-1 accuracy on **SmellNet-Base** with GC–MS supervision, and **50.2%** Top-1@0.1 on the **test-seen** split of **SmellNet-Mixture**.
 
 <p align="center">
-  <img src="src/smellnet_sunburst.png" alt="SmellNet overview (substance categories)" width="48%" />
-  <img src="src/data_collection_pipeline.png" alt="Data collection pipeline" width="48%" />
+  <img src="data_stats/smellnet_sunburst.png" alt="SmellNet overview (substance categories)" width="48%" />
+  <img src="data_stats/PCA_sensor_data_category_iclr.png" alt="PCA of sensor data by category" width="48%" />
 </p>
 
 ---
@@ -27,21 +27,22 @@ Each substance has one or more CSV time series; metadata and chemical tables sup
 
 | Path | Description |
 |------|-------------|
-| `data/training/`, `data/testing/` | Full per-substance folders of sensor CSVs and sidecar metadata. |
-| `ICLR_data/training/`, `ICLR_data/testing/` | Curated trees used in the paper-style experiments (same JSON/CSVs at the root of this folder); point `--train-dir`, `--test-dir`, and `--real-test-dir` here for `models/run.py`. |
-| `data/text_description.json` | Text descriptions of substances (e.g. for language or multimodal models). |
-| `data/gcms_dataframe.csv` | GC–MS–related table aligned with substances (also copied under `ICLR_data/`). |
-| `data/metadata.json` | Croissant-style dataset metadata for tooling and provenance. |
-| `gcms_analysis/` | Processed GC–MS features (e.g. `gcms_food_vectors.csv`) used by training scripts. |
-| `models/` | Training and evaluation code: `run.py` (classification / contrastive), `run_mixture.py` (mixture task), `train.py`, `dataset.py`, `load_data.py`, etc. |
-| `models/run_experiment.bash` | Example sweep over models, window sizes, contrastive mode, and learning rates (edit paths at the top for your machine). |
-| `analysis/` | Notebooks and exploratory analysis. |
-| `Arduino/` | Sensor libraries and firmware-related material used in data collection. |
-| `chi_paper_data/` | Additional train/test trees used by some mixture and held-out experiments (see comments in `run_experiment.bash`). |
-| `create_iclr_data.py` | Utility to build a six-channel copy of the data tree (legacy name: `ICLR data`); this checkout standardizes on `ICLR_data/`. |
-| `src/` | Figures for documentation (e.g. sunburst and pipeline diagrams). |
+| `models/` | Training and evaluation code: `run.py` (classification / contrastive), `run_mixture.py` (mixture), `train.py`, `dataset.py`, `load_data.py`, `analyze_runs.py`, etc. **Run commands from this directory** (or use `scripts/run_experiments.sh`, which `cd`s here). |
+| `scripts/` | One-off utilities and example shell sweeps: `create_iclr_data.py`, `encode_text_description.py`, figure regeneration scripts, `run_experiment.bash`, `run_analysis.bash`, `run_experiments.sh`. |
+| `analysis/` | Notebooks and standalone analysis scripts (outputs often go to `data_stats/`). |
+| `gcms_analysis/` | GC–MS processing scripts and figures; processed tensors live under `gcms_analysis/gcms_processed/` (gitignored; build locally or fetch from Hugging Face). |
+| `data_collection/` | Serial acquisition helpers used with the Arduino stack. |
+| `preprocessing/` | Legacy path cleanup and raw-to-folder utilities (paths are relative to the repo root). |
+| `data_stats/` | Summary plots and tables produced by analysis (checked in for the paper where applicable). |
+| `figures/paper/` | Default output location for regenerated bar charts (e.g. from `scripts/regenerate_smellnet_all_graphs.py`). |
+| `Arduino/` | Sensor libraries and firmware used during data collection. |
+| `data/` | Full per-substance sensor CSV trees after you download or unpack the dataset (gitignored at repo root). |
+| `ICLR_data/` | Curated six-channel trees matching the paper’s `run.py` defaults (gitignored; build with `scripts/create_iclr_data.py` or download from Hugging Face). |
+| `gcms_data/` | Raw FooDB / GC–MS inputs for `gcms_analysis/` pipelines (gitignored). |
 
-**Historical note:** Some older scripts and comments refer to `offline_training`, `offline_testing`, and `online_*` folders. The layout above is what this checkout uses under `data/` and `ICLR_data/`; pass the directories you actually have on disk into the CLI flags.
+**Data note:** Large CSVs, embeddings, zip drops, and run logs are listed in `.gitignore`. After cloning, download the SmellNet assets from Hugging Face (see above) and place them under `data/`, `ICLR_data/`, and `gcms_analysis/` as described in the dataset card.
+
+**Historical note:** Older notebooks may mention `offline_training`, `offline_testing`, or `smell-net` paths; equivalent trees in this repo are under `data/` and `ICLR_data/`. Pass the directories you have on disk into the CLI flags.
 
 ---
 
@@ -62,9 +63,9 @@ python run.py \
   --epochs 90 --batch-size 32 --lr 0.001
 ```
 
-See `models/run_experiment.bash` for fuller sweeps (models, windows, contrastive mode, gradients, etc.). For mixture experiments, use `models/run_mixture.py` and the data paths suggested in that file or in `run_experiment.bash` comments.
+See `scripts/run_experiment.bash` for a fuller sweep (models, windows, contrastive mode, gradients). For mixture experiments, use `models/run_mixture.py` and the commented template at the bottom of `scripts/run_experiment.bash`.
 
-The file `run_experiments.sh` in the repo root is a legacy one-liner and may not match the current `models/` entrypoints; prefer the `python run.py` invocation above.
+`scripts/run_experiments.sh` is a thin wrapper that `cd`s into `models/` and runs `python run.py` with whatever arguments you pass (paths are relative to `models/`, e.g. `./scripts/run_experiments.sh --train-dir ../ICLR_data/training --help`).
 
 ---
 

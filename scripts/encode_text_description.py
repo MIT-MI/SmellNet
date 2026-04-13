@@ -1,10 +1,14 @@
 import json
+from pathlib import Path
+
+import numpy as np
 import torch
 from transformers import CLIPTokenizer, CLIPTextModel
-import numpy as np
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
 
 # Load your JSON file
-with open("/home/dewei/workspace/SmellNet/data/text_description.json", "r") as f:
+with open(REPO_ROOT / "data" / "text_description.json", "r") as f:
     descriptions = json.load(f)
 
 # Initialize CLIP tokenizer and model
@@ -28,4 +32,4 @@ for name, description in descriptions.items():
         embedding = outputs.last_hidden_state[:, 0, :]  # shape: (1, hidden_dim)
         text_embeddings[name] = embedding.squeeze().cpu().numpy()  # save as NumPy array
 
-np.save("clip_text_embeddings.npy", text_embeddings)
+np.save(REPO_ROOT / "clip_text_embeddings.npy", text_embeddings)

@@ -1,7 +1,8 @@
 from pathlib import Path
 
-# change this to the directory that contains all the ingredient folders
-ROOT = Path("/home/dewei/workspace/SmellNet/data/offline_testing")
+REPO_ROOT = Path(__file__).resolve().parent.parent
+# Directory that contains all the ingredient folders (edit if your tree differs)
+ROOT = REPO_ROOT / "data" / "offline_testing"
 
 for csv_path in ROOT.rglob("*.csv"):
     # csv_path.name  -> e.g. "allspice.3262415c70ba.csv"

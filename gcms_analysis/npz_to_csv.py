@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 
@@ -56,8 +58,9 @@ pretty_to_internal = {
 }
 
 # ---------- paths ----------
-npz_path = "/home/dewei/workspace/SmellNet/gcms_analysis/gcms_processed/gcms_food_vectors.npz"      # <-- your existing NPZ file
-out_csv = "gcms_food_vectors.csv"       # <-- where to write the CSV
+_SCRIPT_DIR = Path(__file__).resolve().parent
+npz_path = _SCRIPT_DIR / "gcms_processed" / "gcms_food_vectors.npz"
+out_csv = _SCRIPT_DIR / "gcms_food_vectors.csv"
 
 
 # ---------- load NPZ ----------

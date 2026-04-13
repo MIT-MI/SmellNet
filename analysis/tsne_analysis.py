@@ -9,6 +9,9 @@ import umap
 from collections import defaultdict
 
 import os
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 ingredient_to_category = {
     # Nuts
@@ -177,10 +180,9 @@ def plot_embedding(X_embedded, labels, title, save_path):
     plt.close()
 
 def main():
-    training_path = "/home/dewei/workspace/smell-net/training"
-    testing_path = "/home/dewei/workspace/smell-net/testing"
-
-    output_dir = "/home/dewei/workspace/smell-net/data_stats"
+    training_path = str(PROJECT_ROOT / "data" / "training")
+    testing_path = str(PROJECT_ROOT / "data" / "testing")
+    output_dir = str(PROJECT_ROOT / "data_stats")
 
     training_data, testing_data, min_len = load_data(training_path, testing_path)
 

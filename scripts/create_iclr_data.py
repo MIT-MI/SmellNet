@@ -5,8 +5,9 @@ import csv
 import shutil
 from pathlib import Path
 
-SRC = Path("data")
-DST = Path("ICLR data")
+REPO_ROOT = Path(__file__).resolve().parent.parent
+SRC = REPO_ROOT / "data"
+DST = REPO_ROOT / "ICLR_data"
 KEEP_COLUMNS = ["NO2", "C2H5OH", "VOC", "CO", "Alcohol", "LPG"]
 
 
@@ -45,7 +46,7 @@ def main():
         else:
             shutil.copy2(path, out_path)
 
-    print(f"Created '{DST}/' with filtered CSVs (columns: {', '.join(KEEP_COLUMNS)}) and copied other files.")
+    print(f"Created {DST}/ with filtered CSVs (columns: {', '.join(KEEP_COLUMNS)}) and copied other files.")
 
 
 if __name__ == "__main__":

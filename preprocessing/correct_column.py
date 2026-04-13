@@ -1,8 +1,10 @@
 import os
+from pathlib import Path
+
 import pandas as pd
 
-# Path to your dataset
-data_dir = "/home/dewei/workspace/SmellNet/data/offline_testing"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+data_dir = str(REPO_ROOT / "data" / "offline_testing")
 
 # Define column name corrections
 column_renames = {

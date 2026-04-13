@@ -1,5 +1,11 @@
+from pathlib import Path
+
 import matplotlib.pyplot as plt
 import numpy as np
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+FIG_DIR = REPO_ROOT / "figures" / "paper"
+FIG_DIR.mkdir(parents=True, exist_ok=True)
 
 models = ["MLP", "CNN", "LSTM", "ScentFormer"]
 
@@ -77,8 +83,8 @@ def single_bar_chart(values, title, ylabel, stem, fill, edge, text_color, ymax=N
     add_value_labels(ax, bars, text_color)
 
     fig.tight_layout()
-    fig.savefig(f"{stem}.png", bbox_inches="tight")
-    fig.savefig(f"{stem}.pdf", bbox_inches="tight")
+    fig.savefig(FIG_DIR / f"{stem}.png", bbox_inches="tight")
+    fig.savefig(FIG_DIR / f"{stem}.pdf", bbox_inches="tight")
     plt.close(fig)
 
 # Seen only
