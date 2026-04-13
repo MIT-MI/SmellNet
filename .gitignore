@@ -13,6 +13,7 @@ full_gcms_dataframe.csv
 processed_full_gcms_dataframe.csv
 # Raw or duplicated exports from acquisition scripts
 data_collection/*.csv
+data_stats/
 
 # --- Training / experiment outputs (regenerate locally) ---
 logs/
