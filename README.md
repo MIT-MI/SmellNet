@@ -177,3 +177,7 @@ If you use SmellNet in your work, please cite:
 ## Contact
 
 For questions or collaboration, please contact **Dewei Feng** at **dewei@mit.edu**.
+
+## License
+
+This repository is released under the MIT License. See [LICENSE](LICENSE).
